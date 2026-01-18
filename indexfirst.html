@@ -1,44 +1,717 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Cooking Madness - CrockpotDaddy & MACK3Y</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            height: 100vh;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a0800 0%, #441400 25%, #d35400 60%, #fdc726 85%, #fffbe2 100%);
+            background-size: 400% 400%;
+            animation: fireGradientMove 15s ease-in-out infinite;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative;
+            overflow-x: hidden;
+            color: #ffe8c4;
+        }
+        
+        @keyframes fireGradientMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Floating Kitchen Items */
+        .floating-items {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .floating-item {
+            position: absolute;
+            opacity: 0.12;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+        }
+        
+        .knife {
+            width: 120px;
+            height: auto;
+            animation: float-knife 8s ease-in-out infinite;
+        }
+        
+        .knife-1 { top: 15%; left: 10%; animation-delay: 0s; }
+        .knife-2 { top: 70%; right: 15%; animation-delay: 3s; transform: rotate(45deg); }
+        .knife-3 { top: 40%; left: 80%; animation-delay: 5s; transform: rotate(-30deg); }
+        
+        .tongs {
+            width: 100px;
+            height: auto;
+            animation: float-tongs 10s ease-in-out infinite;
+        }
+        
+        .tongs-1 { top: 25%; right: 20%; animation-delay: 1s; }
+        .tongs-2 { bottom: 20%; left: 15%; animation-delay: 4s; transform: rotate(90deg); }
+        
+        .crockpot {
+            width: 110px;
+            height: auto;
+            animation: float-crockpot 12s ease-in-out infinite;
+        }
+        
+        .crockpot-1 { top: 60%; right: 10%; animation-delay: 2s; }
+        .crockpot-2 { top: 10%; left: 70%; animation-delay: 6s; }
+        .crockpot-3 { bottom: 15%; right: 70%; animation-delay: 8s; }
+        
+        @keyframes float-knife {
+            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+            25% { transform: translateY(-30px) translateX(20px) rotate(5deg); }
+            50% { transform: translateY(-50px) translateX(0px) rotate(-5deg); }
+            75% { transform: translateY(-30px) translateX(-20px) rotate(3deg); }
+        }
+        
+        @keyframes float-tongs {
+            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+            33% { transform: translateY(-40px) translateX(-25px) rotate(-8deg); }
+            66% { transform: translateY(-20px) translateX(25px) rotate(8deg); }
+        }
+        
+        @keyframes float-crockpot {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-60px) scale(1.05); }
+        }
+        
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(30, 15, 8, 0.85);
+            backdrop-filter: blur(16px);
+            padding: 1rem 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 150, 50, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            background-image: ('background.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
         }
-
+        
+        .logo-small {
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ff8c3a, #ffd700);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: 0.05em;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: #ffe8c4;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #ff8c3a, #ffd700);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #ffd700;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #ffd700;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            z-index: 1;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+        }
+        
+        .hero-logo {
+            width: 500px;
+            max-width: 90%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 
+                0 10px 40px rgba(253, 106, 17, 0.4),
+                0 0 0 8px rgba(255, 255, 255, 0.95),
+                0 0 0 12px rgba(253, 106, 17, 0.6);
+            background: #fff;
+            padding: 16px;
+            animation: floatUpDown 4s ease-in-out infinite;
+            margin-bottom: 2rem;
+        }
+        
+        @keyframes floatUpDown {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
         h1 {
-            color: white;
-            font-size: 5rem;
-            font-weight: bold;
-            font-family: Arial, sans-serif;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ff8c3a 0%, #ffd700 50%, #ff6b35 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            filter: drop-shadow(0 4px 12px rgba(255, 140, 58, 0.5));
         }
-
+        
+        .tagline {
+            font-size: 1.5rem;
+            color: #ffd700;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b35, #ff8c3a);
+            color: white;
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.6);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffd700;
+            border: 2px solid #ffd700;
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.2);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 215, 0, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+        
+        /* Section Styles */
+        section {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 3rem 2rem;
+            background: rgba(30, 15, 8, 0.75);
+            border-radius: 24px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 150, 50, 0.2);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 150, 50, 0.2);
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #ff8c3a, #ffd700);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        
+        /* About Section */
+        .hosts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .host-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 150, 50, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .host-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(255, 140, 58, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .host-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #ff8c3a, #ffd700);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            box-shadow: 0 8px 24px rgba(255, 140, 58, 0.4);
+        }
+        
+        .host-card h3 {
+            font-size: 1.8rem;
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .host-card p {
+            color: #ffe8c4;
+            line-height: 1.6;
+        }
+        
+        /* Video Section */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .video-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 150, 50, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(255, 140, 58, 0.3);
+        }
+        
+        .video-placeholder {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, rgba(255, 140, 58, 0.3), rgba(255, 215, 0, 0.3));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #ffd700;
+        }
+        
+        .video-card h3 {
+            padding: 1rem;
+            color: #ffd700;
+            font-size: 1.2rem;
+        }
+        
+        /* Merch Section */
+        .merch-container {
+            text-align: center;
+        }
+        
+        .merch-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .merch-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 150, 50, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .merch-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(255, 140, 58, 0.3);
+        }
+        
+        .merch-placeholder {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, rgba(255, 140, 58, 0.2), rgba(255, 215, 0, 0.2));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .merch-item h3 {
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .price {
+            font-size: 1.3rem;
+            color: #ff8c3a;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 1;
+            background: rgba(20, 10, 5, 0.9);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 150, 50, 0.2);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .social-links a {
+            color: #ffd700;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #ff8c3a;
+            transform: scale(1.2);
+        }
+        
+        /* Responsive */
         @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            
+            nav ul {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(30, 15, 8, 0.95);
+                flex-direction: column;
+                gap: 0;
+                padding: 1rem 0;
+                display: none;
+                border-top: 1px solid rgba(255, 150, 50, 0.2);
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                padding: 0.8rem 2rem;
+                border-bottom: 1px solid rgba(255, 150, 50, 0.1);
+            }
+            
             h1 {
-                font-size: 3rem;
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            section {
+                margin: 2rem 1rem;
+                padding: 2rem 1rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .floating-item {
+                opacity: 0.06;
             }
         }
     </style>
 </head>
 <body>
-    <h1>COMING SOON</h1>
-</body>
-</html>
+    <!-- Floating Kitchen Items -->
+    <div class="floating-items">
+        <!-- Japanese Knives -->
+        <svg class="floating-item knife knife-1" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 25 L150 15 L160 25 L150 35 Z" fill="#C0C0C0" stroke="#808080" stroke-width="1"/>
+            <rect x="150" y="20" width="40" height="10" rx="2" fill="#8B4513"/>
+            <circle cx="165" cy="25" r="2" fill="#654321"/>
+            <circle cx="175" cy="25" r="2" fill="#654321"/>
+        </svg>
+        
+        <svg class="floating-item knife knife-2" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 25 L150 15 L160 25 L150 35 Z" fill="#D3D3D3" stroke="#A0A0A0" stroke-width="1"/>
+            <rect x="150" y="20" width="40" height="10" rx="2" fill="#654321"/>
+            <circle cx="165" cy="25" r="2" fill="#8B4513"/>
+            <circle cx="175" cy="25" r="2" fill="#8B4513"/>
+        </svg>
+        
+        <svg class="floating-item knife knife-3" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 25 L150 15 L160 25 L150 35 Z" fill="#B8B8B8" stroke="#707070" stroke-width="1"/>
+            <rect x="150" y="20" width="40" height="10" rx="2" fill="#8B4513"/>
+            <circle cx="165" cy="25" r="2" fill="#654321"/>
+            <circle cx="175" cy="25" r="2" fill="#654321"/>
+        </svg>
+        
+        <!-- Kitchen Tongs -->
+        <svg class="floating-item tongs tongs-1" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M35 10 Q35 5 40 5 L40 100 Q40 105 35 105 Z" fill="#A0A0A0"/>
+            <path d="M60 10 Q60 5 55 5 L55 100 Q55 105 60 105 Z" fill="#A0A0A0"/>
+            <ellipse cx="40" cy="105" rx="8" ry="4" fill="#808080"/>
+            <ellipse cx="55" cy="105" rx="8" ry="4" fill="#808080"/>
+            <rect x="35" y="5" width="25" height="8" rx="4" fill="#C0C0C0"/>
+        </svg>
+        
+        <svg class="floating-item tongs tongs-2" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M35 10 Q35 5 40 5 L40 100 Q40 105 35 105 Z" fill="#B0B0B0"/>
+            <path d="M60 10 Q60 5 55 5 L55 100 Q55 105 60 105 Z" fill="#B0B0B0"/>
+            <ellipse cx="40" cy="105" rx="8" ry="4" fill="#909090"/>
+            <ellipse cx="55" cy="105" rx="8" ry="4" fill="#909090"/>
+            <rect x="35" y="5" width="25" height="8" rx="4" fill="#D0D0D0"/>
+        </svg>
+        
+        <!-- Crock Pots -->
+        <svg class="floating-item crockpot crockpot-1" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="60" cy="85" rx="50" ry="15" fill="#8B4513" opacity="0.3"/>
+            <rect x="20" y="40" width="80" height="50" rx="20" fill="#CD5C5C"/>
+            <ellipse cx="60" cy="40" rx="45" ry="12" fill="#A0522D"/>
+            <ellipse cx="60" cy="25" rx="25" ry="8" fill="#8B4513"/>
+            <ellipse cx="15" cy="60" rx="8" ry="15" fill="#A0522D"/>
+            <ellipse cx="105" cy="60" rx="8" ry="15" fill="#A0522D"/>
+        </svg>
+        
+        <svg class="floating-item crockpot crockpot-2" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="60" cy="85" rx="50" ry="15" fill="#8B4513" opacity="0.3"/>
+            <rect x="20" y="40" width="80" height="50" rx="20" fill="#D2691E"/>
+            <ellipse cx="60" cy="40" rx="45" ry="12" fill="#8B4513"/>
+            <ellipse cx="60" cy="25" rx="25" ry="8" fill="#654321"/>
+            <ellipse cx="15" cy="60" rx="8" ry="15" fill="#8B4513"/>
+            <ellipse cx="105" cy="60" rx="8" ry="15" fill="#8B4513"/>
+        </svg>
+        
+        <svg class="floating-item crockpot crockpot-3" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="60" cy="85" rx="50" ry="15" fill="#8B4513" opacity="0.3"/>
+            <rect x="20" y="40" width="80" height="50" rx="20" fill="#B8860B"/>
+            <ellipse cx="60" cy="40" rx="45" ry="12" fill="#DAA520"/>
+            <ellipse cx="60" cy="25" rx="25" ry="8" fill="#B8860B"/>
+            <ellipse cx="15" cy="60" rx="8" ry="15" fill="#B8860B"/>
+            <ellipse cx="105" cy="60" rx="8" ry="15" fill="#B8860B"/>
+        </svg>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo-small">COOKING MADNESS</div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#merch">Merch</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <img src="background.jpg" alt="Cooking Madness" class="hero-logo">
+        <h1>COOKING MADNESS</h1>
+        <p class="tagline">Where Flavor Meets Fire</p>
+        <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Join CrockpotDaddy & MACK3Y as they bring you the most entertaining cooking show on YouTube. No fancy stuff—just good food, good laughs, and good times.</p>
+        
+        <div class="cta-buttons">
+            <a href="https://youtube.com/@yourchannel" class="btn btn-primary" target="_blank">
+                🎥 Subscribe on YouTube
+            </a>
+            <a href="#merch" class="btn btn-secondary">
+                🔥 Shop Merch
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>Meet the Hosts</h2>
+        <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem;">Two guys. One kitchen. Unlimited chaos.</p>
+        
+        <div class="hosts">
+            <div class="host-card">
+                <div class="host-avatar">🍲</div>
+                <h3>CrockpotDaddy</h3>
+                <p>The mastermind behind slow-cooked perfection. When he's not perfecting his signature recipes, he's probably telling dad jokes that are worse than his cooking puns.</p>
+            </div>
+            
+            <div class="host-card">
+                <div class="host-avatar">🔪</div>
+                <h3>MACK3Y</h3>
+                <p>The wild card who brings the heat (literally). Known for creative experiments and turning simple dishes into culinary adventures. Safety goggles recommended.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section id="videos">
+        <h2>Latest Episodes</h2>
+        <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem;">Catch up on our newest kitchen adventures</p>
+        
+        <div class="video-grid">
+            <div class="video-card">
+                <div class="video-placeholder">🎬</div>
+                <h3>Episode Title Here</h3>
+            </div>
+            <div class="video-card">
+                <div class="video-placeholder">🎬</div>
+                <h3>Episode Title Here</h3>
+            </div>
+            <div class="video-card">
+                <div class="video-placeholder">🎬</div>
+                <h3>Episode Title Here</h3>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="https://youtube.com/@yourchannel" class="btn btn-primary" target="_blank">
+                View All Episodes →
+            </a>
+        </div>
+    </section>
+
+    <!-- Merch Section -->
+    <section id="merch">
+        <h2>Official Merch</h2>
+        <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem;">Wear the madness. Support the show.</p>
+        
+        <div class="merch-preview">
+            <div class="merch-item">
+                <div class="merch-placeholder">👕</div>
+                <h3>Classic T-Shirt</h3>
+                <p class="price">$24.99</p>
+                <a href="#" class="btn btn-secondary">Add to Cart</a>
+            </div>
+            
+            <div class="merch-item">
+                <div class="merch-placeholder">🧢</div>
+                <h3>Dad Hat</h3>
+                <p class="price">$19.99</p>
+                <a href="#" class="btn btn-secondary">Add to Cart</a>
+            </div>
+            
+            <div class="merch-item">
+                <div class="merch-placeholder">☕</div>
+                <h3>Coffee Mug</h3>
+                <p class="price">$14.99</p>
+                <a href="#" class="btn btn-secondary">Add to Cart</a>
+            </div>
+            
+            <div class="merch-item">
+                <div class="merch-placeholder">👕</div>
+                <h3>Hoodie</h3>
+                <p class="price">$39.99</p>
+                <a href="#" class="btn btn-secondary">Add to Cart</a>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="https://your-merch-store.com" class="btn btn-primary" target="_blank">
+                Visit Full Store →
+            </a>
+        </div>
+        
+        <!-- Alternative: Embed Store Option -->
+        <!-- Uncomment below to embed your store (works with Shopify, Spring, Teespring, etc.) -->
+        <!--
+        <div style="margin-top: 3rem; background: rgba(255,255,255,0.05); border-radius: 16px; padding: 2rem;">
+            <iframe 
+                src="https://your-store-embed-url.com"
