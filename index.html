@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Coming Soon</title>
     <style>
-
-        /* --- FIRE GRADIENT ANIMATION BACKGROUND --- */
         body {
             min-height: 100vh;
             margin: 0;
-            /* Animate a fiery gradient! */
-            background: linear-gradient(120deg, #441400 0%, #d35400 50%, #fdc726 70%, #fffbe2 100%);
+            background: linear-gradient(120deg,#441400 0%,#d35400 50%,#fdc726 70%,#fffbe2 100%);
             background-size: 300% 300%;
             animation: fireGradientMove 10s ease-in-out infinite;
             font-family: 'Segoe UI', Arial, sans-serif;
@@ -26,8 +23,6 @@
             50%{background-position:100% 100%;}
             100%{background-position:0% 80%;}
         }
-
-        /* --- COOKING SHOW SVG BACKGROUND OVERLAY --- */
         .cookingshow-bg {
             position: absolute;
             top: -40px;
@@ -36,17 +31,15 @@
             height: 100vh;
             z-index: 0;
             pointer-events: none;
-            opacity: 0.16;
+            opacity: 0.17;
             user-select: none;
         }
-
-        /* --- Main Container --- */
         .container {
             position: relative;
             z-index: 1;
-            background: rgba(60, 28, 12, 0.60);
+            background: rgba(60, 28, 12, 0.58);
             border-radius: 1.5rem;
-            box-shadow: 0 6px 30px rgba(180,64,16,0.5);
+            box-shadow: 0 6px 30px rgba(180,64,16,0.48);
             padding: 2.5rem 2rem 2rem 2rem;
             max-width: 900px;
             width: 100%;
@@ -54,10 +47,8 @@
             flex-direction: column;
             align-items: center;
             backdrop-filter: blur(9px);
-            border: 2.5px solid rgba(215,84,12,0.19);
+            border: 2.5px solid rgba(215,84,12,0.16);
         }
-
-        /* --- Fire themed neon glow and float for logo --- */
         @keyframes floatUpDown {
             0%, 100% { transform: translateY(0);}
             50% { transform: translateY(-20px);}
@@ -76,8 +67,6 @@
             animation: floatUpDown 3.1s ease-in-out infinite;
             border: 3px solid #fd6a11;
         }
-
-        /* --- Animated flaming text gradient --- */
         h1 {
             font-size: 3.5rem;
             font-weight: 900;
@@ -106,7 +95,6 @@
             80%{opacity:1;}
             100%{ transform:scale(1) translateY(0);}
         }
-        /* Firey shine on hover */
         h1::after {
             content: "";
             position: absolute;
@@ -125,8 +113,6 @@
             0% {left: -100px;}
             100% {left: 100%;}
         }
-
-        /* --- Animated paragraph pop in --- */
         p {
             color: #ffe5b0;
             font-size: 1.28rem;
@@ -152,8 +138,6 @@
             from { opacity: 0; transform:translateY(18px);}
             to { opacity: 1; transform:translateY(0);}
         }
-
-        /* Responsive */
         @media (max-width: 700px) {
             .container {
                 padding: 1.2rem 0.5rem;
@@ -175,7 +159,7 @@
     </style>
 </head>
 <body>
-    <!-- SVG Cooking Show Background -->
+    <!-- SVG Cooking Show Background with Chef Knife and Crock Pot -->
     <svg class="cookingshow-bg" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g>
         <!-- Large flames bottom right -->
@@ -208,6 +192,52 @@
         <!-- Whisk -->
         <ellipse cx="350" cy="630" rx="6" ry="23" fill="#ffe5b0" opacity="0.17"/>
         <ellipse cx="360" cy="652" rx="12" ry="7" fill="#fff" opacity="0.14"/>
+
+        <!-- CHEF KNIFE top left -->
+        <g>
+          <!-- Blade -->
+          <rect x="90" y="70" width="110" height="18" rx="9" fill="#fffbe2" opacity="0.26"/>
+          <polygon points="200,70 210,85 190,88" fill="#eee2c6" opacity="0.45"/>
+          <!-- Handle -->
+          <rect x="50" y="73" width="43" height="14" rx="7" fill="#d03c18" opacity="0.33"/>
+          <ellipse cx="56" cy="80" rx="3" ry="3.5" fill="#fffbe2" opacity="0.16"/>
+        </g>
+        <!-- CHEF KNIFE bottom center-right -->
+        <g>
+          <!-- Blade -->
+          <rect x="1200" y="810" width="120" height="17" rx="8.5" fill="#fffbe2" opacity="0.21" transform="rotate(-8 1200 810)"/>
+          <polygon points="1320,810 1340,815 1300,826" fill="#eee2c6" opacity="0.38"/>
+          <!-- Handle -->
+          <rect x="1170" y="815" width="32" height="11" rx="5.5" fill="#d03c18" opacity="0.38"/>
+          <ellipse cx="1176" cy="821" rx="2.8" ry="2.8" fill="#fd6a11" opacity="0.26"/>
+        </g>
+        
+        <!-- CROCK POT top right -->
+        <g>
+          <!-- Pot base -->
+          <ellipse cx="1480" cy="138" rx="48" ry="24" fill="#d35400" opacity="0.26"/>
+          <rect x="1433" y="140" width="94" height="60" rx="26" fill="#fffbe2" opacity="0.19"/>
+          <!-- Rim -->
+          <ellipse cx="1480" cy="140" rx="46" ry="16" fill="#fdc726" opacity="0.31"/>
+          <!-- Handles -->
+          <ellipse cx="1435" cy="170" rx="6" ry="12" fill="#d03c18" opacity="0.27"/>
+          <ellipse cx="1525" cy="170" rx="6" ry="12" fill="#d03c18" opacity="0.27"/>
+          <!-- Lid -->
+          <ellipse cx="1480" cy="127" rx="24" ry="8" fill="#d03c18" opacity="0.29"/>
+        </g>
+        <!-- CROCK POT bottom left -->
+        <g>
+          <!-- Pot base -->
+          <ellipse cx="220" cy="840" rx="44" ry="20" fill="#d35400" opacity="0.22"/>
+          <rect x="180" y="845" width="80" height="54" rx="24" fill="#fffbe2" opacity="0.16"/>
+          <!-- Rim -->
+          <ellipse cx="220" cy="846" rx="42" ry="14" fill="#fdc726" opacity="0.29"/>
+          <!-- Handles -->
+          <ellipse cx="178" cy="865" rx="5" ry="10" fill="#d03c18" opacity="0.22"/>
+          <ellipse cx="262" cy="865" rx="5" ry="10" fill="#d03c18" opacity="0.22"/>
+          <!-- Lid -->
+          <ellipse cx="220" cy="837" rx="18" ry="6" fill="#d03c18" opacity="0.25"/>
+        </g>
       </g>
     </svg>
     <div class="container">
