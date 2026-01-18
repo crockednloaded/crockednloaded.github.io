@@ -4,6 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Coming Soon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <style>
         body {
             min-height: 100vh;
@@ -53,6 +54,36 @@
             text-align: center;
             margin-bottom: 0;
         }
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .social-links a {
+            color: #fff;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .social-links a:hover {
+            transform: translateY(-3px);
+            opacity: 0.8;
+        }
+        .social-links a.facebook:hover {
+            color: #1877f2;
+        }
+        .social-links a.instagram:hover {
+            color: #e4405f;
+        }
+        .social-links a.twitter:hover {
+            color: #1da1f2;
+        }
+        .social-links a.tiktok:hover {
+            color: #ff0050;
+        }
+        .social-links a.youtube:hover {
+            color: #ff0000;
+        }
         @media (max-width: 700px) {
             .container {
                 padding: 1.2rem 0.5rem;
@@ -69,6 +100,13 @@
             p {
                 font-size: 0.95rem;
             }
+            .social-links {
+                gap: 1rem;
+                margin-top: 1.5rem;
+            }
+            .social-links a {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -77,6 +115,23 @@
         <img src="background.jpg" alt="Cooking Madness" class="logo">
         <h1>COMING SOON</h1>
         <p>Thank you for supporting us now at the ground level...<br>Website Under Construction<br> Your support means everything so please check back soon!!</p><br><br> -- CrockpotDaddy & MACK3Y
+        <div class="social-links">
+            <a href="https://facebook.com/yourpage" class="facebook" target="_blank" rel="noopener" aria-label="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://instagram.com/yourpage" class="instagram" target="_blank" rel="noopener" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://twitter.com/yourpage" class="twitter" target="_blank" rel="noopener" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://tiktok.com/@yourpage" class="tiktok" target="_blank" rel="noopener" aria-label="TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://youtube.com/@yourpage" class="youtube" target="_blank" rel="noopener" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
     </div>
 </body>
 </html>
