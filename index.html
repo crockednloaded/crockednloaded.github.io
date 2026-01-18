@@ -5,122 +5,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Coming Soon</title>
     <style>
-        /* Animated background gradient */
+
+        /* --- FIRE GRADIENT ANIMATION BACKGROUND --- */
         body {
             min-height: 100vh;
             margin: 0;
-            background: linear-gradient(135deg, #222 0%, #444 100%);
+            /* Animate a fiery gradient! */
+            background: linear-gradient(120deg, #441400 0%, #d35400 50%, #fdc726 70%, #fffbe2 100%);
             background-size: 300% 300%;
-            animation: gradientMove 18s ease-in-out infinite;
-            /* rest is unchanged */
+            animation: fireGradientMove 10s ease-in-out infinite;
+            font-family: 'Segoe UI', Arial, sans-serif;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Segoe UI', Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
         }
-        @keyframes gradientMove {
-            0% {background-position:0% 50%;}
-            50% {background-position:100% 50%;}
-            100% {background-position:0% 50%;}
+        @keyframes fireGradientMove {
+            0%{background-position:0% 80%;}
+            50%{background-position:100% 100%;}
+            100%{background-position:0% 80%;}
         }
 
+        /* --- COOKING SHOW SVG BACKGROUND OVERLAY --- */
+        .cookingshow-bg {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.16;
+            user-select: none;
+        }
+
+        /* --- Main Container --- */
         .container {
-            background: rgba(30,30,30,0.6);
+            position: relative;
+            z-index: 1;
+            background: rgba(60, 28, 12, 0.60);
             border-radius: 1.5rem;
-            box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 30px rgba(180,64,16,0.5);
             padding: 2.5rem 2rem 2rem 2rem;
+            max-width: 900px;
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            backdrop-filter: blur(6px);
-            max-width: 900px;
-            width: 100%;
+            backdrop-filter: blur(9px);
+            border: 2.5px solid rgba(215,84,12,0.19);
         }
 
-        /* Add floating effect to logo */
+        /* --- Fire themed neon glow and float for logo --- */
         @keyframes floatUpDown {
             0%, 100% { transform: translateY(0);}
             50% { transform: translateY(-20px);}
         }
         .logo {
             display: block;
-            width: 610px;
+            width: 520px;
             max-width: 90vw;
             height: auto;
             object-fit: contain;
-            margin-bottom: 2rem;
+            margin-bottom: 2.2rem;
             border-radius: 1rem;
-            box-shadow: 0 2px 16px rgba(0,0,0,0.22);
+            box-shadow: 0 2px 18px 0 rgba(255,80,10,0.34), 0 0 0 9px rgba(255,220,69,0.07);
             background: #fff;
-            padding: 12px;
-            animation: floatUpDown 3.5s ease-in-out infinite;
+            padding: 13px;
+            animation: floatUpDown 3.1s ease-in-out infinite;
+            border: 3px solid #fd6a11;
         }
 
-        /* Animated gradient border effect (optional) */
-        .logo {
-            border: 3px solid transparent;
-            background-clip: padding-box, border-box;
-            background-image: linear-gradient(#fff, #fff), 
-                linear-gradient(90deg, #38b6ff, #ffda88, #ff597b, #5e60ce);
-            background-origin: border-box;
-            background-clip: content-box, border-box;
-        }
-
-        /* Animated "COMING SOON" gradient */
+        /* --- Animated flaming text gradient --- */
         h1 {
             font-size: 3.5rem;
-            font-weight: 700;
+            font-weight: 900;
             text-align: center;
-            margin-bottom: 0.7rem;
-            letter-spacing: 0.03em;
-            color: #fff;
-            background: linear-gradient(90deg,#38b6ff,#ffda88,#ff597b,#5e60ce);
-            background-size: 200% 200%;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+            background: linear-gradient(90deg, #fd6a11, #ffad3f 21%, #fac831 53%, #fffbd6 72%, #d03c18 100%);
+            background-size: 300% 300%;
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
             -webkit-text-fill-color: transparent;
-            /* Animate gradient */
             animation:
-                slideInTitle 1.3s cubic-bezier(.42,.3,.33,1.6),
-                gradientTitleAnim 6s ease-in-out infinite;
+                fireSlideIn 1.1s cubic-bezier(.42,.3,.33,1.6),
+                fireGradientAnim 7.5s linear infinite;
             position: relative;
-            text-shadow: 1px 1px 14px rgba(0,0,0,0.24);
+            text-shadow: 2px 2px 12px rgba(255,100,42,0.22), 0 0 24px #fffbe2;
         }
-        @keyframes gradientTitleAnim {
-            0%,100% {background-position:0% 50%;}
-            50% {background-position:100% 50%;}
+        @keyframes fireGradientAnim {
+            0%{background-position:0% 70%;}
+            50%{background-position:100% 30%;}
+            100%{background-position:0% 70%;}
         }
-        @keyframes slideInTitle {
-            0% { opacity:0; transform:translateY(-60px);}
+        @keyframes fireSlideIn {
+            0% { opacity:0; transform:scale(0.8) translateY(-60px);}
             80%{opacity:1;}
-            100%{ transform:translateY(0);}
+            100%{ transform:scale(1) translateY(0);}
         }
-
-        /* Shine effect on hover */
+        /* Firey shine on hover */
         h1::after {
             content: "";
             position: absolute;
-            top: 0; left: -90px; width: 80px; height: 100%;
-            background: linear-gradient(120deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.2) 100%);
-            transform: skewX(-20deg);
+            top: 0; left:-100px; width: 90px; height: 100%;
+            background: linear-gradient(120deg, rgba(255,255,200,0.05) 0%, rgba(255,230,115,0.85) 52%, rgba(255,255,200,0.05) 98%);
+            transform: skewX(-25deg);
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.4s;
         }
         h1:hover::after {
-            animation: shine 1.1s linear forwards;
+            animation: fireShine 1.15s linear forwards;
             opacity: 1;
         }
-        @keyframes shine {
-            0% {left: -90px;}
+        @keyframes fireShine {
+            0% {left: -100px;}
             100% {left: 100%;}
         }
 
-        /* Animate paragraph fade-in/pop */
+        /* --- Animated paragraph pop in --- */
         p {
-            color: #f4eefd;
-            font-size: 1.25rem;
+            color: #ffe5b0;
+            font-size: 1.28rem;
             text-align: center;
             margin-bottom: 0;
             opacity: 0;
@@ -130,50 +139,85 @@
             from { opacity: 0; transform:translateY(30px);}
             to { opacity: 1; transform:translateY(0);}
         }
-
-        /* Author line style and animation */
         .authors {
-            color: #c5e2ff;
-            font-size: 1.05rem;
-            letter-spacing: 0.07em;
-            margin-top: 2.3rem;
+            color: #ffad3f;
+            font-size: 1.10rem;
+            letter-spacing: 0.08em;
+            margin-top: 2.2rem;
             opacity: 0;
             animation: fadeAuthors 1s 1.7s cubic-bezier(.55,1.6,.66,1.11) forwards;
+            text-shadow: 1px 1px 8px #441400;
         }
         @keyframes fadeAuthors {
             from { opacity: 0; transform:translateY(18px);}
             to { opacity: 1; transform:translateY(0);}
         }
+
+        /* Responsive */
         @media (max-width: 700px) {
             .container {
                 padding: 1.2rem 0.5rem;
-                max-width: 100vw;
             }
             .logo {
-                width: 95vw;
+                width: 97vw;
                 margin-bottom: 1rem;
-                padding: 6px;
             }
             h1 {
                 font-size: 2rem;
             }
             p {
-                font-size: 0.95rem;
+                font-size: 1rem;
             }
             .authors {
-                font-size: 0.90rem;
-                margin-top: 1rem;
+                font-size: 0.93rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- SVG Cooking Show Background -->
+    <svg class="cookingshow-bg" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g>
+        <!-- Large flames bottom right -->
+        <path d="M1390 800C1480 750 1500 880 1600 900L1600 1000L0 1000C300 950 900 900 1390 800Z"
+          fill="url(#flameGradient)" />
+        <defs>
+          <linearGradient id="flameGradient" x1="1200" y1="880" x2="1520" y2="900"
+             gradientUnits="userSpaceOnUse">
+            <stop stop-color="#ffad3f"/>
+            <stop offset="0.37" stop-color="#fd6a11"/>
+            <stop offset="0.73" stop-color="#d03c18"/>
+            <stop offset="1" stop-color="#fffbe2"/>
+          </linearGradient>
+        </defs>
+        <!-- Pans and utensils -->
+        <ellipse cx="1140" cy="190" rx="100" ry="40" fill="#d35400" opacity="0.23"/>
+        <rect x="160" y="220" width="95" height="17" rx="4" fill="#fd6a11" opacity="0.17"/>
+        <!-- Chef hat -->
+        <path d="M260 90 Q256 65 289 70 Q320 49 350 70 Q370 95 330 120 Q309 160 290 120 Q270 105 260 90 Z"
+            fill="#fffbe2" stroke="#ffe5b0" stroke-width="2"/>
+        <!-- Fork -->
+        <rect x="1300" y="400" width="12" height="85" rx="5" fill="#de711a" opacity="0.21"/>
+        <rect x="1306" y="405" width="2" height="80" fill="#fdc726" opacity="0.31"/>
+        <!-- Spoon -->
+        <ellipse cx="1320" cy="485" rx="8" ry="20" fill="#e38c27" opacity="0.20"/>
+        <!-- Chopping board -->
+        <rect x="400" y="780" width="120" height="60" rx="16" fill="#fdc726" opacity="0.15"/>
+        <!-- Rolling pin -->
+        <rect x="800" y="65" width="90" height="16" rx="7" fill="#fd6a11" opacity="0.19"/>
+        <!-- Whisk -->
+        <ellipse cx="350" cy="630" rx="6" ry="23" fill="#ffe5b0" opacity="0.17"/>
+        <ellipse cx="360" cy="652" rx="12" ry="7" fill="#fff" opacity="0.14"/>
+      </g>
+    </svg>
     <div class="container">
         <img src="background.jpg" alt="Cooking Madness" class="logo">
         <h1>COMING SOON</h1>
-        <p>Thank you for supporting us now at the ground level...<br>
+        <p>
+           Thank you for supporting us now at the ground level...<br>
            Website Under Construction<br>
-           Your support means everything so please check back soon!!</p>
+           Your support means everything so please check back soon!!
+        </p>
         <div class="authors">— CrockpotDaddy &amp; MACK3Y</div>
     </div>
 </body>
