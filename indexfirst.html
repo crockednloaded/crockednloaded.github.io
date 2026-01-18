@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Crocked N' Loaded Show - CrockPotDaddy & MACK3Y</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
         * {
@@ -15,133 +13,26 @@
         }
         
         body {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #0a0503 0%, #1a0800 15%, #441400 40%, #d35400 70%, #fdc726 90%, #fffbe2 100%);
-            background-size: 400% 400%;
-            animation: fireGradientMove 20s ease-in-out infinite;
             font-family: 'Inter', sans-serif;
-            position: relative;
-            overflow-x: hidden;
+            background: linear-gradient(135deg, #1a0800 0%, #441400 40%, #d35400 70%, #fdc726 90%, #fffbe2 100%);
+            background-attachment: fixed;
             color: #ffe8c4;
-        }
-        
-        @keyframes fireGradientMove {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        
-        /* Loading Screen */
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #1a0800, #441400);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            animation: fadeOut 0.5s ease-out 2s forwards;
-        }
-        
-        .loading-logo {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 4rem;
-            background: linear-gradient(135deg, #ff8c3a, #ffd700);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            animation: pulse 1.5s ease-in-out infinite;
-        }
-        
-        @keyframes fadeOut {
-            to { opacity: 0; pointer-events: none; }
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.8; }
-        }
-        
-        /* Floating Kitchen Items */
-        .floating-items {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        .floating-item {
-            position: absolute;
-            opacity: 0.08;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-        }
-        
-        .knife {
-            width: 120px;
-            height: auto;
-            animation: float-knife 8s ease-in-out infinite;
-        }
-        
-        .knife-1 { top: 15%; left: 10%; animation-delay: 0s; }
-        .knife-2 { top: 70%; right: 15%; animation-delay: 3s; transform: rotate(45deg); }
-        .knife-3 { top: 40%; left: 80%; animation-delay: 5s; transform: rotate(-30deg); }
-        
-        .tongs {
-            width: 100px;
-            height: auto;
-            animation: float-tongs 10s ease-in-out infinite;
-        }
-        
-        .tongs-1 { top: 25%; right: 20%; animation-delay: 1s; }
-        .tongs-2 { bottom: 20%; left: 15%; animation-delay: 4s; transform: rotate(90deg); }
-        
-        .crockpot {
-            width: 110px;
-            height: auto;
-            animation: float-crockpot 12s ease-in-out infinite;
-        }
-        
-        .crockpot-1 { top: 60%; right: 10%; animation-delay: 2s; }
-        .crockpot-2 { top: 10%; left: 70%; animation-delay: 6s; }
-        .crockpot-3 { bottom: 15%; right: 70%; animation-delay: 8s; }
-        
-        @keyframes float-knife {
-            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
-            25% { transform: translateY(-30px) translateX(20px) rotate(5deg); }
-            50% { transform: translateY(-50px) translateX(0px) rotate(-5deg); }
-            75% { transform: translateY(-30px) translateX(-20px) rotate(3deg); }
-        }
-        
-        @keyframes float-tongs {
-            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
-            33% { transform: translateY(-40px) translateX(-25px) rotate(-8deg); }
-            66% { transform: translateY(-20px) translateX(25px) rotate(8deg); }
-        }
-        
-        @keyframes float-crockpot {
-            0%, 100% { transform: translateY(0px) scale(1); }
-            50% { transform: translateY(-60px) scale(1.05); }
+            overflow-x: hidden;
         }
         
         /* Navigation */
         nav {
+            background: rgba(20, 10, 5, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
             position: sticky;
             top: 0;
-            background: rgba(15, 8, 4, 0.95);
-            backdrop-filter: blur(20px);
-            padding: 1.2rem 0;
             z-index: 100;
-            border-bottom: 1px solid rgba(255, 150, 50, 0.3);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            border-bottom: 2px solid rgba(255, 150, 50, 0.3);
         }
         
-        nav .container {
-            max-width: 1400px;
+        .nav-container {
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
@@ -149,410 +40,226 @@
             align-items: center;
         }
         
-        .logo-small {
+        .nav-logo {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.6rem;
-            background: linear-gradient(135deg, #ff8c3a, #ffd700);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            letter-spacing: 0.08em;
-        }
-        
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2.5rem;
-        }
-        
-        nav a {
-            color: #ffe8c4;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            position: relative;
-            letter-spacing: 0.03em;
-        }
-        
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #ff8c3a, #ffd700);
-            transition: width 0.3s ease;
-        }
-        
-        nav a:hover {
+            font-size: 1.5rem;
             color: #ffd700;
         }
         
-        nav a:hover::after {
-            width: 100%;
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
         }
         
-        /* Mobile Menu Toggle */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
+        .nav-links a {
+            color: #ffe8c4;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
         }
         
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: #ffd700;
-            border-radius: 2px;
-            transition: 0.3s;
+        .nav-links a:hover {
+            color: #ffd700;
         }
         
         /* Hero Section */
         .hero {
-            position: relative;
-            z-index: 1;
-            padding: 6rem 2rem 4rem;
             text-align: center;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 2s forwards;
-        }
-        
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .hero-logo {
-            width: 700px;
+            width: 600px;
             max-width: 90%;
             height: auto;
-            border-radius: 24px;
-            box-shadow: 
-                0 20px 60px rgba(253, 106, 17, 0.5),
-                0 0 0 10px rgba(255, 255, 255, 0.98),
-                0 0 0 14px rgba(253, 106, 17, 0.7),
-                0 0 80px rgba(255, 140, 58, 0.3);
-            background: #fff;
+            border-radius: 20px;
+            background: white;
             padding: 20px;
-            animation: floatUpDown 4s ease-in-out infinite;
-            margin-bottom: 2.5rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .hero-logo:hover {
-            transform: scale(1.02);
-        }
-        
-        @keyframes floatUpDown {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
+            box-shadow: 0 10px 40px rgba(255, 107, 53, 0.5);
+            margin-bottom: 2rem;
         }
         
         h1 {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 4.5rem;
-            font-weight: 400;
+            font-size: 4rem;
+            color: #ffd700;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #ff8c3a 0%, #ffd700 30%, #fff9e6 50%, #ffd700 70%, #ff6b35 100%);
-            background-size: 200% 200%;
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            filter: drop-shadow(0 4px 20px rgba(255, 140, 58, 0.6));
-            animation: shimmer 3s ease-in-out infinite;
-            letter-spacing: 0.05em;
-        }
-        
-        @keyframes shimmer {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+            text-shadow: 0 4px 20px rgba(255, 215, 0, 0.5);
         }
         
         .tagline {
-            font-size: 1.6rem;
-            color: #ffd700;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 0.02em;
+            font-size: 1.5rem;
+            color: #ffad3f;
+            margin-bottom: 2rem;
+            font-weight: 600;
         }
         
         .hero-description {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             max-width: 700px;
-            margin: 0 auto 2.5rem;
-            line-height: 1.7;
-            color: #ffe8c4;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
         }
         
-        .cta-buttons {
+        /* Buttons */
+        .btn-group {
             display: flex;
             gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 2rem;
+            margin: 2rem 0;
         }
         
         .btn {
-            padding: 1.1rem 2.8rem;
-            font-size: 1.1rem;
-            font-weight: 700;
-            border: none;
-            border-radius: 14px;
-            cursor: pointer;
-            transition: all 0.4s ease;
+            padding: 1rem 2rem;
+            border-radius: 10px;
             text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
             display: inline-block;
-            position: relative;
-            overflow: hidden;
-            letter-spacing: 0.03em;
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        
-        .btn:hover::before {
-            width: 300px;
-            height: 300px;
         }
         
         .btn-primary {
             background: linear-gradient(135deg, #ff6b35, #ff8c3a);
             color: white;
-            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.5);
-            position: relative;
-            z-index: 1;
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
         }
         
         .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 35px rgba(255, 107, 53, 0.7);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.6);
         }
         
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.08);
+            background: transparent;
             color: #ffd700;
             border: 2px solid #ffd700;
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
         }
         
         .btn-secondary:hover {
-            background: rgba(255, 215, 0, 0.15);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateY(-3px);
         }
         
-        /* Stats Section */
-        .stats-section {
-            position: relative;
-            z-index: 1;
-            max-width: 1400px;
-            margin: -2rem auto 4rem;
-            padding: 0 2rem;
-        }
-        
-        .stats-grid {
+        /* Stats */
+        .stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
-            background: rgba(15, 8, 4, 0.85);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
+            max-width: 1200px;
+            margin: 3rem auto;
             padding: 3rem 2rem;
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.5),
-                0 0 0 1px rgba(255, 150, 50, 0.3);
-            border: 1px solid rgba(255, 150, 50, 0.2);
+            background: rgba(20, 10, 5, 0.8);
+            border-radius: 20px;
         }
         
         .stat-item {
             text-align: center;
-            padding: 1.5rem;
-            border-radius: 16px;
-            background: rgba(255, 255, 255, 0.03);
-            transition: all 0.3s ease;
-        }
-        
-        .stat-item:hover {
-            background: rgba(255, 255, 255, 0.06);
-            transform: translateY(-5px);
         }
         
         .stat-number {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 3rem;
-            background: linear-gradient(135deg, #ff8c3a, #ffd700);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            margin-bottom: 0.5rem;
+            color: #ffd700;
         }
         
         .stat-label {
-            color: #ffe8c4;
             font-size: 1rem;
-            font-weight: 600;
+            color: #ffe8c4;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.1em;
         }
         
-        /* Section Styles */
-        section {
-            position: relative;
-            z-index: 1;
-            max-width: 1400px;
-            margin: 5rem auto;
-            padding: 4rem 2rem;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-        
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .section-content {
-            background: rgba(15, 8, 4, 0.85);
-            border-radius: 28px;
-            box-shadow: 
-                0 25px 70px rgba(0, 0, 0, 0.6),
-                0 0 0 1px rgba(255, 150, 50, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 150, 50, 0.2);
-            padding: 4rem 3rem;
+        /* Section */
+        .section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 3rem 2rem;
+            background: rgba(20, 10, 5, 0.8);
+            border-radius: 20px;
         }
         
         h2 {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 400;
+            font-size: 3rem;
+            color: #ffd700;
             text-align: center;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #ff8c3a, #ffd700);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            letter-spacing: 0.05em;
+            margin-bottom: 2rem;
         }
         
         .section-subtitle {
             text-align: center;
             font-size: 1.2rem;
-            color: #ffe8c4;
             margin-bottom: 3rem;
-            opacity: 0.9;
+            color: #ffad3f;
         }
         
-        /* About Section */
+        /* Hosts */
         .hosts {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
         
         .host-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.08));
-            border-radius: 20px;
-            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
             text-align: center;
             border: 1px solid rgba(255, 150, 50, 0.3);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .host-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        
-        .host-card:hover::before {
-            opacity: 1;
+            transition: all 0.3s;
         }
         
         .host-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(255, 140, 58, 0.4);
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1));
-            border-color: rgba(255, 150, 50, 0.5);
+            box-shadow: 0 15px 40px rgba(255, 140, 58, 0.3);
         }
         
         .host-avatar {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            margin: 0 auto 2rem;
+            width: 150px;
+            height: 150px;
             background: linear-gradient(135deg, #ff8c3a, #ffd700);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 5rem;
-            box-shadow: 0 10px 30px rgba(255, 140, 58, 0.5);
-            position: relative;
-            z-index: 1;
+            font-size: 4rem;
+            margin: 0 auto 1.5rem;
         }
         
         .host-card h3 {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.2rem;
+            font-size: 2rem;
             color: #ffd700;
             margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
         }
         
         .host-card p {
-            color: #ffe8c4;
-            line-height: 1.7;
-            font-size: 1.05rem;
-            position: relative;
-            z-index: 1;
+            line-height: 1.6;
         }
         
-        /* Video Section */
+        /* Videos */
         .video-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
         
         .video-card {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
+            border-radius: 15px;
             overflow: hidden;
             border: 1px solid rgba(255, 150, 50, 0.3);
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
         }
         
         .video-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(255, 140, 58, 0.4);
-            border-color: rgba(255, 150, 50, 0.6);
+            box-shadow: 0 15px 40px rgba(255, 140, 58, 0.3);
         }
         
         .video-embed {
@@ -565,10 +272,9 @@
             padding: 1.5rem;
         }
         
-        .video-card h3 {
+        .video-info h3 {
             color: #ffd700;
             font-size: 1.3rem;
-            font-weight: 700;
             margin-bottom: 0.5rem;
         }
         
@@ -578,205 +284,71 @@
             opacity: 0.8;
         }
         
-        /* Testimonials Section */
-        .testimonials-grid {
+        /* Merch */
+        .merch-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-        
-        .testimonial-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.06));
-            border-radius: 20px;
-            padding: 2.5rem;
-            border: 1px solid rgba(255, 150, 50, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 1rem;
-            left: 1.5rem;
-            font-size: 6rem;
-            color: rgba(255, 215, 0, 0.2);
-            font-family: 'Bebas Neue', sans-serif;
-        }
-        
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255, 140, 58, 0.3);
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            color: #ffe8c4;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .testimonial-author {
-            color: #ffd700;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-        
-        .testimonial-role {
-            color: #ffe8c4;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        /* Newsletter Section */
-        .newsletter-box {
-            background: linear-gradient(135deg, rgba(255, 140, 58, 0.15), rgba(255, 215, 0, 0.1));
-            border-radius: 20px;
-            padding: 3rem;
-            text-align: center;
-            border: 2px solid rgba(255, 150, 50, 0.4);
-            margin-top: 3rem;
-        }
-        
-        .newsletter-box h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.5rem;
-            color: #ffd700;
-            margin-bottom: 1rem;
-        }
-        
-        .newsletter-box p {
-            font-size: 1.1rem;
-            color: #ffe8c4;
-            margin-bottom: 2rem;
-        }
-        
-        .newsletter-form {
-            display: flex;
-            gap: 1rem;
-            max-width: 600px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .newsletter-input {
-            flex: 1;
-            min-width: 250px;
-            padding: 1rem 1.5rem;
-            border: 2px solid rgba(255, 150, 50, 0.4);
-            background: rgba(0, 0, 0, 0.3);
-            color: #ffe8c4;
-            border-radius: 12px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .newsletter-input:focus {
-            outline: none;
-            border-color: #ffd700;
-            background: rgba(0, 0, 0, 0.4);
-        }
-        
-        .newsletter-input::placeholder {
-            color: rgba(255, 232, 196, 0.5);
-        }
-        
-        /* Merch Section */
-        .merch-preview {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin: 3rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
         }
         
         .merch-item {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.06));
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
             padding: 2rem;
-            border: 1px solid rgba(255, 150, 50, 0.3);
-            transition: all 0.4s ease;
+            border-radius: 15px;
             text-align: center;
+            border: 1px solid rgba(255, 150, 50, 0.3);
+            transition: all 0.3s;
         }
         
         .merch-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(255, 140, 58, 0.4);
-            border-color: rgba(255, 150, 50, 0.6);
+            box-shadow: 0 15px 40px rgba(255, 140, 58, 0.3);
         }
         
-        .merch-placeholder {
-            width: 100%;
-            aspect-ratio: 1;
-            background: linear-gradient(135deg, rgba(255, 140, 58, 0.3), rgba(255, 215, 0, 0.3));
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
-        }
-        
-        .merch-item:hover .merch-placeholder {
-            transform: scale(1.05);
+        .merch-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
         }
         
         .merch-item h3 {
             font-family: 'Bebas Neue', sans-serif;
             color: #ffd700;
-            font-size: 1.6rem;
-            margin-bottom: 0.8rem;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
         }
         
         .price {
             font-size: 1.5rem;
             color: #ff8c3a;
             font-weight: 900;
-            margin-bottom: 1.5rem;
+            margin: 1rem 0;
         }
         
         /* Footer */
         footer {
-            position: relative;
-            z-index: 1;
             background: rgba(10, 5, 3, 0.95);
-            padding: 4rem 2rem 2rem;
+            padding: 3rem 2rem;
             text-align: center;
-            margin-top: 6rem;
-            border-top: 1px solid rgba(255, 150, 50, 0.3);
+            margin-top: 4rem;
         }
         
         .social-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             justify-content: center;
-            margin: 2.5rem 0;
+            margin: 2rem 0;
+            font-size: 2rem;
         }
         
         .social-links a {
-            color: #ffd700;
-            font-size: 2.5rem;
-            transition: all 0.3s ease;
-            filter: drop-shadow(0 4px 8px rgba(255, 215, 0, 0.3));
+            transition: all 0.3s;
         }
         
         .social-links a:hover {
-            color: #ff8c3a;
-            transform: scale(1.3) translateY(-5px);
-            filter: drop-shadow(0 8px 16px rgba(255, 140, 58, 0.5));
+            transform: scale(1.3);
         }
         
-        footer p {
-            color: #ffe8c4;
-            opacity: 0.7;
-            margin-top: 2rem;
-        }
-        
-        /* Background Music Player */
+        /* Music Player */
         .music-player {
             position: fixed;
             bottom: 2rem;
@@ -784,61 +356,248 @@
             z-index: 1000;
         }
         
-        .music-toggle {
-            width: 70px;
-            height: 70px;
+        .music-btn {
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background: linear-gradient(135deg, #ff6b35, #ff8c3a);
             border: 3px solid #ffd700;
             color: white;
-            font-size: 2rem;
+            font-size: 1.8rem;
             cursor: pointer;
-            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+            transition: all 0.3s;
         }
         
-        .music-toggle:hover {
-            transform: scale(1.15);
-            box-shadow: 0 12px 35px rgba(255, 107, 53, 0.8);
+        .music-btn:hover {
+            transform: scale(1.1);
         }
         
-        .music-toggle:active {
-            transform: scale(0.95);
+        .music-btn.playing {
+            animation: pulse 2s infinite;
         }
         
-        @keyframes pulse-music {
+        @keyframes pulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.08); }
+            50% { transform: scale(1.05); }
         }
         
-        .music-toggle.playing {
-            animation: pulse-music 2s ease-in-out infinite;
-        }
-        
-        /* Responsive */
+        /* Mobile */
         @media (max-width: 768px) {
-            .music-player {
-                bottom: 1rem;
-                right: 1rem;
-            }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Music Player -->
+    <div class="music-player">
+        <button id="musicBtn" class="music-btn" onclick="toggleMusic()">🔇</button>
+    </div>
+    <div id="youtube-player" style="display: none;"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">THE CROCKED N' LOADED SHOW</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#merch">Merch</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <img src="background.jpg" alt="The Crocked N' Loaded Show" class="hero-logo">
+        <h1>THE CROCKED N' LOADED SHOW</h1>
+        <p class="tagline">Where Flavor Meets Fire 🔥</p>
+        <p class="hero-description">
+            Join CrockPotDaddy & MACK3Y as they bring you the most entertaining cooking show on YouTube. 
+            No fancy stuff—just good food, good laughs, and good times in the kitchen.
+        </p>
+        <div class="btn-group">
+            <a href="https://youtube.com/@yourchannel" class="btn btn-primary" target="_blank">
+                🎥 Subscribe on YouTube
+            </a>
+            <a href="#merch" class="btn btn-secondary">
+                🔥 Shop Merch
+            </a>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <div class="stats">
+        <div class="stat-item">
+            <div class="stat-number">50K+</div>
+            <div class="stat-label">Subscribers</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">120+</div>
+            <div class="stat-label">Episodes</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">2M+</div>
+            <div class="stat-label">Views</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">1000+</div>
+            <div class="stat-label">Recipes</div>
+        </div>
+    </div>
+
+    <!-- About -->
+    <section class="section" id="about">
+        <h2>Meet the Hosts</h2>
+        <p class="section-subtitle">Two guys. One kitchen. Unlimited chaos.</p>
+        <div class="hosts">
+            <div class="host-card">
+                <div class="host-avatar">🍲</div>
+                <h3>CrockPotDaddy</h3>
+                <p>The mastermind behind slow-cooked perfection. With years of experience in the kitchen and a passion for comfort food, he brings warmth and wisdom to every dish. When he's not perfecting his signature recipes, he's probably telling dad jokes that are worse than his cooking puns.</p>
+            </div>
+            <div class="host-card">
+                <div class="host-avatar">🔪</div>
+                <h3>MACK3Y</h3>
+                <p>The wild card who brings the heat (literally). Known for creative experiments and turning simple dishes into culinary adventures, MACK3Y isn't afraid to take risks in the kitchen. His motto: "If it doesn't work, we'll order pizza." Safety goggles recommended.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos -->
+    <section class="section" id="videos">
+        <h2>Latest Episodes</h2>
+        <p class="section-subtitle">Catch up on our newest kitchen adventures</p>
+        <div class="video-grid">
+            <div class="video-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>Ultimate Comfort Food Challenge</h3>
+                    <p class="video-meta">245K views • 2 days ago</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>5-Ingredient Weeknight Dinners</h3>
+                    <p class="video-meta">180K views • 1 week ago</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>Cooking Fails & How to Fix Them</h3>
+                    <p class="video-meta">320K views • 2 weeks ago</p>
+                </div>
+            </div>
+        </div>
+        <div class="btn-group" style="margin-top: 2rem;">
+            <a href="https://youtube.com/@yourchannel" class="btn btn-primary" target="_blank">
+                View All Episodes →
+            </a>
+        </div>
+    </section>
+
+    <!-- Merch -->
+    <section class="section" id="merch">
+        <h2>Official Merch</h2>
+        <p class="section-subtitle">Wear the madness. Support the show.</p>
+        <div class="merch-grid">
+            <div class="merch-item">
+                <div class="merch-icon">👕</div>
+                <h3>Classic T-Shirt</h3>
+                <div class="price">$24.99</div>
+                <a href="https://your-merch-store.com" class="btn btn-secondary" target="_blank">Shop Now</a>
+            </div>
+            <div class="merch-item">
+                <div class="merch-icon">🧢</div>
+                <h3>Dad Hat</h3>
+                <div class="price">$19.99</div>
+                <a href="https://your-merch-store.com" class="btn btn-secondary" target="_blank">Shop Now</a>
+            </div>
+            <div class="merch-item">
+                <div class="merch-icon">☕</div>
+                <h3>Coffee Mug</h3>
+                <div class="price">$14.99</div>
+                <a href="https://your-merch-store.com" class="btn btn-secondary" target="_blank">Shop Now</a>
+            </div>
+            <div class="merch-item">
+                <div class="merch-icon">👕</div>
+                <h3>Premium Hoodie</h3>
+                <div class="price">$39.99</div>
+                <a href="https://your-merch-store.com" class="btn btn-secondary" target="_blank">Shop Now</a>
+            </div>
+        </div>
+        <div class="btn-group" style="margin-top: 2rem;">
+            <a href="https://your-merch-store.com" class="btn btn-primary" target="_blank">
+                Visit Full Store →
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h2>THE CROCKED N' LOADED SHOW</h2>
+        <div class="social-links">
+            <a href="https://youtube.com/@yourchannel" target="_blank">📺</a>
+            <a href="https://instagram.com/yourhandle" target="_blank">📷</a>
+            <a href="https://tiktok.com/@yourhandle" target="_blank">🎵</a>
+            <a href="https://twitter.com/yourhandle" target="_blank">🐦</a>
+        </div>
+        <p>© 2025 The Crocked N' Loaded Show. All rights reserved.</p>
+        <p style="margin-top: 1rem;">Made with 🔥 by CrockPotDaddy & MACK3Y</p>
+    </footer>
+
+    <script>
+        // YouTube Music Player
+        let player;
+        let isPlaying = false;
+        
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        document.getElementsByTagName('script')[0].parentNode.insertBefore(tag, document.getElementsByTagName('script')[0]);
+        
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-player', {
+                videoId: 'SDi_jI6488w',
+                playerVars: {
+                    autoplay: 1,
+                    loop: 1,
+                    playlist: 'SDi_jI6488w',
+                    controls: 0
+                },
+                events: {
+                    onReady: function(e) {
+                        e.target.setVolume(55);
+                        e.target.playVideo();
+                        document.getElementById('musicBtn').textContent = '🔊';
+                        document.getElementById('musicBtn').classList.add('playing');
+                        isPlaying = true;
+                    }
+                }
+            });
+        }
+        
+        function toggleMusic() {
+            if (!player) return;
+            const btn = document.getElementById('musicBtn');
             
-            .music-toggle {
-                width: 55px;
-                height: 55px;
-                font-size: 1.6rem;
+            if (isPlaying) {
+                player.pauseVideo();
+                btn.textContent = '🔇';
+                btn.classList.remove('playing');
+                isPlaying = false;
+            } else {
+                player.playVideo();
+                btn.textContent = '🔊';
+                btn.classList.add('playing');
+                isPlaying = true;
             }
-            
-            .menu-toggle {
-                display: flex;
-            }
-            
-            nav ul {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(15, 8, 4, 0.98);
-                flex
+        }
+    </script>
+</body>
+</html>
