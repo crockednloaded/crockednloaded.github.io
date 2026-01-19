@@ -14,19 +14,17 @@
         }
 
         :root {
-            --spray-red: #FF0000;
-            --spray-yellow: #FFFF00;
-            --spray-blue: #0096FF;
-            --spray-green: #00FF00;
-            --spray-orange: #FF8C00;
-            --spray-pink: #FF00FF;
-            --brick-dark: #5D0000;
-            --concrete-dark: #2A2A2A;
-            --concrete-medium: #3A3A3A;
-            --concrete-light: #4A4A4A;
+            --spray-red: #E63946;
+            --spray-yellow: #FFD700;
+            --spray-blue: #1D3557;
+            --spray-orange: #F77F00;
+            --spray-green: #2A9D8F;
+            --concrete-dark: #1A1A1A;
+            --concrete-medium: #2D2D2D;
+            --concrete-light: #3A3A3A;
             --graffiti-black: #0A0A0A;
-            --street-light: #F8F8F8;
-            --street-gray: #888888;
+            --street-light: #FFFFFF;
+            --street-gray: #AAAAAA;
         }
 
         body {
@@ -35,7 +33,6 @@
             font-family: 'Roboto Condensed', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h50v50H0V0zm50 50h50v50H50V50z' fill='%235D0000' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
 
         .container {
@@ -45,15 +42,15 @@
             padding: 0 20px;
         }
 
-        /* Header & Navigation - Urban Style */
+        /* Header & Navigation - Professional with Urban Edge */
         header {
             background-color: var(--graffiti-black);
-            padding: 15px 0;
+            padding: 25px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 5px solid var(--spray-red);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            border-bottom: 3px solid var(--spray-red);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
         }
 
         .header-container {
@@ -66,114 +63,79 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            position: relative;
         }
 
         .logo-icon {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             color: var(--spray-red);
-            text-shadow: 2px 2px 0 var(--spray-yellow);
         }
 
         .logo-text {
             font-family: 'Bebas Neue', cursive;
-            font-size: 3rem;
+            font-size: 2.8rem;
             color: var(--street-light);
-            letter-spacing: 2px;
-            position: relative;
+            letter-spacing: 1px;
         }
 
-        .logo-text:before {
-            content: 'CROCKED';
-            position: absolute;
+        .logo-text span:first-child {
             color: var(--spray-red);
-            z-index: -1;
-            transform: translate(3px, 3px);
         }
 
-        .logo-text:after {
-            content: "'N LOADED";
-            position: absolute;
+        .logo-text span:last-child {
             color: var(--spray-yellow);
-            z-index: -1;
-            transform: translate(-3px, -3px);
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 30px;
         }
 
         nav a {
             color: var(--street-light);
             text-decoration: none;
             font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            font-size: 1.3rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-weight: 600;
+            font-size: 1.1rem;
             padding: 10px 20px;
+            border-radius: 25px;
             transition: all 0.3s ease;
             position: relative;
-            background: var(--concrete-medium);
-            border-radius: 0;
-            border: 2px solid var(--spray-red);
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         nav a:hover {
             color: var(--graffiti-black);
-            background: var(--spray-yellow);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 255, 0, 0.3);
+            background-color: var(--spray-yellow);
         }
 
         nav a.active {
-            background: var(--spray-red);
+            background-color: var(--spray-red);
             color: var(--street-light);
-            border-color: var(--spray-yellow);
         }
 
         .mobile-menu-btn {
             display: none;
             background: none;
-            border: 3px solid var(--spray-red);
-            color: var(--spray-yellow);
-            font-size: 2rem;
+            border: none;
+            color: var(--street-light);
+            font-size: 1.8rem;
             cursor: pointer;
-            padding: 5px 15px;
-            transition: all 0.3s ease;
         }
 
-        .mobile-menu-btn:hover {
-            background-color: var(--spray-red);
-            transform: scale(1.1);
-        }
-
-        /* Hero Section - Urban Restaurant Theme */
+        /* Hero Section - Professional Layout with Urban Colors */
         .hero {
             background: linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)),
-                        url('https://images.unsplash.com/photo-1578474846511-04ba529f0b88?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+                        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             color: var(--street-light);
             padding: 100px 0;
             position: relative;
             overflow: hidden;
-            border-bottom: 5px solid var(--spray-red);
-        }
-
-        /* Add urban texture */
-        .hero:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E");
-            opacity: 0.2;
-            pointer-events: none;
+            border-bottom: 3px solid var(--spray-red);
         }
 
         .hero-content {
@@ -181,28 +143,14 @@
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
-            position: relative;
-            z-index: 2;
         }
 
         .hero-image {
             position: relative;
-            border-radius: 0;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 15px 15px 0 var(--spray-red);
-            border: 5px solid var(--spray-yellow);
-            transform: rotate(-2deg);
-        }
-
-        .hero-image:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(255, 0, 0, 0.2), rgba(255, 255, 0, 0.2));
-            z-index: 1;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 3px solid var(--spray-yellow);
         }
 
         .hero-image img {
@@ -210,11 +158,10 @@
             height: auto;
             display: block;
             transition: transform 0.5s ease;
-            filter: contrast(1.2) saturate(1.1);
         }
 
         .hero-image:hover img {
-            transform: scale(1.05) rotate(2deg);
+            transform: scale(1.03);
         }
 
         .hero-text {
@@ -224,81 +171,62 @@
         .hero h1 {
             font-family: 'Bebas Neue', cursive;
             font-weight: 900;
-            font-size: 4.5rem;
+            font-size: 3.5rem;
             margin-bottom: 25px;
-            line-height: 1;
+            line-height: 1.2;
             color: var(--street-light);
-            text-shadow: 
-                3px 3px 0 var(--spray-red),
-                6px 6px 0 rgba(0, 0, 0, 0.5);
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
         }
 
         .hero h1 span {
             color: var(--spray-yellow);
             display: block;
-            text-shadow: 
-                3px 3px 0 var(--spray-red),
-                6px 6px 0 rgba(0, 0, 0, 0.5);
         }
 
         .hero-tagline {
             font-family: 'Oswald', sans-serif;
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             margin-bottom: 30px;
-            color: var(--spray-yellow);
+            color: var(--spray-red);
             text-transform: uppercase;
             letter-spacing: 2px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .hero-tagline:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--spray-red);
         }
 
         .hero-description {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 40px;
-            color: var(--street-light);
+            color: var(--street-gray);
             line-height: 1.8;
-            font-weight: 500;
         }
 
         .cta-button {
             display: inline-flex;
             align-items: center;
             gap: 15px;
-            background: var(--spray-red);
-            color: var(--graffiti-black);
-            padding: 20px 50px;
+            background: linear-gradient(135deg, var(--spray-red), var(--spray-orange));
+            color: var(--street-light);
+            padding: 18px 45px;
             font-family: 'Oswald', sans-serif;
-            font-weight: 900;
-            font-size: 1.3rem;
+            font-weight: 700;
+            font-size: 1.1rem;
             text-decoration: none;
-            border-radius: 0;
+            border-radius: 30px;
             transition: all 0.3s ease;
-            box-shadow: 8px 8px 0 var(--spray-yellow);
-            border: 3px solid var(--spray-yellow);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            box-shadow: 0 10px 25px rgba(230, 57, 70, 0.3);
+            border: 2px solid var(--spray-yellow);
             cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .cta-button:hover {
-            transform: translate(5px, 5px);
-            box-shadow: 3px 3px 0 var(--spray-yellow);
-            background: var(--spray-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(230, 57, 70, 0.4);
+            background: linear-gradient(135deg, var(--spray-orange), var(--spray-red));
         }
 
-        /* Content Sections - Urban Theme */
+        /* Content Sections - Professional Layout with Urban Colors */
         section {
             padding: 100px 0;
             background-color: var(--concrete-dark);
@@ -310,75 +238,71 @@
 
         .section-title {
             text-align: center;
-            margin-bottom: 70px;
-            position: relative;
+            margin-bottom: 60px;
         }
 
         .section-title h2 {
             font-family: 'Bebas Neue', cursive;
-            font-weight: 900;
-            font-size: 4rem;
-            color: var(--spray-yellow);
+            font-weight: 800;
+            font-size: 2.8rem;
+            color: var(--street-light);
             margin-bottom: 20px;
             position: relative;
             display: inline-block;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 3px 3px 0 var(--spray-red);
+            letter-spacing: 2px;
         }
 
         .section-title h2:after {
             content: '';
             position: absolute;
-            bottom: -15px;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 150px;
-            height: 5px;
-            background: linear-gradient(90deg, var(--spray-red), var(--spray-yellow), var(--spray-red));
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--spray-red), var(--spray-orange));
         }
 
         .section-subtitle {
             font-family: 'Oswald', sans-serif;
-            font-size: 1.6rem;
-            color: var(--spray-blue);
+            font-size: 1.4rem;
+            color: var(--spray-yellow);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 20px;
+            letter-spacing: 1px;
+            margin-top: 10px;
         }
 
-        /* Hosts Section - Urban Cards */
+        /* Hosts Section - Clean Professional Cards */
         .hosts-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 50px;
-            margin-top: 50px;
+            gap: 40px;
+            margin-top: 40px;
         }
 
         .host-card {
             background: var(--concrete-medium);
-            border-radius: 0;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 15px 15px 0 var(--spray-red);
-            transition: all 0.3s ease;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
-            border: 3px solid var(--spray-yellow);
-            position: relative;
+            border: 2px solid var(--spray-red);
         }
 
         .host-card:hover {
-            transform: translate(10px, 10px);
-            box-shadow: 5px 5px 0 var(--spray-red);
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
         }
 
         .host-header {
-            background: linear-gradient(45deg, var(--spray-red), var(--spray-orange));
+            background: linear-gradient(135deg, var(--spray-blue), var(--graffiti-black));
             padding: 40px;
             text-align: center;
             color: var(--street-light);
             position: relative;
-            overflow: hidden;
         }
 
         .host-header:before {
@@ -388,39 +312,24 @@
             left: 0;
             right: 0;
             height: 5px;
-            background: var(--spray-yellow);
-        }
-
-        .host-header:after {
-            content: 'COOKING WITH ATTITUDE';
-            position: absolute;
-            bottom: 10px;
-            left: 0;
-            right: 0;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.2);
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 3px;
+            background: linear-gradient(90deg, var(--spray-red), var(--spray-yellow));
         }
 
         .host-name {
             font-family: 'Bebas Neue', cursive;
-            font-weight: 900;
-            font-size: 3.5rem;
+            font-weight: 800;
+            font-size: 2.5rem;
             margin-bottom: 10px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+            letter-spacing: 1px;
         }
 
         .host-title {
             font-family: 'Oswald', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: var(--spray-yellow);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         .host-content {
@@ -431,12 +340,11 @@
         }
 
         .host-description {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             line-height: 1.8;
-            color: var(--street-light);
+            color: var(--street-gray);
             margin-bottom: 30px;
             flex-grow: 1;
-            font-weight: 500;
         }
 
         .host-stats {
@@ -449,26 +357,23 @@
         .stat {
             text-align: center;
             padding: 20px;
-            background: var(--concrete-dark);
-            border-radius: 0;
-            border-left: 5px solid var(--spray-yellow);
-            border-bottom: 5px solid var(--spray-red);
+            background: var(--concrete-light);
+            border-radius: 10px;
+            border-left: 4px solid var(--spray-yellow);
             transition: transform 0.3s ease;
         }
 
         .stat:hover {
             transform: translateY(-5px);
             border-left-color: var(--spray-red);
-            border-bottom-color: var(--spray-yellow);
         }
 
         .stat-value {
             font-family: 'Bebas Neue', cursive;
             font-weight: 700;
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             color: var(--spray-yellow);
             margin-bottom: 5px;
-            text-shadow: 2px 2px 0 var(--spray-red);
         }
 
         .stat-label {
@@ -476,113 +381,110 @@
             font-size: 0.9rem;
             color: var(--street-gray);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         /* Content Types Section */
         .content-types {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
+            gap: 30px;
+            margin-top: 50px;
         }
 
         .content-card {
             background: var(--concrete-medium);
             padding: 40px;
-            border-radius: 0;
-            box-shadow: 10px 10px 0 var(--spray-blue);
-            transition: all 0.3s ease;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
             position: relative;
             overflow: hidden;
-            border: 3px solid var(--spray-blue);
+            border: 2px solid var(--spray-blue);
         }
 
         .content-card:nth-child(2) {
-            box-shadow: 10px 10px 0 var(--spray-orange);
             border-color: var(--spray-orange);
         }
 
         .content-card:nth-child(3) {
-            box-shadow: 10px 10px 0 var(--spray-green);
             border-color: var(--spray-green);
         }
 
+        .content-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--spray-green), var(--spray-blue));
+        }
+
         .content-card:hover {
-            transform: translate(5px, 5px);
-            box-shadow: 5px 5px 0;
-        }
-
-        .content-card:nth-child(2):hover {
-            box-shadow: 5px 5px 0 var(--spray-orange);
-        }
-
-        .content-card:nth-child(3):hover {
-            box-shadow: 5px 5px 0 var(--spray-green);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .content-icon {
-            font-size: 4rem;
+            font-size: 3.5rem;
             color: var(--spray-yellow);
             margin-bottom: 25px;
             display: block;
-            text-shadow: 3px 3px 0 var(--spray-red);
         }
 
         .content-card h3 {
             font-family: 'Bebas Neue', cursive;
             font-weight: 700;
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             color: var(--street-light);
             margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         .content-card p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             line-height: 1.7;
             color: var(--street-gray);
             margin-bottom: 25px;
-            font-weight: 500;
         }
 
         .coming-soon {
             display: inline-block;
             background: var(--spray-red);
             color: var(--street-light);
-            padding: 10px 25px;
+            padding: 8px 20px;
             font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            border-radius: 0;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 20px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             border: 2px solid var(--spray-yellow);
-            transform: rotate(-3deg);
         }
 
         /* Episodes Section */
         .episodes-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
+            gap: 30px;
+            margin-top: 50px;
         }
 
         .episode-card {
             background: var(--concrete-medium);
-            border-radius: 0;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 10px 10px 0 var(--spray-red);
-            transition: all 0.3s ease;
-            border: 3px solid var(--spray-yellow);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid var(--spray-red);
         }
 
         .episode-card:hover {
-            transform: translate(5px, 5px);
-            box-shadow: 5px 5px 0 var(--spray-red);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .episode-image {
@@ -599,7 +501,7 @@
         }
 
         .episode-card:hover .episode-image img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .episode-badge {
@@ -608,16 +510,14 @@
             left: 20px;
             background: var(--spray-red);
             color: var(--street-light);
-            padding: 10px 25px;
+            padding: 8px 20px;
             font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            border-radius: 0;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 20px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             border: 2px solid var(--spray-yellow);
-            transform: rotate(-5deg);
-            box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.3);
         }
 
         .episode-content {
@@ -627,20 +527,19 @@
         .episode-title {
             font-family: 'Bebas Neue', cursive;
             font-weight: 700;
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: var(--street-light);
             margin-bottom: 15px;
-            line-height: 1.3;
+            line-height: 1.4;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .episode-description {
-            font-size: 1.1rem;
+            font-size: 1rem;
             line-height: 1.7;
             color: var(--street-gray);
             margin-bottom: 20px;
-            font-weight: 500;
         }
 
         .episode-tags {
@@ -650,44 +549,43 @@
         }
 
         .episode-tag {
-            background: var(--concrete-dark);
+            background: var(--concrete-light);
             color: var(--spray-yellow);
-            padding: 8px 20px;
+            padding: 6px 15px;
             font-family: 'Oswald', sans-serif;
             font-weight: 600;
-            font-size: 0.9rem;
-            border-radius: 0;
+            font-size: 0.8rem;
+            border-radius: 15px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 2px solid var(--spray-red);
+            letter-spacing: 0.5px;
         }
 
         /* Contact Section */
         .contact-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 60px;
-            margin-top: 60px;
+            gap: 50px;
+            margin-top: 50px;
         }
 
         .contact-info {
             background: var(--concrete-medium);
             padding: 40px;
-            border-radius: 0;
-            box-shadow: 10px 10px 0 var(--spray-blue);
-            border: 3px solid var(--spray-blue);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 2px solid var(--spray-blue);
         }
 
         .contact-info h3 {
             font-family: 'Bebas Neue', cursive;
             font-weight: 700;
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             color: var(--street-light);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             position: relative;
             padding-bottom: 15px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         .contact-info h3:after {
@@ -695,9 +593,9 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 80px;
-            height: 4px;
-            background: var(--spray-yellow);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--spray-red), var(--spray-orange));
         }
 
         .contact-item {
@@ -705,51 +603,49 @@
             align-items: flex-start;
             margin-bottom: 30px;
             padding-bottom: 20px;
-            border-bottom: 2px solid var(--spray-red);
+            border-bottom: 1px solid var(--concrete-light);
         }
 
         .contact-icon {
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: var(--spray-red);
             margin-right: 20px;
-            min-width: 40px;
-            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+            min-width: 30px;
         }
 
         .contact-details h4 {
             font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: var(--spray-yellow);
-            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--street-light);
+            margin-bottom: 5px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .contact-details p {
             color: var(--street-gray);
-            font-size: 1.1rem;
-            font-weight: 500;
+            font-size: 1rem;
         }
 
         .contact-form {
             background: var(--concrete-medium);
             padding: 40px;
-            border-radius: 0;
-            box-shadow: 10px 10px 0 var(--spray-red);
-            border: 3px solid var(--spray-red);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 2px solid var(--spray-red);
         }
 
         .contact-form h3 {
             font-family: 'Bebas Neue', cursive;
             font-weight: 700;
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             color: var(--street-light);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             position: relative;
             padding-bottom: 15px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         .contact-form h3:after {
@@ -757,9 +653,9 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 80px;
-            height: 4px;
-            background: var(--spray-yellow);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--spray-blue), var(--spray-green));
         }
 
         .form-group {
@@ -772,61 +668,60 @@
             font-family: 'Oswald', sans-serif;
             font-weight: 600;
             color: var(--spray-yellow);
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .form-control {
             width: 100%;
-            padding: 18px 20px;
-            background: var(--concrete-dark);
-            border: 3px solid var(--spray-red);
-            border-radius: 0;
+            padding: 15px 20px;
+            background: var(--concrete-light);
+            border: 2px solid var(--spray-red);
+            border-radius: 8px;
             color: var(--street-light);
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: all 0.3s ease;
             font-family: 'Roboto Condensed', sans-serif;
-            font-weight: 500;
         }
 
         .form-control:focus {
             outline: none;
             border-color: var(--spray-yellow);
-            box-shadow: 0 0 20px rgba(255, 255, 0, 0.3);
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+            background: var(--concrete-medium);
         }
 
         textarea.form-control {
-            min-height: 180px;
+            min-height: 150px;
             resize: vertical;
         }
 
         .submit-btn {
-            background: var(--spray-red);
-            color: var(--graffiti-black);
+            background: linear-gradient(135deg, var(--spray-blue), var(--spray-green));
+            color: var(--street-light);
             border: none;
-            padding: 20px 50px;
+            padding: 18px 40px;
             font-family: 'Oswald', sans-serif;
-            font-weight: 900;
-            font-size: 1.3rem;
-            border-radius: 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
+            gap: 10px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            border: 3px solid var(--spray-yellow);
-            box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+            border: 2px solid var(--spray-yellow);
         }
 
         .submit-btn:hover {
-            transform: translate(5px, 5px);
-            box-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
-            background: var(--spray-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(29, 53, 87, 0.3);
+            background: linear-gradient(135deg, var(--spray-green), var(--spray-blue));
         }
 
         /* Footer */
@@ -834,23 +729,7 @@
             background: var(--graffiti-black);
             color: var(--street-light);
             padding: 80px 0 40px;
-            border-top: 5px solid var(--spray-red);
-            position: relative;
-        }
-
-        footer:before {
-            content: 'REAL FOOD. REAL REVIEWS. NO BULLSHIT.';
-            position: absolute;
-            top: -25px;
-            left: 0;
-            right: 0;
-            font-family: 'Oswald', sans-serif;
-            font-size: 2rem;
-            color: var(--spray-red);
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
+            border-top: 3px solid var(--spray-red);
         }
 
         .footer-container {
@@ -863,26 +742,25 @@
         .footer-logo .logo-text {
             font-size: 2.5rem;
             margin-bottom: 20px;
-            display: block;
         }
 
         .footer-logo p {
             color: var(--street-gray);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             line-height: 1.7;
             max-width: 300px;
-            font-weight: 500;
         }
 
         .footer-links h4 {
             font-family: 'Bebas Neue', cursive;
-            font-size: 2rem;
+            font-weight: 700;
+            font-size: 1.5rem;
             margin-bottom: 25px;
             color: var(--spray-yellow);
             position: relative;
             padding-bottom: 10px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         .footer-links h4:after {
@@ -890,8 +768,8 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 50px;
-            height: 3px;
+            width: 40px;
+            height: 2px;
             background: var(--spray-red);
         }
 
@@ -900,28 +778,25 @@
         }
 
         .footer-links li {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .footer-links a {
             color: var(--street-gray);
             text-decoration: none;
             transition: all 0.3s ease;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1rem;
             display: inline-block;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .footer-links a:hover {
             color: var(--spray-yellow);
-            transform: translateX(10px);
+            transform: translateX(5px);
         }
 
         .social-icons {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             margin-bottom: 30px;
         }
 
@@ -929,31 +804,28 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 60px;
-            height: 60px;
-            background: var(--spray-red);
-            border-radius: 0;
-            color: var(--graffiti-black);
-            font-size: 1.8rem;
+            width: 45px;
+            height: 45px;
+            background: var(--concrete-medium);
+            border-radius: 50%;
+            color: var(--street-light);
+            font-size: 1.2rem;
             transition: all 0.3s ease;
-            border: 3px solid var(--spray-yellow);
-            box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--spray-red);
         }
 
         .social-icon:hover {
-            transform: translate(5px, 5px);
-            box-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
-            background: var(--spray-orange);
+            background: var(--spray-red);
+            transform: translateY(-3px);
+            border-color: var(--spray-yellow);
         }
 
         .copyright {
             text-align: center;
             padding-top: 40px;
-            border-top: 3px solid var(--spray-red);
+            border-top: 1px solid var(--concrete-medium);
             color: var(--street-gray);
-            font-size: 1rem;
-            font-family: 'Roboto Condensed', sans-serif;
-            font-weight: 500;
+            font-size: 0.95rem;
         }
 
         /* Responsive Design */
@@ -969,7 +841,7 @@
             }
             
             .hero h1 {
-                font-size: 3.5rem;
+                font-size: 3rem;
             }
             
             .hosts-container {
@@ -986,11 +858,9 @@
                 width: 100%;
                 background: var(--graffiti-black);
                 flex-direction: column;
-                padding: 30px;
+                padding: 20px;
                 text-align: center;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-                border-top: 5px solid var(--spray-red);
-                gap: 25px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             }
             
             nav ul.active {
@@ -1006,11 +876,16 @@
             }
             
             .hero h1 {
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
             
             .section-title h2 {
-                font-size: 3rem;
+                font-size: 2.2rem;
+            }
+            
+            .hero-image {
+                max-width: 500px;
+                margin: 0 auto;
             }
         }
 
@@ -1024,32 +899,40 @@
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
             
             .hero-tagline {
-                font-size: 1.8rem;
+                font-size: 1.4rem;
             }
             
             .section-title h2 {
-                font-size: 2.5rem;
+                font-size: 1.8rem;
             }
             
             .host-name {
-                font-size: 2.8rem;
+                font-size: 2rem;
             }
             
             .cta-button {
-                padding: 18px 40px;
-                font-size: 1.2rem;
+                padding: 15px 30px;
+                font-size: 1rem;
             }
             
             section {
-                padding: 80px 0;
+                padding: 70px 0;
             }
             
             .content-types, .episodes-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .hosts-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .host-card {
+                margin: 0;
             }
         }
     </style>
@@ -1060,10 +943,10 @@
         <div class="container header-container">
             <div class="logo">
                 <div class="logo-icon">
-                    <i class="fas fa-skull-crossbones"></i>
+                    <i class="fas fa-utensils"></i>
                 </div>
                 <div class="logo-text">
-                    CROCKED 'N LOADED
+                    <span>CROCKED</span>'N<span>LOADED</span>
                 </div>
             </div>
             
@@ -1073,17 +956,17 @@
             
             <nav>
                 <ul id="navMenu">
-                    <li><a href="#home" class="active">HOME</a></li>
-                    <li><a href="#hosts">THE CREW</a></li>
-                    <li><a href="#content">CONTENT</a></li>
-                    <li><a href="#episodes">EPISODES</a></li>
-                    <li><a href="#contact">CONTACT</a></li>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#hosts">The Crew</a></li>
+                    <li><a href="#content">Content</a></li>
+                    <li><a href="#episodes">Episodes</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section with Urban Restaurant Background -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
@@ -1091,13 +974,13 @@
                     <img src="background.jpg" alt="CrockPotDaddy and MACK3Y THE FOODIE">
                 </div>
                 <div class="hero-text">
-                    <h1>CROCKED 'N LOADED <span>REAL FOOD. REAL REVIEWS.</span></h1>
-                    <div class="hero-tagline">NO BULLSHIT</div>
+                    <h1>Crocked 'N Loaded <span>Real Food. Real Reviews.</span></h1>
+                    <div class="hero-tagline">No Bullshit.</div>
                     <div class="hero-description">
-                        Two chefs bringing you raw cooking content, honest restaurant reviews, and kitchen chaos that actually teaches you something. No fancy nonsense, just real food made by real people.
+                        Join CrockPotDaddy and MACK3Y THE FOODIE as they bring professional cooking techniques to home kitchens, explore global flavors, and deliver honest restaurant reviews. From budget cooking challenges to authentic global cuisine, we make cooking accessible and fun.
                     </div>
                     <a href="#episodes" class="cta-button">
-                        <i class="fas fa-play-circle"></i> WATCH EPISODES
+                        <i class="fas fa-play-circle"></i> Watch Episodes
                     </a>
                 </div>
             </div>
@@ -1108,36 +991,36 @@
     <section id="hosts" class="section-alt">
         <div class="container">
             <div class="section-title">
-                <h2>THE CREW</h2>
-                <div class="section-subtitle">TWO PERSPECTIVES, ONE PASSION</div>
+                <h2>Meet The Crew</h2>
+                <div class="section-subtitle">Two Perspectives, One Passion: Good Food</div>
             </div>
             
             <div class="hosts-container">
                 <div class="host-card">
                     <div class="host-header">
-                        <div class="host-name">CROCKPOTDADDY</div>
-                        <div class="host-title">HOME COOK EXPERT & ENTERTAINER</div>
+                        <div class="host-name">CrockPotDaddy</div>
+                        <div class="host-title">Home Cook Expert & Entertainer</div>
                     </div>
                     <div class="host-content">
                         <div class="host-description">
-                            Former music industry pro who brings high-energy entertainment and a practical approach to cooking. Asks the questions home cooks actually want answered and proves you don't need professional training to make amazing food. Specializes in making complex techniques accessible and fun.
+                            Former music industry professional who brings high-energy entertainment and a practical approach to cooking. Asks the questions home cooks actually want answered and proves you don't need professional training to make amazing food. Specializes in making complex techniques accessible and fun.
                         </div>
                         <div class="host-stats">
                             <div class="stat">
-                                <div class="stat-value">MUSIC & SALES</div>
-                                <div class="stat-label">BACKGROUND</div>
+                                <div class="stat-value">Music & Sales</div>
+                                <div class="stat-label">Background</div>
                             </div>
                             <div class="stat">
-                                <div class="stat-value">HOME COOK</div>
-                                <div class="stat-label">EXPERT LEVEL</div>
+                                <div class="stat-value">Home Cook</div>
+                                <div class="stat-label">Expert Level</div>
                             </div>
                             <div class="stat">
-                                <div class="stat-value">ENTERTAINMENT</div>
-                                <div class="stat-label">FOCUS</div>
+                                <div class="stat-value">Entertainment</div>
+                                <div class="stat-label">Focus</div>
                             </div>
                             <div class="stat">
-                                <div class="stat-value">PRACTICAL</div>
-                                <div class="stat-label">APPROACH</div>
+                                <div class="stat-value">Practical</div>
+                                <div class="stat-label">Approach</div>
                             </div>
                         </div>
                     </div>
@@ -1146,28 +1029,28 @@
                 <div class="host-card">
                     <div class="host-header">
                         <div class="host-name">MACK3Y THE FOODIE</div>
-                        <div class="host-title">FLAVOR EXPLORER & TEACHER</div>
+                        <div class="host-title">Flavor Explorer & Teacher</div>
                     </div>
                     <div class="host-content">
                         <div class="host-description">
-                            With 23 years exploring global cuisines, MACK3Y THE FOODIE is passionate about sharing authentic flavors from around the world. From Mexican street food to Asian fusion, Italian classics to Mediterranean delights, his focus is on making international cuisine approachable and fun. Believes good food has no borders.
+                            With 23 years exploring global cuisines, MACK3Y THE FOODIE is passionate about sharing authentic flavors from around the world. From Mexican street food to Asian fusion, Italian classics to Mediterranean delights, his focus is on making international cuisine approachable and fun. Believes good food has no borders and loves teaching techniques that work in real kitchens.
                         </div>
                         <div class="host-stats">
                             <div class="stat">
-                                <div class="stat-value">23 YEARS</div>
-                                <div class="stat-label">EXPERIENCE</div>
+                                <div class="stat-value">23 Years</div>
+                                <div class="stat-label">Experience</div>
                             </div>
                             <div class="stat">
-                                <div class="stat-value">GLOBAL</div>
-                                <div class="stat-label">CUISINE FOCUS</div>
+                                <div class="stat-value">Global</div>
+                                <div class="stat-label">Cuisine Focus</div>
                             </div>
                             <div class="stat">
-                                <div class="stat-value">TEACHING</div>
-                                <div class="stat-label">PASSION</div>
+                                <div class="stat-value">Teaching</div>
+                                <div class="stat-label">Passion</div>
                             </div>
                             <div class="stat">
-                                <div class="stat-value">FUN FOOD</div>
-                                <div class="stat-label">PHILOSOPHY</div>
+                                <div class="stat-value">Fun Food</div>
+                                <div class="stat-label">Philosophy</div>
                             </div>
                         </div>
                     </div>
@@ -1180,28 +1063,28 @@
     <section id="content">
         <div class="container">
             <div class="section-title">
-                <h2>OUR CONTENT</h2>
-                <div class="section-subtitle">THREE WAYS WE BRING FOOD TO LIFE</div>
+                <h2>Our Content</h2>
+                <div class="section-subtitle">Three Ways We Bring Food To Life</div>
             </div>
             
             <div class="content-types">
                 <div class="content-card">
                     <i class="fas fa-home content-icon"></i>
-                    <h3>HOME COOKING DEMOS</h3>
+                    <h3>Home Cooking Demos</h3>
                     <p>Professional techniques adapted for home kitchens. Learn restaurant-quality methods without the fancy equipment or chef ego.</p>
                 </div>
                 
                 <div class="content-card">
                     <i class="fas fa-shopping-basket content-icon"></i>
-                    <h3>BUDGET CHALLENGES</h3>
+                    <h3>Budget Challenges</h3>
                     <p>How delicious can we make it for how cheap? We transform budget ingredients into incredible meals that won't break the bank.</p>
                 </div>
                 
                 <div class="content-card">
                     <i class="fas fa-utensils content-icon"></i>
-                    <h3>RESTAURANT REVIEWS</h3>
+                    <h3>Restaurant Reviews</h3>
                     <p>Coming soon to YouTube! Honest reviews and chef interviews from local spots to hidden gems. No sponsorships, just real opinions.</p>
-                    <div class="coming-soon">COMING SOON</div>
+                    <div class="coming-soon">Coming Soon</div>
                 </div>
             </div>
         </div>
@@ -1211,25 +1094,25 @@
     <section id="episodes" class="section-alt">
         <div class="container">
             <div class="section-title">
-                <h2>FEATURED EPISODES</h2>
-                <div class="section-subtitle">TASTE THE VARIETY</div>
+                <h2>Featured Episodes</h2>
+                <div class="section-subtitle">Taste The Variety</div>
             </div>
             
             <div class="episodes-grid">
                 <div class="episode-card">
                     <div class="episode-image">
                         <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Budget Meal">
-                        <div class="episode-badge">BUDGET CHALLENGE</div>
+                        <div class="episode-badge">Budget Challenge</div>
                     </div>
                     <div class="episode-content">
-                        <div class="episode-title">$20 DINNER FOR FOUR CHALLENGE</div>
+                        <div class="episode-title">$20 Dinner for Four Challenge</div>
                         <div class="episode-description">
                             Can we create a restaurant-quality meal for a family of four on a $20 budget? Watch as we transform simple ingredients into something special.
                         </div>
                         <div class="episode-tags">
-                            <div class="episode-tag">BUDGET</div>
-                            <div class="episode-tag">FAMILY MEAL</div>
-                            <div class="episode-tag">CHALLENGE</div>
+                            <div class="episode-tag">Budget</div>
+                            <div class="episode-tag">Family Meal</div>
+                            <div class="episode-tag">Challenge</div>
                         </div>
                     </div>
                 </div>
@@ -1237,17 +1120,17 @@
                 <div class="episode-card">
                     <div class="episode-image">
                         <img src="https://images.unsplash.com/photo-1543353074-8c6d5f4a9c07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Global Cuisine">
-                        <div class="episode-badge">GLOBAL FLAVORS</div>
+                        <div class="episode-badge">Global Flavors</div>
                     </div>
                     <div class="episode-content">
-                        <div class="episode-title">AUTHENTIC MEXICAN STREET TACOS</div>
+                        <div class="episode-title">Authentic Mexican Street Tacos</div>
                         <div class="episode-description">
                             MACK3Y THE FOODIE shares authentic techniques for perfect street tacos while CrockPotDaddy keeps it real with home kitchen adaptations.
                         </div>
                         <div class="episode-tags">
-                            <div class="episode-tag">MEXICAN</div>
-                            <div class="episode-tag">STREET FOOD</div>
-                            <div class="episode-tag">AUTHENTIC</div>
+                            <div class="episode-tag">Mexican</div>
+                            <div class="episode-tag">Street Food</div>
+                            <div class="episode-tag">Authentic</div>
                         </div>
                     </div>
                 </div>
@@ -1255,17 +1138,17 @@
                 <div class="episode-card">
                     <div class="episode-image">
                         <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Comfort Food">
-                        <div class="episode-badge">COMFORT FOOD</div>
+                        <div class="episode-badge">Comfort Food</div>
                     </div>
                     <div class="episode-content">
-                        <div class="episode-title">ULTIMATE GOURMET BURGERS</div>
+                        <div class="episode-title">Ultimate Gourmet Burgers</div>
                         <div class="episode-description">
                             Why go out when you can make better burgers at home? We cover everything from meat selection to secret sauce recipes.
                         </div>
                         <div class="episode-tags">
-                            <div class="episode-tag">COMFORT</div>
-                            <div class="episode-tag">GRILLING</div>
-                            <div class="episode-tag">AMERICAN</div>
+                            <div class="episode-tag">Comfort</div>
+                            <div class="episode-tag">Grilling</div>
+                            <div class="episode-tag">American</div>
                         </div>
                     </div>
                 </div>
@@ -1277,19 +1160,19 @@
     <section id="contact">
         <div class="container">
             <div class="section-title">
-                <h2>GET IN TOUCH</h2>
-                <div class="section-subtitle">COLLABORATE, CONNECT, OR JUST SAY HELLO</div>
+                <h2>Get In Touch</h2>
+                <div class="section-subtitle">Collaborate, Connect, or Just Say Hello</div>
             </div>
             
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>CONTACT INFORMATION</h3>
+                    <h3>Contact Information</h3>
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div class="contact-details">
-                            <h4>EMAIL</h4>
+                            <h4>Email</h4>
                             <p>contact@crockednloaded.com</p>
                         </div>
                     </div>
@@ -1298,7 +1181,7 @@
                             <i class="fas fa-video"></i>
                         </div>
                         <div class="contact-details">
-                            <h4>YOUTUBE</h4>
+                            <h4>YouTube</h4>
                             <p>youtube.com/crockednloaded</p>
                         </div>
                     </div>
@@ -1307,33 +1190,33 @@
                             <i class="fas fa-handshake"></i>
                         </div>
                         <div class="contact-details">
-                            <h4>COLLABORATIONS</h4>
+                            <h4>Collaborations</h4>
                             <p>collab@crockednloaded.com</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="contact-form">
-                    <h3>SEND US A MESSAGE</h3>
+                    <h3>Send Us A Message</h3>
                     <form id="contactForm">
                         <div class="form-group">
-                            <label for="name">FULL NAME</label>
-                            <input type="text" id="name" class="form-control" placeholder="YOUR NAME" required>
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">EMAIL ADDRESS</label>
-                            <input type="email" id="email" class="form-control" placeholder="YOUR EMAIL" required>
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Your email" required>
                         </div>
                         <div class="form-group">
-                            <label for="subject">SUBJECT</label>
-                            <input type="text" id="subject" class="form-control" placeholder="WHAT'S UP?" required>
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" placeholder="What's this regarding?" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">MESSAGE</label>
-                            <textarea id="message" class="form-control" placeholder="DROP US A LINE..." required></textarea>
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" placeholder="Your message here..." required></textarea>
                         </div>
                         <button type="submit" class="submit-btn">
-                            <i class="fas fa-paper-plane"></i> SEND MESSAGE
+                            <i class="fas fa-paper-plane"></i> Send Message
                         </button>
                     </form>
                 </div>
@@ -1347,38 +1230,38 @@
             <div class="footer-container">
                 <div class="footer-logo">
                     <div class="logo-text">
-                        CROCKED 'N LOADED
+                        <span>CROCKED</span>'N<span>LOADED</span>
                     </div>
                     <p>Bringing professional cooking techniques, global flavors, and honest reviews to food lovers everywhere. Real food made by real people.</p>
                 </div>
                 
                 <div class="footer-links">
-                    <h4>QUICK LINKS</h4>
+                    <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#home">HOME</a></li>
-                        <li><a href="#hosts">THE CREW</a></li>
-                        <li><a href="#content">CONTENT</a></li>
-                        <li><a href="#episodes">EPISODES</a></li>
-                        <li><a href="#contact">CONTACT</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#hosts">The Crew</a></li>
+                        <li><a href="#content">Content</a></li>
+                        <li><a href="#episodes">Episodes</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-links">
-                    <h4>CONNECT WITH US</h4>
+                    <h4>Connect With Us</h4>
                     <div class="social-icons">
                         <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
                     </div>
-                    <p style="margin-top: 20px; color: #888; font-size: 1.1rem; font-family: 'Roboto Condensed', sans-serif;">
+                    <p style="margin-top: 20px; color: #aaa; font-size: 0.95rem;">
                         Subscribe for cooking tips, episode releases, and restaurant reviews.
                     </p>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 CROCKED 'N LOADED. ALL RIGHTS RESERVED. | REAL FOOD. REAL REVIEWS. NO BULLSHIT.</p>
+                <p>&copy; 2023 Crocked 'N Loaded. All rights reserved. | Real Food. Real Reviews. No Bullshit.</p>
             </div>
         </div>
     </footer>
@@ -1430,7 +1313,7 @@
             const name = document.getElementById('name').value;
             
             // Show success message
-            alert(`THANKS ${name}! YOUR MESSAGE HAS BEEN RECEIVED. WE'LL GET BACK TO YOU SOON.`);
+            alert(`Thank you ${name}! Your message has been received. We'll get back to you soon.`);
             
             // Reset the form
             contactForm.reset();
