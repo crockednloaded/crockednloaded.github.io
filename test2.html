@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crocked 'N Loaded | CrockPotDaddy & MACK3Y's Kitchen Ruckus</title>
+    <title>Crocked 'N Loaded | CrockPotDaddy & MACK3Y's Kitchen Show</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;700&family=Permanent+Marker&family=Roboto+Condensed:wght@400;700&family=Rock+Salt&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;700&family=Permanent+Marker&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -20,10 +20,8 @@
             --primary-orange: #ff6600;
             --accent-green: #00ff66;
             --accent-blue: #0066ff;
-            --accent-purple: #cc00ff;
             --gray-dark: #1a1a1a;
-            --gray-light: #e0e0e0;
-            --spray-effect: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ff003c' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            --gray-light: #f0f0f0;
         }
 
         body {
@@ -32,7 +30,6 @@
             font-family: 'Roboto Condensed', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
-            background-image: var(--spray-effect);
         }
 
         .container {
@@ -50,7 +47,6 @@
             top: 0;
             z-index: 1000;
             border-bottom: 3px solid var(--primary-red);
-            box-shadow: 0 5px 15px rgba(255, 0, 60, 0.2);
         }
 
         .header-container {
@@ -60,36 +56,12 @@
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            position: relative;
-        }
-
-        .logo-icon {
-            font-size: 3rem;
-            color: var(--primary-red);
-            text-shadow: 2px 2px 0 var(--primary-yellow);
-        }
-
-        .logo-text {
-            font-family: 'Rock Salt', cursive;
-            font-size: 2.2rem;
+            font-family: 'Permanent Marker', cursive;
+            font-size: 2.5rem;
             line-height: 1;
             background: linear-gradient(45deg, var(--primary-red), var(--primary-yellow));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 3px 3px 0 var(--primary-black);
-        }
-
-        .logo-tagline {
-            position: absolute;
-            bottom: -10px;
-            right: 0;
-            font-family: 'Permanent Marker', cursive;
-            font-size: 1rem;
-            color: var(--accent-green);
-            letter-spacing: 1px;
         }
 
         nav ul {
@@ -107,24 +79,21 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             padding: 8px 15px;
-            border-radius: 30px;
             transition: all 0.3s ease;
             position: relative;
         }
 
         nav a:hover {
-            color: var(--primary-black);
-            background-color: var(--primary-yellow);
-            transform: translateY(-3px);
+            color: var(--primary-yellow);
         }
 
         nav a:after {
             content: '';
             position: absolute;
             width: 100%;
-            height: 3px;
+            height: 2px;
             background-color: var(--primary-red);
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             transform: scaleX(0);
             transition: transform 0.3s ease;
@@ -145,36 +114,41 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.9)), 
-                        url('https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            padding: 120px 20px;
-            text-align: center;
             position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
             overflow: hidden;
         }
 
-        .hero:before {
-            content: '';
+        .hero-background {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, transparent 30%, rgba(255, 0, 60, 0.1) 50%, transparent 70%);
-            animation: shine 8s infinite linear;
+            z-index: -1;
         }
 
-        @keyframes shine {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+        .hero-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 5.5rem;
+            font-family: 'Permanent Marker', cursive;
+            font-size: 4.5rem;
             margin-bottom: 20px;
             line-height: 1;
             text-transform: uppercase;
@@ -182,104 +156,53 @@
 
         .hero h1 .crocked {
             color: var(--primary-red);
-            text-shadow: 4px 4px 0 var(--primary-black);
             display: block;
-            letter-spacing: 3px;
+            text-shadow: 3px 3px 0 var(--primary-black);
         }
 
         .hero h1 .loaded {
             color: var(--primary-yellow);
-            text-shadow: 4px 4px 0 var(--primary-red);
             display: block;
-            letter-spacing: 3px;
+            text-shadow: 3px 3px 0 var(--primary-red);
         }
 
-        .hosts-intro {
-            font-family: 'Permanent Marker', cursive;
-            font-size: 2.5rem;
-            margin: 30px 0;
-            color: var(--accent-green);
-            text-shadow: 2px 2px 0 var(--primary-black);
-        }
-
-        .hosts-names {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin: 30px 0;
-        }
-
-        .host-name {
-            font-family: 'Rock Salt', cursive;
-            font-size: 2.2rem;
-            padding: 10px 30px;
-            border-radius: 10px;
-        }
-
-        .crockpotdaddy {
-            background-color: var(--primary-red);
-            color: var(--primary-black);
-            transform: rotate(-3deg);
-            box-shadow: 8px 8px 0 var(--primary-yellow);
-        }
-
-        .mackey {
-            background-color: var(--primary-yellow);
-            color: var(--primary-black);
-            transform: rotate(3deg);
-            box-shadow: 8px 8px 0 var(--accent-blue);
-        }
-
-        .hero-tagline {
+        .hero-subtitle {
             font-family: 'Oswald', sans-serif;
             font-size: 1.8rem;
             margin-bottom: 30px;
             color: var(--accent-green);
-            text-shadow: 2px 2px 0 var(--primary-black);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .hero-subtitle {
+        .hero-tagline {
             font-size: 1.3rem;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            color: var(--gray-light);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-button {
             display: inline-block;
             background-color: var(--primary-red);
             color: var(--primary-black);
-            padding: 18px 45px;
+            padding: 15px 40px;
             font-family: 'Oswald', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 700;
             text-decoration: none;
             border-radius: 0;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            position: relative;
-            border: 3px solid var(--primary-yellow);
-            box-shadow: 5px 5px 0 var(--primary-yellow);
-            margin: 0 15px;
+            letter-spacing: 1px;
+            border: 2px solid var(--primary-yellow);
         }
 
         .cta-button:hover {
             background-color: var(--primary-yellow);
-            transform: translate(3px, 3px);
-            box-shadow: 2px 2px 0 var(--primary-red);
-            color: var(--primary-black);
-        }
-
-        .cta-button.secondary {
-            background-color: transparent;
-            color: var(--primary-yellow);
-            border-color: var(--primary-yellow);
-        }
-
-        .cta-button.secondary:hover {
-            background-color: var(--primary-yellow);
-            color: var(--primary-black);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 204, 0, 0.3);
         }
 
         /* Sections */
@@ -294,23 +217,21 @@
         }
 
         .section-title h2 {
-            font-family: 'Bebas Neue', cursive;
+            font-family: 'Permanent Marker', cursive;
             font-size: 3.5rem;
             color: var(--primary-yellow);
             display: inline-block;
-            padding: 0 20px;
             position: relative;
             text-transform: uppercase;
-            letter-spacing: 2px;
         }
 
         .section-title h2:before, .section-title h2:after {
-            content: '✪';
+            content: '//';
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             color: var(--primary-red);
-            font-size: 2rem;
+            font-family: 'Oswald', sans-serif;
         }
 
         .section-title h2:before {
@@ -321,88 +242,6 @@
         .section-title h2:after {
             left: 100%;
             margin-left: 20px;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 10px;
-            border: 5px solid var(--primary-red);
-            box-shadow: 15px 15px 0 var(--primary-yellow);
-            transform: rotate(-2deg);
-        }
-
-        .about-image:after {
-            content: 'KITCHEN RUCKUS';
-            position: absolute;
-            bottom: -20px;
-            right: -20px;
-            background-color: var(--primary-black);
-            color: var(--accent-green);
-            padding: 10px 20px;
-            font-family: 'Permanent Marker', cursive;
-            font-size: 1.5rem;
-            border: 3px solid var(--primary-yellow);
-            transform: rotate(3deg);
-        }
-
-        .about-text h3 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 25px;
-            color: var(--primary-red);
-        }
-
-        .about-text p {
-            margin-bottom: 25px;
-            font-size: 1.2rem;
-            line-height: 1.8;
-        }
-
-        .show-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .stat {
-            background-color: var(--gray-dark);
-            padding: 20px;
-            border-radius: 5px;
-            border-top: 5px solid var(--primary-red);
-            transition: transform 0.3s ease;
-        }
-
-        .stat:hover {
-            transform: translateY(-5px);
-            border-top-color: var(--accent-green);
-        }
-
-        .stat-number {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 2.5rem;
-            color: var(--primary-yellow);
-            display: block;
-        }
-
-        .stat-label {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1rem;
-            text-transform: uppercase;
-            color: var(--gray-light);
         }
 
         /* Hosts Section */
@@ -417,123 +256,94 @@
             border-radius: 10px;
             overflow: hidden;
             position: relative;
-            border: 3px solid var(--primary-red);
-            transition: all 0.3s ease;
+            border: 2px solid var(--primary-red);
         }
 
-        .host-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(255, 0, 60, 0.3);
+        .host-header {
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-orange));
+            padding: 25px;
+            text-align: center;
         }
 
-        .host-image {
-            height: 350px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .host-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .host-card:hover .host-image img {
-            transform: scale(1.05);
-        }
-
-        .host-tag {
-            position: absolute;
-            top: 20px;
-            right: 0;
-            padding: 5px 20px;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .crockpot-tag {
-            background-color: var(--primary-red);
+        .host-name {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 2.5rem;
             color: var(--primary-black);
         }
 
-        .mackey-tag {
-            background-color: var(--accent-blue);
-            color: white;
+        .host-real-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            color: var(--primary-black);
+            margin-top: 5px;
         }
 
         .host-content {
-            padding: 25px;
+            padding: 30px;
         }
 
-        .host-content h3 {
-            font-family: 'Rock Salt', cursive;
-            font-size: 2.2rem;
-            margin-bottom: 10px;
+        .host-bio {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
 
-        .crockpot-name {
-            color: var(--primary-red);
-            text-shadow: 2px 2px 0 var(--primary-black);
+        .host-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 25px;
         }
 
-        .mackey-name {
-            color: var(--accent-blue);
-            text-shadow: 2px 2px 0 var(--primary-black);
+        .stat {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid var(--primary-yellow);
         }
 
-        .host-nickname {
-            color: var(--accent-green);
-            font-family: 'Permanent Marker', cursive;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .host-quote {
-            font-style: italic;
-            color: var(--gray-light);
-            border-left: 3px solid;
-            padding-left: 15px;
-            margin: 15px 0;
-        }
-
-        .crockpot-quote {
-            border-left-color: var(--primary-red);
-        }
-
-        .mackey-quote {
-            border-left-color: var(--accent-blue);
-        }
-
-        .host-music {
-            display: flex;
-            align-items: center;
-            margin-top: 15px;
-            color: var(--accent-green);
+        .stat-label {
             font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            color: #aaa;
+            text-transform: uppercase;
+            margin-bottom: 5px;
         }
 
-        .music-icon {
-            margin-right: 10px;
-            font-size: 1.5rem;
+        .stat-value {
+            font-size: 1.2rem;
+            color: var(--primary-yellow);
         }
 
-        .crockpot-music {
-            color: var(--primary-red);
+        /* About Section */
+        .about-content {
+            background-color: var(--gray-dark);
+            padding: 50px;
+            border-radius: 10px;
+            border: 2px solid var(--primary-red);
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .mackey-music {
-            color: var(--accent-blue);
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+        }
+
+        .highlight {
+            color: var(--primary-yellow);
+            font-weight: 700;
         }
 
         /* Episodes Section */
         .episodes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
         }
 
@@ -541,27 +351,12 @@
             background-color: var(--gray-dark);
             border-radius: 10px;
             overflow: hidden;
-            position: relative;
             border: 2px solid var(--primary-red);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
         .episode-card:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 25px rgba(255, 0, 60, 0.4);
-        }
-
-        .episode-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background-color: var(--primary-red);
-            color: var(--primary-black);
-            padding: 5px 15px;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            z-index: 2;
-            border-radius: 3px;
+            transform: translateY(-10px);
         }
 
         .episode-image {
@@ -576,240 +371,36 @@
         }
 
         .episode-content {
-            padding: 20px;
+            padding: 25px;
         }
 
-        .episode-content h3 {
+        .episode-title {
             font-family: 'Oswald', sans-serif;
             font-size: 1.5rem;
             color: var(--primary-yellow);
-            margin-bottom: 10px;
-        }
-
-        .episode-music {
-            display: inline-block;
-            background-color: var(--primary-black);
-            color: var(--accent-green);
-            padding: 3px 10px;
-            font-size: 0.9rem;
-            border-radius: 3px;
-            margin-bottom: 10px;
-            font-family: 'Oswald', sans-serif;
+            margin-bottom: 15px;
+            text-transform: uppercase;
         }
 
         .episode-description {
-            color: var(--gray-light);
-            margin-bottom: 15px;
-        }
-
-        .episode-features {
-            display: flex;
-            justify-content: space-between;
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-
-        .feature {
-            display: flex;
-            align-items: center;
-        }
-
-        .feature i {
-            margin-right: 5px;
-            color: var(--primary-red);
-        }
-
-        /* Music & Vibes Section */
-        .music-section {
-            background: linear-gradient(135deg, rgba(255, 0, 60, 0.1), rgba(0, 102, 255, 0.1));
-            border-top: 5px solid var(--primary-red);
-            border-bottom: 5px solid var(--accent-blue);
-        }
-
-        .music-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .playlist {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 30px;
-            border-radius: 10px;
-            border: 3px solid var(--primary-yellow);
-        }
-
-        .playlist h3 {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 2.5rem;
-            color: var(--primary-yellow);
-            margin-bottom: 25px;
-            text-align: center;
-        }
-
-        .playlist-tracks {
-            list-style: none;
-        }
-
-        .track {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            margin-bottom: 10px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .track:hover {
-            background-color: rgba(255, 0, 60, 0.2);
-            transform: translateX(5px);
-        }
-
-        .track-number {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 1.8rem;
-            color: var(--primary-red);
-            margin-right: 15px;
-            min-width: 30px;
-        }
-
-        .track-info h4 {
-            font-family: 'Oswald', sans-serif;
-            color: var(--gray-light);
-            margin-bottom: 5px;
-        }
-
-        .track-info p {
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-
-        .music-stats {
-            text-align: center;
-        }
-
-        .music-stats h3 {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 2.5rem;
-            color: var(--accent-green);
-            margin-bottom: 30px;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .music-stat {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 25px;
-            border-radius: 10px;
-            border: 2px solid var(--accent-blue);
-        }
-
-        .music-stat i {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .crockpot-stat i {
-            color: var(--primary-red);
-        }
-
-        .mackey-stat i {
-            color: var(--accent-blue);
-        }
-
-        .music-stat h4 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        /* Recipes Section */
-        .recipes-container {
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), 
-                        url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-            padding: 60px;
-            border-radius: 15px;
-            border: 5px solid var(--primary-yellow);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .recipes-container:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent 30%, rgba(255, 204, 0, 0.1) 50%, transparent 70%);
-            animation: shine 8s infinite linear reverse;
-        }
-
-        .recipe-highlight {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .recipe-image {
-            border-radius: 10px;
-            overflow: hidden;
-            border: 3px solid var(--primary-red);
-            box-shadow: 10px 10px 0 var(--accent-green);
-            transform: rotate(-3deg);
-        }
-
-        .recipe-image img {
-            width: 100%;
-            display: block;
-        }
-
-        .recipe-details h3 {
-            font-family: 'Rock Salt', cursive;
-            font-size: 2.5rem;
-            color: var(--primary-yellow);
+            color: #bbb;
             margin-bottom: 20px;
         }
 
-        .recipe-details p {
-            margin-bottom: 25px;
-            font-size: 1.2rem;
-        }
-
-        .recipe-tags {
+        .episode-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-bottom: 25px;
         }
 
-        .recipe-tag {
+        .episode-tag {
             background-color: var(--primary-red);
             color: var(--primary-black);
             padding: 5px 15px;
             border-radius: 20px;
             font-family: 'Oswald', sans-serif;
-            font-weight: 500;
-        }
-
-        .recipe-tag.yellow {
-            background-color: var(--primary-yellow);
-        }
-
-        .recipe-tag.green {
-            background-color: var(--accent-green);
+            font-size: 0.9rem;
+            text-transform: uppercase;
         }
 
         /* Contact Section */
@@ -823,14 +414,15 @@
             background-color: var(--gray-dark);
             padding: 40px;
             border-radius: 10px;
-            border: 3px solid var(--primary-red);
+            border: 2px solid var(--primary-red);
         }
 
         .contact-info h3 {
-            font-family: 'Bebas Neue', cursive;
+            font-family: 'Permanent Marker', cursive;
             font-size: 2.5rem;
             color: var(--primary-yellow);
             margin-bottom: 30px;
+            text-transform: uppercase;
         }
 
         .contact-item {
@@ -840,7 +432,7 @@
         }
 
         .contact-icon {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-right: 20px;
             color: var(--primary-red);
             min-width: 40px;
@@ -850,14 +442,15 @@
             background-color: var(--gray-dark);
             padding: 40px;
             border-radius: 10px;
-            border: 3px solid var(--accent-blue);
+            border: 2px solid var(--primary-red);
         }
 
         .contact-form h3 {
-            font-family: 'Bebas Neue', cursive;
+            font-family: 'Permanent Marker', cursive;
             font-size: 2.5rem;
             color: var(--primary-yellow);
             margin-bottom: 30px;
+            text-transform: uppercase;
         }
 
         .form-group {
@@ -869,13 +462,14 @@
             margin-bottom: 8px;
             font-family: 'Oswald', sans-serif;
             color: var(--gray-light);
+            text-transform: uppercase;
         }
 
         .form-control {
             width: 100%;
             padding: 15px;
             background-color: rgba(255, 255, 255, 0.1);
-            border: 2px solid var(--primary-red);
+            border: 1px solid var(--primary-red);
             border-radius: 5px;
             color: var(--gray-light);
             font-size: 1rem;
@@ -884,8 +478,8 @@
 
         .form-control:focus {
             outline: none;
-            border-color: var(--accent-green);
-            box-shadow: 0 0 0 3px rgba(0, 255, 102, 0.2);
+            border-color: var(--primary-yellow);
+            box-shadow: 0 0 0 2px rgba(255, 204, 0, 0.2);
         }
 
         textarea.form-control {
@@ -897,7 +491,7 @@
             background-color: var(--primary-red);
             color: var(--primary-black);
             border: none;
-            padding: 18px 40px;
+            padding: 15px 40px;
             font-family: 'Oswald', sans-serif;
             font-size: 1.2rem;
             font-weight: 700;
@@ -906,21 +500,17 @@
             transition: all 0.3s ease;
             width: 100%;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .submit-btn:hover {
             background-color: var(--primary-yellow);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 204, 0, 0.4);
         }
 
         /* Footer */
         footer {
             background-color: var(--gray-dark);
             padding: 60px 0 30px;
-            margin-top: 60px;
-            border-top: 5px solid var(--primary-red);
+            border-top: 3px solid var(--primary-red);
         }
 
         .footer-container {
@@ -930,20 +520,17 @@
             margin-bottom: 40px;
         }
 
-        .footer-logo .logo-text {
+        .footer-logo .logo {
             font-size: 2rem;
             margin-bottom: 20px;
         }
 
-        .footer-logo p {
-            color: #bbb;
-        }
-
-        .footer-links h4, .footer-social h4 {
-            font-family: 'Bebas Neue', cursive;
+        .footer-links h4 {
+            font-family: 'Permanent Marker', cursive;
             font-size: 1.8rem;
             margin-bottom: 20px;
             color: var(--primary-yellow);
+            text-transform: uppercase;
         }
 
         .footer-links ul {
@@ -962,7 +549,7 @@
         }
 
         .footer-links a:hover {
-            color: var(--accent-green);
+            color: var(--primary-yellow);
             padding-left: 10px;
         }
 
@@ -987,7 +574,7 @@
 
         .social-icon:hover {
             background-color: var(--primary-red);
-            transform: translateY(-5px) rotate(10deg);
+            transform: translateY(-5px);
         }
 
         .copyright {
@@ -1000,18 +587,13 @@
 
         /* Responsive Design */
         @media (max-width: 992px) {
-            .about-content, .recipe-highlight, .hosts-container, .music-container {
+            .hosts-container {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
             
             .hero h1 {
-                font-size: 4rem;
-            }
-            
-            .hosts-names {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
+                font-size: 3.5rem;
             }
         }
 
@@ -1027,7 +609,6 @@
                 padding: 20px;
                 text-align: center;
                 border-top: 3px solid var(--primary-red);
-                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
             }
             
             nav ul.active {
@@ -1039,61 +620,54 @@
             }
             
             .hero h1 {
-                font-size: 3rem;
+                font-size: 2.8rem;
             }
             
             .hero-subtitle {
-                font-size: 1.1rem;
+                font-size: 1.5rem;
             }
             
             .section-title h2 {
                 font-size: 2.5rem;
             }
             
-            .show-stats, .stats-grid {
-                grid-template-columns: 1fr;
+            .about-content {
+                padding: 30px 20px;
             }
         }
 
         @media (max-width: 576px) {
             .hero {
-                padding: 80px 20px;
+                padding: 40px 20px;
+                min-height: 70vh;
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
-            .hosts-intro {
-                font-size: 1.8rem;
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
             }
             
             .host-name {
-                font-size: 1.8rem;
-                padding: 8px 20px;
+                font-size: 2rem;
             }
             
             .cta-button {
-                padding: 15px 30px;
+                padding: 12px 30px;
                 font-size: 1.1rem;
-                margin: 10px 0;
-                display: block;
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .cta-buttons {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
             }
             
             section {
                 padding: 60px 0;
             }
             
-            .recipes-container, .contact-info, .contact-form {
+            .contact-info, .contact-form {
                 padding: 30px 20px;
             }
         }
@@ -1104,15 +678,7 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-skull-crossbones"></i>
-                </div>
-                <div class="logo-text">
-                    CROCKED 'N LOADED
-                </div>
-                <div class="logo-tagline">
-                    Kitchen Ruckus
-                </div>
+                CROCKED 'N LOADED
             </div>
             
             <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -1122,12 +688,10 @@
             <nav>
                 <ul id="navMenu">
                     <li><a href="#home">Home</a></li>
+                    <li><a href="#hosts">Hosts</a></li>
                     <li><a href="#about">The Show</a></li>
-                    <li><a href="#hosts">The Crew</a></li>
                     <li><a href="#episodes">Episodes</a></li>
-                    <li><a href="#music">Vibes</a></li>
-                    <li><a href="#recipes">Eats</a></li>
-                    <li><a href="#contact">Holla</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -1135,36 +699,93 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="container">
+        <div class="hero-background">
+            <img src="background.jpg" alt="CrockPotDaddy and MACK3Y">
+        </div>
+        <div class="container hero-content">
             <h1>
                 <span class="crocked">CROCKED</span>
                 <span class="loaded">'N LOADED</span>
             </h1>
-            
-            <div class="hosts-intro">
-                Starring the Dynamic Duo
-            </div>
-            
-            <div class="hosts-names">
-                <div class="host-name crockpotdaddy">
-                    CROCKPOTDADDY
-                </div>
-                <div class="host-name mackey">
-                    MACK3Y THE FOODIE
-                </div>
-            </div>
-            
-            <div class="hero-tagline">
-                Tattoos, Tunes, and Too Much Flavor
-            </div>
-            
             <div class="hero-subtitle">
-                Two tattooed chefs bringing rock, rap, and ridiculous recipes to your kitchen. No rules, no boring food, just pure culinary chaos.
+                Real Food. Real People. No Bullshit.
+            </div>
+            <div class="hero-tagline">
+                Two friends with a passion for food, music, and showing you how to cook amazing meals at home.
+            </div>
+            <a href="#episodes" class="cta-button">Watch Now</a>
+        </div>
+    </section>
+
+    <!-- Hosts Section -->
+    <section id="hosts">
+        <div class="container">
+            <div class="section-title">
+                <h2>THE HOSTS</h2>
             </div>
             
-            <div class="cta-buttons">
-                <a href="#episodes" class="cta-button">WATCH THE MADNESS</a>
-                <a href="#recipes" class="cta-button secondary">GET THE RECIPES</a>
+            <div class="hosts-container">
+                <div class="host-card">
+                    <div class="host-header">
+                        <div class="host-name">CROCKPOTDADDY</div>
+                        <div class="host-real-name">Eric Landry</div>
+                    </div>
+                    <div class="host-content">
+                        <div class="host-bio">
+                            Former music artist manager with years of sales experience. Not a professional chef, but has developed serious home cooking skills through passion and practice. Brings the energy and entertainment while learning alongside the audience.
+                        </div>
+                        
+                        <div class="host-stats">
+                            <div class="stat">
+                                <div class="stat-label">Background</div>
+                                <div class="stat-value">Music & Sales</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Style</div>
+                                <div class="stat-value">Home Cook</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Role</div>
+                                <div class="stat-value">The Entertainer</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Vibe</div>
+                                <div class="stat-value">High Energy</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="host-card">
+                    <div class="host-header">
+                        <div class="host-name">MACK3Y THE FOODIE</div>
+                        <div class="host-real-name">Steve Mackey</div>
+                    </div>
+                    <div class="host-content">
+                        <div class="host-bio">
+                            Professional chef with 23 years of experience in every kitchen setting imaginable - from diners to fine dining. Has cooked at a Four Diamond level and served as an Executive Chef for years. Passionate about teaching others how to cook.
+                        </div>
+                        
+                        <div class="host-stats">
+                            <div class="stat">
+                                <div class="stat-label">Experience</div>
+                                <div class="stat-value">23 Years</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Level</div>
+                                <div class="stat-value">Executive Chef</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Focus</div>
+                                <div class="stat-value">Teaching</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Expertise</div>
+                                <div class="stat-value">All Kitchens</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1177,82 +798,14 @@
             </div>
             
             <div class="about-content">
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Crazy Kitchen Setup">
-                </div>
                 <div class="about-text">
-                    <h3>KITCHEN CHAOS WITH ATTITUDE</h3>
-                    <p>Crocked 'N Loaded ain't your grandma's cooking show. This is where rock 'n' roll meets rap, tattoos meet truffles, and two madmen in the kitchen create edible art that'll blow your mind.</p>
-                    <p>Each episode features CrockPotDaddy's slow-cooked mastery and MACK3Y's gourmet street food flair, all set to a killer soundtrack that'll have you headbanging while you're cooking.</p>
-                    <p>We break every rule in the cookbook, smash genres together, and create flavor combinations so wild they shouldn't work... but they do.</p>
+                    <p><span class="highlight">Crocked 'N Loaded</span> is a cooking show with a different flavor. We're not here to show you impossible restaurant techniques or use ingredients you can't find.</p>
                     
-                    <div class="show-stats">
-                        <div class="stat">
-                            <span class="stat-number">100+</span>
-                            <span class="stat-label">Tattoos Combined</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">∞</span>
-                            <span class="stat-label">F*cks Given</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">24/7</span>
-                            <span class="stat-label">Vibes On</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Hosts Section -->
-    <section id="hosts">
-        <div class="container">
-            <div class="section-title">
-                <h2>THE CREW</h2>
-            </div>
-            
-            <div class="hosts-container">
-                <div class="host-card">
-                    <div class="host-image">
-                        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="CrockPotDaddy">
-                        <div class="host-tag crockpot-tag">
-                            The Rock Chef
-                        </div>
-                    </div>
-                    <div class="host-content">
-                        <h3 class="crockpot-name">CROCKPOTDADDY</h3>
-                        <span class="host-nickname">"The Slow-Cookin' Sinner"</span>
-                        <p>Former heavy metal guitarist turned culinary maestro. Specializes in low-and-slow cooking, bourbon-infused everything, and bringing the rock to the kitchen.</p>
-                        <div class="host-quote crockpot-quote">
-                            "If it ain't loud, slow-cooked, or on fire, it ain't worth making."
-                        </div>
-                        <div class="host-music crockpot-music">
-                            <i class="fas fa-guitar music-icon"></i>
-                            <span>Current Jam: Metallica, Black Sabbath, AC/DC</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="host-card">
-                    <div class="host-image">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="MACK3Y the Foodie">
-                        <div class="host-tag mackey-tag">
-                            The Hip-Hop Chef
-                        </div>
-                    </div>
-                    <div class="host-content">
-                        <h3 class="mackey-name">MACK3Y THE FOODIE</h3>
-                        <span class="host-nickname">"The Flavor Scientist"</span>
-                        <p>Ex-street artist with a palate for perfection. Combines gourmet technique with street food soul. If it's crispy, loaded, or dripping with flavor, he invented it.</p>
-                        <div class="host-quote mackey-quote">
-                            "I put the 'extra' in extra crispy and the 'drip' in sauce drip."
-                        </div>
-                        <div class="host-music mackey-music">
-                            <i class="fas fa-headphones music-icon"></i>
-                            <span>Current Jam: Kendrick Lamar, Run The Jewels, J. Cole</span>
-                        </div>
-                    </div>
+                    <p><span class="highlight">Eric (CrockPotDaddy)</span> represents the home cook - learning, experimenting, and sometimes making mistakes. <span class="highlight">Steve (MACK3Y)</span> brings 23 years of professional experience to break down techniques so anyone can understand them.</p>
+                    
+                    <p>Together, we create a show where professional meets practical. Steve teaches the techniques he's mastered over two decades, while Eric asks the questions a home cook would ask. The result is a cooking show that's actually useful for real people cooking in real kitchens.</p>
+                    
+                    <p>No fancy studio kitchen. No impossible recipes. Just two friends cooking good food and showing you how to do it too.</p>
                 </div>
             </div>
         </div>
@@ -1262,179 +815,55 @@
     <section id="episodes">
         <div class="container">
             <div class="section-title">
-                <h2>LATEST EPISODES</h2>
+                <h2>EPISODES</h2>
             </div>
             
             <div class="episodes-grid">
                 <div class="episode-card">
-                    <div class="episode-badge">
-                        NEW
-                    </div>
                     <div class="episode-image">
-                        <img src="https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Ribs Episode">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Comfort Food">
                     </div>
                     <div class="episode-content">
-                        <div class="episode-music">
-                            <i class="fas fa-volume-up"></i> Soundtrack: Slayer vs. Wu-Tang
+                        <div class="episode-title">Comfort Food Basics</div>
+                        <div class="episode-description">
+                            Steve teaches Eric the fundamentals of making perfect mashed potatoes and gravy while explaining why technique matters.
                         </div>
-                        <h3>RIBS THAT RIP</h3>
-                        <p class="episode-description">CrockPotDaddy slow-smokes 12-hour ribs while MACK3Y creates a Carolina-meets-Korea glaze. Things get sticky.</p>
-                        <div class="episode-features">
-                            <div class="feature">
-                                <i class="fas fa-fire"></i> Spice Level: 8/10
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-clock"></i> 58 min
-                            </div>
+                        <div class="episode-tags">
+                            <span class="episode-tag">Beginner</span>
+                            <span class="episode-tag">Comfort Food</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="episode-card">
-                    <div class="episode-badge">
-                        FAN FAV
-                    </div>
                     <div class="episode-image">
-                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Burger Episode">
+                        <img src="https://images.unsplash.com/photo-1543353074-8c6d5f4a9c07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Grilling">
                     </div>
                     <div class="episode-content">
-                        <div class="episode-music">
-                            <i class="fas fa-volume-up"></i> Soundtrack: Rage Against the Machine
+                        <div class="episode-title">Backyard Grilling</div>
+                        <div class="episode-description">
+                            Professional grilling techniques made simple. Steve shows Eric how to get restaurant-quality results on a home grill.
                         </div>
-                        <h3>BURGER BATTLE ROYALE</h3>
-                        <p class="episode-description">Who makes the better burger? The rocker with his whiskey-bacon jam or the hip-hop head with his "drip sauce"?</p>
-                        <div class="episode-features">
-                            <div class="feature">
-                                <i class="fas fa-hamburger"></i> 3 Patties
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-clock"></i> 47 min
-                            </div>
+                        <div class="episode-tags">
+                            <span class="episode-tag">Grilling</span>
+                            <span class="episode-tag">Outdoor</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="episode-card">
-                    <div class="episode-badge">
-                        WILD
-                    </div>
                     <div class="episode-image">
-                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Dessert Episode">
+                        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kitchen Skills">
                     </div>
                     <div class="episode-content">
-                        <div class="episode-music">
-                            <i class="fas fa-volume-up"></i> Soundtrack: N.W.A. meets Led Zeppelin
+                        <div class="episode-title">Essential Knife Skills</div>
+                        <div class="episode-description">
+                            The most important lesson for any cook. Steve breaks down professional knife techniques for home kitchens.
                         </div>
-                        <h3>DRUNKEN DONUTS</h3>
-                        <p class="episode-description">Bourbon-glazed, rum-infused, tequila-soaked donuts that'll get you buzzed and sugar-rushed simultaneously.</p>
-                        <div class="episode-features">
-                            <div class="feature">
-                                <i class="fas fa-beer"></i> 3 Liquors
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-clock"></i> 62 min
-                            </div>
+                        <div class="episode-tags">
+                            <span class="episode-tag">Technique</span>
+                            <span class="episode-tag">Basics</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Music Section -->
-    <section class="music-section" id="music">
-        <div class="container">
-            <div class="section-title">
-                <h2>THE VIBES</h2>
-            </div>
-            
-            <div class="music-container">
-                <div class="playlist">
-                    <h3>KITCHEN PLAYLIST</h3>
-                    <ul class="playlist-tracks">
-                        <li class="track">
-                            <div class="track-number">01</div>
-                            <div class="track-info">
-                                <h4>Sabotage</h4>
-                                <p>Beastie Boys</p>
-                            </div>
-                        </li>
-                        <li class="track">
-                            <div class="track-number">02</div>
-                            <div class="track-info">
-                                <h4>Back In Black</h4>
-                                <p>AC/DC</p>
-                            </div>
-                        </li>
-                        <li class="track">
-                            <div class="track-number">03</div>
-                            <div class="track-info">
-                                <h4>HUMBLE.</h4>
-                                <p>Kendrick Lamar</p>
-                            </div>
-                        </li>
-                        <li class="track">
-                            <div class="track-number">04</div>
-                            <div class="track-info">
-                                <h4>Enter Sandman</h4>
-                                <p>Metallica</p>
-                            </div>
-                        </li>
-                        <li class="track">
-                            <div class="track-number">05</div>
-                            <div class="track-info">
-                                <h4>Hypnotize</h4>
-                                <p>Notorious B.I.G.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="music-stats">
-                    <h3>CHEF VIBE CHECK</h3>
-                    <div class="stats-grid">
-                        <div class="music-stat crockpot-stat">
-                            <i class="fas fa-guitar"></i>
-                            <h4>CrockPotDaddy</h4>
-                            <p>Rock & Metal: 90%</p>
-                            <p>Kitchen Volume: 11</p>
-                        </div>
-                        <div class="music-stat mackey-stat">
-                            <i class="fas fa-microphone-alt"></i>
-                            <h4>MACK3Y</h4>
-                            <p>Hip-Hop & Rap: 95%</p>
-                            <p>Sauce Drip: Maximum</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Recipes Section -->
-    <section id="recipes">
-        <div class="container">
-            <div class="section-title">
-                <h2>THE EATS</h2>
-            </div>
-            
-            <div class="recipes-container">
-                <div class="recipe-highlight">
-                    <div class="recipe-image">
-                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Signature Burger">
-                    </div>
-                    <div class="recipe-details">
-                        <h3>LOADED RUCKUS BURGER</h3>
-                        <p>The ultimate collaboration burger that combines CrockPotDaddy's whiskey-bacon jam with MACK3Y's "drip sauce" for a flavor explosion that should probably be illegal.</p>
-                        
-                        <div class="recipe-tags">
-                            <div class="recipe-tag">Messy AF</div>
-                            <div class="recipe-tag yellow">3 Patties</div>
-                            <div class="recipe-tag green">Extra Drip</div>
-                            <div class="recipe-tag">Napkins Required</div>
-                        </div>
-                        
-                        <a href="#" class="cta-button">GET THE RECIPE</a>
                     </div>
                 </div>
             </div>
@@ -1445,7 +874,7 @@
     <section id="contact">
         <div class="container">
             <div class="section-title">
-                <h2>HOLLA AT US</h2>
+                <h2>CONTACT</h2>
             </div>
             
             <div class="contact-container">
@@ -1457,34 +886,25 @@
                         </div>
                         <div>
                             <h4>Email</h4>
-                            <p>ruckus@crockednloaded.com</p>
+                            <p>contact@crockednloaded.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
+                            <i class="fas fa-video"></i>
                         </div>
                         <div>
-                            <h4>Collabs</h4>
-                            <p>(555) RUC-KUSS</p>
+                            <h4>YouTube</h4>
+                            <p>youtube.com/crockednloaded</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
+                            <i class="fas fa-users"></i>
                         </div>
                         <div>
-                            <h4>Studio</h4>
-                            <p>666 Flavor Avenue, Kitchen Chaos</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-fire"></i>
-                        </div>
-                        <div>
-                            <h4>Spice Level</h4>
-                            <p>Always at Maximum</p>
+                            <h4>Collaborations</h4>
+                            <p>collab@crockednloaded.com</p>
                         </div>
                     </div>
                 </div>
@@ -1493,22 +913,22 @@
                     <h3>SEND A MESSAGE</h3>
                     <form id="contactForm">
                         <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" class="form-control" placeholder="What do they call you?" required>
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" class="form-control" placeholder="Where we sending the sauce?" required>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="subject">Subject</label>
-                            <input type="text" id="subject" class="form-control" placeholder="What's the vibe?" required>
+                            <input type="text" id="subject" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" class="form-control" placeholder="Drop some knowledge or just yell at us..." required></textarea>
+                            <textarea id="message" class="form-control" required></textarea>
                         </div>
-                        <button type="submit" class="submit-btn">SEND IT</button>
+                        <button type="submit" class="submit-btn">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -1520,38 +940,36 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-logo">
-                    <div class="logo-text">
+                    <div class="logo">
                         CROCKED 'N LOADED
                     </div>
-                    <p>Two tattooed maniacs bringing rock, rap, and ridiculous recipes to your kitchen. No rules, just flavor.</p>
+                    <p>A cooking show for real people by real people.</p>
                 </div>
                 
                 <div class="footer-links">
                     <h4>QUICK LINKS</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
+                        <li><a href="#hosts">Hosts</a></li>
                         <li><a href="#about">The Show</a></li>
-                        <li><a href="#hosts">The Crew</a></li>
                         <li><a href="#episodes">Episodes</a></li>
-                        <li><a href="#recipes">Recipes</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-social">
-                    <h4>FOLLOW THE MADNESS</h4>
+                    <h4>FOLLOW US</h4>
                     <div class="social-icons">
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-spotify"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
                     </div>
-                    <p style="margin-top: 20px; font-family: 'Permanent Marker', cursive;">Turn it up, cook it loud!</p>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 Crocked 'N Loaded. All rights reserved. | Made with <i class="fas fa-skull" style="color: var(--primary-red);"></i> and <i class="fas fa-fire" style="color: var(--primary-yellow);"></i></p>
+                <p>&copy; 2023 Crocked 'N Loaded. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1599,79 +1017,8 @@
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            
-            // Create a cool message based on what they wrote
-            const messages = [
-                `Thanks for the message, ${name}! We'll hit you back at ${email} when we're done cooking up something nasty.`,
-                `Word, ${name}! Your message has been received. Expect a reply to ${email} when we come up for air from the kitchen.`,
-                `Hell yeah, ${name}! We got your message. We'll slide into ${email} soon with a proper response. Keep it loud!`
-            ];
-            
-            // Pick a random message
-            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-            
-            // Show alert with the message
-            alert(randomMessage);
-            
-            // Reset the form
+            alert('Thanks for your message! We\'ll get back to you soon.');
             contactForm.reset();
-        });
-        
-        // Add active class to nav links on scroll
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('nav a');
-            
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if(scrollY >= (sectionTop - 100)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if(link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-        
-        // Add some fun hover effects to episode cards
-        document.querySelectorAll('.episode-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.03) rotate(1deg)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1) rotate(0deg)';
-            });
-        });
-        
-        // Add audio effect to music icons
-        document.querySelectorAll('.fa-volume-up, .fa-guitar, .fa-headphones').forEach(icon => {
-            icon.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.2)';
-                this.style.color = 'var(--accent-green)';
-            });
-            
-            icon.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1)';
-                if(this.classList.contains('fa-guitar')) {
-                    this.style.color = 'var(--primary-red)';
-                } else if(this.classList.contains('fa-headphones')) {
-                    this.style.color = 'var(--accent-blue)';
-                } else {
-                    this.style.color = '';
-                }
-            });
         });
     </script>
 </body>
