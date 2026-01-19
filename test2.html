@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CROCKED 'N LOADED | Real Food. Real Reviews. No Bullshit.</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&family=Bebas+Neue&family=Anton&family=Oswald:wght@400;500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Graduate&family=Bungee&family=Creepster&family=Rubik+Wet+Paint&family=Audiowide&family=Russo+One&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,27 +14,30 @@
         }
 
         :root {
-            --brick-red: #8B0000;
-            --brick-dark: #5D0000;
-            --brick-light: #A52A2A;
-            --graffiti-red: #FF2400;
-            --graffiti-blue: #0096FF;
-            --graffiti-yellow: #FFD700;
-            --urban-gray: #2F2F2F;
-            --urban-black: #1A1A1A;
-            --street-light: #F8F8F8;
-            --concrete: #7C7C7C;
-            --spray-pink: #FF69B4;
-            --warning-orange: #FF8C00;
+            --spray-red: #FF0000;
+            --spray-blue: #0096FF;
+            --spray-yellow: #FFFF00;
+            --spray-green: #00FF00;
+            --spray-pink: #FF00FF;
+            --spray-orange: #FFA500;
+            --spray-purple: #800080;
+            --wall-black: #0A0A0A;
+            --wall-dark: #1A1A1A;
+            --wall-concrete: #2D2D2D;
+            --text-white: #FFFFFF;
+            --text-neon: #00FFFF;
         }
 
         body {
-            background-color: var(--urban-black);
-            color: var(--street-light);
-            font-family: 'Urbanist', sans-serif;
+            background-color: var(--wall-black);
+            color: var(--text-white);
+            font-family: 'Oswald', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h50v50H0V0zm50 50h50v50H50V50z' fill='%235D0000' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
+            background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
         }
 
         .container {
@@ -44,25 +47,77 @@
             padding: 0 40px;
         }
 
-        /* Urban Brick Wall Effect */
-        .brick-section {
-            position: relative;
-            background: linear-gradient(rgba(26, 26, 26, 0.97), rgba(26, 26, 26, 0.97)),
-                        url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%238B0000' fill-opacity='0.2'%3E%3Crect x='0' y='0' width='100' height='50'/%3E%3Crect x='100' y='0' width='100' height='50'/%3E%3Crect x='0' y='50' width='100' height='50'/%3E%3Crect x='100' y='50' width='100' height='50'/%3E%3Crect x='0' y='100' width='100' height='50'/%3E%3Crect x='100' y='100' width='100' height='50'/%3E%3Crect x='0' y='150' width='100' height='50'/%3E%3Crect x='100' y='150' width='100' height='50'/%3E%3C/g%3E%3C/svg%3E");
-            background-size: 200px 200px;
-            border-top: 3px solid var(--brick-red);
-            border-bottom: 3px solid var(--brick-red);
+        /* Graffiti Text Styles */
+        .graffiti-title {
+            font-family: 'Rubik Wet Paint', cursive;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 
+                3px 3px 0 var(--wall-black),
+                6px 6px 0 rgba(255, 0, 0, 0.5);
         }
 
-        /* Header & Navigation - Urban Style */
+        .spray-text {
+            font-family: 'Graduate', cursive;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .spray-text:after {
+            content: attr(data-text);
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            color: var(--spray-blue);
+            z-index: -1;
+        }
+
+        .tag-text {
+            font-family: 'Creepster', cursive;
+            font-size: 2.5rem;
+            color: var(--spray-yellow);
+            text-shadow: 2px 2px 0 var(--spray-red);
+        }
+
+        .urban-text {
+            font-family: 'Bungee', cursive;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Wall Overlay */
+        .wall-overlay {
+            position: relative;
+            background: rgba(10, 10, 10, 0.85);
+            border-left: 8px solid var(--spray-red);
+            border-right: 8px solid var(--spray-blue);
+        }
+
+        .wall-overlay:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1524850011238-e3d235c7d4c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        /* Header & Navigation */
         header {
-            background-color: var(--urban-black);
+            background-color: var(--wall-black);
             padding: 20px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 3px solid var(--graffiti-red);
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+            border-bottom: 5px solid var(--spray-red);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.8);
         }
 
         .header-container {
@@ -72,26 +127,28 @@
         }
 
         .logo {
-            font-family: 'Permanent Marker', cursive;
-            font-size: 3.2rem;
+            font-family: 'Rubik Wet Paint', cursive;
+            font-size: 3.5rem;
             line-height: 1;
-            background: linear-gradient(45deg, var(--graffiti-red), var(--graffiti-yellow));
+            background: linear-gradient(45deg, var(--spray-red), var(--spray-yellow), var(--spray-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 3px 3px 0 var(--urban-black);
-            letter-spacing: 1px;
+            text-shadow: 
+                4px 4px 0 var(--wall-black),
+                8px 8px 0 rgba(255, 0, 0, 0.4);
+            letter-spacing: 3px;
             position: relative;
         }
 
         .logo:after {
             content: 'KITCHEN RUCKUS';
             position: absolute;
-            bottom: -15px;
+            bottom: -20px;
             right: 0;
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.9rem;
-            color: var(--graffiti-blue);
-            letter-spacing: 3px;
+            font-family: 'Creepster', cursive;
+            font-size: 1.2rem;
+            color: var(--spray-green);
+            letter-spacing: 4px;
             text-transform: uppercase;
         }
 
@@ -102,11 +159,10 @@
         }
 
         nav a {
-            color: var(--street-light);
+            color: var(--text-white);
             text-decoration: none;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 600;
-            font-size: 1.3rem;
+            font-family: 'Bungee', cursive;
+            font-size: 1.4rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             padding: 10px 0;
@@ -115,15 +171,15 @@
         }
 
         nav a:hover {
-            color: var(--graffiti-yellow);
+            color: var(--spray-yellow);
         }
 
         nav a:after {
             content: '';
             position: absolute;
             width: 100%;
-            height: 3px;
-            background: var(--graffiti-red);
+            height: 4px;
+            background: var(--spray-red);
             bottom: 0;
             left: 0;
             transform: scaleX(0);
@@ -139,8 +195,8 @@
         .mobile-menu-btn {
             display: none;
             background: none;
-            border: 2px solid var(--graffiti-red);
-            color: var(--graffiti-yellow);
+            border: 3px solid var(--spray-red);
+            color: var(--spray-yellow);
             font-size: 2rem;
             cursor: pointer;
             padding: 5px 15px;
@@ -149,11 +205,11 @@
         }
 
         .mobile-menu-btn:hover {
-            background-color: var(--graffiti-red);
+            background-color: var(--spray-red);
             transform: scale(1.1);
         }
 
-        /* Hero Section - Full Image Display */
+        /* Hero Section */
         .hero {
             position: relative;
             min-height: 90vh;
@@ -161,7 +217,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            background: var(--urban-black);
+            background: var(--wall-black);
         }
 
         .hero-image-container {
@@ -180,9 +236,13 @@
             max-height: 85vh;
             width: auto;
             object-fit: contain;
-            filter: brightness(0.8);
-            border: 5px solid var(--brick-red);
-            box-shadow: 0 0 50px rgba(139, 0, 0, 0.5);
+            filter: brightness(0.9) contrast(1.1);
+            border: 10px solid transparent;
+            border-image: linear-gradient(45deg, var(--spray-red), var(--spray-blue), var(--spray-yellow)) 1;
+            box-shadow: 
+                0 0 60px rgba(255, 0, 0, 0.6),
+                0 0 90px rgba(0, 150, 255, 0.4),
+                0 0 120px rgba(255, 255, 0, 0.2);
         }
 
         .hero-overlay {
@@ -192,11 +252,11 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, 
-                rgba(26, 26, 26, 0.9) 0%, 
-                rgba(26, 26, 26, 0.7) 20%, 
-                rgba(26, 26, 26, 0.4) 50%, 
-                rgba(26, 26, 26, 0.7) 80%, 
-                rgba(26, 26, 26, 0.9) 100%);
+                rgba(10, 10, 10, 0.95) 0%, 
+                rgba(10, 10, 10, 0.85) 20%, 
+                rgba(10, 10, 10, 0.6) 50%, 
+                rgba(10, 10, 10, 0.85) 80%, 
+                rgba(10, 10, 10, 0.95) 100%);
             z-index: 2;
         }
 
@@ -206,86 +266,71 @@
             z-index: 3;
             text-align: center;
             padding: 40px;
-            background: rgba(26, 26, 26, 0.7);
-            border: 3px solid var(--graffiti-red);
-            border-radius: 10px;
+            background: rgba(10, 10, 10, 0.8);
+            border: 5px solid var(--spray-red);
+            border-radius: 0;
             backdrop-filter: blur(5px);
         }
 
         .hero h1 {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 5.5rem;
-            margin-bottom: 20px;
+            font-family: 'Rubik Wet Paint', cursive;
+            font-size: 6rem;
+            margin-bottom: 30px;
             line-height: 1;
             text-transform: uppercase;
-            color: var(--graffiti-yellow);
-            text-shadow: 3px 3px 0 var(--graffiti-red);
-            letter-spacing: 3px;
+            color: var(--spray-yellow);
+            text-shadow: 
+                5px 5px 0 var(--spray-red),
+                10px 10px 0 rgba(0, 0, 0, 0.5);
+            letter-spacing: 5px;
         }
 
         .hero-tagline {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2.2rem;
+            font-family: 'Creepster', cursive;
+            font-size: 3rem;
             margin-bottom: 30px;
-            color: var(--graffiti-blue);
+            color: var(--spray-green);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 700;
+            letter-spacing: 3px;
+            text-shadow: 3px 3px 0 var(--spray-blue);
         }
 
         .hero-subtitle {
-            font-size: 1.4rem;
+            font-family: 'Graduate', cursive;
+            font-size: 1.8rem;
             margin-bottom: 40px;
-            color: var(--street-light);
-            font-weight: 500;
+            color: var(--text-white);
             line-height: 1.8;
+            text-shadow: 2px 2px 0 var(--wall-black);
         }
 
         .cta-button {
             display: inline-block;
-            background: linear-gradient(45deg, var(--graffiti-red), var(--warning-orange));
-            color: var(--street-light);
-            padding: 20px 50px;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            font-size: 1.4rem;
+            background: var(--spray-red);
+            color: var(--wall-black);
+            padding: 25px 60px;
+            font-family: 'Bungee', cursive;
+            font-size: 1.8rem;
             text-decoration: none;
             border-radius: 0;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            border: 3px solid var(--graffiti-yellow);
-            box-shadow: 5px 5px 0 var(--graffiti-blue);
+            letter-spacing: 3px;
+            border: 5px solid var(--spray-yellow);
+            box-shadow: 
+                8px 8px 0 var(--spray-blue),
+                16px 16px 0 rgba(0, 0, 0, 0.3);
             margin: 0 15px;
             position: relative;
             overflow: hidden;
         }
 
         .cta-button:hover {
-            transform: translate(3px, 3px);
-            box-shadow: 2px 2px 0 var(--graffiti-blue);
-            background: linear-gradient(45deg, var(--warning-orange), var(--graffiti-red));
-        }
-
-        .cta-button:before {
-            content: 'LET\'S GO!';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            font-family: 'Permanent Marker', cursive;
-            color: var(--graffiti-yellow);
-            font-size: 1.8rem;
-            transition: transform 0.3s ease;
-            z-index: 2;
-        }
-
-        .cta-button:hover:before {
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        .cta-button:hover span {
-            opacity: 0;
+            transform: translate(8px, 8px);
+            box-shadow: 
+                0 0 0 var(--spray-blue),
+                8px 8px 0 rgba(0, 0, 0, 0.3);
+            background: var(--spray-orange);
         }
 
         /* Sections */
@@ -295,21 +340,24 @@
 
         .section-title {
             text-align: center;
-            margin-bottom: 70px;
+            margin-bottom: 80px;
             position: relative;
         }
 
         .section-title h2 {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 4rem;
-            color: var(--graffiti-yellow);
+            font-family: 'Rubik Wet Paint', cursive;
+            font-size: 5rem;
+            color: var(--spray-yellow);
             display: inline-block;
             position: relative;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            padding: 0 20px;
-            background: var(--urban-black);
+            letter-spacing: 4px;
+            padding: 0 30px;
+            background: var(--wall-black);
             z-index: 2;
+            text-shadow: 
+                4px 4px 0 var(--spray-red),
+                8px 8px 0 rgba(0, 0, 0, 0.5);
         }
 
         .section-title:before {
@@ -318,18 +366,23 @@
             top: 50%;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--graffiti-red), var(--graffiti-blue), var(--graffiti-red));
+            height: 8px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--spray-red), 
+                var(--spray-yellow), 
+                var(--spray-blue), 
+                var(--spray-green),
+                transparent);
             transform: translateY(-50%);
             z-index: 1;
         }
 
         /* About Section */
         .about-content {
-            background: rgba(47, 47, 47, 0.8);
+            background: rgba(45, 45, 45, 0.9);
             padding: 60px;
-            border-radius: 10px;
-            border: 3px solid var(--brick-red);
+            border: 5px solid var(--spray-red);
             position: relative;
             overflow: hidden;
         }
@@ -337,76 +390,81 @@
         .about-content:before {
             content: 'NO BULLSHIT';
             position: absolute;
-            top: -20px;
-            right: -20px;
-            font-family: 'Permanent Marker', cursive;
-            font-size: 4rem;
-            color: var(--graffiti-red);
+            top: -30px;
+            right: -30px;
+            font-family: 'Creepster', cursive;
+            font-size: 8rem;
+            color: var(--spray-red);
             opacity: 0.1;
             transform: rotate(15deg);
             z-index: 1;
         }
 
         .about-text {
-            font-size: 1.3rem;
+            font-family: 'Graduate', cursive;
+            font-size: 1.8rem;
             line-height: 1.8;
-            color: var(--street-light);
+            color: var(--text-white);
             position: relative;
             z-index: 2;
+            text-shadow: 2px 2px 0 var(--wall-black);
         }
 
         .about-text p {
-            margin-bottom: 30px;
-            font-weight: 500;
+            margin-bottom: 40px;
         }
 
         .highlight {
-            color: var(--graffiti-yellow);
-            font-weight: 700;
-            font-family: 'Oswald', sans-serif;
+            color: var(--spray-yellow);
+            font-family: 'Bungee', cursive;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .warning-note {
             display: inline-block;
-            background: var(--warning-orange);
-            color: var(--urban-black);
-            padding: 10px 20px;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            font-size: 1.2rem;
+            background: var(--spray-orange);
+            color: var(--wall-black);
+            padding: 15px 30px;
+            font-family: 'Bungee', cursive;
+            font-size: 1.6rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 20px 0;
-            border: 2px solid var(--graffiti-yellow);
-            transform: rotate(-2deg);
+            letter-spacing: 3px;
+            margin: 30px 0;
+            border: 3px solid var(--spray-yellow);
+            transform: rotate(-3deg);
+            box-shadow: 5px 5px 0 var(--spray-red);
         }
 
         /* Hosts Section */
         .hosts-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            margin-top: 30px;
+            gap: 60px;
+            margin-top: 40px;
         }
 
         .host-card {
-            background: rgba(47, 47, 47, 0.9);
-            border-radius: 10px;
-            overflow: hidden;
+            background: rgba(45, 45, 45, 0.95);
+            border: 5px solid var(--spray-red);
             position: relative;
-            border: 3px solid var(--brick-red);
+            overflow: hidden;
             transition: all 0.4s ease;
-            box-shadow: 10px 10px 0 rgba(139, 0, 0, 0.3);
+            box-shadow: 
+                10px 10px 0 var(--spray-blue),
+                20px 20px 0 rgba(0, 0, 0, 0.3);
         }
 
         .host-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 15px 15px 0 rgba(139, 0, 0, 0.5);
+            transform: translate(10px, 10px);
+            box-shadow: 
+                0 0 0 var(--spray-blue),
+                10px 10px 0 rgba(0, 0, 0, 0.3);
         }
 
         .host-header {
-            background: linear-gradient(45deg, var(--graffiti-red), var(--warning-orange));
-            padding: 30px;
+            background: linear-gradient(45deg, var(--spray-red), var(--spray-orange));
+            padding: 40px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -415,201 +473,214 @@
         .host-header:after {
             content: 'COOKING WITH ATTITUDE';
             position: absolute;
-            bottom: 5px;
+            bottom: 10px;
             left: 0;
             right: 0;
-            font-family: 'Permanent Marker', cursive;
-            font-size: 1.5rem;
+            font-family: 'Creepster', cursive;
+            font-size: 2rem;
             color: rgba(255, 255, 255, 0.2);
             text-align: center;
         }
 
         .host-name {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 3.5rem;
-            color: var(--street-light);
-            margin-bottom: 10px;
+            font-family: 'Rubik Wet Paint', cursive;
+            font-size: 4rem;
+            color: var(--text-white);
+            margin-bottom: 15px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             position: relative;
             z-index: 2;
+            text-shadow: 
+                3px 3px 0 var(--spray-blue),
+                6px 6px 0 rgba(0, 0, 0, 0.5);
         }
 
         .host-tagline {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.2rem;
-            color: var(--graffiti-yellow);
-            font-weight: 600;
-            letter-spacing: 1px;
+            font-family: 'Creepster', cursive;
+            font-size: 1.8rem;
+            color: var(--spray-yellow);
+            letter-spacing: 2px;
             text-transform: uppercase;
+            text-shadow: 2px 2px 0 var(--spray-red);
         }
 
         .host-content {
-            padding: 40px;
+            padding: 50px;
         }
 
         .host-bio {
-            font-size: 1.2rem;
+            font-family: 'Graduate', cursive;
+            font-size: 1.6rem;
             line-height: 1.8;
-            color: var(--street-light);
-            margin-bottom: 25px;
-            font-weight: 500;
+            color: var(--text-white);
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 0 var(--wall-black);
         }
 
         .host-stats {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 30px;
+            gap: 25px;
+            margin-top: 40px;
         }
 
         .stat {
-            background: rgba(139, 0, 0, 0.2);
-            padding: 20px;
-            border-radius: 5px;
-            border-left: 4px solid var(--graffiti-yellow);
+            background: rgba(255, 0, 0, 0.2);
+            padding: 25px;
+            border-left: 5px solid var(--spray-yellow);
+            border-bottom: 5px solid var(--spray-blue);
             transition: all 0.3s ease;
         }
 
         .stat:hover {
-            background: rgba(139, 0, 0, 0.4);
-            transform: translateY(-3px);
+            background: rgba(255, 0, 0, 0.4);
+            transform: translateY(-5px);
         }
 
         .stat-label {
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.9rem;
-            color: #bbb;
+            font-family: 'Bungee', cursive;
+            font-size: 1rem;
+            color: var(--spray-green);
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 8px;
-            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
         }
 
         .stat-value {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 2rem;
-            color: var(--graffiti-yellow);
+            font-family: 'Rubik Wet Paint', cursive;
+            font-size: 2.5rem;
+            color: var(--spray-yellow);
             line-height: 1;
+            text-shadow: 2px 2px 0 var(--spray-red);
         }
 
         /* Content Types Section */
         .content-types {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
+            margin-top: 60px;
         }
 
         .content-card {
-            background: rgba(47, 47, 47, 0.9);
-            border-radius: 10px;
-            padding: 40px;
+            background: rgba(45, 45, 45, 0.95);
+            padding: 50px;
             text-align: center;
-            border: 3px solid var(--graffiti-blue);
+            border: 5px solid var(--spray-blue);
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
         }
 
         .content-card:nth-child(2) {
-            border-color: var(--warning-orange);
+            border-color: var(--spray-orange);
         }
 
         .content-card:nth-child(3) {
-            border-color: var(--spray-pink);
+            border-color: var(--spray-green);
         }
 
         .content-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(255, 255, 0, 0.3);
         }
 
         .content-icon {
-            font-size: 4rem;
-            color: var(--graffiti-yellow);
-            margin-bottom: 25px;
+            font-size: 5rem;
+            color: var(--spray-yellow);
+            margin-bottom: 30px;
             display: block;
+            text-shadow: 3px 3px 0 var(--spray-red);
         }
 
         .content-card h3 {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 2.5rem;
-            color: var(--graffiti-blue);
-            margin-bottom: 20px;
+            font-family: 'Rubik Wet Paint', cursive;
+            font-size: 3rem;
+            color: var(--spray-blue);
+            margin-bottom: 25px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            text-shadow: 3px 3px 0 var(--wall-black);
         }
 
         .content-card:nth-child(2) h3 {
-            color: var(--warning-orange);
+            color: var(--spray-orange);
         }
 
         .content-card:nth-child(3) h3 {
-            color: var(--spray-pink);
+            color: var(--spray-green);
         }
 
         .content-card p {
-            font-size: 1.2rem;
+            font-family: 'Graduate', cursive;
+            font-size: 1.6rem;
             line-height: 1.8;
-            color: var(--street-light);
-            margin-bottom: 20px;
+            color: var(--text-white);
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 0 var(--wall-black);
         }
 
         .coming-soon {
             display: inline-block;
-            background: var(--graffiti-red);
-            color: var(--street-light);
-            padding: 10px 25px;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            font-size: 1.1rem;
+            background: var(--spray-red);
+            color: var(--text-white);
+            padding: 15px 30px;
+            font-family: 'Bungee', cursive;
+            font-size: 1.4rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            border: 2px solid var(--graffiti-yellow);
-            margin-top: 15px;
+            letter-spacing: 3px;
+            border: 3px solid var(--spray-yellow);
+            margin-top: 20px;
+            transform: rotate(-3deg);
         }
 
         /* Episodes Section */
         .episodes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 50px;
         }
 
         .episode-card {
-            background: rgba(47, 47, 47, 0.9);
-            border-radius: 10px;
-            overflow: hidden;
-            border: 3px solid var(--brick-red);
+            background: rgba(45, 45, 45, 0.95);
+            border: 5px solid var(--spray-red);
             transition: all 0.4s ease;
-            box-shadow: 8px 8px 0 rgba(139, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                8px 8px 0 var(--spray-blue),
+                16px 16px 0 rgba(0, 0, 0, 0.3);
         }
 
         .episode-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 12px 12px 0 rgba(139, 0, 0, 0.5);
+            transform: translate(8px, 8px);
+            box-shadow: 
+                0 0 0 var(--spray-blue),
+                8px 8px 0 rgba(0, 0, 0, 0.3);
         }
 
         .episode-badge {
             position: absolute;
-            top: 20px;
-            left: -10px;
-            background: var(--graffiti-red);
-            color: var(--street-light);
-            padding: 10px 25px;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            font-size: 1.1rem;
+            top: 30px;
+            left: -15px;
+            background: var(--spray-red);
+            color: var(--text-white);
+            padding: 15px 30px;
+            font-family: 'Bungee', cursive;
+            font-size: 1.4rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            border: 2px solid var(--graffiti-yellow);
+            letter-spacing: 3px;
+            border: 3px solid var(--spray-yellow);
             transform: rotate(-5deg);
             z-index: 2;
+            box-shadow: 5px 5px 0 var(--spray-blue);
         }
 
         .episode-image {
-            height: 220px;
+            height: 250px;
             overflow: hidden;
             position: relative;
         }
@@ -622,28 +693,31 @@
         }
 
         .episode-card:hover .episode-image img {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         .episode-content {
-            padding: 30px;
+            padding: 40px;
         }
 
         .episode-title {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 2.2rem;
-            color: var(--graffiti-yellow);
-            margin-bottom: 15px;
+            font-family: 'Rubik Wet Paint', cursive;
+            font-size: 2.8rem;
+            color: var(--spray-yellow);
+            margin-bottom: 20px;
             line-height: 1.2;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 0 var(--spray-red);
         }
 
         .episode-description {
-            color: #bbb;
-            margin-bottom: 25px;
-            font-size: 1.1rem;
-            line-height: 1.7;
+            font-family: 'Graduate', cursive;
+            color: #ccc;
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+            line-height: 1.8;
+            text-shadow: 2px 2px 0 var(--wall-black);
         }
 
         .episode-features {
@@ -653,29 +727,27 @@
         }
 
         .feature {
-            background: rgba(139, 0, 0, 0.3);
-            color: var(--graffiti-yellow);
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.9rem;
+            background: rgba(255, 0, 0, 0.3);
+            color: var(--spray-yellow);
+            padding: 10px 25px;
+            font-family: 'Bungee', cursive;
+            font-size: 1rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 500;
+            letter-spacing: 2px;
+            border: 2px solid var(--spray-blue);
         }
 
         /* Contact Section */
         .contact-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 60px;
         }
 
         .contact-info {
-            background: rgba(47, 47, 47, 0.9);
-            padding: 50px;
-            border-radius: 10px;
-            border: 3px solid var(--graffiti-blue);
+            background: rgba(45, 45, 45, 0.95);
+            padding: 60px;
+            border: 5px solid var(--spray-blue);
             position: relative;
             overflow: hidden;
         }
@@ -683,63 +755,66 @@
         .contact-info:before {
             content: 'GET AT US';
             position: absolute;
-            bottom: -20px;
-            right: -20px;
-            font-family: 'Permanent Marker', cursive;
-            font-size: 5rem;
-            color: var(--graffiti-blue);
+            bottom: -40px;
+            right: -40px;
+            font-family: 'Creepster', cursive;
+            font-size: 8rem;
+            color: var(--spray-blue);
             opacity: 0.1;
             transform: rotate(-15deg);
         }
 
         .contact-info h3 {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 3rem;
-            color: var(--graffiti-yellow);
-            margin-bottom: 40px;
+            font-family: 'Rubik Wet Paint', cursive;
+            font-size: 3.5rem;
+            color: var(--spray-yellow);
+            margin-bottom: 50px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             position: relative;
             z-index: 2;
+            text-shadow: 3px 3px 0 var(--spray-red);
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 35px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(139, 0, 0, 0.3);
+            margin-bottom: 40px;
+            padding-bottom: 25px;
+            border-bottom: 3px solid rgba(255, 0, 0, 0.3);
             position: relative;
             z-index: 2;
         }
 
         .contact-icon {
-            font-size: 2rem;
-            margin-right: 25px;
-            color: var(--graffiti-red);
-            min-width: 40px;
+            font-size: 2.5rem;
+            margin-right: 30px;
+            color: var(--spray-red);
+            min-width: 50px;
+            text-shadow: 2px 2px 0 var(--wall-black);
         }
 
         .contact-details h4 {
-            font-family: 'Oswald', sans-serif;
-            font-weight: 600;
-            font-size: 1.3rem;
-            color: var(--street-light);
-            margin-bottom: 5px;
+            font-family: 'Bungee', cursive;
+            font-size: 1.6rem;
+            color: var(--spray-green);
+            margin-bottom: 10px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 0 var(--wall-black);
         }
 
         .contact-details p {
-            color: #bbb;
-            font-size: 1.1rem;
+            font-family: 'Graduate', cursive;
+            color: #ccc;
+            font-size: 1.4rem;
+            text-shadow: 2px 2px 0 var(--wall-black);
         }
 
         .contact-form {
-            background: rgba(47, 47, 47, 0.9);
-            padding: 50px;
-            border-radius: 10px;
-            border: 3px solid var(--graffiti-red);
+            background: rgba(45, 45, 45, 0.95);
+            padding: 60px;
+            border: 5px solid var(--spray-red);
             position: relative;
             overflow: hidden;
         }
@@ -747,90 +822,91 @@
         .contact-form:before {
             content: 'SPEAK UP';
             position: absolute;
-            top: -20px;
-            left: -20px;
-            font-family: 'Permanent Marker', cursive;
-            font-size: 5rem;
-            color: var(--graffiti-red);
+            top: -40px;
+            left: -40px;
+            font-family: 'Creepster', cursive;
+            font-size: 8rem;
+            color: var(--spray-red);
             opacity: 0.1;
             transform: rotate(15deg);
         }
 
         .contact-form h3 {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 3rem;
-            color: var(--graffiti-yellow);
-            margin-bottom: 40px;
+            font-family: 'Rubik Wet Paint', cursive;
+            font-size: 3.5rem;
+            color: var(--spray-yellow);
+            margin-bottom: 50px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             position: relative;
             z-index: 2;
+            text-shadow: 3px 3px 0 var(--spray-blue);
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             position: relative;
             z-index: 2;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 10px;
-            font-family: 'Oswald', sans-serif;
-            color: var(--street-light);
-            font-weight: 600;
+            margin-bottom: 15px;
+            font-family: 'Bungee', cursive;
+            color: var(--spray-yellow);
+            font-size: 1.2rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 1rem;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 0 var(--wall-black);
         }
 
         .form-control {
             width: 100%;
-            padding: 18px;
+            padding: 20px;
             background: rgba(255, 255, 255, 0.1);
-            border: 2px solid var(--graffiti-red);
-            border-radius: 5px;
-            color: var(--street-light);
-            font-size: 1.1rem;
+            border: 3px solid var(--spray-red);
+            border-radius: 0;
+            color: var(--text-white);
+            font-size: 1.4rem;
             transition: all 0.3s ease;
-            font-family: 'Urbanist', sans-serif;
+            font-family: 'Graduate', cursive;
         }
 
         .form-control:focus {
             outline: none;
-            border-color: var(--graffiti-yellow);
-            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+            border-color: var(--spray-yellow);
+            box-shadow: 0 0 20px rgba(255, 255, 0, 0.5);
             background: rgba(255, 255, 255, 0.15);
         }
 
         textarea.form-control {
-            min-height: 180px;
+            min-height: 200px;
             resize: vertical;
         }
 
         .submit-btn {
-            background: linear-gradient(45deg, var(--graffiti-red), var(--warning-orange));
-            color: var(--street-light);
+            background: var(--spray-red);
+            color: var(--wall-black);
             border: none;
-            padding: 20px 45px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            border-radius: 5px;
+            padding: 25px 50px;
+            font-family: 'Bungee', cursive;
+            font-size: 1.8rem;
+            border-radius: 0;
             cursor: pointer;
             transition: all 0.3s ease;
             width: 100%;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            border: 3px solid var(--graffiti-yellow);
+            letter-spacing: 3px;
+            border: 5px solid var(--spray-yellow);
             position: relative;
             overflow: hidden;
+            box-shadow: 5px 5px 0 var(--spray-blue);
         }
 
         .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 36, 0, 0.3);
-            background: linear-gradient(45deg, var(--warning-orange), var(--graffiti-red));
+            transform: translate(5px, 5px);
+            box-shadow: 0 0 0 var(--spray-blue);
+            background: var(--spray-orange);
         }
 
         .submit-btn:before {
@@ -839,9 +915,9 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) scale(0);
-            font-family: 'Permanent Marker', cursive;
-            color: var(--graffiti-yellow);
-            font-size: 1.8rem;
+            font-family: 'Rubik Wet Paint', cursive;
+            color: var(--spray-yellow);
+            font-size: 2.5rem;
             transition: transform 0.3s ease;
             z-index: 2;
         }
@@ -856,56 +932,60 @@
 
         /* Footer */
         footer {
-            background: var(--urban-gray);
-            padding: 80px 0 40px;
-            border-top: 3px solid var(--graffiti-red);
+            background: var(--wall-concrete);
+            padding: 100px 0 50px;
+            border-top: 5px solid var(--spray-red);
             position: relative;
+            overflow: hidden;
         }
 
         footer:before {
             content: 'REAL FOOD. REAL FLAVOR. NO BULLSHIT.';
             position: absolute;
-            top: -20px;
+            top: -30px;
             left: 0;
             right: 0;
-            font-family: 'Permanent Marker', cursive;
-            font-size: 2.5rem;
-            color: var(--graffiti-red);
+            font-family: 'Creepster', cursive;
+            font-size: 3.5rem;
+            color: var(--spray-red);
             text-align: center;
             text-transform: uppercase;
             opacity: 0.8;
+            text-shadow: 3px 3px 0 var(--wall-black);
         }
 
         .footer-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+            margin-bottom: 80px;
             position: relative;
             z-index: 2;
         }
 
         .footer-logo .logo {
-            font-size: 2.8rem;
-            margin-bottom: 25px;
+            font-size: 3.2rem;
+            margin-bottom: 30px;
             display: block;
         }
 
         .footer-logo p {
-            color: #bbb;
-            font-size: 1.2rem;
-            line-height: 1.7;
-            max-width: 300px;
-            font-weight: 500;
+            font-family: 'Graduate', cursive;
+            color: #ccc;
+            font-size: 1.5rem;
+            line-height: 1.8;
+            max-width: 400px;
+            text-shadow: 2px 2px 0 var(--wall-black);
         }
 
         .footer-links h4 {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 2.2rem;
-            margin-bottom: 25px;
-            color: var(--graffiti-yellow);
+            font-family: 'Rubik Wet Paint', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--spray-yellow);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            text-shadow: 3px 3px 0 var(--spray-red);
         }
 
         .footer-links ul {
@@ -913,61 +993,64 @@
         }
 
         .footer-links li {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .footer-links a {
-            color: #bbb;
+            color: #ccc;
             text-decoration: none;
             transition: all 0.3s ease;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 500;
-            font-size: 1.1rem;
+            font-family: 'Bungee', cursive;
+            font-size: 1.3rem;
             display: inline-block;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 0 var(--wall-black);
         }
 
         .footer-links a:hover {
-            color: var(--graffiti-yellow);
+            color: var(--spray-yellow);
             transform: translateX(10px);
         }
 
         .social-icons {
             display: flex;
-            gap: 20px;
-            margin-bottom: 30px;
+            gap: 25px;
+            margin-bottom: 40px;
         }
 
         .social-icon {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, var(--graffiti-red), var(--warning-orange));
-            border-radius: 50%;
-            color: var(--street-light);
-            font-size: 1.8rem;
+            width: 70px;
+            height: 70px;
+            background: var(--spray-red);
+            border-radius: 0;
+            color: var(--text-white);
+            font-size: 2rem;
             transition: all 0.3s ease;
-            border: 3px solid var(--graffiti-yellow);
-            box-shadow: 5px 5px 0 var(--graffiti-blue);
+            border: 5px solid var(--spray-yellow);
+            box-shadow: 
+                5px 5px 0 var(--spray-blue),
+                10px 10px 0 rgba(0, 0, 0, 0.3);
         }
 
         .social-icon:hover {
-            transform: translateY(-5px) rotate(15deg);
-            box-shadow: 8px 8px 0 var(--graffiti-blue);
-            background: linear-gradient(45deg, var(--warning-orange), var(--graffiti-red));
+            transform: translate(5px, 5px);
+            box-shadow: 
+                0 0 0 var(--spray-blue),
+                5px 5px 0 rgba(0, 0, 0, 0.3);
+            background: var(--spray-orange);
         }
 
         .copyright {
             text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 50px;
+            border-top: 3px solid rgba(255, 0, 0, 0.3);
             color: #888;
-            font-size: 1rem;
-            font-family: 'Urbanist', sans-serif;
-            font-weight: 500;
+            font-size: 1.2rem;
+            font-family: 'Graduate', cursive;
             position: relative;
             z-index: 2;
         }
@@ -979,18 +1062,18 @@
             }
             
             .hero h1 {
-                font-size: 4.5rem;
+                font-size: 5rem;
             }
         }
 
         @media (max-width: 992px) {
             .hosts-container {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 50px;
             }
             
             .hero h1 {
-                font-size: 3.8rem;
+                font-size: 4rem;
             }
             
             .hero-image-container img {
@@ -1005,13 +1088,13 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: var(--urban-black);
+                background: var(--wall-black);
                 flex-direction: column;
-                padding: 30px;
+                padding: 40px;
                 text-align: center;
-                border-top: 3px solid var(--graffiti-red);
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-                gap: 25px;
+                border-top: 5px solid var(--spray-red);
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+                gap: 30px;
             }
             
             nav ul.active {
@@ -1027,19 +1110,19 @@
             }
             
             .hero h1 {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
             
             .hero-tagline {
-                font-size: 1.8rem;
+                font-size: 2.5rem;
             }
             
             .hero-subtitle {
-                font-size: 1.2rem;
+                font-size: 1.5rem;
             }
             
             .section-title h2 {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
             
             .hero-image-container img {
@@ -1058,11 +1141,11 @@
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
             
             .hero-tagline {
-                font-size: 1.5rem;
+                font-size: 2rem;
             }
             
             .logo {
@@ -1070,19 +1153,19 @@
             }
             
             .section-title h2 {
-                font-size: 2.5rem;
-            }
-            
-            .host-name {
                 font-size: 2.8rem;
             }
             
+            .host-name {
+                font-size: 3rem;
+            }
+            
             .cta-button {
-                padding: 18px 35px;
-                font-size: 1.2rem;
+                padding: 20px 40px;
+                font-size: 1.5rem;
                 margin: 10px 0;
                 width: 100%;
-                max-width: 300px;
+                max-width: 350px;
             }
             
             .content-types {
@@ -1095,7 +1178,7 @@
             
             .contact-container {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 40px;
             }
             
             .about-content, .contact-info, .contact-form {
@@ -1132,21 +1215,21 @@
     <!-- Hero Section with Full Image -->
     <section class="hero" id="home">
         <div class="hero-image-container">
-            <img src="background.jpg" alt="CrockPotDaddy and MACK3Y the Foodie">
+            <img src="background.jpg" alt="CrockPotDaddy and MACK3Y THE FOODIE">
         </div>
         <div class="hero-overlay"></div>
         <div class="container hero-content">
             <h1>CROCKED 'N LOADED</h1>
             <div class="hero-tagline">REAL FOOD. REAL REVIEWS. NO BULLSHIT.</div>
             <div class="hero-subtitle">
-                Two tattooed chefs bringing you raw cooking content, honest restaurant reviews, and kitchen chaos that actually teaches you something. No fancy nonsense, just real food made by real people.
+                Two chefs bringing you raw cooking content, honest restaurant reviews, and kitchen chaos that actually teaches you something. No fancy nonsense, just real food made by real people.
             </div>
             <a href="#episodes" class="cta-button"><span>WATCH THE MADNESS</span></a>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="brick-section">
+    <section id="about" class="wall-overlay">
         <div class="container">
             <div class="section-title">
                 <h2>THE RUCKUS</h2>
@@ -1154,13 +1237,11 @@
             
             <div class="about-content">
                 <div class="about-text">
-                    <p><span class="highlight">Crocked 'N Loaded</span> isn't your typical cooking show. We're here to cut through the foodie nonsense. No perfectly plated dishes you'll never make. No pretentious chef talk. Just two guys who genuinely care about good food.</p>
+                    <p><span class="highlight">CROCKED 'N LOADED</span> isn't your typical cooking show. We cut through the foodie nonsense. No perfectly plated dishes you'll never make. No chef ego. Just two guys who love real food.</p>
                     
-                    <div class="warning-note">WARNING: ACTUAL COOKING ADVICE INSIDE</div>
+                    <div class="warning-note">ACTUAL COOKING ADVICE INSIDE</div>
                     
-                    <p>We do it all: from <span class="highlight">home cooking demos</span> where we show you how to make restaurant-quality meals at home, to <span class="highlight">shopping challenges</span> where we cook amazing meals with the cheapest ingredients we can find, to <span class="highlight">honest restaurant reviews</span> where we tell you what's actually worth your money.</p>
-                    
-                    <p>MACK3Y THE FOODIE brings 23 years of professional chef experience - from diners to Four Diamond restaurants - to teach you techniques that actually work. CrockPotDaddy brings the home cook perspective, asking the questions regular people actually have.</p>
+                    <p>We do it all: from <span class="highlight">HOME COOKING DEMOS</span> where we show you restaurant-quality meals for home kitchens, to <span class="highlight">SHOPPING CHALLENGES</span> cooking amazing meals with the cheapest ingredients, to <span class="highlight">HONEST RESTAURANT REVIEWS</span> telling you what's actually worth your money.</p>
                     
                     <p>Plus, we're hitting the streets for restaurant reviews and interviews - coming soon to YouTube. No filters. No nonsense. Just real food.</p>
                 </div>
@@ -1169,7 +1250,7 @@
     </section>
 
     <!-- Hosts Section -->
-    <section id="hosts">
+    <section id="hosts" class="wall-overlay">
         <div class="container">
             <div class="section-title">
                 <h2>THE CREW</h2>
@@ -1179,29 +1260,29 @@
                 <div class="host-card">
                     <div class="host-header">
                         <div class="host-name">CROCKPOTDADDY</div>
-                        <div class="host-tagline">THE HOME COOK WITH ATTITUDE</div>
+                        <div class="host-tagline">HOME COOK WITH ATTITUDE</div>
                     </div>
                     <div class="host-content">
                         <div class="host-bio">
-                            Former music industry professional who left that world to chase his passion for food. Not a "professional chef" but cooks better than most of them. Brings the energy, asks the questions regular people actually have, and has enough tattoos to make things interesting.
+                            Former music industry pro who traded the stage for the kitchen. Not a "professional chef" but cooks with more passion than most restaurants. Brings the energy, asks the real questions, and proves you don't need a fancy degree to make amazing food.
                         </div>
                         
                         <div class="host-stats">
                             <div class="stat">
-                                <div class="stat-label">Background</div>
-                                <div class="stat-value">Music & Sales</div>
+                                <div class="stat-label">BACKGROUND</div>
+                                <div class="stat-value">MUSIC & SALES</div>
                             </div>
                             <div class="stat">
-                                <div class="stat-label">Cooking Level</div>
-                                <div class="stat-value">Home Cook Expert</div>
+                                <div class="stat-label">COOKING LEVEL</div>
+                                <div class="stat-value">HOME COOK EXPERT</div>
                             </div>
                             <div class="stat">
-                                <div class="stat-label">Specialty</div>
-                                <div class="stat-value">Asking Why</div>
+                                <div class="stat-label">SPECIALTY</div>
+                                <div class="stat-value">ASKING WHY</div>
                             </div>
                             <div class="stat">
-                                <div class="stat-label">Vibe</div>
-                                <div class="stat-value">Unfiltered Energy</div>
+                                <div class="stat-label">VIBE</div>
+                                <div class="stat-value">RAW ENERGY</div>
                             </div>
                         </div>
                     </div>
@@ -1210,29 +1291,29 @@
                 <div class="host-card">
                     <div class="host-header">
                         <div class="host-name">MACK3Y THE FOODIE</div>
-                        <div class="host-tagline">THE 23-YEAR PRO</div>
+                        <div class="host-tagline">23-YEAR FLAVOR EXPLORER</div>
                     </div>
                     <div class="host-content">
                         <div class="host-bio">
-                            Professional chef with 23 years of experience across every kitchen environment imaginable. From diners to Four Diamond establishments, MACK3Y THE FOODIE has worked at executive chef levels and is passionate about teaching professional techniques to home cooks in a way that makes sense.
+                            Forget fancy titles - MACK3Y THE FOODIE is all about flavor exploration. 23 years of cooking everything from street tacos to sushi, Italian pasta to Thai curries. His philosophy? Good food has no borders. Brings professional techniques without the pretentious attitude, focusing on what makes food fun and accessible.
                         </div>
                         
                         <div class="host-stats">
                             <div class="stat">
-                                <div class="stat-label">Experience</div>
-                                <div class="stat-value">23 Years</div>
+                                <div class="stat-label">EXPERIENCE</div>
+                                <div class="stat-value">23 YEARS</div>
                             </div>
                             <div class="stat">
-                                <div class="stat-label">Highest Level</div>
-                                <div class="stat-value">Four Diamond Chef</div>
+                                <div class="stat-label">PASSION</div>
+                                <div class="stat-value">GLOBAL FLAVORS</div>
                             </div>
                             <div class="stat">
-                                <div class="stat-label">Role</div>
-                                <div class="stat-value">The Teacher</div>
+                                <div class="stat-label">FOCUS</div>
+                                <div class="stat-value">FUN FOOD</div>
                             </div>
                             <div class="stat">
-                                <div class="stat-label">Passion</div>
-                                <div class="stat-value">Teaching Others</div>
+                                <div class="stat-label">MISSION</div>
+                                <div class="stat-value">TEACHING</div>
                             </div>
                         </div>
                     </div>
@@ -1242,7 +1323,7 @@
     </section>
 
     <!-- Content Types Section -->
-    <section id="content" class="brick-section">
+    <section id="content" class="wall-overlay">
         <div class="container">
             <div class="section-title">
                 <h2>THE CONTENT</h2>
@@ -1252,19 +1333,19 @@
                 <div class="content-card">
                     <i class="fas fa-home content-icon"></i>
                     <h3>HOME COOKING</h3>
-                    <p>Professional techniques made practical for your kitchen. We show you how to make restaurant-quality food without the restaurant price tag or the chef ego.</p>
+                    <p>Professional techniques made practical for your kitchen. Restaurant-quality food without the restaurant price tag or chef ego.</p>
                 </div>
                 
                 <div class="content-card">
                     <i class="fas fa-store content-icon"></i>
                     <h3>SHOPPING CHALLENGES</h3>
-                    <p>How good can we make it for how cheap? We hit the stores, find the best deals, and turn budget ingredients into incredible meals. Because good food shouldn't break the bank.</p>
+                    <p>How good can we make it for how cheap? Budget ingredients turned into incredible meals. Good food shouldn't break the bank.</p>
                 </div>
                 
                 <div class="content-card">
                     <i class="fas fa-utensils content-icon"></i>
                     <h3>RESTAURANT REVIEWS</h3>
-                    <p>Coming soon to YouTube! We're hitting the streets for honest restaurant reviews and chef interviews. No paid promotions, no sugar-coating - just real opinions from a pro and a food lover.</p>
+                    <p>Coming soon to YouTube! Hitting the streets for honest restaurant reviews and chef interviews. No paid promotions, just real opinions.</p>
                     <div class="coming-soon">COMING SOON</div>
                 </div>
             </div>
@@ -1272,7 +1353,7 @@
     </section>
 
     <!-- Episodes Section -->
-    <section id="episodes">
+    <section id="episodes" class="wall-overlay">
         <div class="container">
             <div class="section-title">
                 <h2>EPISODES</h2>
@@ -1289,7 +1370,7 @@
                     <div class="episode-content">
                         <div class="episode-title">$20 DINNER FOR FOUR</div>
                         <div class="episode-description">
-                            Can we feed a family of four an amazing meal for under $20? MACK3Y THE FOODIE shows professional techniques while CrockPotDaddy keeps us grounded in reality.
+                            Can we feed a family of four an amazing meal for under $20? MACK3Y THE FOODIE shows professional techniques while CrockPotDaddy keeps it real.
                         </div>
                         <div class="episode-features">
                             <div class="feature">BUDGET</div>
@@ -1301,20 +1382,20 @@
                 
                 <div class="episode-card">
                     <div class="episode-badge">
-                        PRO TECHNIQUE
+                        GLOBAL FLAVORS
                     </div>
                     <div class="episode-image">
-                        <img src="https://images.unsplash.com/photo-1543353074-8c6d5f4a9c07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Knife Skills">
+                        <img src="https://images.unsplash.com/photo-1543353074-8c6d5f4a9c07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Global Cuisine">
                     </div>
                     <div class="episode-content">
-                        <div class="episode-title">KNIFE SKILLS YOU ACTUALLY NEED</div>
+                        <div class="episode-title">MEXICAN STREET TACOS</div>
                         <div class="episode-description">
-                            MACK3Y THE FOODIE teaches the 5 knife cuts that will change your cooking forever. No fancy French terms, just practical skills that save time and make better food.
+                            MACK3Y THE FOODIE shows authentic techniques while keeping it accessible. CrockPotDaddy handles the heat and the questions.
                         </div>
                         <div class="episode-features">
-                            <div class="feature">ESSENTIAL</div>
-                            <div class="feature">TECHNIQUE</div>
-                            <div class="feature">PRACTICAL</div>
+                            <div class="feature">MEXICAN</div>
+                            <div class="feature">STREET FOOD</div>
+                            <div class="feature">SPICY</div>
                         </div>
                     </div>
                 </div>
@@ -1329,7 +1410,7 @@
                     <div class="episode-content">
                         <div class="episode-title">PERFECT BURGERS AT HOME</div>
                         <div class="episode-description">
-                            Why go out when you can make better burgers at home? We break down everything from meat selection to bun toasting to secret sauce recipes.
+                            Why go out when you can make better burgers at home? Everything from meat selection to bun toasting to secret sauce recipes.
                         </div>
                         <div class="episode-features">
                             <div class="feature">COMFORT</div>
@@ -1343,7 +1424,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" class="wall-overlay">
         <div class="container">
             <div class="section-title">
                 <h2>CONTACT</h2>
@@ -1357,7 +1438,7 @@
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div class="contact-details">
-                            <h4>Email</h4>
+                            <h4>EMAIL</h4>
                             <p>contact@crockednloaded.com</p>
                         </div>
                     </div>
@@ -1366,7 +1447,7 @@
                             <i class="fas fa-video"></i>
                         </div>
                         <div class="contact-details">
-                            <h4>YouTube Channel</h4>
+                            <h4>YOUTUBE CHANNEL</h4>
                             <p>youtube.com/crockednloaded</p>
                         </div>
                     </div>
@@ -1375,17 +1456,8 @@
                             <i class="fas fa-handshake"></i>
                         </div>
                         <div class="contact-details">
-                            <h4>Collaborations</h4>
+                            <h4>COLLABORATIONS</h4>
                             <p>collab@crockednloaded.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Business Inquiries</h4>
-                            <p>business@crockednloaded.com</p>
                         </div>
                     </div>
                 </div>
@@ -1394,20 +1466,20 @@
                     <h3>SEND A MESSAGE</h3>
                     <form id="contactForm">
                         <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                            <label for="name">FULL NAME</label>
+                            <input type="text" id="name" class="form-control" placeholder="ENTER YOUR NAME" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                            <label for="email">EMAIL ADDRESS</label>
+                            <input type="email" id="email" class="form-control" placeholder="ENTER YOUR EMAIL" required>
                         </div>
                         <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" class="form-control" placeholder="What is this regarding?" required>
+                            <label for="subject">SUBJECT</label>
+                            <input type="text" id="subject" class="form-control" placeholder="WHAT'S UP?" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" class="form-control" placeholder="Type your message here..." required></textarea>
+                            <label for="message">YOUR MESSAGE</label>
+                            <textarea id="message" class="form-control" placeholder="DROP US A LINE..." required></textarea>
                         </div>
                         <button type="submit" class="submit-btn"><span>SEND MESSAGE</span></button>
                     </form>
@@ -1422,18 +1494,18 @@
             <div class="footer-container">
                 <div class="footer-logo">
                     <div class="logo">CROCKED 'N LOADED</div>
-                    <p>A cooking show where professional culinary expertise meets passionate home cooking. Real techniques, real people, real results.</p>
+                    <p>A cooking show where real cooking meets real people. No borders, no bullshit, just flavor.</p>
                 </div>
                 
                 <div class="footer-links">
                     <h4>QUICK LINKS</h4>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">The Ruckus</a></li>
-                        <li><a href="#hosts">The Crew</a></li>
-                        <li><a href="#content">Content</a></li>
-                        <li><a href="#episodes">Episodes</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#home">HOME</a></li>
+                        <li><a href="#about">THE RUCKUS</a></li>
+                        <li><a href="#hosts">THE CREW</a></li>
+                        <li><a href="#content">CONTENT</a></li>
+                        <li><a href="#episodes">EPISODES</a></li>
+                        <li><a href="#contact">CONTACT</a></li>
                     </ul>
                 </div>
                 
@@ -1445,14 +1517,14 @@
                         <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
                     </div>
-                    <p style="margin-top: 25px; color: #bbb; font-size: 1.05rem;">
+                    <p style="margin-top: 25px; color: #ccc; font-size: 1.2rem; font-family: 'Graduate', cursive;">
                         Subscribe for cooking tips, episode releases, and restaurant reviews.
                     </p>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 Crocked 'N Loaded. All Rights Reserved. | Real Food. Real Reviews. No Bullshit.</p>
+                <p>&copy; 2023 CROCKED 'N LOADED. ALL RIGHTS RESERVED. | REAL FOOD. REAL REVIEWS. NO BULLSHIT.</p>
             </div>
         </div>
     </footer>
@@ -1504,7 +1576,7 @@
             const name = document.getElementById('name').value;
             
             // Show success message
-            alert(`Thanks ${name}! Your message has been received. We'll get back to you soon.`);
+            alert(`THANKS ${name}! YOUR MESSAGE HAS BEEN RECEIVED. WE'LL GET BACK TO YOU SOON.`);
             
             // Reset the form
             contactForm.reset();
@@ -1514,11 +1586,11 @@
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(26, 26, 26, 0.98)';
-                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+                header.style.backgroundColor = 'rgba(10, 10, 10, 0.98)';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.8)';
             } else {
-                header.style.backgroundColor = 'rgba(26, 26, 26, 0.98)';
-                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+                header.style.backgroundColor = 'rgba(10, 10, 10, 0.98)';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.8)';
             }
         });
     </script>
