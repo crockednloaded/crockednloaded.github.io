@@ -6,7 +6,7 @@
   <title>The Crocked N' Loaded Show — Home</title>
   <meta name="description" content="Crocked N' Loaded — Join CrockPotDaddy & MACK3Y for bold flavors, wild experiments, and easy recipes. Subscribe for new episodes." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Orbitron:wght@600;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;900&family=Exo+2:wght@600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -33,18 +33,20 @@
   </header>
 
   <main>
-    <section id="home" class="hero">
-      <picture class="hero-art">
-        <img src="background.jpg" alt="Crocked N' Loaded — show art" loading="eager">
-      </picture>
-      <div class="hero-content container">
-        <h1 class="hero-title">The Crocked N' Loaded Show</h1>
-        <p class="hero-tag">Two hosts. One kitchen. Unlimited chaos.</p>
+    <section id="home" class="hero container">
+      <div class="hero-art">
+        <img src="background.jpg" alt="Crocked N' Loaded — show art">
+      </div>
+
+      <div class="hero-content">
+        <h1 class="hero-title">THE CROCKED N' LOADED SHOW</h1>
+        <p class="hero-tag">WHERE FLAVOR MEETS FIRE 🔥</p>
         <p class="lead">Join CrockPotDaddy &amp; MACK3Y for bold, hilarious, and delicious kitchen adventures — no fluff, just flavor. New episodes weekly.</p>
         <div class="hero-actions">
-          <a id="heroSubscribe" class="btn btn-cta" target="_blank" rel="noopener">Subscribe on YouTube</a>
+          <a id="heroSubscribe" class="btn btn-cta" target="_blank" rel="noopener">🎥 Subscribe on YouTube</a>
           <a href="#episodes" class="btn btn-secondary">Watch Episodes</a>
         </div>
+
         <ul class="quick-stats" aria-label="Channel statistics">
           <li><strong id="s1">50K+</strong><span>Subscribers</span></li>
           <li><strong id="s2">120+</strong><span>Episodes</span></li>
@@ -159,7 +161,6 @@
     document.getElementById('ytSubscribe').href = data.yt;
     document.getElementById('heroSubscribe').href = data.yt;
     document.getElementById('viewAll').href = data.yt;
-    // Merch links (update if you have a store)
     document.getElementById('merchShop1').href = data.merch;
     document.getElementById('merchShop2').href = data.merch;
     document.getElementById('merchShop3').href = data.merch;
