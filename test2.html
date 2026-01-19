@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crocked 'N Loaded | CrockPotDaddy & MACK3Y's Cooking Show</title>
+    <title>CROCKED 'N LOADED | Real Food. Real Reviews. No Bullshit.</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&family=Permanent+Marker&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&family=Bebas+Neue&family=Anton&family=Oswald:wght@400;500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,23 +14,27 @@
         }
 
         :root {
-            --primary-red: #e63946;
-            --primary-black: #1a1a1a;
-            --primary-gold: #ffd700;
-            --accent-gray: #f5f5f5;
-            --accent-dark: #2d2d2d;
-            --brick-red: #8b4513;
-            --brick-light: #a0522d;
-            --text-light: #f8f9fa;
-            --text-dark: #333333;
+            --brick-red: #8B0000;
+            --brick-dark: #5D0000;
+            --brick-light: #A52A2A;
+            --graffiti-red: #FF2400;
+            --graffiti-blue: #0096FF;
+            --graffiti-yellow: #FFD700;
+            --urban-gray: #2F2F2F;
+            --urban-black: #1A1A1A;
+            --street-light: #F8F8F8;
+            --concrete: #7C7C7C;
+            --spray-pink: #FF69B4;
+            --warning-orange: #FF8C00;
         }
 
         body {
-            background-color: var(--primary-black);
-            color: var(--text-light);
-            font-family: 'Raleway', sans-serif;
-            line-height: 1.7;
+            background-color: var(--urban-black);
+            color: var(--street-light);
+            font-family: 'Urbanist', sans-serif;
+            line-height: 1.6;
             overflow-x: hidden;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h50v50H0V0zm50 50h50v50H50V50z' fill='%235D0000' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
 
         .container {
@@ -40,43 +44,25 @@
             padding: 0 40px;
         }
 
-        /* Brick Wall Background */
-        .brick-bg {
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h50v50H0V0zm50 50h50v50H50V50z' fill='%238b4513' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
-            background-size: 100px 100px;
+        /* Urban Brick Wall Effect */
+        .brick-section {
             position: relative;
+            background: linear-gradient(rgba(26, 26, 26, 0.97), rgba(26, 26, 26, 0.97)),
+                        url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%238B0000' fill-opacity='0.2'%3E%3Crect x='0' y='0' width='100' height='50'/%3E%3Crect x='100' y='0' width='100' height='50'/%3E%3Crect x='0' y='50' width='100' height='50'/%3E%3Crect x='100' y='50' width='100' height='50'/%3E%3Crect x='0' y='100' width='100' height='50'/%3E%3Crect x='100' y='100' width='100' height='50'/%3E%3Crect x='0' y='150' width='100' height='50'/%3E%3Crect x='100' y='150' width='100' height='50'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 200px 200px;
+            border-top: 3px solid var(--brick-red);
+            border-bottom: 3px solid var(--brick-red);
         }
 
-        .brick-bg:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, 
-                rgba(26, 26, 26, 0.95) 0%, 
-                rgba(26, 26, 26, 0.85) 15%, 
-                rgba(26, 26, 26, 0.7) 50%, 
-                rgba(26, 26, 26, 0.85) 85%, 
-                rgba(26, 26, 26, 0.95) 100%);
-            z-index: 1;
-        }
-
-        .brick-bg > * {
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Header & Navigation */
+        /* Header & Navigation - Urban Style */
         header {
-            background-color: rgba(26, 26, 26, 0.98);
+            background-color: var(--urban-black);
             padding: 20px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 2px solid var(--primary-red);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 3px solid var(--graffiti-red);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
         }
 
         .header-container {
@@ -87,13 +73,26 @@
 
         .logo {
             font-family: 'Permanent Marker', cursive;
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             line-height: 1;
-            background: linear-gradient(to right, var(--primary-red), var(--primary-gold));
+            background: linear-gradient(45deg, var(--graffiti-red), var(--graffiti-yellow));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 3px 3px 0 var(--urban-black);
             letter-spacing: 1px;
+            position: relative;
+        }
+
+        .logo:after {
+            content: 'KITCHEN RUCKUS';
+            position: absolute;
+            bottom: -15px;
+            right: 0;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            color: var(--graffiti-blue);
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
         nav ul {
@@ -103,28 +102,28 @@
         }
 
         nav a {
-            color: var(--text-light);
+            color: var(--street-light);
             text-decoration: none;
             font-family: 'Oswald', sans-serif;
-            font-weight: 500;
-            font-size: 1.1rem;
+            font-weight: 600;
+            font-size: 1.3rem;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             padding: 10px 0;
             transition: all 0.3s ease;
             position: relative;
         }
 
         nav a:hover {
-            color: var(--primary-gold);
+            color: var(--graffiti-yellow);
         }
 
         nav a:after {
             content: '';
             position: absolute;
             width: 100%;
-            height: 2px;
-            background: linear-gradient(to right, var(--primary-red), var(--primary-gold));
+            height: 3px;
+            background: var(--graffiti-red);
             bottom: 0;
             left: 0;
             transform: scaleX(0);
@@ -140,47 +139,50 @@
         .mobile-menu-btn {
             display: none;
             background: none;
-            border: none;
-            color: var(--primary-gold);
+            border: 2px solid var(--graffiti-red);
+            color: var(--graffiti-yellow);
             font-size: 2rem;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            padding: 5px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
         }
 
         .mobile-menu-btn:hover {
+            background-color: var(--graffiti-red);
             transform: scale(1.1);
         }
 
-        /* Hero Section */
+        /* Hero Section - Full Image Display */
         .hero {
             position: relative;
-            min-height: 85vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 80px 0;
             overflow: hidden;
+            background: var(--urban-black);
         }
 
-        .hero-background {
+        .hero-image-container {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
             display: flex;
             justify-content: center;
             align-items: center;
+            z-index: 1;
         }
 
-        .hero-background img {
-            max-height: 90vh;
+        .hero-image-container img {
+            max-height: 85vh;
             width: auto;
             object-fit: contain;
             filter: brightness(0.8);
-            border-radius: 10px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 5px solid var(--brick-red);
+            box-shadow: 0 0 50px rgba(139, 0, 0, 0.5);
         }
 
         .hero-overlay {
@@ -190,77 +192,100 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, 
-                rgba(26, 26, 26, 0.85) 0%, 
+                rgba(26, 26, 26, 0.9) 0%, 
                 rgba(26, 26, 26, 0.7) 20%, 
                 rgba(26, 26, 26, 0.4) 50%, 
                 rgba(26, 26, 26, 0.7) 80%, 
-                rgba(26, 26, 26, 0.85) 100%);
+                rgba(26, 26, 26, 0.9) 100%);
             z-index: 2;
         }
 
         .hero-content {
-            max-width: 600px;
+            max-width: 800px;
             position: relative;
             z-index: 3;
             text-align: center;
-            padding: 0 40px;
+            padding: 40px;
+            background: rgba(26, 26, 26, 0.7);
+            border: 3px solid var(--graffiti-red);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
         }
 
         .hero h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            font-size: 4.5rem;
-            margin-bottom: 25px;
-            line-height: 1.1;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 5.5rem;
+            margin-bottom: 20px;
+            line-height: 1;
             text-transform: uppercase;
-            background: linear-gradient(to right, var(--primary-red), var(--primary-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-subtitle {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            color: var(--primary-gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 500;
+            color: var(--graffiti-yellow);
+            text-shadow: 3px 3px 0 var(--graffiti-red);
+            letter-spacing: 3px;
         }
 
         .hero-tagline {
-            font-size: 1.25rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: var(--graffiti-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
             margin-bottom: 40px;
-            color: var(--accent-gray);
-            font-weight: 400;
-            max-width: 550px;
-            margin-left: auto;
-            margin-right: auto;
+            color: var(--street-light);
+            font-weight: 500;
             line-height: 1.8;
         }
 
         .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, var(--primary-red), #c1121f);
-            color: var(--text-light);
-            padding: 18px 45px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 1.2rem;
+            background: linear-gradient(45deg, var(--graffiti-red), var(--warning-orange));
+            color: var(--street-light);
+            padding: 20px 50px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 0;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            border: 2px solid var(--primary-gold);
-            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+            letter-spacing: 2px;
+            border: 3px solid var(--graffiti-yellow);
+            box-shadow: 5px 5px 0 var(--graffiti-blue);
+            margin: 0 15px;
+            position: relative;
+            overflow: hidden;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(230, 57, 70, 0.4);
-            background: linear-gradient(135deg, #c1121f, var(--primary-red));
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0 var(--graffiti-blue);
+            background: linear-gradient(45deg, var(--warning-orange), var(--graffiti-red));
+        }
+
+        .cta-button:before {
+            content: 'LET\'S GO!';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-family: 'Permanent Marker', cursive;
+            color: var(--graffiti-yellow);
+            font-size: 1.8rem;
+            transition: transform 0.3s ease;
+            z-index: 2;
+        }
+
+        .cta-button:hover:before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .cta-button:hover span {
+            opacity: 0;
         }
 
         /* Sections */
@@ -275,27 +300,85 @@
         }
 
         .section-title h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 3.2rem;
-            color: var(--primary-gold);
+            font-family: 'Bebas Neue', cursive;
+            font-size: 4rem;
+            color: var(--graffiti-yellow);
             display: inline-block;
             position: relative;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            padding-bottom: 15px;
+            letter-spacing: 3px;
+            padding: 0 20px;
+            background: var(--urban-black);
+            z-index: 2;
         }
 
-        .section-title h2:after {
+        .section-title:before {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
+            top: 50%;
+            left: 0;
+            right: 0;
             height: 4px;
-            background: linear-gradient(to right, var(--primary-red), var(--primary-gold));
-            border-radius: 2px;
+            background: linear-gradient(90deg, var(--graffiti-red), var(--graffiti-blue), var(--graffiti-red));
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        /* About Section */
+        .about-content {
+            background: rgba(47, 47, 47, 0.8);
+            padding: 60px;
+            border-radius: 10px;
+            border: 3px solid var(--brick-red);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-content:before {
+            content: 'NO BULLSHIT';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-family: 'Permanent Marker', cursive;
+            font-size: 4rem;
+            color: var(--graffiti-red);
+            opacity: 0.1;
+            transform: rotate(15deg);
+            z-index: 1;
+        }
+
+        .about-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: var(--street-light);
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-text p {
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .highlight {
+            color: var(--graffiti-yellow);
+            font-weight: 700;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .warning-note {
+            display: inline-block;
+            background: var(--warning-orange);
+            color: var(--urban-black);
+            padding: 10px 20px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 20px 0;
+            border: 2px solid var(--graffiti-yellow);
+            transform: rotate(-2deg);
         }
 
         /* Hosts Section */
@@ -307,64 +390,70 @@
         }
 
         .host-card {
-            background: linear-gradient(145deg, var(--accent-dark), #222222);
-            border-radius: 12px;
+            background: rgba(47, 47, 47, 0.9);
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            border: 1px solid rgba(255, 215, 0, 0.1);
+            position: relative;
+            border: 3px solid var(--brick-red);
+            transition: all 0.4s ease;
+            box-shadow: 10px 10px 0 rgba(139, 0, 0, 0.3);
         }
 
         .host-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 15px 15px 0 rgba(139, 0, 0, 0.5);
         }
 
         .host-header {
-            background: linear-gradient(135deg, var(--primary-red), #c1121f);
-            padding: 35px;
+            background: linear-gradient(45deg, var(--graffiti-red), var(--warning-orange));
+            padding: 30px;
             text-align: center;
             position: relative;
+            overflow: hidden;
         }
 
         .host-header:after {
-            content: '';
+            content: 'COOKING WITH ATTITUDE';
             position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary-red), #c1121f);
-            clip-path: polygon(50% 100%, 0 0, 100% 0);
+            bottom: 5px;
+            left: 0;
+            right: 0;
+            font-family: 'Permanent Marker', cursive;
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.2);
+            text-align: center;
         }
 
         .host-name {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 2.5rem;
-            color: var(--text-light);
-            margin-bottom: 5px;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3.5rem;
+            color: var(--street-light);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 2;
         }
 
-        .host-real-name {
-            font-family: 'Raleway', sans-serif;
+        .host-tagline {
+            font-family: 'Oswald', sans-serif;
             font-size: 1.2rem;
-            color: var(--primary-gold);
-            font-weight: 500;
+            color: var(--graffiti-yellow);
+            font-weight: 600;
             letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .host-content {
-            padding: 50px 35px 35px;
+            padding: 40px;
         }
 
         .host-bio {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             line-height: 1.8;
-            color: var(--accent-gray);
-            margin-bottom: 30px;
-            font-weight: 400;
+            color: var(--street-light);
+            margin-bottom: 25px;
+            font-weight: 500;
         }
 
         .host-stats {
@@ -375,21 +464,22 @@
         }
 
         .stat {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(139, 0, 0, 0.2);
             padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid var(--primary-red);
-            transition: background-color 0.3s ease;
+            border-radius: 5px;
+            border-left: 4px solid var(--graffiti-yellow);
+            transition: all 0.3s ease;
         }
 
         .stat:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(139, 0, 0, 0.4);
+            transform: translateY(-3px);
         }
 
         .stat-label {
             font-family: 'Oswald', sans-serif;
             font-size: 0.9rem;
-            color: #aaa;
+            color: #bbb;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             margin-bottom: 8px;
@@ -397,39 +487,87 @@
         }
 
         .stat-value {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.4rem;
-            color: var(--primary-gold);
-            font-weight: 600;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2rem;
+            color: var(--graffiti-yellow);
+            line-height: 1;
         }
 
-        /* About Section */
-        .about-content {
-            background: linear-gradient(145deg, var(--accent-dark), #222222);
-            padding: 60px;
-            border-radius: 12px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            max-width: 1000px;
-            margin: 0 auto;
-            border: 1px solid rgba(255, 215, 0, 0.1);
+        /* Content Types Section */
+        .content-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
         }
 
-        .about-text {
+        .content-card {
+            background: rgba(47, 47, 47, 0.9);
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            border: 3px solid var(--graffiti-blue);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-card:nth-child(2) {
+            border-color: var(--warning-orange);
+        }
+
+        .content-card:nth-child(3) {
+            border-color: var(--spray-pink);
+        }
+
+        .content-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .content-icon {
+            font-size: 4rem;
+            color: var(--graffiti-yellow);
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .content-card h3 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.5rem;
+            color: var(--graffiti-blue);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .content-card:nth-child(2) h3 {
+            color: var(--warning-orange);
+        }
+
+        .content-card:nth-child(3) h3 {
+            color: var(--spray-pink);
+        }
+
+        .content-card p {
             font-size: 1.2rem;
             line-height: 1.8;
-            color: var(--accent-gray);
-            text-align: center;
+            color: var(--street-light);
+            margin-bottom: 20px;
         }
 
-        .about-text p {
-            margin-bottom: 30px;
-            font-weight: 400;
-        }
-
-        .highlight {
-            color: var(--primary-gold);
-            font-weight: 600;
-            font-family: 'Montserrat', sans-serif;
+        .coming-soon {
+            display: inline-block;
+            background: var(--graffiti-red);
+            color: var(--street-light);
+            padding: 10px 25px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 2px solid var(--graffiti-yellow);
+            margin-top: 15px;
         }
 
         /* Episodes Section */
@@ -440,22 +578,40 @@
         }
 
         .episode-card {
-            background: linear-gradient(145deg, var(--accent-dark), #222222);
-            border-radius: 12px;
+            background: rgba(47, 47, 47, 0.9);
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 3px solid var(--brick-red);
             transition: all 0.4s ease;
-            border: 1px solid rgba(255, 215, 0, 0.1);
+            box-shadow: 8px 8px 0 rgba(139, 0, 0, 0.3);
         }
 
         .episode-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 12px 12px 0 rgba(139, 0, 0, 0.5);
+        }
+
+        .episode-badge {
+            position: absolute;
+            top: 20px;
+            left: -10px;
+            background: var(--graffiti-red);
+            color: var(--street-light);
+            padding: 10px 25px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 2px solid var(--graffiti-yellow);
+            transform: rotate(-5deg);
+            z-index: 2;
         }
 
         .episode-image {
             height: 220px;
             overflow: hidden;
+            position: relative;
         }
 
         .episode-image img {
@@ -474,34 +630,35 @@
         }
 
         .episode-title {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 1.5rem;
-            color: var(--primary-gold);
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.2rem;
+            color: var(--graffiti-yellow);
             margin-bottom: 15px;
-            line-height: 1.3;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .episode-description {
             color: #bbb;
             margin-bottom: 25px;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             line-height: 1.7;
         }
 
-        .episode-tags {
+        .episode-features {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 15px;
         }
 
-        .episode-tag {
-            background: linear-gradient(135deg, var(--primary-red), #c1121f);
-            color: var(--text-light);
+        .feature {
+            background: rgba(139, 0, 0, 0.3);
+            color: var(--graffiti-yellow);
             padding: 8px 20px;
             border-radius: 20px;
             font-family: 'Oswald', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 500;
@@ -515,101 +672,135 @@
         }
 
         .contact-info {
-            background: linear-gradient(145deg, var(--accent-dark), #222222);
+            background: rgba(47, 47, 47, 0.9);
             padding: 50px;
-            border-radius: 12px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 215, 0, 0.1);
+            border-radius: 10px;
+            border: 3px solid var(--graffiti-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info:before {
+            content: 'GET AT US';
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            font-family: 'Permanent Marker', cursive;
+            font-size: 5rem;
+            color: var(--graffiti-blue);
+            opacity: 0.1;
+            transform: rotate(-15deg);
         }
 
         .contact-info h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 2.2rem;
-            color: var(--primary-gold);
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3rem;
+            color: var(--graffiti-yellow);
             margin-bottom: 40px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 2;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             padding-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(139, 0, 0, 0.3);
+            position: relative;
+            z-index: 2;
         }
 
         .contact-icon {
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-right: 25px;
-            color: var(--primary-red);
+            color: var(--graffiti-red);
             min-width: 40px;
         }
 
         .contact-details h4 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Oswald', sans-serif;
             font-weight: 600;
-            font-size: 1.2rem;
-            color: var(--accent-gray);
+            font-size: 1.3rem;
+            color: var(--street-light);
             margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .contact-details p {
             color: #bbb;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
         }
 
         .contact-form {
-            background: linear-gradient(145deg, var(--accent-dark), #222222);
+            background: rgba(47, 47, 47, 0.9);
             padding: 50px;
-            border-radius: 12px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 215, 0, 0.1);
+            border-radius: 10px;
+            border: 3px solid var(--graffiti-red);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form:before {
+            content: 'SPEAK UP';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            font-family: 'Permanent Marker', cursive;
+            font-size: 5rem;
+            color: var(--graffiti-red);
+            opacity: 0.1;
+            transform: rotate(15deg);
         }
 
         .contact-form h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 2.2rem;
-            color: var(--primary-gold);
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3rem;
+            color: var(--graffiti-yellow);
             margin-bottom: 40px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 2;
         }
 
         .form-group {
             margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 10px;
-            font-family: 'Montserrat', sans-serif;
-            color: var(--accent-gray);
-            font-weight: 500;
+            font-family: 'Oswald', sans-serif;
+            color: var(--street-light);
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
 
         .form-control {
             width: 100%;
             padding: 18px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            border-radius: 8px;
-            color: var(--accent-gray);
-            font-size: 1.05rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--graffiti-red);
+            border-radius: 5px;
+            color: var(--street-light);
+            font-size: 1.1rem;
             transition: all 0.3s ease;
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Urbanist', sans-serif;
         }
 
         .form-control:focus {
             outline: none;
-            border-color: var(--primary-red);
-            box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.2);
-            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--graffiti-yellow);
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+            background: rgba(255, 255, 255, 0.15);
         }
 
         textarea.form-control {
@@ -618,34 +809,71 @@
         }
 
         .submit-btn {
-            background: linear-gradient(135deg, var(--primary-red), #c1121f);
-            color: var(--text-light);
+            background: linear-gradient(45deg, var(--graffiti-red), var(--warning-orange));
+            color: var(--street-light);
             border: none;
             padding: 20px 45px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-            border-radius: 8px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 5px;
             cursor: pointer;
             transition: all 0.3s ease;
             width: 100%;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+            letter-spacing: 2px;
+            border: 3px solid var(--graffiti-yellow);
+            position: relative;
+            overflow: hidden;
         }
 
         .submit-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(230, 57, 70, 0.4);
-            background: linear-gradient(135deg, #c1121f, var(--primary-red));
+            box-shadow: 0 10px 20px rgba(255, 36, 0, 0.3);
+            background: linear-gradient(45deg, var(--warning-orange), var(--graffiti-red));
+        }
+
+        .submit-btn:before {
+            content: 'SEND IT!';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-family: 'Permanent Marker', cursive;
+            color: var(--graffiti-yellow);
+            font-size: 1.8rem;
+            transition: transform 0.3s ease;
+            z-index: 2;
+        }
+
+        .submit-btn:hover:before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .submit-btn:hover span {
+            opacity: 0;
         }
 
         /* Footer */
         footer {
-            background: var(--accent-dark);
+            background: var(--urban-gray);
             padding: 80px 0 40px;
-            border-top: 2px solid var(--primary-red);
+            border-top: 3px solid var(--graffiti-red);
             position: relative;
+        }
+
+        footer:before {
+            content: 'REAL FOOD. REAL FLAVOR. NO BULLSHIT.';
+            position: absolute;
+            top: -20px;
+            left: 0;
+            right: 0;
+            font-family: 'Permanent Marker', cursive;
+            font-size: 2.5rem;
+            color: var(--graffiti-red);
+            text-align: center;
+            text-transform: uppercase;
+            opacity: 0.8;
         }
 
         .footer-container {
@@ -653,29 +881,31 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 50px;
             margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
         }
 
         .footer-logo .logo {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 25px;
             display: block;
         }
 
         .footer-logo p {
             color: #bbb;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             line-height: 1.7;
             max-width: 300px;
+            font-weight: 500;
         }
 
         .footer-links h4 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.2rem;
             margin-bottom: 25px;
-            color: var(--primary-gold);
+            color: var(--graffiti-yellow);
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
         }
 
         .footer-links ul {
@@ -690,40 +920,44 @@
             color: #bbb;
             text-decoration: none;
             transition: all 0.3s ease;
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Oswald', sans-serif;
             font-weight: 500;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .footer-links a:hover {
-            color: var(--primary-gold);
-            transform: translateX(5px);
+            color: var(--graffiti-yellow);
+            transform: translateX(10px);
         }
 
         .social-icons {
             display: flex;
             gap: 20px;
+            margin-bottom: 30px;
         }
 
         .social-icon {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 55px;
-            height: 55px;
-            background: linear-gradient(135deg, var(--primary-red), #c1121f);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--graffiti-red), var(--warning-orange));
             border-radius: 50%;
-            color: var(--text-light);
-            font-size: 1.5rem;
+            color: var(--street-light);
+            font-size: 1.8rem;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+            border: 3px solid var(--graffiti-yellow);
+            box-shadow: 5px 5px 0 var(--graffiti-blue);
         }
 
         .social-icon:hover {
-            transform: translateY(-5px) rotate(10deg);
-            box-shadow: 0 10px 25px rgba(230, 57, 70, 0.4);
-            background: linear-gradient(135deg, #c1121f, var(--primary-red));
+            transform: translateY(-5px) rotate(15deg);
+            box-shadow: 8px 8px 0 var(--graffiti-blue);
+            background: linear-gradient(45deg, var(--warning-orange), var(--graffiti-red));
         }
 
         .copyright {
@@ -731,8 +965,11 @@
             padding-top: 40px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #888;
-            font-size: 0.95rem;
-            font-family: 'Raleway', sans-serif;
+            font-size: 1rem;
+            font-family: 'Urbanist', sans-serif;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
         }
 
         /* Responsive Design */
@@ -742,7 +979,7 @@
             }
             
             .hero h1 {
-                font-size: 4rem;
+                font-size: 4.5rem;
             }
         }
 
@@ -753,15 +990,11 @@
             }
             
             .hero h1 {
-                font-size: 3.5rem;
+                font-size: 3.8rem;
             }
             
-            .hero-background img {
-                max-height: 80vh;
-            }
-            
-            .about-content, .contact-info, .contact-form {
-                padding: 40px 30px;
+            .hero-image-container img {
+                max-height: 75vh;
             }
         }
 
@@ -772,12 +1005,12 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: rgba(26, 26, 26, 0.98);
+                background: var(--urban-black);
                 flex-direction: column;
-                padding: 25px;
+                padding: 30px;
                 text-align: center;
-                border-top: 2px solid var(--primary-red);
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                border-top: 3px solid var(--graffiti-red);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
                 gap: 25px;
             }
             
@@ -790,29 +1023,27 @@
             }
             
             .hero {
-                min-height: 75vh;
-                padding: 60px 0;
+                min-height: 80vh;
             }
             
             .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.5rem;
+                font-size: 3rem;
             }
             
             .hero-tagline {
-                font-size: 1.1rem;
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
             }
             
             .section-title h2 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
             
-            .hero-background img {
+            .hero-image-container img {
                 max-height: 70vh;
-                max-width: 90%;
             }
         }
 
@@ -822,37 +1053,40 @@
             }
             
             .hero {
-                padding: 40px 0;
+                padding: 30px 0;
                 min-height: 70vh;
             }
             
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
-            .hero-subtitle {
-                font-size: 1.2rem;
+            .hero-tagline {
+                font-size: 1.5rem;
             }
             
             .logo {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
             .section-title h2 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             
             .host-name {
-                font-size: 2rem;
+                font-size: 2.8rem;
             }
             
             .cta-button {
-                padding: 16px 35px;
-                font-size: 1.1rem;
+                padding: 18px 35px;
+                font-size: 1.2rem;
+                margin: 10px 0;
+                width: 100%;
+                max-width: 300px;
             }
             
-            section {
-                padding: 70px 0;
+            .content-types {
+                grid-template-columns: 1fr;
             }
             
             .episodes-grid {
@@ -862,6 +1096,10 @@
             .contact-container {
                 grid-template-columns: 1fr;
                 gap: 30px;
+            }
+            
+            .about-content, .contact-info, .contact-form {
+                padding: 30px 20px;
             }
         }
     </style>
@@ -880,48 +1118,72 @@
             
             <nav>
                 <ul id="navMenu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#hosts">Hosts</a></li>
-                    <li><a href="#about">The Show</a></li>
-                    <li><a href="#episodes">Episodes</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#about">THE RUCKUS</a></li>
+                    <li><a href="#hosts">THE CREW</a></li>
+                    <li><a href="#content">CONTENT</a></li>
+                    <li><a href="#episodes">EPISODES</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section with Fixed Image -->
-    <section class="hero brick-bg" id="home">
-        <div class="hero-background">
-            <img src="background.jpg" alt="CrockPotDaddy and MACK3Y">
+    <!-- Hero Section with Full Image -->
+    <section class="hero" id="home">
+        <div class="hero-image-container">
+            <img src="background.jpg" alt="CrockPotDaddy and MACK3Y the Foodie">
         </div>
         <div class="hero-overlay"></div>
         <div class="container hero-content">
-            <h1>Crocked 'N Loaded</h1>
-            <div class="hero-subtitle">Professional Meets Practical</div>
-            <div class="hero-tagline">
-                Where 23 years of culinary expertise meets passionate home cooking. Join a professional chef and an enthusiastic home cook as they create amazing meals together.
+            <h1>CROCKED 'N LOADED</h1>
+            <div class="hero-tagline">REAL FOOD. REAL REVIEWS. NO BULLSHIT.</div>
+            <div class="hero-subtitle">
+                Two tattooed chefs bringing you raw cooking content, honest restaurant reviews, and kitchen chaos that actually teaches you something. No fancy nonsense, just real food made by real people.
             </div>
-            <a href="#episodes" class="cta-button">Watch Episodes</a>
+            <a href="#episodes" class="cta-button"><span>WATCH THE MADNESS</span></a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="brick-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>THE RUCKUS</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p><span class="highlight">Crocked 'N Loaded</span> isn't your typical cooking show. We're here to cut through the foodie nonsense. No perfectly plated dishes you'll never make. No pretentious chef talk. Just two guys who genuinely care about good food.</p>
+                    
+                    <div class="warning-note">WARNING: ACTUAL COOKING ADVICE INSIDE</div>
+                    
+                    <p>We do it all: from <span class="highlight">home cooking demos</span> where we show you how to make restaurant-quality meals at home, to <span class="highlight">shopping challenges</span> where we cook amazing meals with the cheapest ingredients we can find, to <span class="highlight">honest restaurant reviews</span> where we tell you what's actually worth your money.</p>
+                    
+                    <p>MACK3Y THE FOODIE brings 23 years of professional chef experience - from diners to Four Diamond restaurants - to teach you techniques that actually work. CrockPotDaddy brings the home cook perspective, asking the questions regular people actually have.</p>
+                    
+                    <p>Plus, we're hitting the streets for restaurant reviews and interviews - coming soon to YouTube. No filters. No nonsense. Just real food.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Hosts Section -->
-    <section id="hosts" class="brick-bg">
+    <section id="hosts">
         <div class="container">
             <div class="section-title">
-                <h2>The Hosts</h2>
+                <h2>THE CREW</h2>
             </div>
             
             <div class="hosts-container">
                 <div class="host-card">
                     <div class="host-header">
                         <div class="host-name">CROCKPOTDADDY</div>
-                        <div class="host-real-name">Eric Landry</div>
+                        <div class="host-tagline">THE HOME COOK WITH ATTITUDE</div>
                     </div>
                     <div class="host-content">
                         <div class="host-bio">
-                            Former music artist manager with extensive sales experience who transformed his passion for cooking into impressive home culinary skills. Eric represents every home cook who wants to elevate their kitchen game through practice and dedication.
+                            Former music industry professional who left that world to chase his passion for food. Not a "professional chef" but cooks better than most of them. Brings the energy, asks the questions regular people actually have, and has enough tattoos to make things interesting.
                         </div>
                         
                         <div class="host-stats">
@@ -930,16 +1192,16 @@
                                 <div class="stat-value">Music & Sales</div>
                             </div>
                             <div class="stat">
-                                <div class="stat-label">Culinary Level</div>
-                                <div class="stat-value">Advanced Home Cook</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-label">Role</div>
-                                <div class="stat-value">The Learner</div>
+                                <div class="stat-label">Cooking Level</div>
+                                <div class="stat-value">Home Cook Expert</div>
                             </div>
                             <div class="stat">
                                 <div class="stat-label">Specialty</div>
-                                <div class="stat-value">Practical Techniques</div>
+                                <div class="stat-value">Asking Why</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Vibe</div>
+                                <div class="stat-value">Unfiltered Energy</div>
                             </div>
                         </div>
                     </div>
@@ -948,11 +1210,11 @@
                 <div class="host-card">
                     <div class="host-header">
                         <div class="host-name">MACK3Y THE FOODIE</div>
-                        <div class="host-real-name">Steve Mackey</div>
+                        <div class="host-tagline">THE 23-YEAR PRO</div>
                     </div>
                     <div class="host-content">
                         <div class="host-bio">
-                            Professional chef with 23 years of experience across every kitchen environment imaginable. From diners to Four Diamond establishments, Steve has worked at executive chef levels and is passionate about teaching professional techniques to home cooks.
+                            Professional chef with 23 years of experience across every kitchen environment imaginable. From diners to Four Diamond establishments, MACK3Y THE FOODIE has worked at executive chef levels and is passionate about teaching professional techniques to home cooks in a way that makes sense.
                         </div>
                         
                         <div class="host-stats">
@@ -979,77 +1241,100 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
+    <!-- Content Types Section -->
+    <section id="content" class="brick-section">
         <div class="container">
             <div class="section-title">
-                <h2>The Show Concept</h2>
+                <h2>THE CONTENT</h2>
             </div>
             
-            <div class="about-content">
-                <div class="about-text">
-                    <p><span class="highlight">Crocked 'N Loaded</span> bridges the gap between professional culinary expertise and practical home cooking. Unlike traditional cooking shows that focus on restaurant-style perfection, we focus on techniques and recipes that work in real home kitchens.</p>
-                    
-                    <p>Each episode features <span class="highlight">Steve Mackey</span> applying his 23 years of professional experience to teach restaurant-quality techniques in a way that's accessible to home cooks. <span class="highlight">Eric Landry</span> provides the perspective of an enthusiastic home cook, asking the questions that viewers would ask and demonstrating how these techniques can be applied in everyday cooking.</p>
-                    
-                    <p>Our mission is simple: to take professional culinary knowledge and make it practical, accessible, and enjoyable for anyone who loves to cook at home.</p>
+            <div class="content-types">
+                <div class="content-card">
+                    <i class="fas fa-home content-icon"></i>
+                    <h3>HOME COOKING</h3>
+                    <p>Professional techniques made practical for your kitchen. We show you how to make restaurant-quality food without the restaurant price tag or the chef ego.</p>
+                </div>
+                
+                <div class="content-card">
+                    <i class="fas fa-store content-icon"></i>
+                    <h3>SHOPPING CHALLENGES</h3>
+                    <p>How good can we make it for how cheap? We hit the stores, find the best deals, and turn budget ingredients into incredible meals. Because good food shouldn't break the bank.</p>
+                </div>
+                
+                <div class="content-card">
+                    <i class="fas fa-utensils content-icon"></i>
+                    <h3>RESTAURANT REVIEWS</h3>
+                    <p>Coming soon to YouTube! We're hitting the streets for honest restaurant reviews and chef interviews. No paid promotions, no sugar-coating - just real opinions from a pro and a food lover.</p>
+                    <div class="coming-soon">COMING SOON</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Episodes Section -->
-    <section id="episodes" class="brick-bg">
+    <section id="episodes">
         <div class="container">
             <div class="section-title">
-                <h2>Featured Episodes</h2>
+                <h2>EPISODES</h2>
             </div>
             
             <div class="episodes-grid">
                 <div class="episode-card">
+                    <div class="episode-badge">
+                        BUDGET MEAL
+                    </div>
                     <div class="episode-image">
-                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Knife Skills">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Budget Cooking">
                     </div>
                     <div class="episode-content">
-                        <div class="episode-title">Professional Knife Skills for Home Cooks</div>
+                        <div class="episode-title">$20 DINNER FOR FOUR</div>
                         <div class="episode-description">
-                            Steve teaches Eric essential knife techniques that professional chefs use daily. Learn proper cutting methods, knife maintenance, and safety protocols that will transform your cooking efficiency.
+                            Can we feed a family of four an amazing meal for under $20? MACK3Y THE FOODIE shows professional techniques while CrockPotDaddy keeps us grounded in reality.
                         </div>
-                        <div class="episode-tags">
-                            <span class="episode-tag">Essential Skills</span>
-                            <span class="episode-tag">Safety</span>
+                        <div class="episode-features">
+                            <div class="feature">BUDGET</div>
+                            <div class="feature">FAMILY MEAL</div>
+                            <div class="feature">CHALLENGE</div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="episode-card">
+                    <div class="episode-badge">
+                        PRO TECHNIQUE
+                    </div>
                     <div class="episode-image">
-                        <img src="https://images.unsplash.com/photo-1543353074-8c6d5f4a9c07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sauces">
+                        <img src="https://images.unsplash.com/photo-1543353074-8c6d5f4a9c07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Knife Skills">
                     </div>
                     <div class="episode-content">
-                        <div class="episode-title">The Five Mother Sauces Demystified</div>
+                        <div class="episode-title">KNIFE SKILLS YOU ACTUALLY NEED</div>
                         <div class="episode-description">
-                            Learn the foundation of French cuisine as Steve breaks down the five mother sauces and shows Eric how to adapt them for home cooking. From béchamel to hollandaise, master the basics.
+                            MACK3Y THE FOODIE teaches the 5 knife cuts that will change your cooking forever. No fancy French terms, just practical skills that save time and make better food.
                         </div>
-                        <div class="episode-tags">
-                            <span class="episode-tag">French Cuisine</span>
-                            <span class="episode-tag">Techniques</span>
+                        <div class="episode-features">
+                            <div class="feature">ESSENTIAL</div>
+                            <div class="feature">TECHNIQUE</div>
+                            <div class="feature">PRACTICAL</div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="episode-card">
+                    <div class="episode-badge">
+                        COMFORT FOOD
+                    </div>
                     <div class="episode-image">
-                        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Meat Preparation">
+                        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Comfort Food">
                     </div>
                     <div class="episode-content">
-                        <div class="episode-title">Perfect Protein Preparation</div>
+                        <div class="episode-title">PERFECT BURGERS AT HOME</div>
                         <div class="episode-description">
-                            Professional techniques for preparing and cooking proteins. Steve shows Eric proper meat handling, seasoning methods, and cooking temperatures for perfect results every time.
+                            Why go out when you can make better burgers at home? We break down everything from meat selection to bun toasting to secret sauce recipes.
                         </div>
-                        <div class="episode-tags">
-                            <span class="episode-tag">Protein</span>
-                            <span class="episode-tag">Cooking Methods</span>
+                        <div class="episode-features">
+                            <div class="feature">COMFORT</div>
+                            <div class="feature">GRILLING</div>
+                            <div class="feature">CROWD PLEASER</div>
                         </div>
                     </div>
                 </div>
@@ -1061,12 +1346,12 @@
     <section id="contact">
         <div class="container">
             <div class="section-title">
-                <h2>Contact Us</h2>
+                <h2>CONTACT</h2>
             </div>
             
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Get In Touch</h3>
+                    <h3>GET AT US</h3>
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
@@ -1106,7 +1391,7 @@
                 </div>
                 
                 <div class="contact-form">
-                    <h3>Send A Message</h3>
+                    <h3>SEND A MESSAGE</h3>
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Full Name</label>
@@ -1124,7 +1409,7 @@
                             <label for="message">Your Message</label>
                             <textarea id="message" class="form-control" placeholder="Type your message here..." required></textarea>
                         </div>
-                        <button type="submit" class="submit-btn">Send Message</button>
+                        <button type="submit" class="submit-btn"><span>SEND MESSAGE</span></button>
                     </form>
                 </div>
             </div>
@@ -1137,22 +1422,23 @@
             <div class="footer-container">
                 <div class="footer-logo">
                     <div class="logo">CROCKED 'N LOADED</div>
-                    <p>A unique cooking show where professional culinary expertise meets passionate home cooking. Real techniques, real people, real results.</p>
+                    <p>A cooking show where professional culinary expertise meets passionate home cooking. Real techniques, real people, real results.</p>
                 </div>
                 
                 <div class="footer-links">
-                    <h4>Quick Links</h4>
+                    <h4>QUICK LINKS</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#hosts">The Hosts</a></li>
-                        <li><a href="#about">Show Concept</a></li>
+                        <li><a href="#about">The Ruckus</a></li>
+                        <li><a href="#hosts">The Crew</a></li>
+                        <li><a href="#content">Content</a></li>
                         <li><a href="#episodes">Episodes</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-social">
-                    <h4>Connect With Us</h4>
+                    <h4>CONNECT WITH US</h4>
                     <div class="social-icons">
                         <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
@@ -1160,13 +1446,13 @@
                         <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
                     </div>
                     <p style="margin-top: 25px; color: #bbb; font-size: 1.05rem;">
-                        Subscribe for cooking tips, episode releases, and culinary insights.
+                        Subscribe for cooking tips, episode releases, and restaurant reviews.
                     </p>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 Crocked 'N Loaded. All Rights Reserved.</p>
+                <p>&copy; 2023 Crocked 'N Loaded. All Rights Reserved. | Real Food. Real Reviews. No Bullshit.</p>
             </div>
         </div>
     </footer>
@@ -1218,7 +1504,7 @@
             const name = document.getElementById('name').value;
             
             // Show success message
-            alert(`Thank you, ${name}! Your message has been received. We'll respond as soon as possible.`);
+            alert(`Thanks ${name}! Your message has been received. We'll get back to you soon.`);
             
             // Reset the form
             contactForm.reset();
