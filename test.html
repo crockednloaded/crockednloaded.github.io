@@ -6,7 +6,7 @@
   <title>The Crocked N' Loaded Show — Home</title>
   <meta name="description" content="Crocked N' Loaded — Join CrockPotDaddy & MACK3Y for bold flavors, wild experiments, and easy recipes. Subscribe for new episodes." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;900&family=Exo+2:wght@600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -19,12 +19,14 @@
           <div class="brand-sub">Where flavor meets fire</div>
         </div>
       </div>
+
       <nav class="main-nav" aria-label="Main navigation">
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#episodes">Episodes</a>
         <a href="#merch">Merch</a>
       </nav>
+
       <div class="header-ctas">
         <a id="ytSubscribe" class="btn btn-primary" target="_blank" rel="noopener">Subscribe</a>
         <a id="shopBtn" href="#merch" class="btn btn-outline">Shop</a>
@@ -34,25 +36,29 @@
 
   <main>
     <section id="home" class="hero container">
-      <div class="hero-art">
-        <img src="background.jpg" alt="Crocked N' Loaded — show art">
-      </div>
-
-      <div class="hero-content">
-        <h1 class="hero-title">THE CROCKED N' LOADED SHOW</h1>
-        <p class="hero-tag">WHERE FLAVOR MEETS FIRE 🔥</p>
-        <p class="lead">Join CrockPotDaddy &amp; MACK3Y for bold, hilarious, and delicious kitchen adventures — no fluff, just flavor. New episodes weekly.</p>
-        <div class="hero-actions">
-          <a id="heroSubscribe" class="btn btn-cta" target="_blank" rel="noopener">🎥 Subscribe on YouTube</a>
-          <a href="#episodes" class="btn btn-secondary">Watch Episodes</a>
+      <div class="hero-card">
+        <div class="hero-art">
+          <img src="background.jpg" alt="Crocked N' Loaded — show art">
+          <div class="badge">NEW EPISODE</div>
         </div>
 
-        <ul class="quick-stats" aria-label="Channel statistics">
-          <li><strong id="s1">50K+</strong><span>Subscribers</span></li>
-          <li><strong id="s2">120+</strong><span>Episodes</span></li>
-          <li><strong id="s3">2M+</strong><span>Views</span></li>
-          <li><strong id="s4">1000+</strong><span>Recipes</span></li>
-        </ul>
+        <div class="hero-content">
+          <h1 class="hero-title">THE CROCKED N' LOADED SHOW</h1>
+          <p class="hero-tag">WHERE FLAVOR MEETS FIRE 🔥</p>
+          <p class="lead">CrockPotDaddy &amp; MACK3Y bring bold flavors, wild experiments, and kitchen chaos. No fluff — just tasty results and laughs. New episodes every week.</p>
+
+          <div class="hero-actions">
+            <a id="heroSubscribe" class="btn btn-cta" target="_blank" rel="noopener">🎥 Subscribe on YouTube</a>
+            <a href="#episodes" class="btn btn-secondary">Watch Episodes</a>
+          </div>
+
+          <ul class="quick-stats" aria-label="Channel statistics">
+            <li><strong id="s1">50K+</strong><span>Subscribers</span></li>
+            <li><strong id="s2">120+</strong><span>Episodes</span></li>
+            <li><strong id="s3">2M+</strong><span>Views</span></li>
+            <li><strong id="s4">1000+</strong><span>Recipes</span></li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -152,12 +158,8 @@
   </footer>
 
   <script>
-    // Minimal dynamic link wiring — update these to your real URLs
-    const data = {
-      yt: 'https://www.youtube.com/channel/UC_REPLACE', // set to your channel URL
-      merch: '#'
-    };
-
+    // Minimal dynamic wiring — set real URLs
+    const data = { yt: 'https://www.youtube.com/channel/UC_REPLACE', merch: '#' };
     document.getElementById('ytSubscribe').href = data.yt;
     document.getElementById('heroSubscribe').href = data.yt;
     document.getElementById('viewAll').href = data.yt;
