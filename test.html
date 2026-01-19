@@ -1,242 +1,169 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Crocked N' Loaded Show</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@600;800&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Exo 2',sans-serif;background:#000;color:#fff;overflow-x:hidden}
-.bg{position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 30% 40%,rgba(255,107,53,.3),transparent 60%),radial-gradient(circle at 70% 60%,rgba(255,215,0,.2),transparent 60%);animation:pulse 10s infinite;z-index:0}
-@keyframes pulse{0%,100%{opacity:.3}50%{opacity:.5}}
-.admin-btn{position:fixed;top:20px;right:20px;z-index:10001;background:linear-gradient(135deg,#ff6b35,#ff8c3a);border:3px solid #ffd700;color:#fff;padding:12px 24px;border-radius:50px;cursor:pointer;font-weight:800;box-shadow:0 0 30px rgba(255,107,53,.8);transition:.3s}
-.admin-btn:hover{transform:scale(1.1)}
-.panel{position:fixed;top:0;right:-500px;width:500px;height:100vh;background:rgba(10,10,10,.98);backdrop-filter:blur(20px);border-left:3px solid #ff6b35;z-index:10000;overflow-y:auto;padding:2rem;transition:right .4s}
-.panel.open{right:0}
-.panel h2{font-family:'Orbitron';color:#ffd700;text-align:center;margin-bottom:2rem}
-.group{margin-bottom:2rem;padding:1.5rem;background:rgba(255,107,53,.1);border-radius:12px;border:1px solid rgba(255,107,53,.3)}
-.group h3{color:#ff8c3a;margin-bottom:1rem}
-input{width:100%;padding:10px;margin-bottom:10px;background:rgba(0,0,0,.5);border:2px solid rgba(255,107,53,.3);border-radius:8px;color:#fff;font-family:'Exo 2'}
-input:focus{outline:none;border-color:#ffd700}
-.save{width:100%;padding:12px;background:linear-gradient(135deg,#ff6b35,#ff8c3a);border:none;border-radius:10px;color:#fff;font-weight:700;cursor:pointer;margin-top:10px}
-nav{position:sticky;top:0;z-index:1000;background:rgba(10,10,10,.95);backdrop-filter:blur(20px);border-bottom:3px solid #ff6b35}
-.nav{max-width:1400px;margin:0 auto;padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center}
-.logo{font-family:'Orbitron';font-size:1.8rem;font-weight:900;background:linear-gradient(135deg,#ff6b35,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:2px}
-.menu{display:flex;gap:2.5rem;list-style:none}
-.menu a{color:#fff;text-decoration:none;font-weight:700;text-transform:uppercase;letter-spacing:1px;transition:.3s}
-.menu a:hover{color:#ffd700}
-.hero{position:relative;z-index:1;text-align:center;padding:5rem 2rem;max-width:1400px;margin:0 auto}
-.hero img{width:700px;max-width:90%;border-radius:25px;background:#fff;padding:25px;box-shadow:0 0 60px rgba(255,107,53,.6);margin-bottom:3rem;border:4px solid #ff6b35;animation:glow 3s infinite}
-@keyframes glow{0%,100%{box-shadow:0 0 60px rgba(255,107,53,.6)}50%{box-shadow:0 0 80px rgba(255,107,53,.9)}}
-h1{font-family:'Orbitron';font-size:5rem;font-weight:900;background:linear-gradient(135deg,#ff6b35,#ffd700,#ff8c3a);background-size:300%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shine 4s infinite;letter-spacing:3px;margin-bottom:1.5rem}
-@keyframes shine{0%,100%{background-position:0%}50%{background-position:100%}}
-.tag{font-family:'Orbitron';font-size:2rem;color:#ffd700;margin-bottom:2rem;font-weight:700;letter-spacing:2px}
-.hero p{font-size:1.3rem;max-width:800px;margin:0 auto 3rem;line-height:1.8;color:#e0e0e0}
-.btns{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap}
-.btn{padding:1.3rem 3rem;border-radius:50px;text-decoration:none;font-weight:800;font-size:1.2rem;transition:.4s;text-transform:uppercase;letter-spacing:2px}
-.btn1{background:linear-gradient(135deg,#ff6b35,#ff8c3a);color:#fff;border:3px solid #ffd700;box-shadow:0 0 40px rgba(255,107,53,.6)}
-.btn1:hover{transform:translateY(-5px)}
-.btn2{background:transparent;color:#ffd700;border:3px solid #ffd700}
-.btn2:hover{background:rgba(255,215,0,.1);transform:translateY(-5px)}
-.stats{position:relative;z-index:1;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;max-width:1400px;margin:4rem auto;padding:3rem 2rem;background:linear-gradient(135deg,rgba(255,107,53,.2),rgba(255,215,0,.1));border-radius:30px;border:3px solid rgba(255,107,53,.5)}
-.stat{text-align:center;padding:2rem;background:rgba(0,0,0,.4);border-radius:20px;border:2px solid rgba(255,215,0,.3);transition:.3s}
-.stat:hover{transform:translateY(-10px) scale(1.05)}
-.num{font-family:'Orbitron';font-size:3.5rem;font-weight:900;background:linear-gradient(135deg,#ff6b35,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.lab{font-size:1.1rem;color:#e0e0e0;text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-top:.5rem}
-.sec{position:relative;z-index:1;max-width:1400px;margin:5rem auto;padding:4rem 2rem;background:linear-gradient(135deg,rgba(10,10,10,.9),rgba(68,20,0,.3));border-radius:30px;border:3px solid rgba(255,107,53,.4)}
-h2{font-family:'Orbitron';font-size:3.5rem;font-weight:900;text-align:center;background:linear-gradient(135deg,#ff6b35,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:1rem;letter-spacing:3px}
-.sub{text-align:center;font-size:1.4rem;margin-bottom:3rem;color:#ff8c3a;font-weight:700;text-transform:uppercase;letter-spacing:2px}
-.hosts{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:3rem}
-.host{background:linear-gradient(135deg,rgba(255,107,53,.15),rgba(255,215,0,.1));padding:3rem;border-radius:25px;text-align:center;border:3px solid rgba(255,107,53,.4);transition:.4s}
-.host:hover{transform:translateY(-15px);box-shadow:0 20px 60px rgba(255,107,53,.5)}
-.icon{width:200px;height:200px;background:linear-gradient(135deg,#ff6b35,#ffd700);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:6rem;margin:0 auto 2rem;border:4px solid #ffd700}
-.host h3{font-family:'Orbitron';font-size:2.5rem;color:#ffd700;margin-bottom:1rem}
-.host p{line-height:1.8;color:#e0e0e0}
-.vids{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:3rem}
-.vid{background:linear-gradient(135deg,rgba(255,107,53,.1),rgba(0,0,0,.5));border-radius:20px;overflow:hidden;border:3px solid rgba(255,107,53,.4);transition:.4s}
-.vid:hover{transform:translateY(-15px)}
-.vid iframe{width:100%;aspect-ratio:16/9;border:none}
-.vid-info{padding:2rem;background:rgba(0,0,0,.6)}
-.vid-info h3{font-family:'Orbitron';color:#ffd700;font-size:1.5rem}
-.merch{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:3rem}
-.item{background:linear-gradient(135deg,rgba(255,107,53,.15),rgba(0,0,0,.5));padding:3rem 2rem;border-radius:25px;text-align:center;border:3px solid rgba(255,107,53,.4);transition:.4s}
-.item:hover{transform:translateY(-15px) scale(1.05)}
-.item-icon{font-size:6rem;margin-bottom:1.5rem}
-.item h3{font-family:'Orbitron';color:#ffd700;font-size:1.8rem;margin-bottom:1rem}
-.price{font-family:'Orbitron';font-size:2rem;color:#ff8c3a;font-weight:900;margin:1.5rem 0}
-footer{position:relative;z-index:1;background:linear-gradient(135deg,rgba(10,10,10,.98),rgba(68,20,0,.5));padding:4rem 2rem;text-align:center;margin-top:5rem;border-top:3px solid #ff6b35}
-.social{display:flex;gap:3rem;justify-content:center;margin:3rem 0;font-size:3rem}
-.social a{transition:.3s}
-.social a:hover{transform:scale(1.4) translateY(-10px)}
-.music{position:fixed;bottom:2rem;right:2rem;z-index:1000}
-.mbtn{width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,#ff6b35,#ff8c3a);border:3px solid #ffd700;color:#fff;font-size:2rem;cursor:pointer;box-shadow:0 0 40px rgba(255,107,53,.6);transition:.3s}
-.mbtn:hover{transform:scale(1.15)}
-.mbtn.play{animation:beat 2s infinite}
-@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
-@media(max-width:768px){.panel{width:100%;right:-100%}h1{font-size:2.5rem}h2{font-size:2rem}.menu{display:none}.stats{grid-template-columns:repeat(2,1fr)}}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Crocked N' Loaded Show — Home</title>
+  <meta name="description" content="Crocked N' Loaded — Join CrockPotDaddy & MACK3Y for bold flavors, wild experiments, and easy recipes. Subscribe for new episodes." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Orbitron:wght@600;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="bg"></div>
-<button class="admin-btn" onclick="toggleAdmin()">⚙️ ADMIN</button>
-<div id="panel" class="panel">
-<h2>CONTROL PANEL</h2>
-<div class="group">
-<h3>📺 YouTube</h3>
-<input id="yt" placeholder="YouTube URL">
-<button class="save" onclick="save()">Save</button>
-</div>
-<div class="group">
-<h3>📱 Socials</h3>
-<input id="ig" placeholder="Instagram">
-<input id="tt" placeholder="TikTok">
-<input id="tw" placeholder="Twitter">
-<button class="save" onclick="save()">Save</button>
-</div>
-<div class="group">
-<h3>🛍️ Merch</h3>
-<input id="merch" placeholder="Store URL">
-<button class="save" onclick="save()">Save</button>
-</div>
-<div class="group">
-<h3>🎵 Music</h3>
-<input id="musicId" placeholder="Video ID" value="SDi_jI6488w">
-<button class="save" onclick="updateMusic()">Update</button>
-</div>
-<div class="group">
-<h3>📊 Stats</h3>
-<input id="subs" value="50K+">
-<input id="eps" value="120+">
-<input id="views" value="2M+">
-<input id="recs" value="1000+">
-<button class="save" onclick="save()">Save</button>
-</div>
-</div>
-<div class="music">
-<button id="mbtn" class="mbtn" onclick="toggleMusic()">🔇</button>
-</div>
-<div id="player" style="display:none"></div>
-<nav>
-<div class="nav">
-<div class="logo">CROCKED N' LOADED</div>
-<ul class="menu">
-<li><a href="#home">HOME</a></li>
-<li><a href="#about">ABOUT</a></li>
-<li><a href="#videos">VIDEOS</a></li>
-<li><a href="#merch">MERCH</a></li>
-</ul>
-</div>
-</nav>
-<div class="hero" id="home">
-<img src="background.jpg" alt="Logo">
-<h1>THE CROCKED N' LOADED SHOW</h1>
-<p class="tag">WHERE FLAVOR MEETS FIRE 🔥</p>
-<p>Join CrockPotDaddy & MACK3Y as they bring you the most entertaining cooking show on YouTube. No fancy stuff—just good food, good laughs, and good times in the kitchen.</p>
-<div class="btns">
-<a href="#" id="ytLink" class="btn btn1" target="_blank">🎥 SUBSCRIBE</a>
-<a href="#merch" class="btn btn2">🔥 SHOP MERCH</a>
-</div>
-</div>
-<div class="stats">
-<div class="stat"><div class="num" id="s1">50K+</div><div class="lab">Subscribers</div></div>
-<div class="stat"><div class="num" id="s2">120+</div><div class="lab">Episodes</div></div>
-<div class="stat"><div class="num" id="s3">2M+</div><div class="lab">Views</div></div>
-<div class="stat"><div class="num" id="s4">1000+</div><div class="lab">Recipes</div></div>
-</div>
-<div class="sec" id="about">
-<h2>MEET THE HOSTS</h2>
-<p class="sub">Two Guys. One Kitchen. Unlimited Chaos.</p>
-<div class="hosts">
-<div class="host">
-<div class="icon">🍲</div>
-<h3>CrockPotDaddy</h3>
-<p>The mastermind behind slow-cooked perfection. With years of experience and passion for comfort food, he brings warmth to every dish. When not perfecting recipes, he's telling dad jokes worse than his cooking puns.</p>
-</div>
-<div class="host">
-<div class="icon">🔪</div>
-<h3>MACK3Y</h3>
-<p>The wild card who brings the heat. Known for creative experiments and turning simple dishes into culinary adventures. Motto: "If it doesn't work, we'll order pizza." Safety goggles recommended.</p>
-</div>
-</div>
-</div>
-<div class="sec" id="videos">
-<h2>LATEST EPISODES</h2>
-<p class="sub">Catch Our Newest Kitchen Adventures</p>
-<div class="vids">
-<div class="vid">
-<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-<div class="vid-info"><h3>Ultimate Comfort Food Challenge</h3><p>245K views • 2 days ago</p></div>
-</div>
-<div class="vid">
-<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-<div class="vid-info"><h3>5-Ingredient Weeknight Dinners</h3><p>180K views • 1 week ago</p></div>
-</div>
-<div class="vid">
-<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-<div class="vid-info"><h3>Cooking Fails & How To Fix</h3><p>320K views • 2 weeks ago</p></div>
-</div>
-</div>
-<div class="btns" style="margin-top:3rem">
-<a href="#" id="ytLink2" class="btn btn1" target="_blank">VIEW ALL →</a>
-</div>
-</div>
-<div class="sec" id="merch">
-<h2>OFFICIAL MERCH</h2>
-<p class="sub">Wear The Madness. Support The Show.</p>
-<div class="merch">
-<div class="item">
-<div class="item-icon">👕</div>
-<h3>Classic T-Shirt</h3>
-<div class="price">$24.99</div>
-<a href="#" class="btn btn2 mlink" target="_blank">SHOP</a>
-</div>
-<div class="item">
-<div class="item-icon">🧢</div>
-<h3>Dad Hat</h3>
-<div class="price">$19.99</div>
-<a href="#" class="btn btn2 mlink" target="_blank">SHOP</a>
-</div>
-<div class="item">
-<div class="item-icon">☕</div>
-<h3>Coffee Mug</h3>
-<div class="price">$14.99</div>
-<a href="#" class="btn btn2 mlink" target="_blank">SHOP</a>
-</div>
-<div class="item">
-<div class="item-icon">👕</div>
-<h3>Premium Hoodie</h3>
-<div class="price">$39.99</div>
-<a href="#" class="btn btn2 mlink" target="_blank">SHOP</a>
-</div>
-</div>
-<div class="btns" style="margin-top:3rem">
-<a href="#" id="merchMain" class="btn btn1" target="_blank">FULL STORE →</a>
-</div>
-</div>
-<footer>
-<h2>THE CROCKED N' LOADED SHOW</h2>
-<div class="social">
-<a href="#" id="ytS" target="_blank">📺</a>
-<a href="#" id="igS" target="_blank">📷</a>
-<a href="#" id="ttS" target="_blank">🎵</a>
-<a href="#" id="twS" target="_blank">🐦</a>
-</div>
-<p>© 2025 The Crocked N' Loaded Show. All rights reserved.</p>
-<p style="margin-top:1rem">Made with 🔥 by CrockPotDaddy & MACK3Y</p>
-</footer>
-<script>
-let player,play=false;
-const d={yt:'',ig:'',tt:'',tw:'',merch:'',music:'SDi_jI6488w',subs:'50K+',eps:'120+',views:'2M+',recs:'1000+'};
-function toggleAdmin(){document.getElementById('panel').classList.toggle('open');load()}
-function save(){d.yt=document.getElementById('yt').value;d.ig=document.getElementById('ig').value;d.tt=document.getElementById('tt').value;d.tw=document.getElementById('tw').value;d.merch=document.getElementById('merch').value;d.subs=document.getElementById('subs').value;d.eps=document.getElementById('eps').value;d.views=document.getElementById('views').value;d.recs=document.getElementById('recs').value;apply();alert('✅ Settings saved!')}
-function apply(){document.getElementById('ytLink').href=d.yt;document.getElementById('ytLink2').href=d.yt;document.getElementById('ytS').href=d.yt;document.getElementById('igS').href=d.ig;document.getElementById('ttS').href=d.tt;document.getElementById('twS').href=d.tw;document.getElementById('merchMain').href=d.merch;document.querySelectorAll('.mlink').forEach(l=>l.href=d.merch);document.getElementById('s1').textContent=d.subs;document.getElementById('s2').textContent=d.eps;document.getElementById('s3').textContent=d.views;document.getElementById('s4').textContent=d.recs}
-function load(){document.getElementById('yt').value=d.yt;document.getElementById('ig').value=d.ig;document.getElementById('tt').value=d.tt;document.getElementById('tw').value=d.tw;document.getElementById('merch').value=d.merch;document.getElementById('musicId').value=d.music;document.getElementById('subs').value=d.subs;document.getElementById('eps').value=d.eps;document.getElementById('views').value=d.views;document.getElementById('recs').value=d.recs}
-function updateMusic(){d.music=document.getElementById('musicId').value;if(player){player.loadVideoById(d.music);alert('🎵 Music updated!')}else{alert('⚠️ Wait for player to load')}}
-const t=document.createElement('script');t.src='https://www.youtube.com/iframe_api';document.getElementsByTagName('script')[0].parentNode.insertBefore(t,document.getElementsByTagName('script')[0]);
-function onYouTubeIframeAPIReady(){player=new YT.Player('player',{videoId:d.music,playerVars:{autoplay:1,loop:1,playlist:d.music,controls:0},events:{onReady:e=>{e.target.setVolume(55);e.target.playVideo();document.getElementById('mbtn').textContent='🔊';document.getElementById('mbtn').classList.add('play');play=true}}})}
-function toggleMusic(){if(!player)return;const b=document.getElementById('mbtn');if(play){player.pauseVideo();b.textContent='🔇';b.classList.remove('play');play=false}else{player.playVideo();b.textContent='🔊';b.classList.add('play');play=true}}
-apply();
-</script>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo-mark" aria-hidden="true">🍲</div>
+        <div>
+          <div class="brand-title">CROCKED N' LOADED</div>
+          <div class="brand-sub">Where flavor meets fire</div>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#episodes">Episodes</a>
+        <a href="#merch">Merch</a>
+      </nav>
+      <div class="header-ctas">
+        <a id="ytSubscribe" class="btn btn-primary" target="_blank" rel="noopener">Subscribe</a>
+        <a id="shopBtn" href="#merch" class="btn btn-outline">Shop</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <picture class="hero-art">
+        <img src="background.jpg" alt="Crocked N' Loaded — show art" loading="eager">
+      </picture>
+      <div class="hero-content container">
+        <h1 class="hero-title">The Crocked N' Loaded Show</h1>
+        <p class="hero-tag">Two hosts. One kitchen. Unlimited chaos.</p>
+        <p class="lead">Join CrockPotDaddy &amp; MACK3Y for bold, hilarious, and delicious kitchen adventures — no fluff, just flavor. New episodes weekly.</p>
+        <div class="hero-actions">
+          <a id="heroSubscribe" class="btn btn-cta" target="_blank" rel="noopener">Subscribe on YouTube</a>
+          <a href="#episodes" class="btn btn-secondary">Watch Episodes</a>
+        </div>
+        <ul class="quick-stats" aria-label="Channel statistics">
+          <li><strong id="s1">50K+</strong><span>Subscribers</span></li>
+          <li><strong id="s2">120+</strong><span>Episodes</span></li>
+          <li><strong id="s3">2M+</strong><span>Views</span></li>
+          <li><strong id="s4">1000+</strong><span>Recipes</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="about" class="section container">
+      <h2 class="section-title">Meet the Hosts</h2>
+      <p class="section-sub">Two personalities, one kitchen — the perfect recipe for chaos and flavor.</p>
+      <div class="hosts-grid">
+        <article class="host-card">
+          <div class="host-avatar">🍲</div>
+          <h3>CrockPotDaddy</h3>
+          <p>Slow-cook king and master of comfort food — bringing warmth, jokes, and perfected recipes to every episode.</p>
+        </article>
+        <article class="host-card">
+          <div class="host-avatar">🔪</div>
+          <h3>MACK3Y</h3>
+          <p>The wild experimenter who turns simple ingredients into culinary adventures. Safety goggles recommended.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="episodes" class="section container">
+      <h2 class="section-title">Latest Episodes</h2>
+      <p class="section-sub">Catch the newest kitchen challenges and recipes.</p>
+      <div class="episodes-grid" aria-live="polite">
+        <div class="episode">
+          <div class="embed-wrap">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Ultimate Comfort Food Challenge" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <h4>Ultimate Comfort Food Challenge</h4>
+          <p class="meta">245K views • 2 days ago</p>
+        </div>
+        <div class="episode">
+          <div class="embed-wrap">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="5-Ingredient Weeknight Dinners" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <h4>5-Ingredient Weeknight Dinners</h4>
+          <p class="meta">180K views • 1 week ago</p>
+        </div>
+        <div class="episode">
+          <div class="embed-wrap">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Cooking Fails &amp; How To Fix" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <h4>Cooking Fails &amp; How To Fix</h4>
+          <p class="meta">320K views • 2 weeks ago</p>
+        </div>
+      </div>
+      <div class="section-actions">
+        <a id="viewAll" class="btn btn-primary" target="_blank" rel="noopener">View All Episodes</a>
+      </div>
+    </section>
+
+    <section id="merch" class="section container">
+      <h2 class="section-title">Official Merch</h2>
+      <p class="section-sub">Wear the madness. Support the show.</p>
+      <div class="merch-grid">
+        <div class="merch-item">
+          <div class="merch-emoji">👕</div>
+          <h4>Classic T‑Shirt</h4>
+          <div class="price">$24.99</div>
+          <a id="merchShop1" class="btn btn-outline" target="_blank" rel="noopener">Shop</a>
+        </div>
+        <div class="merch-item">
+          <div class="merch-emoji">🧢</div>
+          <h4>Dad Hat</h4>
+          <div class="price">$19.99</div>
+          <a id="merchShop2" class="btn btn-outline" target="_blank" rel="noopener">Shop</a>
+        </div>
+        <div class="merch-item">
+          <div class="merch-emoji">☕</div>
+          <h4>Coffee Mug</h4>
+          <div class="price">$14.99</div>
+          <a id="merchShop3" class="btn btn-outline" target="_blank" rel="noopener">Shop</a>
+        </div>
+        <div class="merch-item">
+          <div class="merch-emoji">🧥</div>
+          <h4>Premium Hoodie</h4>
+          <div class="price">$39.99</div>
+          <a id="merchShop4" class="btn btn-outline" target="_blank" rel="noopener">Shop</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <h3 class="footer-title">The Crocked N' Loaded Show</h3>
+        <p>© 2026 Crocked N' Loaded. All rights reserved.</p>
+      </div>
+      <div class="social">
+        <a id="ytS" aria-label="YouTube" target="_blank" rel="noopener">📺</a>
+        <a id="igS" aria-label="Instagram" target="_blank" rel="noopener">📷</a>
+        <a id="ttS" aria-label="TikTok" target="_blank" rel="noopener">🎵</a>
+        <a id="twS" aria-label="Twitter" target="_blank" rel="noopener">🐦</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Minimal dynamic link wiring — update these to your real URLs
+    const data = {
+      yt: 'https://www.youtube.com/channel/UC_REPLACE', // set to your channel URL
+      merch: '#'
+    };
+
+    document.getElementById('ytSubscribe').href = data.yt;
+    document.getElementById('heroSubscribe').href = data.yt;
+    document.getElementById('viewAll').href = data.yt;
+    // Merch links (update if you have a store)
+    document.getElementById('merchShop1').href = data.merch;
+    document.getElementById('merchShop2').href = data.merch;
+    document.getElementById('merchShop3').href = data.merch;
+    document.getElementById('merchShop4').href = data.merch;
+  </script>
 </body>
 </html>
