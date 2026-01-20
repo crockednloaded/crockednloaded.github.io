@@ -25,18 +25,14 @@ nav a:hover::before,nav a.active::before{opacity:1}
 .menu-btn{display:none;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
 .hero{position:relative;z-index:1;padding:3rem 2rem;background:linear-gradient(rgba(10,10,10,.85),rgba(10,10,10,.95)),url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80');background-size:cover;background-position:center;border-bottom:3px solid var(--fire);min-height:90vh;display:flex;align-items:flex-start}
 .hero-wrap{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-/* Left food image container - Shows full image without cropping */
 .hero-img-container{display:flex;align-items:flex-start;justify-content:center;height:100%}
 .hero-img{border-radius:20px;overflow:hidden;box-shadow:0 0 60px rgba(255,59,48,.5);border:4px solid var(--gold);animation:glow 3s ease infinite;height:600px;width:100%;position:relative;margin-top:0}
 @keyframes glow{0%,100%{box-shadow:0 0 60px rgba(255,59,48,.5)}50%{box-shadow:0 0 80px rgba(255,59,48,.7)}}
 .hero-img img{width:100%;height:100%;object-fit:contain;display:block;background-color: rgba(0,0,0,0.2)}
-/* Right content container */
 .hero-content-container{display:flex;flex-direction:column;height:100%;justify-content:flex-start;padding-top:0}
-/* Background image above text - shows complete image without cropping */
 .text-image-container{margin-bottom:2rem;width:100%;flex-shrink:0}
 .text-image{border-radius:15px;overflow:hidden;box-shadow:0 0 40px rgba(255,59,48,.4);border:3px solid var(--orange);height:250px;width:100%;position:relative;margin-top:0}
 .text-image img{width:100%;height:100%;object-fit:contain;display:block;object-position:center center;background-color: rgba(0,0,0,0.2)}
-/* Text content */
 .hero-text-content{flex-grow:1;margin-top:2rem}
 h1{font-family:'Bebas Neue';font-size:4.5rem;background:linear-gradient(135deg,var(--white),var(--gold));background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 4s ease infinite;letter-spacing:3px;margin-bottom:1.5rem;line-height:1.1;margin-top:0}
 @keyframes shimmer{0%,100%{background-position:0%}50%{background-position:100%}}
@@ -143,12 +139,128 @@ footer{background:var(--dark);padding:5rem 2rem 3rem;border-top:3px solid var(--
 .youtube-video-title{font-family:'Bebas Neue';font-size:1.3rem;color:var(--white);margin-bottom:.8rem;line-height:1.3}
 .youtube-video-date{font-family:'Orbitron';font-size:.8rem;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
 .youtube-video-views{font-family:'Orbitron';font-size:.75rem;color:var(--smoke);display:flex;align-items:center;gap:.5rem}
+
+/* Facebook Plugin Styles */
+.facebook-plugin-section {
+    background: linear-gradient(135deg, rgba(26,26,26,.3), rgba(42,42,42,.2));
+}
+
+.facebook-plugin-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+    align-items: start;
+}
+
+.facebook-plugin-box {
+    background: linear-gradient(135deg, rgba(26,26,26,.9), rgba(42,42,42,.7));
+    padding: 2rem;
+    border-radius: 20px;
+    border: 3px solid #1877F2;
+    transition: .4s;
+}
+
+.facebook-plugin-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    box-shadow: 0 15px 40px rgba(24, 119, 242, 0.3);
+}
+
+.facebook-plugin-box h3 {
+    font-family: 'Bebas Neue';
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #1877F2;
+    text-align: center;
+}
+
+.facebook-plugin-box p {
+    color: var(--smoke);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.fb-page-container {
+    background: rgba(58,58,58,.3);
+    padding: 1.5rem;
+    border-radius: 15px;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fb-page {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.facebook-features {
+    list-style: none;
+}
+
+.facebook-features li {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(58,58,58,.5);
+    border-radius: 10px;
+    border-left: 4px solid #1877F2;
+    transition: .3s;
+}
+
+.facebook-features li:hover {
+    transform: translateX(5px);
+    background: rgba(78,78,78,.5);
+}
+
+.facebook-features i {
+    color: #1877F2;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+.facebook-features h4 {
+    font-family: 'Orbitron';
+    font-size: 1rem;
+    color: var(--white);
+    margin-bottom: .5rem;
+    display: flex;
+    align-items: center;
+}
+
+.facebook-features p {
+    color: var(--smoke);
+    font-size: .9rem;
+    margin: 0;
+    text-align: left;
+}
+
+.facebook-cta {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--ash);
+}
+
+.facebook-cta .btn {
+    background: linear-gradient(135deg, #1877F2, #0d5bb5);
+    display: inline-flex;
+}
+
+.facebook-cta .btn:hover {
+    background: linear-gradient(135deg, #0d5bb5, #1877F2);
+}
+
 @media(max-width:1200px){
 .grid2,.grid3{grid-template-columns:1fr}
 .youtube-stats-grid{grid-template-columns:repeat(2,1fr)}
 .youtube-videos-grid{grid-template-columns:repeat(2,1fr)}
 .hero-img{height:550px}
 .text-image{height:220px}
+.facebook-plugin-container{grid-template-columns:1fr;gap:2rem}
 }
 @media(max-width:992px){
 .hero-wrap{grid-template-columns:1fr;text-align:center;gap:3rem}
@@ -173,12 +285,15 @@ h2{font-size:2.5rem}
 .text-image{height:180px}
 .contact-social-links{flex-direction:column;gap:.5rem}
 .youtube-stats-grid{grid-template-columns:1fr}
+.facebook-plugin-box{padding:1.5rem}
+.fb-page-container{padding:1rem}
 }
 @media(max-width:576px){
 .hero-img{height:300px}
 .text-image{height:150px}
 h1{font-size:2.2rem}
 .tag{font-size:1.4rem}
+.fb-page{width:100%!important}
 }
 </style>
 </head>
@@ -200,6 +315,7 @@ h1{font-size:2.2rem}
 <li><a href="#home" class="active">HOME</a></li>
 <li><a href="#hosts">CREW</a></li>
 <li><a href="#content">CONTENT</a></li>
+<li><a href="#facebook">FACEBOOK</a></li>
 <li><a href="#youtube">YOUTUBE STATS</a></li>
 <li><a href="#episodes">EPISODES</a></li>
 <li><a href="#contact">CONTACT</a></li>
@@ -209,19 +325,15 @@ h1{font-size:2.2rem}
 </header>
 <section class="hero" id="home">
 <div class="hero-wrap">
-<!-- Left: Large food image - aligned at top -->
 <div class="hero-img-container">
 <div class="hero-img">
 <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Crocked N Loaded Hosts cooking">
 </div>
 </div>
 
-<!-- Right: Content with background.jpg above text -->
 <div class="hero-content-container">
-<!-- Background image above the text - aligned at top -->
 <div class="text-image-container">
 <div class="text-image">
-<!-- Use background.jpg here - object-fit: contain ensures complete image display -->
 <img src="background.jpg" alt="Crocked N Loaded Real Food Real Reviews">
 </div>
 </div>
@@ -237,7 +349,6 @@ h1{font-size:2.2rem}
 </div>
 </section>
 
-<!-- Rest of the HTML remains the same -->
 <section class="sec alt" id="hosts">
 <div class="wrap">
 <h2>MEET THE CREW</h2>
@@ -303,7 +414,70 @@ h1{font-size:2.2rem}
 </div>
 </section>
 
-<!-- New YouTube Stats Section -->
+<!-- Facebook Plugin Section -->
+<section class="sec facebook-plugin-section" id="facebook">
+<div class="wrap">
+<h2>FACEBOOK UPDATES</h2>
+<div class="sub">Live Feed from Our Facebook Page</div>
+<div class="facebook-plugin-container">
+<div class="facebook-plugin-box">
+<h3><i class="fab fa-facebook"></i> LIVE FEED</h3>
+<p>See our latest posts, reels, and updates directly from Facebook.</p>
+<div class="fb-page-container">
+<!-- Facebook Page Plugin -->
+<div class="fb-page" 
+    data-href="https://www.facebook.com/CrockedNLoadedShow"
+    data-tabs="timeline,events,messages" 
+    data-width="500" 
+    data-height="600"
+    data-small-header="true" 
+    data-adapt-container-width="true"
+    data-hide-cover="false" 
+    data-show-facepile="true"
+    data-hide-cta="false">
+    <blockquote cite="https://www.facebook.com/CrockedNLoadedShow" 
+        class="fb-xfbml-parse-ignore">
+        <a href="https://www.facebook.com/CrockedNLoadedShow">
+            Crocked N Loaded on Facebook
+        </a>
+    </blockquote>
+</div>
+</div>
+</div>
+<div class="facebook-plugin-box">
+<h3><i class="fas fa-star"></i> WHY FOLLOW US?</h3>
+<p>Get exclusive content and updates only on Facebook:</p>
+<ul class="facebook-features">
+<li>
+<h4><i class="fas fa-video"></i> REELS & SHORTS</h4>
+<p>Quick cooking tips and behind-the-scenes moments in short video format.</p>
+</li>
+<li>
+<h4><i class="fas fa-calendar-alt"></i> LIVE EVENTS</h4>
+<p>Cooking demonstrations, Q&A sessions, and special announcements.</p>
+</li>
+<li>
+<h4><i class="fas fa-users"></i> COMMUNITY</h4>
+<p>Connect with other food lovers, share recipes, and join discussions.</p>
+</li>
+<li>
+<h4><i class="fas fa-bell"></i> INSTANT UPDATES</h4>
+<p>Be the first to know about new episodes, events, and collaborations.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="facebook-cta">
+<a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" class="btn">
+<i class="fab fa-facebook"></i> FOLLOW & GET NOTIFICATIONS
+</a>
+<p style="color: var(--smoke); margin-top: 1rem; font-size: 0.9rem;">
+<i class="fas fa-info-circle"></i> Click "Follow" then "See First" to never miss an update
+</p>
+</div>
+</div>
+</section>
+
 <section class="sec alt" id="youtube">
 <div class="wrap">
 <h2>YOUTUBE STATS</h2>
@@ -311,7 +485,6 @@ h1{font-size:2.2rem}
 <div class="youtube-stats">
 <h3>CHANNEL STATISTICS</h3>
 <div class="youtube-stats-grid" id="youtubeStats">
-<!-- YouTube stats will be loaded here by JavaScript -->
 <div class="youtube-stat-card">
 <div class="youtube-stat-number">--</div>
 <div class="youtube-stat-label">SUBSCRIBERS</div>
@@ -331,7 +504,6 @@ h1{font-size:2.2rem}
 </div>
 <h3 style="margin-top: 3rem;">TOP 3 MOST VIEWED VIDEOS</h3>
 <div class="youtube-videos-grid" id="youtubeVideos">
-<!-- Top 3 most viewed videos will be loaded here by JavaScript -->
 <div class="youtube-video-card">
 <div class="youtube-video-thumbnail">
 <img src="https://img.youtube.com/vi/placeholder/maxresdefault.jpg" alt="Video Thumbnail">
@@ -352,7 +524,6 @@ h1{font-size:2.2rem}
 <h2>FEATURED EPISODES</h2>
 <div class="sub">Latest from @CrockedNLoaded-NH</div>
 <div class="grid3" id="featuredEpisodes">
-<!-- Featured episodes will be loaded dynamically from YouTube -->
 <div class="ep">
 <div class="ep-img">
 <div class="ep-badge">LOADING</div>
@@ -411,7 +582,6 @@ h1{font-size:2.2rem}
 </div>
 <div class="contact-box">
 <h3>SEND MESSAGE</h3>
-<!-- Formspree Form with proper configuration -->
 <form id="contactForm" action="https://formspree.io/f/xaqqbenp" method="POST">
 <div class="form-group">
 <label for="name">NAME</label>
@@ -451,6 +621,7 @@ h1{font-size:2.2rem}
 <li><a href="#home">Home</a></li>
 <li><a href="#hosts">Crew</a></li>
 <li><a href="#content">Content</a></li>
+<li><a href="#facebook">Facebook</a></li>
 <li><a href="#youtube">YouTube Stats</a></li>
 <li><a href="#episodes">Episodes</a></li>
 <li><a href="#contact">Contact</a></li>
@@ -481,6 +652,15 @@ let cachedStats = null;
 let cachedVideos = null;
 const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes cache
 
+// Facebook SDK Loader
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0&appId=YOUR_APP_ID&autoLogAppEvents=1";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
 // Show loader on page load
 window.addEventListener('load', () => {
     setTimeout(() => {
@@ -488,6 +668,13 @@ window.addEventListener('load', () => {
         // Load YouTube data after page loads
         loadYouTubeData();
         loadFeaturedEpisodes();
+        
+        // Initialize Facebook plugin after a short delay
+        setTimeout(() => {
+            if (typeof FB !== 'undefined') {
+                FB.XFBML.parse();
+            }
+        }, 1000);
     }, 1000);
 });
 
@@ -910,6 +1097,13 @@ setInterval(() => {
         loadFeaturedEpisodes();
     }
 }, CACHE_DURATION);
+
+// Re-parse Facebook plugin when resizing
+window.addEventListener('resize', () => {
+    if (typeof FB !== 'undefined') {
+        setTimeout(() => FB.XFBML.parse(), 300);
+    }
+});
 </script>
 </body>
 </html>
