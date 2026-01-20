@@ -5,23 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crocked 'N Loaded | Real Food. Real Reviews. No Bullshit.</title>
 <meta name="description" content="Join CrockPotDaddy and MACK3Y THE FOODIE for professional cooking techniques, global flavors, and honest restaurant reviews.">
-
-<!-- Open Graph / Social Sharing -->
-<meta property="og:title" content="Crocked 'N Loaded | Real Food. Real Reviews. No Bullshit.">
-<meta property="og:description" content="Professional cooking techniques, global flavors, and honest restaurant reviews with CrockPotDaddy and MACK3Y THE FOODIE.">
-<meta property="og:image" content="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
-<meta property="og:url" content="https://yourdomain.com">
-<meta property="og:type" content="website">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--fire:#FF3B30;--orange:#FF9500;--gold:#FFD700;--dark:#0a0a0a;--char:#1a1a1a;--slate:#2a2a2a;--ash:#3a3a3a;--smoke:#888;--white:#fff}
-body{background:#000;color:var(--white);font-family:'Exo 2',sans-serif;overflow-x:hidden;font-display:swap}
+body{background:#000;color:var(--white);font-family:'Exo 2',sans-serif;overflow-x:hidden}
 .glow{position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 20% 30%,rgba(255,59,48,.15),transparent 50%),radial-gradient(circle at 80% 70%,rgba(255,149,0,.1),transparent 50%);animation:breathe 15s ease infinite;z-index:0;pointer-events:none}
 @keyframes breathe{0%,100%{opacity:.3}50%{opacity:.6}}
 header{position:sticky;top:0;z-index:1000;background:rgba(10,10,10,.98);backdrop-filter:blur(20px);border-bottom:3px solid var(--fire);box-shadow:0 5px 30px rgba(255,59,48,.3)}
@@ -34,21 +23,21 @@ nav a{color:var(--white);text-decoration:none;font-family:'Orbitron';font-weight
 nav a::before{content:'';position:absolute;inset:0;border-radius:30px;background:linear-gradient(135deg,var(--fire),var(--orange));opacity:0;transition:.3s;z-index:-1}
 nav a:hover::before,nav a.active::before{opacity:1}
 .menu-btn{display:none;background:none;border:none;color:var(--white);font-size:1.8rem;cursor:pointer;flex-shrink:0}
-.hero{position:relative;z-index:1;padding:3rem 2rem;background:linear-gradient(rgba(10,10,10,.85),rgba(10,10,10,.95)),url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80');background-size:cover;background-position:center;border-bottom:3px solid var(--fire);min-height:90vh;display:flex;align-items:flex-start}
-.hero-wrap{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-.hero-img-container{display:flex;align-items:flex-start;justify-content:center;height:100%}
-.hero-img{border-radius:20px;overflow:hidden;box-shadow:0 0 60px rgba(255,59,48,.5);border:4px solid var(--gold);animation:glow 3s ease infinite;height:600px;width:100%;position:relative;margin-top:0}
+.hero{position:relative;z-index:1;padding:3rem 2rem;background:linear-gradient(rgba(10,10,10,.85),rgba(10,10,10,.95)),url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80');background-size:cover;background-position:center;border-bottom:3px solid var(--fire);min-height:90vh;display:flex;align-items:center}
+.hero-wrap{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.hero-img-container{display:flex;align-items:center;justify-content:center;height:100%}
+.hero-img{border-radius:20px;overflow:hidden;box-shadow:0 0 60px rgba(255,59,48,.5);border:4px solid var(--gold);animation:glow 3s ease infinite;height:550px;width:100%;position:relative;margin-top:0}
 @keyframes glow{0%,100%{box-shadow:0 0 60px rgba(255,59,48,.5)}50%{box-shadow:0 0 80px rgba(255,59,48,.7)}}
-.hero-img img{width:100%;height:100%;object-fit:contain;display:block;background-color:rgba(0,0,0,0.2)}
-.hero-content-container{display:flex;flex-direction:column;height:100%;justify-content:flex-start;padding-top:0}
-.text-image-container{margin-bottom:2rem;width:100%;flex-shrink:0}
-.text-image{border-radius:15px;overflow:hidden;box-shadow:0 0 40px rgba(255,59,48,.4);border:3px solid var(--orange);height:250px;width:100%;position:relative;margin-top:0}
-.text-image img{width:100%;height:100%;object-fit:contain;display:block;object-position:center center;background-color:rgba(0,0,0,0.2)}
-.hero-text-content{flex-grow:1;margin-top:2rem}
-h1{font-family:'Bebas Neue';font-size:4.5rem;background:linear-gradient(135deg,var(--white),var(--gold));background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 4s ease infinite;letter-spacing:3px;margin-bottom:1.5rem;line-height:1.1;margin-top:0}
+.hero-img img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-content-container{display:flex;flex-direction:column;justify-content:center;height:100%}
+.text-image-container{margin-bottom:2.5rem;width:100%}
+.text-image{border-radius:15px;overflow:hidden;box-shadow:0 0 40px rgba(255,59,48,.4);border:3px solid var(--orange);height:220px;width:100%;position:relative}
+.text-image img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-text-content{flex-grow:1;display:flex;flex-direction:column;justify-content:center}
+h1{font-family:'Bebas Neue';font-size:4.5rem;background:linear-gradient(135deg,var(--white),var(--gold));background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 4s ease infinite;letter-spacing:3px;margin-bottom:1.5rem;line-height:1.1}
 @keyframes shimmer{0%,100%{background-position:0%}50%{background-position:100%}}
-.tag{font-family:'Orbitron';font-size:2rem;color:var(--fire);font-weight:900;margin-bottom:2rem;text-transform:uppercase;letter-spacing:2px}
-.desc{font-size:1.2rem;line-height:1.8;color:var(--smoke);margin-bottom:3rem}
+.tag{font-family:'Orbitron';font-size:2rem;color:var(--fire);font-weight:900;margin-bottom:1rem;text-transform:uppercase;letter-spacing:2px}
+.desc{font-size:1.2rem;line-height:1.8;color:var(--smoke);margin-bottom:2.5rem}
 .btn{display:inline-flex;align-items:center;gap:1rem;background:linear-gradient(135deg,var(--fire),var(--orange));color:var(--white);padding:1.2rem 3rem;font-family:'Orbitron';font-weight:700;font-size:1.1rem;text-decoration:none;border-radius:50px;transition:.3s;text-transform:uppercase;letter-spacing:1px;border:3px solid var(--gold);box-shadow:0 0 40px rgba(255,59,48,.5)}
 .btn:hover{transform:translateY(-5px);box-shadow:0 0 60px rgba(255,59,48,.8)}
 .sec{position:relative;z-index:1;padding:6rem 2rem}
@@ -134,113 +123,562 @@ footer{background:var(--dark);padding:5rem 2rem 3rem;border-top:3px solid var(--
 .file-input{background:rgba(58,58,58,.5);padding:.8rem;border:2px solid var(--orange);border-radius:10px;color:var(--white);cursor:pointer;transition:.3s}
 .file-input:hover{background:rgba(78,78,78,.5);border-color:var(--gold)}
 
-/* Facebook Plugin Styles */
-.facebook-plugin-section {background:linear-gradient(135deg,rgba(26,26,26,.3),rgba(42,42,42,.2));}
-.facebook-plugin-container {display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem;align-items:start;}
-.facebook-plugin-box {background:linear-gradient(135deg,rgba(26,26,26,.9),rgba(42,42,42,.7));padding:2rem;border-radius:20px;border:3px solid #1877F2;transition:.4s;}
-.facebook-plugin-box:hover {transform:translateY(-5px);border-color:var(--gold);box-shadow:0 15px 40px rgba(24,119,242,.3);}
-.facebook-plugin-box h3 {font-family:'Bebas Neue';font-size:2rem;margin-bottom:1.5rem;color:#1877F2;text-align:center;}
-.facebook-plugin-box p {color:var(--smoke);line-height:1.7;margin-bottom:1.5rem;text-align:center;}
-.fb-page-container {background:rgba(58,58,58,.3);padding:1.5rem;border-radius:15px;min-height:300px;display:flex;align-items:center;justify-content:center;}
-.fb-page {width:100%;max-width:500px;margin:0 auto;}
-.facebook-features {list-style:none;}
-.facebook-features li {margin-bottom:1.5rem;padding:1rem;background:rgba(58,58,58,.5);border-radius:10px;border-left:4px solid #1877F2;transition:.3s;}
-.facebook-features li:hover {transform:translateX(5px);background:rgba(78,78,78,.5);}
-.facebook-features i {color:#1877F2;margin-right:1rem;font-size:1.2rem;}
-.facebook-features h4 {font-family:'Orbitron';font-size:1rem;color:var(--white);margin-bottom:.5rem;display:flex;align-items:center;}
-.facebook-features p {color:var(--smoke);font-size:.9rem;margin:0;text-align:left;}
-.facebook-cta {text-align:center;margin-top:3rem;padding-top:3rem;border-top:1px solid var(--ash);}
-.facebook-cta .btn {background:linear-gradient(135deg,#1877F2,#0d5bb5);display:inline-flex;}
-.facebook-cta .btn:hover {background:linear-gradient(135deg,#0d5bb5,#1877F2);}
+/* Clean Facebook Section */
+.facebook-section {
+    background: linear-gradient(135deg, rgba(26,26,26,.3), rgba(42,42,42,.2));
+}
+
+.facebook-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+    align-items: start;
+}
+
+.facebook-box {
+    background: linear-gradient(135deg, rgba(26,26,26,.9), rgba(42,42,42,.7));
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 3px solid #1877F2;
+    transition: .4s;
+    text-align: center;
+}
+
+.facebook-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    box-shadow: 0 15px 40px rgba(24, 119, 242, 0.3);
+}
+
+.facebook-box h3 {
+    font-family: 'Bebas Neue';
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: #1877F2;
+}
+
+.facebook-box p {
+    color: var(--smoke);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.facebook-preview {
+    background: rgba(58,58,58,.3);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.facebook-preview i {
+    font-size: 4rem;
+    color: #1877F2;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.facebook-preview h4 {
+    font-family: 'Orbitron';
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-bottom: .5rem;
+}
+
+.facebook-preview p {
+    color: var(--smoke);
+    font-size: .9rem;
+    margin: 0;
+}
+
+.facebook-features {
+    list-style: none;
+    text-align: left;
+}
+
+.facebook-features li {
+    margin-bottom: 1.5rem;
+    padding: 1.2rem;
+    background: rgba(58,58,58,.5);
+    border-radius: 10px;
+    border-left: 4px solid #1877F2;
+    transition: .3s;
+}
+
+.facebook-features li:hover {
+    transform: translateX(5px);
+    background: rgba(78,78,78,.5);
+}
+
+.facebook-features i {
+    color: #1877F2;
+    margin-right: 1rem;
+    font-size: 1.3rem;
+}
+
+.facebook-features h4 {
+    font-family: 'Orbitron';
+    font-size: 1rem;
+    color: var(--white);
+    margin-bottom: .5rem;
+    display: flex;
+    align-items: center;
+}
+
+.facebook-features p {
+    color: var(--smoke);
+    font-size: .9rem;
+    margin: 0;
+}
+
+.facebook-cta {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--ash);
+}
+
+.facebook-cta .btn {
+    background: linear-gradient(135deg, #1877F2, #0d5bb5);
+    display: inline-flex;
+    padding: 1.2rem 2.5rem;
+    font-size: 1rem;
+}
+
+.facebook-cta .btn:hover {
+    background: linear-gradient(135deg, #0d5bb5, #1877F2);
+}
 
 /* Clean YouTube Stats Section */
-.youtube-stats-section {background:linear-gradient(135deg,rgba(26,26,26,.3),rgba(42,42,42,.2));}
-.youtube-stats-container {display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem;align-items:start;}
-.youtube-stats-box {background:linear-gradient(135deg,rgba(26,26,26,.9),rgba(42,42,42,.7));padding:2rem;border-radius:20px;border:3px solid #FF0000;transition:.4s;}
-.youtube-stats-box:hover {transform:translateY(-5px);border-color:var(--gold);box-shadow:0 15px 40px rgba(255,0,0,.3);}
-.youtube-stats-box h3 {font-family:'Bebas Neue';font-size:2rem;margin-bottom:1.5rem;color:#FF0000;text-align:center;}
-.youtube-stats-box p {color:var(--smoke);line-height:1.7;margin-bottom:1.5rem;text-align:center;}
-.youtube-stats-grid {display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2rem;}
-.youtube-stat-card {background:rgba(58,58,58,.5);padding:1.5rem;border-radius:15px;text-align:center;border:2px solid rgba(255,0,0,.3);transition:.3s;}
-.youtube-stat-card:hover {transform:translateY(-5px);border-color:var(--gold);background:rgba(78,78,78,.5);}
-.youtube-stat-number {font-family:'Bebas Neue';font-size:2.5rem;color:#FF0000;display:block;margin-bottom:.5rem;line-height:1;}
-.youtube-stat-label {font-family:'Orbitron';font-size:0.9rem;color:var(--smoke);text-transform:uppercase;letter-spacing:1px;}
-.youtube-features {list-style:none;}
-.youtube-features li {margin-bottom:1.5rem;padding:1rem;background:rgba(58,58,58,.5);border-radius:10px;border-left:4px solid #FF0000;transition:.3s;}
-.youtube-features li:hover {transform:translateX(5px);background:rgba(78,78,78,.5);}
-.youtube-features i {color:#FF0000;margin-right:1rem;font-size:1.2rem;}
-.youtube-features h4 {font-family:'Orbitron';font-size:1rem;color:var(--white);margin-bottom:.5rem;display:flex;align-items:center;}
-.youtube-features p {color:var(--smoke);font-size:.9rem;margin:0;text-align:left;}
-.youtube-cta {text-align:center;margin-top:3rem;padding-top:3rem;border-top:1px solid var(--ash);}
-.youtube-cta .btn {background:linear-gradient(135deg,#FF0000,#CC0000);display:inline-flex;}
-.youtube-cta .btn:hover {background:linear-gradient(135deg,#CC0000,#FF0000);}
+.youtube-stats-section {
+    background: linear-gradient(135deg, rgba(26,26,26,.3), rgba(42,42,42,.2));
+}
+
+.youtube-stats-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+    align-items: start;
+}
+
+.youtube-stats-box {
+    background: linear-gradient(135deg, rgba(26,26,26,.9), rgba(42,42,42,.7));
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 3px solid #FF0000;
+    transition: .4s;
+}
+
+.youtube-stats-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    box-shadow: 0 15px 40px rgba(255, 0, 0, 0.3);
+}
+
+.youtube-stats-box h3 {
+    font-family: 'Bebas Neue';
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: #FF0000;
+    text-align: center;
+}
+
+.youtube-stats-box p {
+    color: var(--smoke);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.youtube-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.youtube-stat-card {
+    background: rgba(58,58,58,.5);
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid rgba(255, 0, 0, 0.3);
+    transition: .3s;
+}
+
+.youtube-stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    background: rgba(78,78,78,.5);
+}
+
+.youtube-stat-number {
+    font-family: 'Bebas Neue';
+    font-size: 2.5rem;
+    color: #FF0000;
+    display: block;
+    margin-bottom: .5rem;
+    line-height: 1;
+}
+
+.youtube-stat-label {
+    font-family: 'Orbitron';
+    font-size: 0.9rem;
+    color: var(--smoke);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.youtube-features {
+    list-style: none;
+}
+
+.youtube-features li {
+    margin-bottom: 1.5rem;
+    padding: 1.2rem;
+    background: rgba(58,58,58,.5);
+    border-radius: 10px;
+    border-left: 4px solid #FF0000;
+    transition: .3s;
+}
+
+.youtube-features li:hover {
+    transform: translateX(5px);
+    background: rgba(78,78,78,.5);
+}
+
+.youtube-features i {
+    color: #FF0000;
+    margin-right: 1rem;
+    font-size: 1.3rem;
+}
+
+.youtube-features h4 {
+    font-family: 'Orbitron';
+    font-size: 1rem;
+    color: var(--white);
+    margin-bottom: .5rem;
+    display: flex;
+    align-items: center;
+}
+
+.youtube-features p {
+    color: var(--smoke);
+    font-size: .9rem;
+    margin: 0;
+    text-align: left;
+}
+
+.youtube-cta {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--ash);
+}
+
+.youtube-cta .btn {
+    background: linear-gradient(135deg, #FF0000, #CC0000);
+    display: inline-flex;
+    padding: 1.2rem 2.5rem;
+    font-size: 1rem;
+}
+
+.youtube-cta .btn:hover {
+    background: linear-gradient(135deg, #CC0000, #FF0000);
+}
 
 /* Top Videos Section */
-.youtube-top-videos {margin-top:4rem;padding-top:3rem;border-top:1px solid var(--ash);}
-.youtube-top-videos h3 {font-family:'Bebas Neue';font-size:2.5rem;text-align:center;margin-bottom:2rem;color:var(--gold);}
-.youtube-videos-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem;}
-.youtube-video-card {background:linear-gradient(135deg,rgba(26,26,26,.9),rgba(42,42,42,.7));border-radius:15px;overflow:hidden;border:2px solid var(--ash);transition:.4s;cursor:pointer;}
-.youtube-video-card:hover {transform:translateY(-10px);border-color:var(--gold);box-shadow:0 15px 40px rgba(255,215,0,.2);}
-.youtube-video-thumbnail {height:180px;width:100%;overflow:hidden;position:relative;}
-.youtube-video-thumbnail img {width:100%;height:100%;object-fit:cover;transition:.4s;}
-.youtube-video-card:hover .youtube-video-thumbnail img {transform:scale(1.05);}
-.youtube-video-info {padding:1.5rem;}
-.youtube-video-title {font-family:'Bebas Neue';font-size:1.3rem;color:var(--white);margin-bottom:.8rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.youtube-video-date {font-family:'Orbitron';font-size:.8rem;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;}
-.youtube-video-views {font-family:'Orbitron';font-size:.75rem;color:var(--smoke);display:flex;align-items:center;gap:.5rem;}
+.youtube-top-videos {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--ash);
+}
+
+.youtube-top-videos h3 {
+    font-family: 'Bebas Neue';
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--gold);
+}
+
+.youtube-videos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.youtube-video-card {
+    background: linear-gradient(135deg, rgba(26,26,26,.9), rgba(42,42,42,.7));
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid var(--ash);
+    transition: .4s;
+    cursor: pointer;
+}
+
+.youtube-video-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold);
+    box-shadow: 0 15px 40px rgba(255,215,0,.2);
+}
+
+.youtube-video-thumbnail {
+    height: 180px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.youtube-video-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .4s;
+}
+
+.youtube-video-card:hover .youtube-video-thumbnail img {
+    transform: scale(1.05);
+}
+
+.youtube-video-info {
+    padding: 1.5rem;
+}
+
+.youtube-video-title {
+    font-family: 'Bebas Neue';
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: .8rem;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.youtube-video-date {
+    font-family: 'Orbitron';
+    font-size: .8rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.youtube-video-views {
+    font-family: 'Orbitron';
+    font-size: .75rem;
+    color: var(--smoke);
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
 
 /* Mobile menu styles */
 @media(max-width: 1100px) {
-    .logo-txt {font-size:1.6rem;}
-    nav ul {gap:0.5rem;}
-    nav a {font-size:0.75rem;padding:6px 12px;}
-    .youtube-videos-grid {grid-template-columns:repeat(2,1fr);}
+    .logo-txt {
+        font-size: 1.6rem;
+    }
+    
+    nav ul {
+        gap: 0.5rem;
+    }
+    
+    nav a {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+    }
+    
+    .youtube-videos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .hero-img {
+        height: 500px;
+    }
 }
+
 @media(max-width: 992px) {
-    .nav {padding:1rem;}
-    .logo-txt {font-size:1.4rem;}
-    .logo i {font-size:1.8rem;}
-    .hero-wrap {grid-template-columns:1fr;text-align:center;gap:3rem;}
-    .hero {min-height:auto;padding:2rem 1rem;}
-    .hero-img {height:450px;}
-    .text-image {height:200px;}
-    h1 {font-size:3.5rem;}
-    .contact-grid {grid-template-columns:1fr;}
-    .footer-grid {grid-template-columns:1fr;}
-    .facebook-plugin-container,.youtube-stats-container {grid-template-columns:1fr;gap:2rem;}
-    .youtube-videos-grid {grid-template-columns:repeat(2,1fr);}
+    .nav {
+        padding: 1rem;
+    }
+    
+    .logo-txt {
+        font-size: 1.4rem;
+    }
+    
+    .logo i {
+        font-size: 1.8rem;
+    }
+    
+    .hero-wrap {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+    }
+    
+    .hero {
+        min-height: auto;
+        padding: 2rem 1rem;
+    }
+    
+    .hero-img {
+        height: 400px;
+    }
+    
+    .text-image {
+        height: 200px;
+    }
+    
+    h1 {
+        font-size: 3.5rem;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .facebook-container,
+    .youtube-stats-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .youtube-videos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
+
 @media(max-width: 768px) {
-    .nav {padding:0.75rem 1rem;min-height:70px;}
-    .logo-txt {font-size:1.2rem;white-space:nowrap;}
-    .logo {gap:0.5rem;}
-    .logo i {font-size:1.5rem;}
-    nav ul {display:none;position:fixed;top:70px;left:0;width:100%;background:var(--dark);flex-direction:column;padding:1rem;gap:0;z-index:1000;border-top:2px solid var(--fire);box-shadow:0 10px 30px rgba(0,0,0,0.5);}
-    nav ul.active {display:flex;}
-    nav li {padding:1rem;width:100%;text-align:center;}
-    nav a {display:block;width:100%;padding:12px;font-size:1rem;}
-    .menu-btn {display:block;}
-    h1 {font-size:2.5rem;}
-    h2 {font-size:2.5rem;}
-    .hero {padding:2rem 1rem;}
-    .sec {padding:4rem 1rem;}
-    .hero-img {height:350px;}
-    .text-image {height:180px;}
-    .contact-social-links {flex-direction:column;gap:.5rem;}
-    .youtube-stats-grid {grid-template-columns:1fr;}
-    .facebook-plugin-box,.youtube-stats-box {padding:1.5rem;}
-    .fb-page-container {padding:1rem;}
-    .youtube-videos-grid {grid-template-columns:1fr;}
+    .nav {
+        padding: 0.75rem 1rem;
+        min-height: 70px;
+    }
+    
+    .logo-txt {
+        font-size: 1.2rem;
+        white-space: nowrap;
+    }
+    
+    .logo {
+        gap: 0.5rem;
+    }
+    
+    .logo i {
+        font-size: 1.5rem;
+    }
+    
+    /* Show hamburger menu, hide nav links */
+    nav ul {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--dark);
+        flex-direction: column;
+        padding: 1rem;
+        gap: 0;
+        z-index: 1000;
+        border-top: 2px solid var(--fire);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    
+    nav ul.active {
+        display: flex;
+    }
+    
+    nav li {
+        padding: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+    
+    nav a {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+    }
+    
+    .menu-btn {
+        display: block;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2.5rem;
+    }
+    
+    .hero {
+        padding: 2rem 1rem;
+    }
+    
+    .sec {
+        padding: 4rem 1rem;
+    }
+    
+    .hero-img {
+        height: 300px;
+    }
+    
+    .text-image {
+        height: 150px;
+    }
+    
+    .contact-social-links {
+        flex-direction: column;
+        gap: .5rem;
+    }
+    
+    .youtube-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .facebook-box,
+    .youtube-stats-box {
+        padding: 1.5rem;
+    }
+    
+    .youtube-videos-grid {
+        grid-template-columns: 1fr;
+    }
 }
+
 @media(max-width: 576px) {
-    .hero-img {height:300px;}
-    .text-image {height:150px;}
-    h1 {font-size:2.2rem;}
-    .tag {font-size:1.4rem;}
-    .fb-page {width:100% !important;}
-    .youtube-video-thumbnail {height:150px;}
+    .hero-img {
+        height: 250px;
+    }
+    
+    .text-image {
+        height: 120px;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .tag {
+        font-size: 1.4rem;
+    }
+    
+    .youtube-video-thumbnail {
+        height: 150px;
+    }
 }
-img {loading:lazy;}
 </style>
 </head>
 <body>
@@ -249,14 +687,13 @@ img {loading:lazy;}
 <div class="loader-spinner"></div>
 <div class="loader-text">Loading Crocked 'N Loaded...</div>
 </div>
-
 <header>
 <div class="nav">
 <div class="logo">
 <i class="fas fa-fire"></i>
 <div class="logo-txt">CROCKED'N LOADED</div>
 </div>
-<button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+<button class="menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
 <nav>
 <ul id="menu">
 <li><a href="#home" class="active">HOME</a></li>
@@ -269,26 +706,25 @@ img {loading:lazy;}
 </nav>
 </div>
 </header>
-
 <section class="hero" id="home">
 <div class="hero-wrap">
 <div class="hero-img-container">
 <div class="hero-img">
-<img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Crocked N Loaded hosts cooking together">
+<img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Crocked N Loaded Hosts cooking">
 </div>
 </div>
 
 <div class="hero-content-container">
 <div class="text-image-container">
 <div class="text-image">
-<img src="background.jpg" alt="Crocked N Loaded - Real Food Real Reviews banner">
+<img src="background.jpg" alt="Crocked N Loaded Real Food Real Reviews">
 </div>
 </div>
 
 <div class="hero-text-content">
 <h1>CROCKED 'N LOADED</h1>
 <div class="tag">REAL FOOD. REAL REVIEWS.</div>
-<div class="tag" style="font-size:1.5rem;margin-top:-1rem">NO BULLSHIT.</div>
+<div class="tag" style="font-size:1.5rem;margin-top:-0.5rem">NO BULLSHIT.</div>
 <p class="desc">Join CrockPotDaddy and MACK3Y THE FOODIE as they bring professional cooking techniques to home kitchens, explore global flavors, and deliver honest restaurant reviews.</p>
 <a href="#youtube" class="btn"><i class="fab fa-youtube"></i>CHECK OUR YOUTUBE</a>
 </div>
@@ -334,7 +770,6 @@ img {loading:lazy;}
 </div>
 </div>
 </section>
-
 <section class="sec" id="content">
 <div class="wrap">
 <h2>OUR CONTENT</h2>
@@ -344,11 +779,13 @@ img {loading:lazy;}
 <i class="fas fa-home"></i>
 <h3>HOME COOKING</h3>
 <p>Professional techniques adapted for home kitchens. Learn restaurant-quality methods without the fancy equipment.</p>
+<div></div>
 </div>
 <div class="card">
 <i class="fas fa-shopping-basket"></i>
 <h3>BUDGET CHALLENGES</h3>
 <p>How delicious can we make it for how cheap? We transform budget ingredients into incredible meals.</p>
+<div></div>
 </div>
 <div class="card">
 <i class="fas fa-utensils"></i>
@@ -360,54 +797,45 @@ img {loading:lazy;}
 </div>
 </section>
 
-<section class="sec facebook-plugin-section" id="facebook">
+<!-- Clean Facebook Section -->
+<section class="sec facebook-section" id="facebook">
 <div class="wrap">
-<h2>FACEBOOK UPDATES</h2>
-<div class="sub">Live Feed from Our Facebook Page</div>
-<div class="facebook-plugin-container">
-<div class="facebook-plugin-box">
-<h3><i class="fab fa-facebook"></i> LIVE FEED</h3>
-<p>See our latest posts, reels, and updates directly from Facebook.</p>
-<div class="fb-page-container">
-<div class="fb-page" 
-    data-href="https://www.facebook.com/CrockedNLoadedShow"
-    data-tabs="timeline" 
-    data-width="500" 
-    data-height="600"
-    data-small-header="true" 
-    data-adapt-container-width="true"
-    data-hide-cover="false" 
-    data-show-facepile="true"
-    data-hide-cta="false">
-    <blockquote cite="https://www.facebook.com/CrockedNLoadedShow" 
-        class="fb-xfbml-parse-ignore">
-        <a href="https://www.facebook.com/CrockedNLoadedShow">
-            Crocked N Loaded on Facebook
-        </a>
-    </blockquote>
-</div>
-<p style="text-align:center; color:var(--smoke); margin-top:1rem;">(If the feed doesn't load, visit <a href="https://www.facebook.com/CrockedNLoadedShow" style="color:var(--gold);">our page directly</a>)</p>
+<h2>FACEBOOK</h2>
+<div class="sub">Connect With Us on Facebook</div>
+<div class="facebook-container">
+<div class="facebook-box">
+<h3><i class="fab fa-facebook"></i> FOLLOW US</h3>
+<p>Get daily updates, behind-the-scenes content, and join our food-loving community.</p>
+<div class="facebook-preview">
+<i class="fab fa-facebook-square"></i>
+<h4>Crocked N Loaded Show</h4>
+<p>Public Facebook Page</p>
+<div style="margin-top: 1.5rem;">
+<a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" class="btn" style="background: linear-gradient(135deg, #1877F2, #0d5bb5); padding: 0.8rem 2rem; font-size: 0.9rem;">
+<i class="fab fa-facebook"></i> VISIT FACEBOOK PAGE
+</a>
 </div>
 </div>
-<div class="facebook-plugin-box">
-<h3><i class="fas fa-star"></i> WHY FOLLOW US?</h3>
-<p>Get exclusive content and updates only on Facebook:</p>
+</div>
+<div class="facebook-box">
+<h3><i class="fas fa-star"></i> WHY FOLLOW?</h3>
+<p>Exclusive content only on Facebook:</p>
 <ul class="facebook-features">
 <li>
 <h4><i class="fas fa-video"></i> REELS & SHORTS</h4>
-<p>Quick cooking tips and behind-the-scenes moments in short video format.</p>
+<p>Quick cooking tips and behind-the-scenes moments.</p>
 </li>
 <li>
 <h4><i class="fas fa-calendar-alt"></i> LIVE EVENTS</h4>
-<p>Cooking demonstrations, Q&A sessions, and special announcements.</p>
+<p>Cooking demos, Q&A sessions, and announcements.</p>
 </li>
 <li>
 <h4><i class="fas fa-users"></i> COMMUNITY</h4>
-<p>Connect with other food lovers, share recipes, and join discussions.</p>
+<p>Connect with other food lovers and share recipes.</p>
 </li>
 <li>
 <h4><i class="fas fa-bell"></i> INSTANT UPDATES</h4>
-<p>Be the first to know about new episodes, events, and collaborations.</p>
+<p>Be first to know about new episodes and events.</p>
 </li>
 </ul>
 </div>
@@ -423,6 +851,7 @@ img {loading:lazy;}
 </div>
 </section>
 
+<!-- Clean YouTube Stats Section -->
 <section class="sec youtube-stats-section" id="youtube">
 <div class="wrap">
 <h2>YOUTUBE CHANNEL</h2>
@@ -474,9 +903,11 @@ img {loading:lazy;}
 </div>
 </div>
 
+<!-- Top 3 Most Viewed Videos Section -->
 <div class="youtube-top-videos">
 <h3>TOP 3 MOST VIEWED VIDEOS</h3>
 <div class="youtube-videos-grid" id="youtubeVideos">
+<!-- Videos will be loaded here by JavaScript -->
 <div class="youtube-video-card">
 <div class="youtube-video-thumbnail">
 <img src="https://img.youtube.com/vi/placeholder/maxresdefault.jpg" alt="Loading video...">
@@ -487,7 +918,26 @@ img {loading:lazy;}
 <div class="youtube-video-views"><i class="far fa-eye"></i> -- views</div>
 </div>
 </div>
-<!-- Placeholder cards repeated for layout -->
+<div class="youtube-video-card">
+<div class="youtube-video-thumbnail">
+<img src="https://img.youtube.com/vi/placeholder/maxresdefault.jpg" alt="Loading video...">
+</div>
+<div class="youtube-video-info">
+<div class="youtube-video-title">Loading top videos...</div>
+<div class="youtube-video-date"><i class="far fa-calendar"></i> Loading...</div>
+<div class="youtube-video-views"><i class="far fa-eye"></i> -- views</div>
+</div>
+</div>
+<div class="youtube-video-card">
+<div class="youtube-video-thumbnail">
+<img src="https://img.youtube.com/vi/placeholder/maxresdefault.jpg" alt="Loading video...">
+</div>
+<div class="youtube-video-info">
+<div class="youtube-video-title">Loading top videos...</div>
+<div class="youtube-video-date"><i class="far fa-calendar"></i> Loading...</div>
+<div class="youtube-video-views"><i class="far fa-eye"></i> -- views</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -572,7 +1022,6 @@ img {loading:lazy;}
 </div>
 </div>
 </section>
-
 <footer>
 <div class="footer-grid">
 <div class="footer-logo">
@@ -602,237 +1051,337 @@ img {loading:lazy;}
 </div>
 </div>
 <div class="copy">
-<p id="copyright">© 2026 Crocked 'N Loaded. All rights reserved. | Real Food. Real Reviews. No Bullshit.</p>
+<p>© 2025 Crocked 'N Loaded. All rights reserved. | Real Food. Real Reviews. No Bullshit.</p>
 </div>
 </footer>
-
 <div class="toast" id="toast">Ready to send email!</div>
 
 <script>
-// ── YouTube Configuration ────────────────────────────────────────────────
-const YOUTUBE_API_KEY = 'AIzaSyB9Py3uUS7Sux5Tk4GVp1oc1cqZJdFVf3E'; // ← REPLACE + RESTRICT IN GOOGLE CLOUD CONSOLE (referrers + API only) OR USE SERVER-SIDE PROXY
-const YOUTUBE_HANDLE = '@CrockedNLoaded-NH'; // Confirm this is your actual handle
-
+// YouTube API Configuration
+const YOUTUBE_API_KEY = 'AIzaSyB9Py3uUS7Sux5Tk4GVp1oc1cqZJdFVf3E'; // Replace with your actual API key
+const YOUTUBE_CHANNEL_ID = '@CrockedNLoaded-NH'; // Your YouTube handle
 let cachedStats = null;
 let cachedVideos = null;
-const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes cache
 
-// Facebook SDK (updated)
-window.fbAsyncInit = function() {
-    FB.init({ xfbml: true, version: 'v20.0' });
-};
-
-(function(d, s, id){
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-
-// Loader - very short delay
+// Show loader on page load
 window.addEventListener('load', () => {
     setTimeout(() => {
         document.getElementById('loader').classList.remove('active');
+        // Load YouTube data after page loads
         loadYouTubeData();
-        setTimeout(() => { if (typeof FB !== 'undefined') FB.XFBML.parse(); }, 800);
-    }, 400);
+    }, 1000);
 });
 
-// Mobile menu
-function toggleMenu() {
-    const menu = document.getElementById('menu');
-    const btn = document.querySelector('.menu-btn');
-    const expanded = menu.classList.toggle('active');
-    btn.setAttribute('aria-expanded', expanded);
+// Mobile menu toggle
+function toggleMenu(){
+    document.getElementById('menu').classList.toggle('active')
 }
 
-// Smooth scroll
+// Close mobile menu when clicking a link
+document.querySelectorAll('nav a').forEach(a => 
+    a.addEventListener('click', () => 
+        document.getElementById('menu').classList.remove('active')
+    )
+);
+
+// Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
+    a.addEventListener('click', function(e) {
         e.preventDefault();
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) window.scrollTo({ top: target.offsetTop - 100, behavior: 'smooth' });
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target) {
+            window.scrollTo({
+                top: target.offsetTop - 100,
+                behavior: 'smooth'
+            });
+        }
     });
 });
 
-// Form submission
-document.getElementById('contactForm').addEventListener('submit', async e => {
+// Form submission with Formspree
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
+    
+    // Show loader
     document.getElementById('loader').classList.add('active');
+    
     const form = e.target;
     const formData = new FormData(form);
-    const msg = document.getElementById('formMessage');
-
+    const formMessage = document.getElementById('formMessage');
+    
+    // Add hidden fields for Formspree configuration
+    formData.append('_replyto', document.getElementById('email').value);
+    formData.append('_subject', `Crocked N Loaded Contact: ${document.getElementById('subject').value}`);
+    
     try {
-        const res = await fetch(form.action, {
+        // Send to Formspree with proper headers
+        const response = await fetch(form.action, {
             method: 'POST',
             body: formData,
-            headers: { 'Accept': 'application/json' }
+            headers: {
+                'Accept': 'application/json'
+            }
         });
+        
+        // Hide loader
         document.getElementById('loader').classList.remove('active');
-
-        if (res.ok) {
-            msg.textContent = 'Thank you! Your message has been sent.';
-            msg.className = 'form-message success';
+        
+        if (response.ok) {
+            // Success - Formspree will handle the email
+            formMessage.textContent = 'Thank you! Your message has been sent successfully. We\'ll get back to you soon!';
+            formMessage.className = 'form-message success';
             form.reset();
-            showToast('Message sent successfully!', 'success');
+            
+            // Show success toast
+            showToast('Message sent successfully! We\'ll respond soon.', 'success');
         } else {
-            msg.textContent = 'Error sending message. Please try emailing us directly.';
-            msg.className = 'form-message error';
-            showToast('Error sending message.', 'error');
+            // Error from Formspree
+            const errorData = await response.json();
+            console.error('Formspree error:', errorData);
+            
+            formMessage.textContent = 'Oops! There was a problem sending your message. Please email us directly at contact@crockednloaded.com';
+            formMessage.className = 'form-message error';
+            
+            // Show error toast
+            showToast('Error sending message. Please try emailing us directly.', 'error');
         }
-    } catch (err) {
+    } catch (error) {
+        // Network error
+        console.error('Network error:', error);
         document.getElementById('loader').classList.remove('active');
-        msg.textContent = 'Network error. Please email us directly.';
-        msg.className = 'form-message error';
-        showToast('Network error.', 'error');
+        
+        formMessage.textContent = 'Network error. Please check your connection and try again, or email us directly at contact@crockednloaded.com';
+        formMessage.className = 'form-message error';
+        
+        // Show error toast
+        showToast('Network error. Please try emailing us directly.', 'error');
     }
 });
 
-// ── YouTube Data ─────────────────────────────────────────────────────────
+// YouTube API Functions
 async function loadYouTubeData() {
     try {
-        await Promise.all([loadYouTubeStats(), loadTopViewedVideos()]);
-    } catch (err) {
-        console.error('YouTube load error:', err);
-        showToast('YouTube data temporarily unavailable.', 'error');
+        // Load stats and videos in parallel
+        await Promise.all([
+            loadYouTubeStats(),
+            loadTopViewedVideos()
+        ]);
+    } catch (error) {
+        console.error('Error loading YouTube data:', error);
+        showToast('Unable to load YouTube data at this time.', 'error');
     }
 }
 
 async function loadYouTubeStats() {
     try {
-        const res = await fetch(
-            `https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&forHandle=${YOUTUBE_HANDLE}&key=${YOUTUBE_API_KEY}`
+        // First get the channel ID from the handle
+        const searchResponse = await fetch(
+            `https://www.googleapis.com/youtube/v3/search?part=id&type=channel&q=${encodeURIComponent(YOUTUBE_CHANNEL_ID)}&key=${YOUTUBE_API_KEY}`
         );
-        if (!res.ok) throw new Error('API failed');
-        const data = await res.json();
-        if (data.items?.length > 0) {
-            updateYouTubeStats(data.items[0]);
-            cachedStats = { data: data.items[0], timestamp: Date.now() };
+        const searchData = await searchResponse.json();
+        
+        if (!searchData.items || searchData.items.length === 0) {
+            throw new Error('Channel not found');
         }
-    } catch (err) {
-        console.error('Stats error:', err);
-        if (cachedStats) updateYouTubeStats(cachedStats.data);
+        
+        const channelId = searchData.items[0].id.channelId;
+        
+        // Now get channel statistics
+        const statsResponse = await fetch(
+            `https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=${channelId}&key=${YOUTUBE_API_KEY}`
+        );
+        const statsData = await statsResponse.json();
+        
+        if (statsData.items && statsData.items.length > 0) {
+            const channel = statsData.items[0];
+            updateYouTubeStats(channel);
+            cachedStats = {
+                data: channel,
+                timestamp: Date.now()
+            };
+        }
+    } catch (error) {
+        console.error('Error loading YouTube stats:', error);
+        // Use fallback data or cached data
+        if (cachedStats) {
+            updateYouTubeStats(cachedStats.data);
+        }
     }
 }
 
 async function loadTopViewedVideos() {
     try {
-        // Step 1: Get channel ID (forHandle → channel ID)
-        const chanRes = await fetch(
-            `https://www.googleapis.com/youtube/v3/channels?part=id&forHandle=${YOUTUBE_HANDLE}&key=${YOUTUBE_API_KEY}`
+        // First get the channel ID from the handle
+        const searchResponse = await fetch(
+            `https://www.googleapis.com/youtube/v3/search?part=id&type=channel&q=${encodeURIComponent(YOUTUBE_CHANNEL_ID)}&key=${YOUTUBE_API_KEY}`
         );
-        const chanData = await chanRes.json();
-        if (!chanData.items?.length) throw new Error('Channel not found');
-        const channelId = chanData.items[0].id;
-
-        // Step 2: Get recent videos
-        const videosRes = await fetch(
+        const searchData = await searchResponse.json();
+        
+        if (!searchData.items || searchData.items.length === 0) {
+            throw new Error('Channel not found');
+        }
+        
+        const channelId = searchData.items[0].id.channelId;
+        
+        // Get all videos from the channel
+        const videosResponse = await fetch(
             `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=50&order=date&type=video&key=${YOUTUBE_API_KEY}`
         );
-        const videosData = await videosRes.json();
-        if (!videosData.items?.length) throw new Error('No videos');
-
-        const videoIds = videosData.items.map(item => item.id.videoId).join(',');
-        const detailsRes = await fetch(
-            `https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet&id=${videoIds}&key=${YOUTUBE_API_KEY}`
-        );
-        const details = await detailsRes.json();
-
-        const sorted = details.items.sort((a,b) => parseInt(b.statistics.viewCount || 0) - parseInt(a.statistics.viewCount || 0));
-        updateTopViewedVideos(sorted.slice(0,3));
-        cachedVideos = { videos: sorted.slice(0,3), timestamp: Date.now() };
-    } catch (err) {
-        console.error('Videos error:', err);
-        if (cachedVideos) updateTopViewedVideos(cachedVideos.videos);
+        const videosData = await videosResponse.json();
+        
+        if (videosData.items && videosData.items.length > 0) {
+            // Get video details for all videos
+            const videoIds = videosData.items.map(item => item.id.videoId).join(',');
+            const detailsResponse = await fetch(
+                `https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet&id=${videoIds}&key=${YOUTUBE_API_KEY}`
+            );
+            const detailsData = await detailsResponse.json();
+            
+            // Sort videos by view count (descending)
+            const sortedVideos = detailsData.items.sort((a, b) => {
+                return parseInt(b.statistics.viewCount) - parseInt(a.statistics.viewCount);
+            });
+            
+            // Take top 3 most viewed videos
+            const topVideos = sortedVideos.slice(0, 3);
+            updateTopViewedVideos(topVideos);
+            
+            cachedVideos = {
+                videos: topVideos,
+                timestamp: Date.now()
+            };
+        }
+    } catch (error) {
+        console.error('Error loading top viewed videos:', error);
+        // Use fallback data or cached data
+        if (cachedVideos) {
+            updateTopViewedVideos(cachedVideos.videos);
+        }
     }
+}
+
+function updateTopViewedVideos(videos) {
+    const videosGrid = document.getElementById('youtubeVideos');
+    videosGrid.innerHTML = '';
+    
+    videos.forEach((video, index) => {
+        const snippet = video.snippet;
+        const statistics = video.statistics;
+        
+        const videoCard = document.createElement('div');
+        videoCard.className = 'youtube-video-card';
+        videoCard.innerHTML = `
+            <div class="youtube-video-thumbnail">
+                <img src="${snippet.thumbnails.medium.url}" alt="${snippet.title}">
+            </div>
+            <div class="youtube-video-info">
+                <div class="youtube-video-title">${snippet.title}</div>
+                <div class="youtube-video-date"><i class="far fa-calendar"></i> ${formatDate(snippet.publishedAt)}</div>
+                <div class="youtube-video-views"><i class="fas fa-fire" style="color: var(--fire);"></i> ${formatNumber(statistics.viewCount)} views</div>
+            </div>
+        `;
+        
+        // Make video clickable
+        videoCard.addEventListener('click', () => {
+            window.open(`https://www.youtube.com/watch?v=${video.id}`, '_blank');
+        });
+        
+        videosGrid.appendChild(videoCard);
+    });
 }
 
 function updateYouTubeStats(channel) {
     const stats = channel.statistics;
     const snippet = channel.snippet;
-    const cards = document.querySelectorAll('.youtube-stat-card .youtube-stat-number');
-    if (cards.length >= 4) {
-        cards[0].textContent = formatNumber(stats.subscriberCount);
-        cards[1].textContent = formatNumber(stats.viewCount);
-        cards[2].textContent = formatNumber(stats.videoCount);
-        cards[3].textContent = getRelativeTime(snippet.publishedAt);
+    
+    // Format numbers
+    const formatNumber = (num) => {
+        if (!num) return '0';
+        return parseInt(num).toLocaleString();
+    };
+    
+    // Update stats cards
+    const statCards = document.querySelectorAll('.youtube-stat-card');
+    if (statCards.length >= 4) {
+        statCards[0].querySelector('.youtube-stat-number').textContent = formatNumber(stats.subscriberCount);
+        statCards[1].querySelector('.youtube-stat-number').textContent = formatNumber(stats.viewCount);
+        statCards[2].querySelector('.youtube-stat-number').textContent = formatNumber(stats.videoCount);
+        
+        // Get relative time for last upload
+        const lastUploadText = getRelativeTime(snippet.publishedAt);
+        statCards[3].querySelector('.youtube-stat-number').textContent = lastUploadText;
     }
 }
 
-function updateTopViewedVideos(videos) {
-    const grid = document.getElementById('youtubeVideos');
-    grid.innerHTML = '';
-    videos.forEach(video => {
-        const card = document.createElement('div');
-        card.className = 'youtube-video-card';
-        card.innerHTML = `
-            <div class="youtube-video-thumbnail">
-                <img src="${video.snippet.thumbnails.medium.url}" alt="${video.snippet.title} thumbnail">
-            </div>
-            <div class="youtube-video-info">
-                <div class="youtube-video-title">${video.snippet.title}</div>
-                <div class="youtube-video-date"><i class="far fa-calendar"></i> ${formatDate(video.snippet.publishedAt)}</div>
-                <div class="youtube-video-views"><i class="far fa-eye"></i> ${formatNumber(video.statistics.viewCount)} views</div>
-            </div>
-        `;
-        card.addEventListener('click', () => window.open(`https://youtube.com/watch?v=${video.id}`, '_blank'));
-        grid.appendChild(card);
-    });
+function getRelativeTime(dateString) {
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffMs = now - date;
+    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    
+    if (diffDays === 0) return 'Today';
+    if (diffDays === 1) return 'Yesterday';
+    if (diffDays < 7) return `${diffDays} days ago`;
+    if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
+    if (diffDays < 365) return `${Math.floor(diffDays / 30)} months ago`;
+    return `${Math.floor(diffDays / 365)} years ago`;
+}
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 }
 
 function formatNumber(num) {
     if (!num) return '0';
-    const n = parseInt(num);
-    if (n >= 1e6) return (n/1e6).toFixed(1)+'M';
-    if (n >= 1e3) return (n/1e3).toFixed(1)+'K';
-    return n.toLocaleString();
+    const number = parseInt(num);
+    if (number >= 1000000) {
+        return (number / 1000000).toFixed(1) + 'M';
+    } else if (number >= 1000) {
+        return (number / 1000).toFixed(1) + 'K';
+    }
+    return number.toLocaleString();
 }
 
-function formatDate(dateStr) {
-    return new Date(dateStr).toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'});
+// Toast notification
+function showToast(message, type = 'success') {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.className = `toast ${type}`;
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 5000);
 }
 
-function getRelativeTime(dateStr) {
-    const diff = Date.now() - new Date(dateStr).getTime();
-    const days = Math.floor(diff / 86400000);
-    if (days === 0) return 'Today';
-    if (days === 1) return 'Yesterday';
-    if (days < 7) return days + ' days ago';
-    if (days < 30) return Math.floor(days/7) + ' weeks ago';
-    if (days < 365) return Math.floor(days/30) + ' months ago';
-    return Math.floor(days/365) + ' years ago';
-}
-
-function showToast(msg, type = 'success') {
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.className = `toast ${type}`;
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 5000);
-}
-
-// Active nav link
+// Active nav link highlighting
 window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    const links = document.querySelectorAll('nav a');
+    
     let current = '';
-    document.querySelectorAll('section').forEach(s => {
-        if (window.scrollY >= s.offsetTop - 150) current = s.id;
+    sections.forEach(s => {
+        if(window.scrollY >= s.offsetTop - 150) {
+            current = s.getAttribute('id');
+        }
     });
-    document.querySelectorAll('nav a').forEach(a => {
-        a.classList.remove('active');
-        if (a.getAttribute('href') === `#${current}`) a.classList.add('active');
+    
+    links.forEach(l => {
+        l.classList.remove('active');
+        if(l.getAttribute('href') === `#${current}`) {
+            l.classList.add('active');
+        }
     });
 });
 
-// Refresh YouTube data periodically
+// Refresh YouTube data every 5 minutes
 setInterval(() => {
-    if (document.visibilityState === 'visible') loadYouTubeData();
+    if (document.visibilityState === 'visible') {
+        loadYouTubeData();
+    }
 }, CACHE_DURATION);
-
-// Dynamic copyright year
-document.getElementById('copyright').textContent = 
-    `© ${new Date().getFullYear()} Crocked 'N Loaded. All rights reserved. | Real Food. Real Reviews. No Bullshit.`;
 </script>
 </body>
 </html>
