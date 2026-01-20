@@ -46,8 +46,8 @@ h2{font-family:'Bebas Neue';font-size:3.5rem;text-align:center;background:linear
 .host-head::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--gold),var(--fire-orange))}
 .host-name{font-family:'Bebas Neue';font-size:2.8rem;margin-bottom:.5rem;letter-spacing:2px}
 .host-role{font-family:'Orbitron';font-size:1.2rem;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:1px}
-.host-body{padding:3rem}
-.host-desc{font-size:1.1rem;line-height:1.8;color:var(--smoke);margin-bottom:2rem}
+.host-body{padding:3rem;display:flex;flex-direction:column}
+.host-desc{font-size:1.1rem;line-height:1.8;color:var(--smoke);margin-bottom:2rem;flex-grow:1}
 .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
 .stat{background:rgba(58,58,58,.5);padding:1.5rem;border-radius:15px;text-align:center;border-left:4px solid var(--gold);transition:.3s}
 .stat:hover{transform:translateY(-5px);border-left-color:var(--fire-red)}
@@ -66,6 +66,7 @@ h2{font-family:'Bebas Neue';font-size:3.5rem;text-align:center;background:linear
 .ep:hover{transform:translateY(-10px);box-shadow:0 20px 60px rgba(255,59,48,.4)}
 .ep-img{height:220px;overflow:hidden;position:relative}
 .ep-img img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.ep-img iframe{width:100%;height:100%;border:none}
 .ep:hover .ep-img img{transform:scale(1.1)}
 .ep-badge{position:absolute;top:20px;left:20px;background:var(--fire-red);color:var(--white);padding:8px 20px;font-family:'Orbitron';font-weight:700;font-size:.85rem;border-radius:25px;text-transform:uppercase;border:2px solid var(--gold)}
 .ep-body{padding:2rem}
@@ -215,7 +216,7 @@ h2{font-size:2.5rem}
 <div class="eps">
 <div class="ep">
 <div class="ep-img">
-<img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=800&q=80" alt="Budget">
+<iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <div class="ep-badge">BUDGET CHALLENGE</div>
 </div>
 <div class="ep-body">
@@ -230,7 +231,7 @@ h2{font-size:2.5rem}
 </div>
 <div class="ep">
 <div class="ep-img">
-<img src="https://images.unsplash.com/photo-1543353074-8c6d5f4a9c07?w=800&q=80" alt="Tacos">
+<iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <div class="ep-badge">GLOBAL FLAVORS</div>
 </div>
 <div class="ep-body">
@@ -245,7 +246,7 @@ h2{font-size:2.5rem}
 </div>
 <div class="ep">
 <div class="ep-img">
-<img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800&q=80" alt="Burgers">
+<iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <div class="ep-badge">COMFORT FOOD</div>
 </div>
 <div class="ep-body">
