@@ -24,18 +24,20 @@ nav a::before{content:'';position:absolute;inset:0;border-radius:30px;background
 nav a:hover::before,nav a.active::before{opacity:1}
 .menu-btn{display:none;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
 .hero{position:relative;z-index:1;padding:4rem 2rem;background:linear-gradient(rgba(10,10,10,.85),rgba(10,10,10,.95)),url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80');background-size:cover;background-position:center;border-bottom:3px solid var(--fire);min-height:100vh;display:flex;align-items:center}
-.hero-wrap{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-/* Left food image container - taller and shows full image */
+.hero-wrap{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:stretch}
+/* Left food image container - Shows full image without cropping */
 .hero-img-container{display:flex;align-items:center;justify-content:center;height:100%}
-.hero-img{border-radius:20px;overflow:hidden;box-shadow:0 0 60px rgba(255,59,48,.5);border:4px solid var(--gold);animation:glow 3s ease infinite;height:600px;width:100%;position:relative}
+.hero-img{border-radius:20px;overflow:hidden;box-shadow:0 0 60px rgba(255,59,48,.5);border:4px solid var(--gold);animation:glow 3s ease infinite;height:700px;width:100%;position:relative}
 @keyframes glow{0%,100%{box-shadow:0 0 60px rgba(255,59,48,.5)}50%{box-shadow:0 0 80px rgba(255,59,48,.7)}}
-.hero-img img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-img img{width:100%;height:100%;object-fit:contain;display:block;background-color: rgba(0,0,0,0.2)}
 /* Right content container */
-.hero-content-container{display:flex;flex-direction:column;height:100%;justify-content:center}
-/* Background image above text - shows more of image */
-.text-image-container{margin-bottom:2.5rem;width:100%}
-.text-image{border-radius:15px;overflow:hidden;box-shadow:0 0 40px rgba(255,59,48,.4);border:3px solid var(--orange);height:250px;width:100%;position:relative}
-.text-image img{width:100%;height:100%;object-fit:cover;display:block;object-position:center center}
+.hero-content-container{display:flex;flex-direction:column;height:100%;justify-content:flex-start;padding-top:2rem}
+/* Background image above text - shows complete image without cropping */
+.text-image-container{margin-bottom:2.5rem;width:100%;flex-shrink:0}
+.text-image{border-radius:15px;overflow:hidden;box-shadow:0 0 40px rgba(255,59,48,.4);border:3px solid var(--orange);height:280px;width:100%;position:relative}
+.text-image img{width:100%;height:100%;object-fit:contain;display:block;object-position:center center;background-color: rgba(0,0,0,0.2)}
+/* Text content */
+.hero-text-content{flex-grow:1}
 h1{font-family:'Bebas Neue';font-size:4.5rem;background:linear-gradient(135deg,var(--white),var(--gold));background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 4s ease infinite;letter-spacing:3px;margin-bottom:1.5rem;line-height:1.1}
 @keyframes shimmer{0%,100%{background-position:0%}50%{background-position:100%}}
 .tag{font-family:'Orbitron';font-size:2rem;color:var(--fire);font-weight:900;margin-bottom:2rem;text-transform:uppercase;letter-spacing:2px}
@@ -126,11 +128,13 @@ footer{background:var(--dark);padding:5rem 2rem 3rem;border-top:3px solid var(--
 .file-input:hover{background:rgba(78,78,78,.5);border-color:var(--gold)}
 @media(max-width:1200px){
 .grid2,.grid3{grid-template-columns:1fr}
+.hero-img{height:600px}
+.text-image{height:240px}
 }
 @media(max-width:992px){
 .hero-wrap{grid-template-columns:1fr;text-align:center;gap:3rem}
 .hero{min-height:auto;padding:3rem 1rem}
-.hero-img{height:450px}
+.hero-img{height:500px}
 .text-image{height:200px}
 h1{font-size:3.5rem}
 .contact-grid{grid-template-columns:1fr}
@@ -145,15 +149,15 @@ h1{font-size:2.5rem}
 h2{font-size:2.5rem}
 .hero{padding:4rem 1rem}
 .sec{padding:4rem 1rem}
-.hero-img{height:350px}
+.hero-img{height:400px}
 .text-image{height:180px}
 .contact-social-links{flex-direction:column;gap:.5rem}
 }
 @media(max-width:576px){
-.hero-img{height:280px}
+.hero-img{height:300px}
+.text-image{height:150px}
 h1{font-size:2.2rem}
 .tag{font-size:1.4rem}
-.text-image{height:150px}
 }
 </style>
 </head>
@@ -183,7 +187,7 @@ h1{font-size:2.2rem}
 </header>
 <section class="hero" id="home">
 <div class="hero-wrap">
-<!-- Left: Large food image -->
+<!-- Left: Large food image - Shows complete image without cropping -->
 <div class="hero-img-container">
 <div class="hero-img">
 <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Crocked N Loaded Hosts cooking">
@@ -192,19 +196,21 @@ h1{font-size:2.2rem}
 
 <!-- Right: Content with background.jpg above text -->
 <div class="hero-content-container">
-<!-- Background image above the text - shows more of the image -->
+<!-- Background image above the text - shows complete image without cropping -->
 <div class="text-image-container">
 <div class="text-image">
-<!-- Use background.jpg here - object-position ensures we see top and bottom -->
-<img src="background.jpg" alt="Crocked N Loaded Real Food Real Reviews" style="object-position: center 30%;">
+<!-- Use background.jpg here - object-fit: contain ensures complete image display -->
+<img src="background.jpg" alt="Crocked N Loaded Real Food Real Reviews">
 </div>
 </div>
 
+<div class="hero-text-content">
 <h1>CROCKED 'N LOADED</h1>
 <div class="tag">REAL FOOD. REAL REVIEWS.</div>
 <div class="tag" style="font-size:1.5rem;margin-top:-1rem">NO BULLSHIT.</div>
 <p class="desc">Join CrockPotDaddy and MACK3Y THE FOODIE as they bring professional cooking techniques to home kitchens, explore global flavors, and deliver honest restaurant reviews.</p>
 <a href="#episodes" class="btn"><i class="fas fa-play-circle"></i>WATCH EPISODES</a>
+</div>
 </div>
 </div>
 </section>
