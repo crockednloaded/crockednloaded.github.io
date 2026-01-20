@@ -4,241 +4,251 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crocked 'N Loaded | Real Food. Real Reviews. No Bullshit.</title>
+<meta name="description" content="Join CrockPotDaddy and MACK3Y THE FOODIE for professional cooking techniques, global flavors, and honest restaurant reviews.">
 
-<meta name="description" content="Professional home cooking, global flavors, and honest restaurant reviews. Real food by real people.">
-<meta name="keywords" content="cooking show, food reviews, home cooking, YouTube cooking, Crocked N Loaded">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Open Graph / Social Sharing -->
+<meta property="og:title" content="Crocked 'N Loaded | Real Food. Real Reviews. No Bullshit.">
+<meta property="og:description" content="Professional cooking techniques, global flavors, and honest restaurant reviews with CrockPotDaddy and MACK3Y THE FOODIE.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+<meta property="og:url" content="https://yourdomain.com">
+<meta property="og:type" content="website">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+:root{--fire:#FF3B30;--orange:#FF9500;--gold:#FFD700;--dark:#0a0a0a;--char:#1a1a1a;--slate:#2a2a2a;--ash:#3a3a3a;--smoke:#888;--white:#fff}
+body{background:#000;color:var(--white);font-family:'Exo 2',sans-serif;overflow-x:hidden;font-display:swap}
+.glow{position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 20% 30%,rgba(255,59,48,.15),transparent 50%),radial-gradient(circle at 80% 70%,rgba(255,149,0,.1),transparent 50%);animation:breathe 15s ease infinite;z-index:0;pointer-events:none}
+@keyframes breathe{0%,100%{opacity:.3}50%{opacity:.6}}
+header{position:sticky;top:0;z-index:1000;background:rgba(10,10,10,.98);backdrop-filter:blur(20px);border-bottom:3px solid var(--fire);box-shadow:0 5px 30px rgba(255,59,48,.3)}
+.nav{max-width:1400px;margin:0 auto;padding:0.8rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:nowrap;min-height:70px}
+.logo{display:flex;align-items:center;gap:0.8rem;flex-shrink:0;white-space:nowrap}
+.logo i{font-size:2rem;color:var(--fire);filter:drop-shadow(0 0 20px rgba(255,59,48,.6))}
+.logo-txt{font-family:'Bebas Neue';font-size:1.8rem;background:linear-gradient(135deg,var(--fire),var(--gold),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:1px;line-height:1}
+nav ul{display:flex;gap:1rem;list-style:none;flex-wrap:nowrap;align-items:center}
+nav a{color:var(--white);text-decoration:none;font-family:'Orbitron';font-weight:700;font-size:0.8rem;padding:8px 16px;border-radius:30px;transition:.3s;text-transform:uppercase;letter-spacing:0.8px;white-space:nowrap;position:relative}
+nav a::before{content:'';position:absolute;inset:0;border-radius:30px;background:linear-gradient(135deg,var(--fire),var(--orange));opacity:0;transition:.3s;z-index:-1}
+nav a:hover::before,nav a.active::before{opacity:1}
+.menu-btn{display:none;background:none;border:none;color:var(--white);font-size:1.8rem;cursor:pointer;flex-shrink:0}
+.hero{position:relative;z-index:1;padding:3rem 2rem;background:linear-gradient(rgba(10,10,10,.85),rgba(10,10,10,.95)),url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80');background-size:cover;background-position:center;border-bottom:3px solid var(--fire);min-height:90vh;display:flex;align-items:flex-start}
+.hero-wrap{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.hero-img-container{display:flex;align-items:flex-start;justify-content:center;height:100%}
+.hero-img{border-radius:20px;overflow:hidden;box-shadow:0 0 60px rgba(255,59,48,.5);border:4px solid var(--gold);animation:glow 3s ease infinite;height:600px;width:100%;position:relative;margin-top:0}
+@keyframes glow{0%,100%{box-shadow:0 0 60px rgba(255,59,48,.5)}50%{box-shadow:0 0 80px rgba(255,59,48,.7)}}
+.hero-img img{width:100%;height:100%;object-fit:contain;display:block;background-color:rgba(0,0,0,0.2)}
+.hero-content-container{display:flex;flex-direction:column;height:100%;justify-content:flex-start;padding-top:0}
+.text-image-container{margin-bottom:2rem;width:100%;flex-shrink:0}
+.text-image{border-radius:15px;overflow:hidden;box-shadow:0 0 40px rgba(255,59,48,.4);border:3px solid var(--orange);height:250px;width:100%;position:relative;margin-top:0}
+.text-image img{width:100%;height:100%;object-fit:contain;display:block;object-position:center center;background-color:rgba(0,0,0,0.2)}
+.hero-text-content{flex-grow:1;margin-top:2rem}
+h1{font-family:'Bebas Neue';font-size:4.5rem;background:linear-gradient(135deg,var(--white),var(--gold));background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 4s ease infinite;letter-spacing:3px;margin-bottom:1.5rem;line-height:1.1;margin-top:0}
+@keyframes shimmer{0%,100%{background-position:0%}50%{background-position:100%}}
+.tag{font-family:'Orbitron';font-size:2rem;color:var(--fire);font-weight:900;margin-bottom:2rem;text-transform:uppercase;letter-spacing:2px}
+.desc{font-size:1.2rem;line-height:1.8;color:var(--smoke);margin-bottom:3rem}
+.btn{display:inline-flex;align-items:center;gap:1rem;background:linear-gradient(135deg,var(--fire),var(--orange));color:var(--white);padding:1.2rem 3rem;font-family:'Orbitron';font-weight:700;font-size:1.1rem;text-decoration:none;border-radius:50px;transition:.3s;text-transform:uppercase;letter-spacing:1px;border:3px solid var(--gold);box-shadow:0 0 40px rgba(255,59,48,.5)}
+.btn:hover{transform:translateY(-5px);box-shadow:0 0 60px rgba(255,59,48,.8)}
+.sec{position:relative;z-index:1;padding:6rem 2rem}
+.wrap{max-width:1400px;margin:0 auto}
+.alt{background:linear-gradient(135deg,rgba(26,26,26,.3),rgba(42,42,42,.2))}
+h2{font-family:'Bebas Neue';font-size:3.5rem;text-align:center;background:linear-gradient(135deg,var(--fire),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:3px;margin-bottom:1rem}
+.sub{text-align:center;font-family:'Orbitron';font-size:1.3rem;color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:4rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.host{background:linear-gradient(135deg,rgba(26,26,26,.9),rgba(42,42,42,.7));border-radius:25px;overflow:hidden;border:3px solid var(--fire);box-shadow:0 20px 60px rgba(0,0,0,.5);transition:.4s;display:grid;grid-template-rows:auto 1fr}
+.host:hover{transform:translateY(-15px)}
+.host-head{background:linear-gradient(135deg,var(--fire),var(--char));padding:3rem;text-align:center;position:relative}
+.host-head::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--gold),var(--orange))}
+.host-name{font-family:'Bebas Neue';font-size:2.8rem;margin-bottom:.5rem}
+.host-role{font-family:'Orbitron';font-size:1.2rem;color:var(--gold);font-weight:700;text-transform:uppercase}
+.host-body{padding:3rem;display:grid;grid-template-rows:1fr auto;gap:2rem}
+.host-desc{font-size:1.1rem;line-height:1.8;color:var(--smoke)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.stat{background:rgba(58,58,58,.5);padding:1.5rem;border-radius:15px;text-align:center;border-left:4px solid var(--gold);transition:.3s}
+.stat:hover{transform:translateY(-5px)}
+.val{font-family:'Bebas Neue';font-size:1.5rem;color:var(--gold);display:block;margin-bottom:.3rem}
+.lab{font-family:'Orbitron';font-size:.75rem;color:var(--smoke);text-transform:uppercase;display:block}
+.card{background:linear-gradient(135deg,rgba(26,26,26,.9),rgba(42,42,42,.7));padding:3rem;border-radius:20px;text-align:center;border:3px solid var(--orange);transition:.4s;display:grid;grid-template-rows:auto auto 1fr auto;position:relative}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--fire),var(--gold))}
+.card:hover{transform:translateY(-10px)}
+.card i{font-size:4rem;color:var(--gold);margin-bottom:1.5rem}
+.card h3{font-family:'Bebas Neue';font-size:2rem;margin-bottom:1rem}
+.card p{color:var(--smoke);line-height:1.7;margin-bottom:1.5rem}
+.badge{background:var(--fire);color:var(--white);padding:8px 20px;font-family:'Orbitron';font-weight:700;font-size:.85rem;border-radius:25px;text-transform:uppercase;border:2px solid var(--gold);display:inline-block}
+.ep{background:linear-gradient(135deg,rgba(26,26,26,.9),rgba(42,42,42,.7));border-radius:20px;overflow:hidden;border:3px solid var(--fire);transition:.4s;display:grid;grid-template-rows:auto 1fr}
+.ep:hover{transform:translateY(-10px)}
+.ep-img{height:220px;position:relative}
+.ep-img iframe{width:100%;height:100%;border:none}
+.ep-badge{position:absolute;top:20px;left:20px;background:var(--fire);color:var(--white);padding:8px 20px;font-family:'Orbitron';font-weight:700;font-size:.85rem;border-radius:25px;text-transform:uppercase;border:2px solid var(--gold);z-index:10}
+.ep-body{padding:2rem;display:grid;grid-template-rows:auto 1fr auto}
+.ep-title{font-family:'Bebas Neue';font-size:1.6rem;margin-bottom:1rem}
+.ep-desc{color:var(--smoke);line-height:1.7;margin-bottom:1rem}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.ep-tag{background:rgba(58,58,58,.7);color:var(--gold);padding:5px 15px;font-family:'Orbitron';font-size:.75rem;border-radius:15px;text-transform:uppercase;font-weight:700}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.contact-box{background:linear-gradient(135deg,rgba(26,26,26,.9),rgba(42,42,42,.7));padding:3rem;border-radius:20px;border:3px solid var(--orange);display:grid;grid-template-rows:auto 1fr}
+.contact-box h3{font-family:'Bebas Neue';font-size:2rem;margin-bottom:2rem;padding-bottom:1rem;border-bottom:3px solid var(--fire)}
+.contact-item{display:flex;align-items:start;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--ash)}
+.contact-item:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.contact-item i{font-size:1.5rem;color:var(--fire);margin-right:1.5rem;min-width:30px;margin-top:.2rem}
+.contact-item h4{font-family:'Orbitron';font-size:1rem;margin-bottom:.3rem;text-transform:uppercase}
+.contact-item p{color:var(--smoke)}
+.contact-social-links{display:flex;flex-wrap:wrap;gap:1rem;margin-top:.5rem}
+.contact-social-links a{color:var(--gold);font-size:.9rem;text-decoration:none;transition:.3s;display:flex;align-items:center;gap:.5rem}
+.contact-social-links a:hover{color:var(--fire)}
+form{display:grid;grid-template-rows:auto auto auto auto auto}
+.form-group{margin-bottom:1.5rem}
+.form-group label{display:block;margin-bottom:.5rem;font-family:'Orbitron';font-weight:700;color:var(--gold);font-size:.9rem;text-transform:uppercase}
+input,textarea,select{width:100%;padding:1rem;background:rgba(58,58,58,.5);border:2px solid var(--orange);border-radius:10px;color:var(--white);font-family:'Exo 2';font-size:1rem;transition:.3s}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 20px rgba(255,215,0,.2)}
+textarea{min-height:150px;resize:vertical}
+.submit{width:100%;background:linear-gradient(135deg,var(--fire),var(--orange));border:3px solid var(--gold);color:var(--white);padding:1.2rem;font-family:'Orbitron';font-weight:700;font-size:1rem;border-radius:10px;cursor:pointer;text-transform:uppercase;transition:.3s;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.submit:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(255,59,48,.5)}
+footer{background:var(--dark);padding:5rem 2rem 3rem;border-top:3px solid var(--fire)}
+.footer-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem;margin-bottom:3rem}
+.footer-logo .logo-txt{font-size:2.2rem;margin-bottom:1rem}
+.footer-logo p{color:var(--smoke);line-height:1.7}
+.footer-links h4{font-family:'Bebas Neue';font-size:1.5rem;color:var(--gold);margin-bottom:1.5rem}
+.footer-links ul{list-style:none}
+.footer-links li{margin-bottom:.8rem}
+.footer-links a{color:var(--smoke);text-decoration:none;transition:.3s;display:inline-block}
+.footer-links a:hover{color:var(--gold);transform:translateX(5px)}
+.socials{display:flex;gap:1rem;margin-bottom:1.5rem}
+.social{width:45px;height:45px;background:var(--char);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1.2rem;transition:.3s;border:2px solid var(--fire)}
+.social:hover{background:var(--fire);transform:translateY(-5px)}
+.copy{text-align:center;padding-top:2rem;border-top:1px solid var(--char);color:var(--smoke);max-width:1400px;margin:0 auto}
+.loader{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);z-index:9999;justify-content:center;align-items:center;flex-direction:column;}
+.loader.active{display:flex;}
+.loader-text{color:var(--gold);font-family:'Orbitron';font-size:1.5rem;margin-top:2rem;}
+.loader-spinner{width:80px;height:80px;border:8px solid var(--ash);border-top-color:var(--fire);border-radius:50%;animation:spin 1s linear infinite;}
+@keyframes spin{100%{transform:rotate(360deg)}}
+.toast{position:fixed;bottom:20px;right:20px;background:linear-gradient(135deg,var(--fire),var(--orange));color:white;padding:1rem 2rem;border-radius:10px;font-family:'Orbitron';box-shadow:0 10px 30px rgba(0,0,0,.5);z-index:10000;transform:translateY(100px);opacity:0;transition:all .5s;}
+.toast.show{transform:translateY(0);opacity:1;}
+.toast.error{background:linear-gradient(135deg,#ff3030,#ff0000);}
+.form-message{display:none;padding:1rem;border-radius:10px;margin-top:1rem;text-align:center;font-family:'Orbitron';}
+.form-message.success{display:block;background:linear-gradient(135deg,rgba(0,200,0,0.2),rgba(0,150,0,0.1));border:2px solid #00ff00;color:#00ff00;}
+.form-message.error{display:block;background:linear-gradient(135deg,rgba(255,0,0,0.2),rgba(200,0,0,0.1));border:2px solid #ff0000;color:#ff0000;}
+.file-input{background:rgba(58,58,58,.5);padding:.8rem;border:2px solid var(--orange);border-radius:10px;color:var(--white);cursor:pointer;transition:.3s}
+.file-input:hover{background:rgba(78,78,78,.5);border-color:var(--gold)}
 
-:root{
---fire:#FF3B30;
---orange:#FF9500;
---gold:#FFD700;
---dark:#0a0a0a;
---char:#1a1a1a;
---slate:#2a2a2a;
---ash:#3a3a3a;
---smoke:#888;
---white:#fff
+/* Facebook Plugin Styles */
+.facebook-plugin-section {background:linear-gradient(135deg,rgba(26,26,26,.3),rgba(42,42,42,.2));}
+.facebook-plugin-container {display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem;align-items:start;}
+.facebook-plugin-box {background:linear-gradient(135deg,rgba(26,26,26,.9),rgba(42,42,42,.7));padding:2rem;border-radius:20px;border:3px solid #1877F2;transition:.4s;}
+.facebook-plugin-box:hover {transform:translateY(-5px);border-color:var(--gold);box-shadow:0 15px 40px rgba(24,119,242,.3);}
+.facebook-plugin-box h3 {font-family:'Bebas Neue';font-size:2rem;margin-bottom:1.5rem;color:#1877F2;text-align:center;}
+.facebook-plugin-box p {color:var(--smoke);line-height:1.7;margin-bottom:1.5rem;text-align:center;}
+.fb-page-container {background:rgba(58,58,58,.3);padding:1.5rem;border-radius:15px;min-height:300px;display:flex;align-items:center;justify-content:center;}
+.fb-page {width:100%;max-width:500px;margin:0 auto;}
+.facebook-features {list-style:none;}
+.facebook-features li {margin-bottom:1.5rem;padding:1rem;background:rgba(58,58,58,.5);border-radius:10px;border-left:4px solid #1877F2;transition:.3s;}
+.facebook-features li:hover {transform:translateX(5px);background:rgba(78,78,78,.5);}
+.facebook-features i {color:#1877F2;margin-right:1rem;font-size:1.2rem;}
+.facebook-features h4 {font-family:'Orbitron';font-size:1rem;color:var(--white);margin-bottom:.5rem;display:flex;align-items:center;}
+.facebook-features p {color:var(--smoke);font-size:.9rem;margin:0;text-align:left;}
+.facebook-cta {text-align:center;margin-top:3rem;padding-top:3rem;border-top:1px solid var(--ash);}
+.facebook-cta .btn {background:linear-gradient(135deg,#1877F2,#0d5bb5);display:inline-flex;}
+.facebook-cta .btn:hover {background:linear-gradient(135deg,#0d5bb5,#1877F2);}
+
+/* Clean YouTube Stats Section */
+.youtube-stats-section {background:linear-gradient(135deg,rgba(26,26,26,.3),rgba(42,42,42,.2));}
+.youtube-stats-container {display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem;align-items:start;}
+.youtube-stats-box {background:linear-gradient(135deg,rgba(26,26,26,.9),rgba(42,42,42,.7));padding:2rem;border-radius:20px;border:3px solid #FF0000;transition:.4s;}
+.youtube-stats-box:hover {transform:translateY(-5px);border-color:var(--gold);box-shadow:0 15px 40px rgba(255,0,0,.3);}
+.youtube-stats-box h3 {font-family:'Bebas Neue';font-size:2rem;margin-bottom:1.5rem;color:#FF0000;text-align:center;}
+.youtube-stats-box p {color:var(--smoke);line-height:1.7;margin-bottom:1.5rem;text-align:center;}
+.youtube-stats-grid {display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2rem;}
+.youtube-stat-card {background:rgba(58,58,58,.5);padding:1.5rem;border-radius:15px;text-align:center;border:2px solid rgba(255,0,0,.3);transition:.3s;}
+.youtube-stat-card:hover {transform:translateY(-5px);border-color:var(--gold);background:rgba(78,78,78,.5);}
+.youtube-stat-number {font-family:'Bebas Neue';font-size:2.5rem;color:#FF0000;display:block;margin-bottom:.5rem;line-height:1;}
+.youtube-stat-label {font-family:'Orbitron';font-size:0.9rem;color:var(--smoke);text-transform:uppercase;letter-spacing:1px;}
+.youtube-features {list-style:none;}
+.youtube-features li {margin-bottom:1.5rem;padding:1rem;background:rgba(58,58,58,.5);border-radius:10px;border-left:4px solid #FF0000;transition:.3s;}
+.youtube-features li:hover {transform:translateX(5px);background:rgba(78,78,78,.5);}
+.youtube-features i {color:#FF0000;margin-right:1rem;font-size:1.2rem;}
+.youtube-features h4 {font-family:'Orbitron';font-size:1rem;color:var(--white);margin-bottom:.5rem;display:flex;align-items:center;}
+.youtube-features p {color:var(--smoke);font-size:.9rem;margin:0;text-align:left;}
+.youtube-cta {text-align:center;margin-top:3rem;padding-top:3rem;border-top:1px solid var(--ash);}
+.youtube-cta .btn {background:linear-gradient(135deg,#FF0000,#CC0000);display:inline-flex;}
+.youtube-cta .btn:hover {background:linear-gradient(135deg,#CC0000,#FF0000);}
+
+/* Top Videos Section */
+.youtube-top-videos {margin-top:4rem;padding-top:3rem;border-top:1px solid var(--ash);}
+.youtube-top-videos h3 {font-family:'Bebas Neue';font-size:2.5rem;text-align:center;margin-bottom:2rem;color:var(--gold);}
+.youtube-videos-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem;}
+.youtube-video-card {background:linear-gradient(135deg,rgba(26,26,26,.9),rgba(42,42,42,.7));border-radius:15px;overflow:hidden;border:2px solid var(--ash);transition:.4s;cursor:pointer;}
+.youtube-video-card:hover {transform:translateY(-10px);border-color:var(--gold);box-shadow:0 15px 40px rgba(255,215,0,.2);}
+.youtube-video-thumbnail {height:180px;width:100%;overflow:hidden;position:relative;}
+.youtube-video-thumbnail img {width:100%;height:100%;object-fit:cover;transition:.4s;}
+.youtube-video-card:hover .youtube-video-thumbnail img {transform:scale(1.05);}
+.youtube-video-info {padding:1.5rem;}
+.youtube-video-title {font-family:'Bebas Neue';font-size:1.3rem;color:var(--white);margin-bottom:.8rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.youtube-video-date {font-family:'Orbitron';font-size:.8rem;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;}
+.youtube-video-views {font-family:'Orbitron';font-size:.75rem;color:var(--smoke);display:flex;align-items:center;gap:.5rem;}
+
+/* Mobile menu styles */
+@media(max-width: 1100px) {
+    .logo-txt {font-size:1.6rem;}
+    nav ul {gap:0.5rem;}
+    nav a {font-size:0.75rem;padding:6px 12px;}
+    .youtube-videos-grid {grid-template-columns:repeat(2,1fr);}
 }
-
-html { scroll-behavior: smooth; }
-section { scroll-margin-top: 100px; }
-
-body{
-background:#000;
-color:var(--white);
-font-family:'Exo 2',sans-serif;
-overflow-x:hidden
+@media(max-width: 992px) {
+    .nav {padding:1rem;}
+    .logo-txt {font-size:1.4rem;}
+    .logo i {font-size:1.8rem;}
+    .hero-wrap {grid-template-columns:1fr;text-align:center;gap:3rem;}
+    .hero {min-height:auto;padding:2rem 1rem;}
+    .hero-img {height:450px;}
+    .text-image {height:200px;}
+    h1 {font-size:3.5rem;}
+    .contact-grid {grid-template-columns:1fr;}
+    .footer-grid {grid-template-columns:1fr;}
+    .facebook-plugin-container,.youtube-stats-container {grid-template-columns:1fr;gap:2rem;}
+    .youtube-videos-grid {grid-template-columns:repeat(2,1fr);}
 }
-
-/* --- Glow background --- */
-.glow{
-position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-background:
-radial-gradient(circle at 20% 30%,rgba(255,59,48,.15),transparent 50%),
-radial-gradient(circle at 80% 70%,rgba(255,149,0,.1),transparent 50%);
-animation:breathe 15s ease infinite;
-z-index:0;
-pointer-events:none
+@media(max-width: 768px) {
+    .nav {padding:0.75rem 1rem;min-height:70px;}
+    .logo-txt {font-size:1.2rem;white-space:nowrap;}
+    .logo {gap:0.5rem;}
+    .logo i {font-size:1.5rem;}
+    nav ul {display:none;position:fixed;top:70px;left:0;width:100%;background:var(--dark);flex-direction:column;padding:1rem;gap:0;z-index:1000;border-top:2px solid var(--fire);box-shadow:0 10px 30px rgba(0,0,0,0.5);}
+    nav ul.active {display:flex;}
+    nav li {padding:1rem;width:100%;text-align:center;}
+    nav a {display:block;width:100%;padding:12px;font-size:1rem;}
+    .menu-btn {display:block;}
+    h1 {font-size:2.5rem;}
+    h2 {font-size:2.5rem;}
+    .hero {padding:2rem 1rem;}
+    .sec {padding:4rem 1rem;}
+    .hero-img {height:350px;}
+    .text-image {height:180px;}
+    .contact-social-links {flex-direction:column;gap:.5rem;}
+    .youtube-stats-grid {grid-template-columns:1fr;}
+    .facebook-plugin-box,.youtube-stats-box {padding:1.5rem;}
+    .fb-page-container {padding:1rem;}
+    .youtube-videos-grid {grid-template-columns:1fr;}
 }
-
-@keyframes breathe{
-0%,100%{opacity:.3}
-50%{opacity:.6}
+@media(max-width: 576px) {
+    .hero-img {height:300px;}
+    .text-image {height:150px;}
+    h1 {font-size:2.2rem;}
+    .tag {font-size:1.4rem;}
+    .fb-page {width:100% !important;}
+    .youtube-video-thumbnail {height:150px;}
 }
-
-/* Disable heavy effects on mobile */
-@media(max-width:768px){
-.glow{display:none}
-}
-
-/* ---- HEADER / NAV ---- */
-header{
-position:sticky;
-top:0;
-z-index:1000;
-background:rgba(10,10,10,.98);
-backdrop-filter:blur(20px);
-border-bottom:3px solid var(--fire);
-}
-
-.nav{
-max-width:1400px;
-margin:auto;
-padding:.8rem 2rem;
-display:flex;
-align-items:center;
-justify-content:space-between
-}
-
-.logo{
-display:flex;
-align-items:center;
-gap:.8rem
-}
-
-.logo i{
-font-size:2rem;
-color:var(--fire)
-}
-
-.logo-txt{
-font-family:'Bebas Neue';
-font-size:1.8rem;
-background:linear-gradient(135deg,var(--fire),var(--gold),var(--orange));
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-letter-spacing:1px
-}
-
-nav ul{
-display:flex;
-list-style:none;
-gap:1rem
-}
-
-nav a{
-color:#fff;
-text-decoration:none;
-font-family:'Orbitron';
-font-size:.8rem;
-padding:8px 16px;
-border-radius:30px;
-text-transform:uppercase;
-position:relative
-}
-
-nav a::before{
-content:'';
-position:absolute;
-inset:0;
-border-radius:30px;
-background:linear-gradient(135deg,var(--fire),var(--orange));
-opacity:0;
-z-index:-1;
-transition:.3s
-}
-
-nav a:hover::before,
-nav a.active::before{opacity:1}
-
-.menu-btn{
-display:none;
-background:none;
-border:none;
-color:#fff;
-font-size:1.8rem
-}
-
-/* --- HERO ---- */
-.hero{
-position:relative;
-z-index:1;
-padding:3rem 2rem;
-min-height:90vh;
-display:flex;
-align-items:center;
-background:
-linear-gradient(rgba(10,10,10,.85),rgba(10,10,10,.95)),
-url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80') center/cover
-}
-
-.hero-wrap{
-max-width:1400px;
-margin:auto;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:4rem
-}
-
-.hero-img{
-border-radius:20px;
-border:4px solid var(--gold);
-overflow:hidden
-}
-
-.hero-img img{
-width:100%;
-height:100%;
-object-fit:cover
-}
-
-h1{
-font-family:'Bebas Neue';
-font-size:4.5rem;
-letter-spacing:3px;
-background:linear-gradient(135deg,#fff,var(--gold));
--webkit-background-clip:text;
--webkit-text-fill-color:transparent
-}
-
-.tag{
-font-family:'Orbitron';
-color:var(--fire);
-font-size:2rem;
-font-weight:900
-}
-
-.desc{
-margin-top:2rem;
-color:var(--smoke);
-font-size:1.2rem;
-line-height:1.7
-}
-
-.btn{
-margin-top:2rem;
-display:inline-flex;
-align-items:center;
-gap:1rem;
-padding:1rem 3rem;
-background:linear-gradient(135deg,var(--fire),var(--orange));
-border:3px solid var(--gold);
-border-radius:50px;
-font-family:'Orbitron';
-color:#fff;
-text-decoration:none
-}
-
-/* Responsive */
-@media(max-width:992px){
-.hero-wrap{grid-template-columns:1fr;text-align:center}
-h1{font-size:3rem}
-}
-
-/* ---------- FOOTER OMITTED FOR BREVITY ----------
-Your footer, contact, Facebook, and content sections
-remain unchanged visually and structurally.
------------------------------------------------- */
-
-/* Mobile nav */
-@media(max-width:768px){
-.menu-btn{display:block}
-nav ul{
-display:none;
-position:fixed;
-top:70px;
-left:0;
-width:100%;
-background:#000;
-flex-direction:column
-}
-nav ul.active{display:flex}
-}
+img {loading:lazy;}
 </style>
 </head>
-
 <body>
+<div class="glow"></div>
+<div class="loader" id="loader">
+<div class="loader-spinner"></div>
+<div class="loader-text">Loading Crocked 'N Loaded...</div>
+</div>
 
 <header>
 <div class="nav">
@@ -246,18 +256,15 @@ nav ul.active{display:flex}
 <i class="fas fa-fire"></i>
 <div class="logo-txt">CROCKED'N LOADED</div>
 </div>
-
-<button class="menu-btn" onclick="toggleMenu()">
-<i class="fas fa-bars"></i>
-</button>
-
+<button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
 <nav>
 <ul id="menu">
-<li><a href="#home" class="active">Home</a></li>
-<li><a href="#hosts">Crew</a></li>
-<li><a href="#content">Content</a></li>
-<li><a href="#youtube">YouTube</a></li>
-<li><a href="#contact">Contact</a></li>
+<li><a href="#home" class="active">HOME</a></li>
+<li><a href="#hosts">CREW</a></li>
+<li><a href="#content">CONTENT</a></li>
+<li><a href="#facebook">FACEBOOK</a></li>
+<li><a href="#youtube">YOUTUBE</a></li>
+<li><a href="#contact">CONTACT</a></li>
 </ul>
 </nav>
 </div>
@@ -265,53 +272,567 @@ nav ul.active{display:flex}
 
 <section class="hero" id="home">
 <div class="hero-wrap">
+<div class="hero-img-container">
 <div class="hero-img">
-<img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80">
+<img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Crocked N Loaded hosts cooking together">
 </div>
-<div>
+</div>
+
+<div class="hero-content-container">
+<div class="text-image-container">
+<div class="text-image">
+<img src="background.jpg" alt="Crocked N Loaded - Real Food Real Reviews banner">
+</div>
+</div>
+
+<div class="hero-text-content">
 <h1>CROCKED 'N LOADED</h1>
 <div class="tag">REAL FOOD. REAL REVIEWS.</div>
-<div class="tag" style="font-size:1.4rem">NO BULLSHIT.</div>
-<p class="desc">
-Professional techniques. Global flavors.
-Honest food reviews without the spin.
-</p>
-<a href="#youtube" class="btn">
-<i class="fab fa-youtube"></i> Watch on YouTube
-</a>
+<div class="tag" style="font-size:1.5rem;margin-top:-1rem">NO BULLSHIT.</div>
+<p class="desc">Join CrockPotDaddy and MACK3Y THE FOODIE as they bring professional cooking techniques to home kitchens, explore global flavors, and deliver honest restaurant reviews.</p>
+<a href="#youtube" class="btn"><i class="fab fa-youtube"></i>CHECK OUR YOUTUBE</a>
+</div>
 </div>
 </div>
 </section>
 
+<section class="sec alt" id="hosts">
+<div class="wrap">
+<h2>MEET THE CREW</h2>
+<div class="sub">Two Perspectives, One Passion: Good Food</div>
+<div class="grid2">
+<div class="host">
+<div class="host-head">
+<div class="host-name">CROCKPOTDADDY</div>
+<div class="host-role">Home Cook Expert</div>
+</div>
+<div class="host-body">
+<p class="host-desc">Former music industry professional who brings high-energy entertainment and a practical approach to cooking. Asks the questions home cooks actually want answered and proves you don't need professional training to make amazing food.</p>
+<div class="stats">
+<div class="stat"><span class="val">MUSIC & SALES</span><span class="lab">Background</span></div>
+<div class="stat"><span class="val">HOME COOK</span><span class="lab">Expert Level</span></div>
+<div class="stat"><span class="val">ENTERTAINMENT</span><span class="lab">Focus</span></div>
+<div class="stat"><span class="val">PRACTICAL</span><span class="lab">Approach</span></div>
+</div>
+</div>
+</div>
+<div class="host">
+<div class="host-head">
+<div class="host-name">MACK3Y THE FOODIE</div>
+<div class="host-role">Flavor Explorer</div>
+</div>
+<div class="host-body">
+<p class="host-desc">With 23 years exploring global cuisines, MACK3Y is passionate about sharing authentic flavors from around the world. From Mexican street food to Asian fusion, his focus is on making international cuisine approachable and fun.</p>
+<div class="stats">
+<div class="stat"><span class="val">23 YEARS</span><span class="lab">Experience</span></div>
+<div class="stat"><span class="val">GLOBAL</span><span class="lab">Cuisine Focus</span></div>
+<div class="stat"><span class="val">TEACHING</span><span class="lab">Passion</span></div>
+<div class="stat"><span class="val">FUN FOOD</span><span class="lab">Philosophy</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="content">
+<div class="wrap">
+<h2>OUR CONTENT</h2>
+<div class="sub">Three Ways We Bring Food To Life</div>
+<div class="grid3">
+<div class="card">
+<i class="fas fa-home"></i>
+<h3>HOME COOKING</h3>
+<p>Professional techniques adapted for home kitchens. Learn restaurant-quality methods without the fancy equipment.</p>
+</div>
+<div class="card">
+<i class="fas fa-shopping-basket"></i>
+<h3>BUDGET CHALLENGES</h3>
+<p>How delicious can we make it for how cheap? We transform budget ingredients into incredible meals.</p>
+</div>
+<div class="card">
+<i class="fas fa-utensils"></i>
+<h3>RESTAURANT REVIEWS</h3>
+<p>Honest reviews and chef interviews from local spots to hidden gems. No sponsorships, just real opinions.</p>
+<div class="badge">COMING SOON</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec facebook-plugin-section" id="facebook">
+<div class="wrap">
+<h2>FACEBOOK UPDATES</h2>
+<div class="sub">Live Feed from Our Facebook Page</div>
+<div class="facebook-plugin-container">
+<div class="facebook-plugin-box">
+<h3><i class="fab fa-facebook"></i> LIVE FEED</h3>
+<p>See our latest posts, reels, and updates directly from Facebook.</p>
+<div class="fb-page-container">
+<div class="fb-page" 
+    data-href="https://www.facebook.com/CrockedNLoadedShow"
+    data-tabs="timeline" 
+    data-width="500" 
+    data-height="600"
+    data-small-header="true" 
+    data-adapt-container-width="true"
+    data-hide-cover="false" 
+    data-show-facepile="true"
+    data-hide-cta="false">
+    <blockquote cite="https://www.facebook.com/CrockedNLoadedShow" 
+        class="fb-xfbml-parse-ignore">
+        <a href="https://www.facebook.com/CrockedNLoadedShow">
+            Crocked N Loaded on Facebook
+        </a>
+    </blockquote>
+</div>
+<p style="text-align:center; color:var(--smoke); margin-top:1rem;">(If the feed doesn't load, visit <a href="https://www.facebook.com/CrockedNLoadedShow" style="color:var(--gold);">our page directly</a>)</p>
+</div>
+</div>
+<div class="facebook-plugin-box">
+<h3><i class="fas fa-star"></i> WHY FOLLOW US?</h3>
+<p>Get exclusive content and updates only on Facebook:</p>
+<ul class="facebook-features">
+<li>
+<h4><i class="fas fa-video"></i> REELS & SHORTS</h4>
+<p>Quick cooking tips and behind-the-scenes moments in short video format.</p>
+</li>
+<li>
+<h4><i class="fas fa-calendar-alt"></i> LIVE EVENTS</h4>
+<p>Cooking demonstrations, Q&A sessions, and special announcements.</p>
+</li>
+<li>
+<h4><i class="fas fa-users"></i> COMMUNITY</h4>
+<p>Connect with other food lovers, share recipes, and join discussions.</p>
+</li>
+<li>
+<h4><i class="fas fa-bell"></i> INSTANT UPDATES</h4>
+<p>Be the first to know about new episodes, events, and collaborations.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="facebook-cta">
+<a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" class="btn">
+<i class="fab fa-facebook"></i> FOLLOW & GET NOTIFICATIONS
+</a>
+<p style="color: var(--smoke); margin-top: 1rem; font-size: 0.9rem;">
+<i class="fas fa-info-circle"></i> Click "Follow" then "See First" to never miss an update
+</p>
+</div>
+</div>
+</section>
+
+<section class="sec youtube-stats-section" id="youtube">
+<div class="wrap">
+<h2>YOUTUBE CHANNEL</h2>
+<div class="sub">Statistics & Latest Content</div>
+<div class="youtube-stats-container">
+<div class="youtube-stats-box">
+<h3><i class="fab fa-youtube"></i> CHANNEL STATS</h3>
+<p>Real-time statistics from our YouTube channel.</p>
+<div class="youtube-stats-grid" id="youtubeStats">
+<div class="youtube-stat-card">
+<div class="youtube-stat-number">--</div>
+<div class="youtube-stat-label">SUBSCRIBERS</div>
+</div>
+<div class="youtube-stat-card">
+<div class="youtube-stat-number">--</div>
+<div class="youtube-stat-label">TOTAL VIEWS</div>
+</div>
+<div class="youtube-stat-card">
+<div class="youtube-stat-number">--</div>
+<div class="youtube-stat-label">VIDEOS</div>
+</div>
+<div class="youtube-stat-card">
+<div class="youtube-stat-number">--</div>
+<div class="youtube-stat-label">LAST UPLOAD</div>
+</div>
+</div>
+</div>
+<div class="youtube-stats-box">
+<h3><i class="fas fa-play-circle"></i> WHY SUBSCRIBE?</h3>
+<p>Get access to our exclusive YouTube content:</p>
+<ul class="youtube-features">
+<li>
+<h4><i class="fas fa-film"></i> FULL EPISODES</h4>
+<p>Complete cooking tutorials and restaurant reviews in HD quality.</p>
+</li>
+<li>
+<h4><i class="fas fa-graduation-cap"></i> COOKING TUTORIALS</h4>
+<p>Step-by-step guides to master professional techniques at home.</p>
+</li>
+<li>
+<h4><i class="fas fa-comments"></i> COMMUNITY</h4>
+<p>Join discussions, ask questions, and connect with fellow food lovers.</p>
+</li>
+<li>
+<h4><i class="fas fa-bell"></i> NOTIFICATIONS</h4>
+<p>Never miss a new upload - turn on notifications for all videos.</p>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="youtube-top-videos">
+<h3>TOP 3 MOST VIEWED VIDEOS</h3>
+<div class="youtube-videos-grid" id="youtubeVideos">
+<div class="youtube-video-card">
+<div class="youtube-video-thumbnail">
+<img src="https://img.youtube.com/vi/placeholder/maxresdefault.jpg" alt="Loading video...">
+</div>
+<div class="youtube-video-info">
+<div class="youtube-video-title">Loading top videos...</div>
+<div class="youtube-video-date"><i class="far fa-calendar"></i> Loading...</div>
+<div class="youtube-video-views"><i class="far fa-eye"></i> -- views</div>
+</div>
+</div>
+<!-- Placeholder cards repeated for layout -->
+</div>
+</div>
+
+<div class="youtube-cta">
+<a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" class="btn">
+<i class="fab fa-youtube"></i> SUBSCRIBE & WATCH
+</a>
+<p style="color: var(--smoke); margin-top: 1rem; font-size: 0.9rem;">
+<i class="fas fa-info-circle"></i> Click the bell icon to get notified about new uploads
+</p>
+</div>
+</div>
+</section>
+
+<section class="sec" id="contact">
+<div class="wrap">
+<h2>GET IN TOUCH</h2>
+<div class="sub">Collaborate, Connect, or Say Hello</div>
+<div class="contact-grid">
+<div class="contact-box">
+<h3>CONTACT INFO</h3>
+<div>
+<div class="contact-item">
+<i class="fas fa-envelope"></i>
+<div><h4>EMAIL</h4><p>contact@crockednloaded.com</p></div>
+</div>
+<div class="contact-item">
+<i class="fas fa-video"></i>
+<div><h4>YOUTUBE</h4>
+<p>@CrockedNLoaded-NH</p>
+<div class="contact-social-links">
+<a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" style="color: var(--gold);">
+<i class="fab fa-youtube"></i> YouTube Channel
+</a>
+</div>
+</div>
+</div>
+<div class="contact-item">
+<i class="fas fa-handshake"></i>
+<div><h4>COLLABORATIONS</h4><p>DM us on social media:</p>
+<div class="contact-social-links">
+<a href="https://instagram.com/CrockedNLoadedShow" target="_blank" style="color: var(--gold);">
+<i class="fab fa-instagram"></i> @CrockedNLoadedShow
+</a>
+<a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank" style="color: var(--gold);">
+<i class="fab fa-tiktok"></i> @CrockedNLoadedShow
+</a>
+<a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" style="color: var(--gold);">
+<i class="fab fa-facebook"></i> Facebook Page
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="contact-box">
+<h3>SEND MESSAGE</h3>
+<form id="contactForm" action="https://formspree.io/f/xaqqbenp" method="POST">
+<div class="form-group">
+<label for="name">NAME</label>
+<input type="text" id="name" name="name" required>
+</div>
+<div class="form-group">
+<label for="email">YOUR EMAIL</label>
+<input type="email" id="email" name="email" required>
+</div>
+<div class="form-group">
+<label for="subject">SUBJECT</label>
+<input type="text" id="subject" name="subject" required>
+</div>
+<div class="form-group">
+<label for="message">MESSAGE</label>
+<textarea id="message" name="message" required></textarea>
+</div>
+<button type="submit" class="submit"><i class="fas fa-paper-plane"></i> SEND MESSAGE</button>
+<div id="formMessage" class="form-message"></div>
+</form>
+<p style="color: var(--smoke); font-size: 0.9rem; margin-top: 1rem; text-align: center;">
+<i class="fas fa-info-circle"></i> Messages are sent to contact@crockednloaded.com
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="footer-grid">
+<div class="footer-logo">
+<div class="logo-txt">CROCKED'N LOADED</div>
+<p>Bringing professional cooking techniques, global flavors, and honest reviews to food lovers everywhere. Real food made by real people.</p>
+</div>
+<div class="footer-links">
+<h4>LINKS</h4>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#hosts">Crew</a></li>
+<li><a href="#content">Content</a></li>
+<li><a href="#facebook">Facebook</a></li>
+<li><a href="#youtube">YouTube</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+<div class="footer-links">
+<h4>CONNECT</h4>
+<div class="socials">
+<a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" class="social"><i class="fab fa-youtube"></i></a>
+<a href="https://instagram.com/CrockedNLoadedShow" target="_blank" class="social"><i class="fab fa-instagram"></i></a>
+<a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" class="social"><i class="fab fa-facebook"></i></a>
+<a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank" class="social"><i class="fab fa-tiktok"></i></a>
+</div>
+<p style="color:#888;font-size:.95rem;margin-top:1rem">Subscribe for cooking tips and episode releases.</p>
+</div>
+</div>
+<div class="copy">
+<p id="copyright">© 2026 Crocked 'N Loaded. All rights reserved. | Real Food. Real Reviews. No Bullshit.</p>
+</div>
+</footer>
+
+<div class="toast" id="toast">Ready to send email!</div>
+
 <script>
-/* =========================
-   SAFE YOUTUBE CONFIG
-   ========================= */
+// ── YouTube Configuration ────────────────────────────────────────────────
+const YOUTUBE_API_KEY = 'AIzaSyB9Py3uUS7Sux5Tk4GVp1oc1cqZJdFVf3E'; // ← REPLACE + RESTRICT IN GOOGLE CLOUD CONSOLE (referrers + API only) OR USE SERVER-SIDE PROXY
+const YOUTUBE_HANDLE = '@CrockedNLoaded-NH'; // Confirm this is your actual handle
 
-// IMPORTANT:
-// DO NOT put your API key here.
-// Proxy YouTube requests through a backend endpoint.
-// Example endpoint: /api/youtube-stats
+let cachedStats = null;
+let cachedVideos = null;
+const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 
-const CHANNEL_ID = 'UCXXXXXXXXXXXXXXX'; // <-- replace with real channel ID
+// Facebook SDK (updated)
+window.fbAsyncInit = function() {
+    FB.init({ xfbml: true, version: 'v20.0' });
+};
 
-function toggleMenu(){
-document.getElementById('menu').classList.toggle('active')
+(function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+// Loader - very short delay
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.getElementById('loader').classList.remove('active');
+        loadYouTubeData();
+        setTimeout(() => { if (typeof FB !== 'undefined') FB.XFBML.parse(); }, 800);
+    }, 400);
+});
+
+// Mobile menu
+function toggleMenu() {
+    const menu = document.getElementById('menu');
+    const btn = document.querySelector('.menu-btn');
+    const expanded = menu.classList.toggle('active');
+    btn.setAttribute('aria-expanded', expanded);
 }
 
-/* Relative time utility (FIXED) */
-function getRelativeTime(dateString){
-const date = new Date(dateString);
-const now = new Date();
-const diffDays = Math.floor((now - date) / 86400000);
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) window.scrollTo({ top: target.offsetTop - 100, behavior: 'smooth' });
+    });
+});
 
-if(diffDays === 0) return 'Today';
-if(diffDays === 1) return '1 day ago';
-if(diffDays < 7) return `${diffDays} days ago`;
-if(diffDays < 30) return `${Math.floor(diffDays/7)} weeks ago`;
-return `${Math.floor(diffDays/30)} months ago`;
+// Form submission
+document.getElementById('contactForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    document.getElementById('loader').classList.add('active');
+    const form = e.target;
+    const formData = new FormData(form);
+    const msg = document.getElementById('formMessage');
+
+    try {
+        const res = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        });
+        document.getElementById('loader').classList.remove('active');
+
+        if (res.ok) {
+            msg.textContent = 'Thank you! Your message has been sent.';
+            msg.className = 'form-message success';
+            form.reset();
+            showToast('Message sent successfully!', 'success');
+        } else {
+            msg.textContent = 'Error sending message. Please try emailing us directly.';
+            msg.className = 'form-message error';
+            showToast('Error sending message.', 'error');
+        }
+    } catch (err) {
+        document.getElementById('loader').classList.remove('active');
+        msg.textContent = 'Network error. Please email us directly.';
+        msg.className = 'form-message error';
+        showToast('Network error.', 'error');
+    }
+});
+
+// ── YouTube Data ─────────────────────────────────────────────────────────
+async function loadYouTubeData() {
+    try {
+        await Promise.all([loadYouTubeStats(), loadTopViewedVideos()]);
+    } catch (err) {
+        console.error('YouTube load error:', err);
+        showToast('YouTube data temporarily unavailable.', 'error');
+    }
 }
+
+async function loadYouTubeStats() {
+    try {
+        const res = await fetch(
+            `https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&forHandle=${YOUTUBE_HANDLE}&key=${YOUTUBE_API_KEY}`
+        );
+        if (!res.ok) throw new Error('API failed');
+        const data = await res.json();
+        if (data.items?.length > 0) {
+            updateYouTubeStats(data.items[0]);
+            cachedStats = { data: data.items[0], timestamp: Date.now() };
+        }
+    } catch (err) {
+        console.error('Stats error:', err);
+        if (cachedStats) updateYouTubeStats(cachedStats.data);
+    }
+}
+
+async function loadTopViewedVideos() {
+    try {
+        // Step 1: Get channel ID (forHandle → channel ID)
+        const chanRes = await fetch(
+            `https://www.googleapis.com/youtube/v3/channels?part=id&forHandle=${YOUTUBE_HANDLE}&key=${YOUTUBE_API_KEY}`
+        );
+        const chanData = await chanRes.json();
+        if (!chanData.items?.length) throw new Error('Channel not found');
+        const channelId = chanData.items[0].id;
+
+        // Step 2: Get recent videos
+        const videosRes = await fetch(
+            `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=50&order=date&type=video&key=${YOUTUBE_API_KEY}`
+        );
+        const videosData = await videosRes.json();
+        if (!videosData.items?.length) throw new Error('No videos');
+
+        const videoIds = videosData.items.map(item => item.id.videoId).join(',');
+        const detailsRes = await fetch(
+            `https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet&id=${videoIds}&key=${YOUTUBE_API_KEY}`
+        );
+        const details = await detailsRes.json();
+
+        const sorted = details.items.sort((a,b) => parseInt(b.statistics.viewCount || 0) - parseInt(a.statistics.viewCount || 0));
+        updateTopViewedVideos(sorted.slice(0,3));
+        cachedVideos = { videos: sorted.slice(0,3), timestamp: Date.now() };
+    } catch (err) {
+        console.error('Videos error:', err);
+        if (cachedVideos) updateTopViewedVideos(cachedVideos.videos);
+    }
+}
+
+function updateYouTubeStats(channel) {
+    const stats = channel.statistics;
+    const snippet = channel.snippet;
+    const cards = document.querySelectorAll('.youtube-stat-card .youtube-stat-number');
+    if (cards.length >= 4) {
+        cards[0].textContent = formatNumber(stats.subscriberCount);
+        cards[1].textContent = formatNumber(stats.viewCount);
+        cards[2].textContent = formatNumber(stats.videoCount);
+        cards[3].textContent = getRelativeTime(snippet.publishedAt);
+    }
+}
+
+function updateTopViewedVideos(videos) {
+    const grid = document.getElementById('youtubeVideos');
+    grid.innerHTML = '';
+    videos.forEach(video => {
+        const card = document.createElement('div');
+        card.className = 'youtube-video-card';
+        card.innerHTML = `
+            <div class="youtube-video-thumbnail">
+                <img src="${video.snippet.thumbnails.medium.url}" alt="${video.snippet.title} thumbnail">
+            </div>
+            <div class="youtube-video-info">
+                <div class="youtube-video-title">${video.snippet.title}</div>
+                <div class="youtube-video-date"><i class="far fa-calendar"></i> ${formatDate(video.snippet.publishedAt)}</div>
+                <div class="youtube-video-views"><i class="far fa-eye"></i> ${formatNumber(video.statistics.viewCount)} views</div>
+            </div>
+        `;
+        card.addEventListener('click', () => window.open(`https://youtube.com/watch?v=${video.id}`, '_blank'));
+        grid.appendChild(card);
+    });
+}
+
+function formatNumber(num) {
+    if (!num) return '0';
+    const n = parseInt(num);
+    if (n >= 1e6) return (n/1e6).toFixed(1)+'M';
+    if (n >= 1e3) return (n/1e3).toFixed(1)+'K';
+    return n.toLocaleString();
+}
+
+function formatDate(dateStr) {
+    return new Date(dateStr).toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'});
+}
+
+function getRelativeTime(dateStr) {
+    const diff = Date.now() - new Date(dateStr).getTime();
+    const days = Math.floor(diff / 86400000);
+    if (days === 0) return 'Today';
+    if (days === 1) return 'Yesterday';
+    if (days < 7) return days + ' days ago';
+    if (days < 30) return Math.floor(days/7) + ' weeks ago';
+    if (days < 365) return Math.floor(days/30) + ' months ago';
+    return Math.floor(days/365) + ' years ago';
+}
+
+function showToast(msg, type = 'success') {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = `toast ${type}`;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 5000);
+}
+
+// Active nav link
+window.addEventListener('scroll', () => {
+    let current = '';
+    document.querySelectorAll('section').forEach(s => {
+        if (window.scrollY >= s.offsetTop - 150) current = s.id;
+    });
+    document.querySelectorAll('nav a').forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === `#${current}`) a.classList.add('active');
+    });
+});
+
+// Refresh YouTube data periodically
+setInterval(() => {
+    if (document.visibilityState === 'visible') loadYouTubeData();
+}, CACHE_DURATION);
+
+// Dynamic copyright year
+document.getElementById('copyright').textContent = 
+    `© ${new Date().getFullYear()} Crocked 'N Loaded. All rights reserved. | Real Food. Real Reviews. No Bullshit.`;
 </script>
-
 </body>
 </html>
