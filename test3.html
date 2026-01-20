@@ -23,22 +23,22 @@ nav a{color:var(--white);text-decoration:none;font-family:'Orbitron';font-weight
 nav a::before{content:'';position:absolute;inset:0;border-radius:30px;background:linear-gradient(135deg,var(--fire),var(--orange));opacity:0;transition:.3s;z-index:-1}
 nav a:hover::before,nav a.active::before{opacity:1}
 .menu-btn{display:none;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
-.hero{position:relative;z-index:1;padding:4rem 2rem;background:linear-gradient(rgba(10,10,10,.85),rgba(10,10,10,.95)),url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80');background-size:cover;background-position:center;border-bottom:3px solid var(--fire);min-height:100vh;display:flex;align-items:center}
-.hero-wrap{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:stretch}
+.hero{position:relative;z-index:1;padding:3rem 2rem;background:linear-gradient(rgba(10,10,10,.85),rgba(10,10,10,.95)),url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80');background-size:cover;background-position:center;border-bottom:3px solid var(--fire);min-height:90vh;display:flex;align-items:flex-start}
+.hero-wrap{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
 /* Left food image container - Shows full image without cropping */
-.hero-img-container{display:flex;align-items:center;justify-content:center;height:100%}
-.hero-img{border-radius:20px;overflow:hidden;box-shadow:0 0 60px rgba(255,59,48,.5);border:4px solid var(--gold);animation:glow 3s ease infinite;height:700px;width:100%;position:relative}
+.hero-img-container{display:flex;align-items:flex-start;justify-content:center;height:100%}
+.hero-img{border-radius:20px;overflow:hidden;box-shadow:0 0 60px rgba(255,59,48,.5);border:4px solid var(--gold);animation:glow 3s ease infinite;height:600px;width:100%;position:relative;margin-top:0}
 @keyframes glow{0%,100%{box-shadow:0 0 60px rgba(255,59,48,.5)}50%{box-shadow:0 0 80px rgba(255,59,48,.7)}}
 .hero-img img{width:100%;height:100%;object-fit:contain;display:block;background-color: rgba(0,0,0,0.2)}
 /* Right content container */
-.hero-content-container{display:flex;flex-direction:column;height:100%;justify-content:flex-start;padding-top:2rem}
+.hero-content-container{display:flex;flex-direction:column;height:100%;justify-content:flex-start;padding-top:0}
 /* Background image above text - shows complete image without cropping */
-.text-image-container{margin-bottom:2.5rem;width:100%;flex-shrink:0}
-.text-image{border-radius:15px;overflow:hidden;box-shadow:0 0 40px rgba(255,59,48,.4);border:3px solid var(--orange);height:280px;width:100%;position:relative}
+.text-image-container{margin-bottom:2rem;width:100%;flex-shrink:0}
+.text-image{border-radius:15px;overflow:hidden;box-shadow:0 0 40px rgba(255,59,48,.4);border:3px solid var(--orange);height:250px;width:100%;position:relative;margin-top:0}
 .text-image img{width:100%;height:100%;object-fit:contain;display:block;object-position:center center;background-color: rgba(0,0,0,0.2)}
 /* Text content */
-.hero-text-content{flex-grow:1}
-h1{font-family:'Bebas Neue';font-size:4.5rem;background:linear-gradient(135deg,var(--white),var(--gold));background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 4s ease infinite;letter-spacing:3px;margin-bottom:1.5rem;line-height:1.1}
+.hero-text-content{flex-grow:1;margin-top:2rem}
+h1{font-family:'Bebas Neue';font-size:4.5rem;background:linear-gradient(135deg,var(--white),var(--gold));background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 4s ease infinite;letter-spacing:3px;margin-bottom:1.5rem;line-height:1.1;margin-top:0}
 @keyframes shimmer{0%,100%{background-position:0%}50%{background-position:100%}}
 .tag{font-family:'Orbitron';font-size:2rem;color:var(--fire);font-weight:900;margin-bottom:2rem;text-transform:uppercase;letter-spacing:2px}
 .desc{font-size:1.2rem;line-height:1.8;color:var(--smoke);margin-bottom:3rem}
@@ -147,13 +147,13 @@ footer{background:var(--dark);padding:5rem 2rem 3rem;border-top:3px solid var(--
 .grid2,.grid3{grid-template-columns:1fr}
 .youtube-stats-grid{grid-template-columns:repeat(2,1fr)}
 .youtube-videos-grid{grid-template-columns:repeat(2,1fr)}
-.hero-img{height:600px}
-.text-image{height:240px}
+.hero-img{height:550px}
+.text-image{height:220px}
 }
 @media(max-width:992px){
 .hero-wrap{grid-template-columns:1fr;text-align:center;gap:3rem}
-.hero{min-height:auto;padding:3rem 1rem}
-.hero-img{height:500px}
+.hero{min-height:auto;padding:2rem 1rem}
+.hero-img{height:450px}
 .text-image{height:200px}
 h1{font-size:3.5rem}
 .contact-grid{grid-template-columns:1fr}
@@ -167,9 +167,9 @@ nav li{padding:1rem}
 .menu-btn{display:block}
 h1{font-size:2.5rem}
 h2{font-size:2.5rem}
-.hero{padding:4rem 1rem}
+.hero{padding:2rem 1rem}
 .sec{padding:4rem 1rem}
-.hero-img{height:400px}
+.hero-img{height:350px}
 .text-image{height:180px}
 .contact-social-links{flex-direction:column;gap:.5rem}
 .youtube-stats-grid{grid-template-columns:1fr}
@@ -209,7 +209,7 @@ h1{font-size:2.2rem}
 </header>
 <section class="hero" id="home">
 <div class="hero-wrap">
-<!-- Left: Large food image - Shows complete image without cropping -->
+<!-- Left: Large food image - aligned at top -->
 <div class="hero-img-container">
 <div class="hero-img">
 <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Crocked N Loaded Hosts cooking">
@@ -218,7 +218,7 @@ h1{font-size:2.2rem}
 
 <!-- Right: Content with background.jpg above text -->
 <div class="hero-content-container">
-<!-- Background image above the text - shows complete image without cropping -->
+<!-- Background image above the text - aligned at top -->
 <div class="text-image-container">
 <div class="text-image">
 <!-- Use background.jpg here - object-fit: contain ensures complete image display -->
@@ -411,8 +411,8 @@ h1{font-size:2.2rem}
 </div>
 <div class="contact-box">
 <h3>SEND MESSAGE</h3>
-<!-- Simple form that opens default email client -->
-<form id="emailForm" onsubmit="sendEmail(event)">
+<!-- Formspree Form with proper configuration -->
+<form id="contactForm" action="https://formspree.io/f/xaqqbenp" method="POST">
 <div class="form-group">
 <label for="name">NAME</label>
 <input type="text" id="name" name="name" required>
@@ -429,11 +429,11 @@ h1{font-size:2.2rem}
 <label for="message">MESSAGE</label>
 <textarea id="message" name="message" required></textarea>
 </div>
-<button type="submit" class="submit"><i class="fas fa-envelope"></i> OPEN EMAIL CLIENT</button>
+<button type="submit" class="submit"><i class="fas fa-paper-plane"></i> SEND MESSAGE</button>
 <div id="formMessage" class="form-message"></div>
 </form>
 <p style="color: var(--smoke); font-size: 0.9rem; margin-top: 1rem; text-align: center;">
-<i class="fas fa-info-circle"></i> This will open your default email client with a pre-filled message.
+<i class="fas fa-info-circle"></i> Messages are sent to contact@crockednloaded.com
 </p>
 </div>
 </div>
@@ -517,40 +517,65 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     });
 });
 
-// Email form handler - Opens default email client
-function sendEmail(event) {
-    event.preventDefault();
+// Form submission with Formspree
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
     
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
+    // Show loader
+    document.getElementById('loader').classList.add('active');
     
-    // Encode values for mailto URL
-    const encodedSubject = encodeURIComponent(`[Crocked N Loaded Contact] ${subject}`);
-    const encodedBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-    
-    // Create mailto link
-    const mailtoLink = `mailto:contact@crockednloaded.com?subject=${encodedSubject}&body=${encodedBody}`;
-    
-    // Open email client
-    window.location.href = mailtoLink;
-    
-    // Show success message
+    const form = e.target;
+    const formData = new FormData(form);
     const formMessage = document.getElementById('formMessage');
-    formMessage.textContent = 'Opening your email client... If it doesn\'t open, please email us at contact@crockednloaded.com';
-    formMessage.className = 'form-message success';
     
-    // Show toast
-    showToast('Opening email client...', 'success');
+    // Add hidden fields for Formspree configuration
+    formData.append('_replyto', document.getElementById('email').value);
+    formData.append('_subject', `Crocked N Loaded Contact: ${document.getElementById('subject').value}`);
     
-    // Reset form after a delay
-    setTimeout(() => {
-        event.target.reset();
-    }, 2000);
-    
-    return false;
-}
+    try {
+        // Send to Formspree with proper headers
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
+        // Hide loader
+        document.getElementById('loader').classList.remove('active');
+        
+        if (response.ok) {
+            // Success - Formspree will handle the email
+            formMessage.textContent = 'Thank you! Your message has been sent successfully. We\'ll get back to you soon!';
+            formMessage.className = 'form-message success';
+            form.reset();
+            
+            // Show success toast
+            showToast('Message sent successfully! We\'ll respond soon.', 'success');
+        } else {
+            // Error from Formspree
+            const errorData = await response.json();
+            console.error('Formspree error:', errorData);
+            
+            formMessage.textContent = 'Oops! There was a problem sending your message. Please email us directly at contact@crockednloaded.com';
+            formMessage.className = 'form-message error';
+            
+            // Show error toast
+            showToast('Error sending message. Please try emailing us directly.', 'error');
+        }
+    } catch (error) {
+        // Network error
+        console.error('Network error:', error);
+        document.getElementById('loader').classList.remove('active');
+        
+        formMessage.textContent = 'Network error. Please check your connection and try again, or email us directly at contact@crockednloaded.com';
+        formMessage.className = 'form-message error';
+        
+        // Show error toast
+        showToast('Network error. Please try emailing us directly.', 'error');
+    }
+});
 
 // YouTube API Functions
 async function loadYouTubeData() {
