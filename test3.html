@@ -4,107 +4,117 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crocked 'N Loaded | Real Food. Real Reviews. No Bullshit.</title>
+<meta name="description" content="Join CrockPotDaddy and MACK3Y THE FOODIE for professional cooking techniques, global flavors, and honest restaurant reviews.">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--fire-red:#FF3B30;--fire-orange:#FF9500;--gold:#FFD700;--dark:#0a0a0a;--charcoal:#1a1a1a;--slate:#2a2a2a;--ash:#3a3a3a;--smoke:#888;--white:#fff}
+:root{--fire:#FF3B30;--orange:#FF9500;--gold:#FFD700;--dark:#0a0a0a;--char:#1a1a1a;--slate:#2a2a2a;--ash:#3a3a3a;--smoke:#888;--white:#fff}
 body{background:#000;color:var(--white);font-family:'Exo 2',sans-serif;overflow-x:hidden}
-.glow-bg{position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 20% 30%,rgba(255,59,48,.15),transparent 50%),radial-gradient(circle at 80% 70%,rgba(255,149,0,.1),transparent 50%);animation:breathe 15s ease infinite;z-index:0;pointer-events:none}
+.glow{position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 20% 30%,rgba(255,59,48,.15),transparent 50%),radial-gradient(circle at 80% 70%,rgba(255,149,0,.1),transparent 50%);animation:breathe 15s ease infinite;z-index:0;pointer-events:none}
 @keyframes breathe{0%,100%{opacity:.3}50%{opacity:.6}}
-header{position:sticky;top:0;z-index:1000;background:rgba(10,10,10,.98);backdrop-filter:blur(20px);border-bottom:3px solid var(--fire-red);box-shadow:0 5px 30px rgba(255,59,48,.3)}
-.nav-wrap{max-width:1400px;margin:0 auto;padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center}
+header{position:sticky;top:0;z-index:1000;background:rgba(10,10,10,.98);backdrop-filter:blur(20px);border-bottom:3px solid var(--fire);box-shadow:0 5px 30px rgba(255,59,48,.3)}
+.nav{max-width:1400px;margin:0 auto;padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center}
 .logo{display:flex;align-items:center;gap:1rem}
-.logo i{font-size:2.5rem;color:var(--fire-red);filter:drop-shadow(0 0 20px rgba(255,59,48,.6))}
-.logo-txt{font-family:'Bebas Neue';font-size:2.5rem;background:linear-gradient(135deg,var(--fire-red),var(--gold),var(--fire-orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:2px}
+.logo i{font-size:2.5rem;color:var(--fire);filter:drop-shadow(0 0 20px rgba(255,59,48,.6))}
+.logo-txt{font-family:'Bebas Neue';font-size:2.5rem;background:linear-gradient(135deg,var(--fire),var(--gold),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:2px}
 nav ul{display:flex;gap:2rem;list-style:none}
 nav a{color:var(--white);text-decoration:none;font-family:'Orbitron';font-weight:700;font-size:.95rem;padding:10px 25px;border-radius:30px;transition:.3s;text-transform:uppercase;letter-spacing:1px;position:relative}
-nav a::before{content:'';position:absolute;inset:0;border-radius:30px;background:linear-gradient(135deg,var(--fire-red),var(--fire-orange));opacity:0;transition:.3s;z-index:-1}
+nav a::before{content:'';position:absolute;inset:0;border-radius:30px;background:linear-gradient(135deg,var(--fire),var(--orange));opacity:0;transition:.3s;z-index:-1}
 nav a:hover::before,nav a.active::before{opacity:1}
-nav a:hover,nav a.active{color:var(--white);text-shadow:0 0 20px rgba(255,215,0,.8)}
 .menu-btn{display:none;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
-.hero{position:relative;z-index:1;padding:8rem 2rem;background:linear-gradient(rgba(10,10,10,.85),rgba(10,10,10,.95)),url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80');background-size:cover;background-position:center;background-attachment:fixed;border-bottom:3px solid var(--fire-red)}
-.hero-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.hero-img{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 0 60px rgba(255,59,48,.5),0 0 100px rgba(255,215,0,.3);border:4px solid var(--gold);animation:pulse-glow 3s ease infinite}
-@keyframes pulse-glow{0%,100%{box-shadow:0 0 60px rgba(255,59,48,.5),0 0 100px rgba(255,215,0,.3)}50%{box-shadow:0 0 80px rgba(255,59,48,.7),0 0 140px rgba(255,215,0,.5)}}
-.hero-img img{width:100%;display:block;transition:.5s}
-.hero-img:hover img{transform:scale(1.05)}
-h1{font-family:'Bebas Neue';font-size:4.5rem;background:linear-gradient(135deg,var(--white),var(--gold),var(--fire-orange));background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 4s ease infinite;letter-spacing:3px;margin-bottom:1.5rem;line-height:1.1}
+.hero{position:relative;z-index:1;padding:6rem 2rem;background:linear-gradient(rgba(10,10,10,.85),rgba(10,10,10,.95)),url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');background-size:cover;background-position:center;border-bottom:3px solid var(--fire)}
+.hero-wrap{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.hero-img{border-radius:20px;overflow:hidden;box-shadow:0 0 60px rgba(255,59,48,.5);border:4px solid var(--gold);animation:glow 3s ease infinite}
+@keyframes glow{0%,100%{box-shadow:0 0 60px rgba(255,59,48,.5)}50%{box-shadow:0 0 80px rgba(255,59,48,.7)}}
+.hero-img img{width:100%;height:100%;object-fit:cover;display:block}
+h1{font-family:'Bebas Neue';font-size:4.5rem;background:linear-gradient(135deg,var(--white),var(--gold));background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 4s ease infinite;letter-spacing:3px;margin-bottom:1.5rem;line-height:1.1}
 @keyframes shimmer{0%,100%{background-position:0%}50%{background-position:100%}}
-.hero-tag{font-family:'Orbitron';font-size:2rem;color:var(--fire-red);font-weight:900;margin-bottom:2rem;text-transform:uppercase;letter-spacing:2px;text-shadow:0 0 30px rgba(255,59,48,.6)}
-.hero-desc{font-size:1.2rem;line-height:1.8;color:var(--smoke);margin-bottom:3rem}
-.btn{display:inline-flex;align-items:center;gap:1rem;background:linear-gradient(135deg,var(--fire-red),var(--fire-orange));color:var(--white);padding:1.2rem 3rem;font-family:'Orbitron';font-weight:700;font-size:1.1rem;text-decoration:none;border-radius:50px;transition:.3s;text-transform:uppercase;letter-spacing:1px;border:3px solid var(--gold);box-shadow:0 0 40px rgba(255,59,48,.5);cursor:pointer}
+.tag{font-family:'Orbitron';font-size:2rem;color:var(--fire);font-weight:900;margin-bottom:2rem;text-transform:uppercase;letter-spacing:2px}
+.desc{font-size:1.2rem;line-height:1.8;color:var(--smoke);margin-bottom:3rem}
+.btn{display:inline-flex;align-items:center;gap:1rem;background:linear-gradient(135deg,var(--fire),var(--orange));color:var(--white);padding:1.2rem 3rem;font-family:'Orbitron';font-weight:700;font-size:1.1rem;text-decoration:none;border-radius:50px;transition:.3s;text-transform:uppercase;letter-spacing:1px;border:3px solid var(--gold);box-shadow:0 0 40px rgba(255,59,48,.5)}
 .btn:hover{transform:translateY(-5px);box-shadow:0 0 60px rgba(255,59,48,.8)}
-.sec{position:relative;z-index:1;padding:6rem 2rem;max-width:1400px;margin:0 auto}
-.sec.alt{background:linear-gradient(135deg,rgba(26,26,26,.5),rgba(42,42,42,.3));border-radius:30px;margin:4rem auto;border:2px solid var(--fire-red)}
-h2{font-family:'Bebas Neue';font-size:3.5rem;text-align:center;background:linear-gradient(135deg,var(--fire-red),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:3px;margin-bottom:1rem}
-.sub{text-align:center;font-family:'Orbitron';font-size:1.3rem;color:var(--fire-orange);font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:4rem}
-.hosts{display:grid;grid-template-columns:repeat(auto-fit,minmax(500px,1fr));gap:3rem;margin-top:3rem}
-.host{background:linear-gradient(135deg,rgba(26,26,26,.9),rgba(42,42,42,.7));border-radius:25px;overflow:hidden;border:3px solid var(--fire-red);box-shadow:0 20px 60px rgba(0,0,0,.5);transition:.4s}
-.host:hover{transform:translateY(-15px);box-shadow:0 30px 80px rgba(255,59,48,.4)}
-.host-head{background:linear-gradient(135deg,var(--fire-red),var(--charcoal));padding:3rem;text-align:center;position:relative}
-.host-head::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--gold),var(--fire-orange))}
-.host-name{font-family:'Bebas Neue';font-size:2.8rem;margin-bottom:.5rem;letter-spacing:2px}
-.host-role{font-family:'Orbitron';font-size:1.2rem;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:1px}
-.host-body{padding:3rem;display:flex;flex-direction:column}
-.host-desc{font-size:1.1rem;line-height:1.8;color:var(--smoke);margin-bottom:2rem;flex-grow:1}
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.sec{position:relative;z-index:1;padding:6rem 2rem}
+.wrap{max-width:1400px;margin:0 auto}
+.alt{background:linear-gradient(135deg,rgba(26,26,26,.3),rgba(42,42,42,.2))}
+h2{font-family:'Bebas Neue';font-size:3.5rem;text-align:center;background:linear-gradient(135deg,var(--fire),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:3px;margin-bottom:1rem}
+.sub{text-align:center;font-family:'Orbitron';font-size:1.3rem;color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:4rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.host{background:linear-gradient(135deg,rgba(26,26,26,.9),rgba(42,42,42,.7));border-radius:25px;overflow:hidden;border:3px solid var(--fire);box-shadow:0 20px 60px rgba(0,0,0,.5);transition:.4s;display:grid;grid-template-rows:auto 1fr}
+.host:hover{transform:translateY(-15px)}
+.host-head{background:linear-gradient(135deg,var(--fire),var(--char));padding:3rem;text-align:center;position:relative}
+.host-head::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--gold),var(--orange))}
+.host-name{font-family:'Bebas Neue';font-size:2.8rem;margin-bottom:.5rem}
+.host-role{font-family:'Orbitron';font-size:1.2rem;color:var(--gold);font-weight:700;text-transform:uppercase}
+.host-body{padding:3rem;display:grid;grid-template-rows:1fr auto;gap:2rem}
+.host-desc{font-size:1.1rem;line-height:1.8;color:var(--smoke)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .stat{background:rgba(58,58,58,.5);padding:1.5rem;border-radius:15px;text-align:center;border-left:4px solid var(--gold);transition:.3s}
-.stat:hover{transform:translateY(-5px);border-left-color:var(--fire-red)}
-.stat-val{font-family:'Bebas Neue';font-size:1.8rem;color:var(--gold);margin-bottom:.3rem}
-.stat-lab{font-family:'Orbitron';font-size:.85rem;color:var(--smoke);text-transform:uppercase;letter-spacing:1px}
-.content{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:2rem}
-.card{background:linear-gradient(135deg,rgba(26,26,26,.9),rgba(42,42,42,.7));padding:3rem;border-radius:20px;text-align:center;border:3px solid var(--fire-orange);transition:.4s;position:relative;overflow:hidden}
-.card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--fire-red),var(--gold))}
-.card:hover{transform:translateY(-10px);box-shadow:0 20px 60px rgba(255,149,0,.3)}
-.card i{font-size:4rem;color:var(--gold);margin-bottom:1.5rem;filter:drop-shadow(0 0 20px rgba(255,215,0,.5))}
-.card h3{font-family:'Bebas Neue';font-size:2rem;margin-bottom:1rem;letter-spacing:2px}
+.stat:hover{transform:translateY(-5px)}
+.val{font-family:'Bebas Neue';font-size:1.5rem;color:var(--gold);display:block;margin-bottom:.3rem}
+.lab{font-family:'Orbitron';font-size:.75rem;color:var(--smoke);text-transform:uppercase;display:block}
+.card{background:linear-gradient(135deg,rgba(26,26,26,.9),rgba(42,42,42,.7));padding:3rem;border-radius:20px;text-align:center;border:3px solid var(--orange);transition:.4s;display:grid;grid-template-rows:auto auto 1fr auto;position:relative}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--fire),var(--gold))}
+.card:hover{transform:translateY(-10px)}
+.card i{font-size:4rem;color:var(--gold);margin-bottom:1.5rem}
+.card h3{font-family:'Bebas Neue';font-size:2rem;margin-bottom:1rem}
 .card p{color:var(--smoke);line-height:1.7;margin-bottom:1.5rem}
-.badge{display:inline-block;background:var(--fire-red);color:var(--white);padding:8px 20px;font-family:'Orbitron';font-weight:700;font-size:.85rem;border-radius:25px;text-transform:uppercase;letter-spacing:1px;border:2px solid var(--gold)}
-.eps{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:2rem}
-.ep{background:linear-gradient(135deg,rgba(26,26,26,.9),rgba(42,42,42,.7));border-radius:20px;overflow:hidden;border:3px solid var(--fire-red);transition:.4s}
-.ep:hover{transform:translateY(-10px);box-shadow:0 20px 60px rgba(255,59,48,.4)}
-.ep-img{height:220px;overflow:hidden;position:relative}
-.ep-img img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.badge{background:var(--fire);color:var(--white);padding:8px 20px;font-family:'Orbitron';font-weight:700;font-size:.85rem;border-radius:25px;text-transform:uppercase;border:2px solid var(--gold);display:inline-block}
+.ep{background:linear-gradient(135deg,rgba(26,26,26,.9),rgba(42,42,42,.7));border-radius:20px;overflow:hidden;border:3px solid var(--fire);transition:.4s;display:grid;grid-template-rows:auto 1fr}
+.ep:hover{transform:translateY(-10px)}
+.ep-img{height:220px;position:relative}
 .ep-img iframe{width:100%;height:100%;border:none}
-.ep:hover .ep-img img{transform:scale(1.1)}
-.ep-badge{position:absolute;top:20px;left:20px;background:var(--fire-red);color:var(--white);padding:8px 20px;font-family:'Orbitron';font-weight:700;font-size:.85rem;border-radius:25px;text-transform:uppercase;border:2px solid var(--gold)}
-.ep-body{padding:2rem}
-.ep-title{font-family:'Bebas Neue';font-size:1.6rem;margin-bottom:1rem;letter-spacing:1px}
+.ep-badge{position:absolute;top:20px;left:20px;background:var(--fire);color:var(--white);padding:8px 20px;font-family:'Orbitron';font-weight:700;font-size:.85rem;border-radius:25px;text-transform:uppercase;border:2px solid var(--gold);z-index:10}
+.ep-body{padding:2rem;display:grid;grid-template-rows:auto 1fr auto}
+.ep-title{font-family:'Bebas Neue';font-size:1.6rem;margin-bottom:1rem}
 .ep-desc{color:var(--smoke);line-height:1.7;margin-bottom:1rem}
 .tags{display:flex;flex-wrap:wrap;gap:.5rem}
-.tag{background:rgba(58,58,58,.7);color:var(--gold);padding:5px 15px;font-family:'Orbitron';font-size:.75rem;border-radius:15px;text-transform:uppercase;font-weight:700}
-.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:3rem}
-.contact-box{background:linear-gradient(135deg,rgba(26,26,26,.9),rgba(42,42,42,.7));padding:3rem;border-radius:20px;border:3px solid var(--fire-orange)}
-.contact-box h3{font-family:'Bebas Neue';font-size:2rem;margin-bottom:2rem;letter-spacing:2px;padding-bottom:1rem;border-bottom:3px solid var(--fire-red)}
+.ep-tag{background:rgba(58,58,58,.7);color:var(--gold);padding:5px 15px;font-family:'Orbitron';font-size:.75rem;border-radius:15px;text-transform:uppercase;font-weight:700}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.contact-box{background:linear-gradient(135deg,rgba(26,26,26,.9),rgba(42,42,42,.7));padding:3rem;border-radius:20px;border:3px solid var(--orange);display:grid;grid-template-rows:auto 1fr}
+.contact-box h3{font-family:'Bebas Neue';font-size:2rem;margin-bottom:2rem;padding-bottom:1rem;border-bottom:3px solid var(--fire)}
 .contact-item{display:flex;align-items:start;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--ash)}
-.contact-item i{font-size:1.5rem;color:var(--fire-red);margin-right:1.5rem;min-width:30px}
-.contact-item h4{font-family:'Orbitron';font-size:1rem;margin-bottom:.3rem;text-transform:uppercase;letter-spacing:1px}
+.contact-item:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.contact-item i{font-size:1.5rem;color:var(--fire);margin-right:1.5rem;min-width:30px;margin-top:.2rem}
+.contact-item h4{font-family:'Orbitron';font-size:1rem;margin-bottom:.3rem;text-transform:uppercase}
 .contact-item p{color:var(--smoke)}
+form{display:grid;grid-template-rows:auto auto auto auto auto}
 .form-group{margin-bottom:1.5rem}
-.form-group label{display:block;margin-bottom:.5rem;font-family:'Orbitron';font-weight:700;color:var(--gold);font-size:.9rem;text-transform:uppercase;letter-spacing:1px}
-input,textarea{width:100%;padding:1rem;background:rgba(58,58,58,.5);border:2px solid var(--fire-orange);border-radius:10px;color:var(--white);font-family:'Exo 2';font-size:1rem;transition:.3s}
+.form-group label{display:block;margin-bottom:.5rem;font-family:'Orbitron';font-weight:700;color:var(--gold);font-size:.9rem;text-transform:uppercase}
+input,textarea{width:100%;padding:1rem;background:rgba(58,58,58,.5);border:2px solid var(--orange);border-radius:10px;color:var(--white);font-family:'Exo 2';font-size:1rem;transition:.3s}
 input:focus,textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 20px rgba(255,215,0,.2)}
 textarea{min-height:150px;resize:vertical}
-.submit{width:100%;background:linear-gradient(135deg,var(--fire-red),var(--fire-orange));border:3px solid var(--gold);color:var(--white);padding:1.2rem;font-family:'Orbitron';font-weight:700;font-size:1rem;border-radius:10px;cursor:pointer;text-transform:uppercase;letter-spacing:1px;transition:.3s}
+.submit{width:100%;background:linear-gradient(135deg,var(--fire),var(--orange));border:3px solid var(--gold);color:var(--white);padding:1.2rem;font-family:'Orbitron';font-weight:700;font-size:1rem;border-radius:10px;cursor:pointer;text-transform:uppercase;transition:.3s;display:flex;align-items:center;justify-content:center;gap:.5rem}
 .submit:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(255,59,48,.5)}
-footer{background:var(--dark);padding:5rem 2rem 3rem;border-top:3px solid var(--fire-red)}
-.footer-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:3rem;margin-bottom:3rem}
+footer{background:var(--dark);padding:5rem 2rem 3rem;border-top:3px solid var(--fire)}
+.footer-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem;margin-bottom:3rem}
 .footer-logo .logo-txt{font-size:2.2rem;margin-bottom:1rem}
 .footer-logo p{color:var(--smoke);line-height:1.7}
-.footer-links h4{font-family:'Bebas Neue';font-size:1.5rem;color:var(--gold);margin-bottom:1.5rem;letter-spacing:2px}
+.footer-links h4{font-family:'Bebas Neue';font-size:1.5rem;color:var(--gold);margin-bottom:1.5rem}
 .footer-links ul{list-style:none}
 .footer-links li{margin-bottom:.8rem}
-.footer-links a{color:var(--smoke);text-decoration:none;transition:.3s}
-.footer-links a:hover{color:var(--gold);transform:translateX(5px);display:inline-block}
+.footer-links a{color:var(--smoke);text-decoration:none;transition:.3s;display:inline-block}
+.footer-links a:hover{color:var(--gold);transform:translateX(5px)}
 .socials{display:flex;gap:1rem;margin-bottom:1.5rem}
-.social{width:45px;height:45px;background:var(--charcoal);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1.2rem;transition:.3s;border:2px solid var(--fire-red)}
-.social:hover{background:var(--fire-red);transform:translateY(-5px);border-color:var(--gold)}
-.copy{text-align:center;padding-top:2rem;border-top:1px solid var(--charcoal);color:var(--smoke)}
+.social{width:45px;height:45px;background:var(--char);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1.2rem;transition:.3s;border:2px solid var(--fire)}
+.social:hover{background:var(--fire);transform:translateY(-5px)}
+.copy{text-align:center;padding-top:2rem;border-top:1px solid var(--char);color:var(--smoke);max-width:1400px;margin:0 auto}
+.loader{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);z-index:9999;justify-content:center;align-items:center;flex-direction:column;}
+.loader.active{display:flex;}
+.loader-text{color:var(--gold);font-family:'Orbitron';font-size:1.5rem;margin-top:2rem;}
+.loader-spinner{width:80px;height:80px;border:8px solid var(--ash);border-top-color:var(--fire);border-radius:50%;animation:spin 1s linear infinite;}
+@keyframes spin{100%{transform:rotate(360deg)}}
+.toast{position:fixed;bottom:20px;right:20px;background:linear-gradient(135deg,var(--fire),var(--orange));color:white;padding:1rem 2rem;border-radius:10px;font-family:'Orbitron';box-shadow:0 10px 30px rgba(0,0,0,.5);z-index:10000;transform:translateY(100px);opacity:0;transition:all .5s;}
+.toast.show{transform:translateY(0);opacity:1;}
+@media(max-width:1200px){
+.grid2,.grid3{grid-template-columns:1fr}
+}
 @media(max-width:992px){
-.hero-grid{grid-template-columns:1fr;text-align:center}
+.hero-wrap{grid-template-columns:1fr;text-align:center}
 h1{font-size:3.5rem}
-.hosts{grid-template-columns:1fr}
+.contact-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr}
 }
 @media(max-width:768px){
 nav ul{display:none;position:absolute;top:100%;left:0;width:100%;background:var(--dark);flex-direction:column;padding:1rem;gap:0}
@@ -113,15 +123,19 @@ nav li{padding:1rem}
 .menu-btn{display:block}
 h1{font-size:2.5rem}
 h2{font-size:2.5rem}
-.hero{padding:5rem 2rem}
+.hero{padding:4rem 1rem}
 .sec{padding:4rem 1rem}
 }
 </style>
 </head>
 <body>
-<div class="glow-bg"></div>
+<div class="glow"></div>
+<div class="loader" id="loader">
+<div class="loader-spinner"></div>
+<div class="loader-text">Loading Crocked 'N Loaded...</div>
+</div>
 <header>
-<div class="nav-wrap">
+<div class="nav">
 <div class="logo">
 <i class="fas fa-fire"></i>
 <div class="logo-txt">CROCKED'N LOADED</div>
@@ -130,7 +144,7 @@ h2{font-size:2.5rem}
 <nav>
 <ul id="menu">
 <li><a href="#home" class="active">HOME</a></li>
-<li><a href="#hosts">THE CREW</a></li>
+<li><a href="#hosts">CREW</a></li>
 <li><a href="#content">CONTENT</a></li>
 <li><a href="#episodes">EPISODES</a></li>
 <li><a href="#contact">CONTACT</a></li>
@@ -139,68 +153,73 @@ h2{font-size:2.5rem}
 </div>
 </header>
 <section class="hero" id="home">
-<div class="hero-grid">
+<div class="hero-wrap">
 <div class="hero-img">
-<img src="background.jpg" alt="Crocked N Loaded">
+<img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Crocked N Loaded Hosts cooking">
 </div>
 <div>
 <h1>CROCKED 'N LOADED</h1>
-<div class="hero-tag">REAL FOOD. REAL REVIEWS.</div>
-<div class="hero-tag" style="font-size:1.5rem;margin-top:-1rem">NO BULLSHIT.</div>
-<p class="hero-desc">Join CrockPotDaddy and MACK3Y THE FOODIE as they bring professional cooking techniques to home kitchens, explore global flavors, and deliver honest restaurant reviews. From budget cooking challenges to authentic global cuisine, we make cooking accessible and fun.</p>
+<div class="tag">REAL FOOD. REAL REVIEWS.</div>
+<div class="tag" style="font-size:1.5rem;margin-top:-1rem">NO BULLSHIT.</div>
+<p class="desc">Join CrockPotDaddy and MACK3Y THE FOODIE as they bring professional cooking techniques to home kitchens, explore global flavors, and deliver honest restaurant reviews.</p>
 <a href="#episodes" class="btn"><i class="fas fa-play-circle"></i>WATCH EPISODES</a>
 </div>
 </div>
 </section>
 <section class="sec alt" id="hosts">
+<div class="wrap">
 <h2>MEET THE CREW</h2>
 <div class="sub">Two Perspectives, One Passion: Good Food</div>
-<div class="hosts">
+<div class="grid2">
 <div class="host">
 <div class="host-head">
 <div class="host-name">CROCKPOTDADDY</div>
-<div class="host-role">Home Cook Expert & Entertainer</div>
+<div class="host-role">Home Cook Expert</div>
 </div>
 <div class="host-body">
-<p class="host-desc">Former music industry professional who brings high-energy entertainment and a practical approach to cooking. Asks the questions home cooks actually want answered and proves you don't need professional training to make amazing food. Specializes in making complex techniques accessible and fun.</p>
+<p class="host-desc">Former music industry professional who brings high-energy entertainment and a practical approach to cooking. Asks the questions home cooks actually want answered and proves you don't need professional training to make amazing food.</p>
 <div class="stats">
-<div class="stat"><div class="stat-val">MUSIC & SALES</div><div class="stat-lab">Background</div></div>
-<div class="stat"><div class="stat-val">HOME COOK</div><div class="stat-lab">Expert Level</div></div>
-<div class="stat"><div class="stat-val">ENTERTAINMENT</div><div class="stat-lab">Focus</div></div>
-<div class="stat"><div class="stat-val">PRACTICAL</div><div class="stat-lab">Approach</div></div>
+<div class="stat"><span class="val">MUSIC & SALES</span><span class="lab">Background</span></div>
+<div class="stat"><span class="val">HOME COOK</span><span class="lab">Expert Level</span></div>
+<div class="stat"><span class="val">ENTERTAINMENT</span><span class="lab">Focus</span></div>
+<div class="stat"><span class="val">PRACTICAL</span><span class="lab">Approach</span></div>
 </div>
 </div>
 </div>
 <div class="host">
 <div class="host-head">
 <div class="host-name">MACK3Y THE FOODIE</div>
-<div class="host-role">Flavor Explorer & Teacher</div>
+<div class="host-role">Flavor Explorer</div>
 </div>
 <div class="host-body">
-<p class="host-desc">With 23 years exploring global cuisines, MACK3Y THE FOODIE is passionate about sharing authentic flavors from around the world. From Mexican street food to Asian fusion, Italian classics to Mediterranean delights, his focus is on making international cuisine approachable and fun. Believes good food has no borders and loves teaching techniques that work in real kitchens.</p>
+<p class="host-desc">With 23 years exploring global cuisines, MACK3Y is passionate about sharing authentic flavors from around the world. From Mexican street food to Asian fusion, his focus is on making international cuisine approachable and fun.</p>
 <div class="stats">
-<div class="stat"><div class="stat-val">23 YEARS</div><div class="stat-lab">Experience</div></div>
-<div class="stat"><div class="stat-val">GLOBAL</div><div class="stat-lab">Cuisine Focus</div></div>
-<div class="stat"><div class="stat-val">TEACHING</div><div class="stat-lab">Passion</div></div>
-<div class="stat"><div class="stat-val">FUN FOOD</div><div class="stat-lab">Philosophy</div></div>
+<div class="stat"><span class="val">23 YEARS</span><span class="lab">Experience</span></div>
+<div class="stat"><span class="val">GLOBAL</span><span class="lab">Cuisine Focus</span></div>
+<div class="stat"><span class="val">TEACHING</span><span class="lab">Passion</span></div>
+<div class="stat"><span class="val">FUN FOOD</span><span class="lab">Philosophy</span></div>
+</div>
 </div>
 </div>
 </div>
 </div>
 </section>
 <section class="sec" id="content">
+<div class="wrap">
 <h2>OUR CONTENT</h2>
 <div class="sub">Three Ways We Bring Food To Life</div>
-<div class="content">
+<div class="grid3">
 <div class="card">
 <i class="fas fa-home"></i>
-<h3>HOME COOKING DEMOS</h3>
-<p>Professional techniques adapted for home kitchens. Learn restaurant-quality methods without the fancy equipment or chef ego.</p>
+<h3>HOME COOKING</h3>
+<p>Professional techniques adapted for home kitchens. Learn restaurant-quality methods without the fancy equipment.</p>
+<div></div>
 </div>
 <div class="card">
 <i class="fas fa-shopping-basket"></i>
 <h3>BUDGET CHALLENGES</h3>
-<p>How delicious can we make it for how cheap? We transform budget ingredients into incredible meals that won't break the bank.</p>
+<p>How delicious can we make it for how cheap? We transform budget ingredients into incredible meals.</p>
+<div></div>
 </div>
 <div class="card">
 <i class="fas fa-utensils"></i>
@@ -209,64 +228,69 @@ h2{font-size:2.5rem}
 <div class="badge">COMING SOON</div>
 </div>
 </div>
+</div>
 </section>
 <section class="sec alt" id="episodes">
+<div class="wrap">
 <h2>FEATURED EPISODES</h2>
 <div class="sub">Taste The Variety</div>
-<div class="eps">
+<div class="grid3">
 <div class="ep">
 <div class="ep-img">
-<iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/FOQrSJrCWus" allowfullscreen></iframe>
 <div class="ep-badge">BUDGET CHALLENGE</div>
 </div>
 <div class="ep-body">
-<div class="ep-title">$20 DINNER FOR FOUR CHALLENGE</div>
+<div class="ep-title">$20 DINNER FOR FOUR</div>
 <p class="ep-desc">Can we create a restaurant-quality meal for a family of four on a $20 budget? Watch as we transform simple ingredients into something special.</p>
 <div class="tags">
-<span class="tag">BUDGET</span>
-<span class="tag">FAMILY MEAL</span>
-<span class="tag">CHALLENGE</span>
+<span class="ep-tag">BUDGET</span>
+<span class="ep-tag">FAMILY</span>
+<span class="ep-tag">CHALLENGE</span>
 </div>
 </div>
 </div>
 <div class="ep">
 <div class="ep-img">
-<iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/3dkqYRvGqQ8" allowfullscreen></iframe>
 <div class="ep-badge">GLOBAL FLAVORS</div>
 </div>
 <div class="ep-body">
-<div class="ep-title">AUTHENTIC MEXICAN STREET TACOS</div>
-<p class="ep-desc">MACK3Y THE FOODIE shares authentic techniques for perfect street tacos while CrockPotDaddy keeps it real with home kitchen adaptations.</p>
+<div class="ep-title">MEXICAN STREET TACOS</div>
+<p class="ep-desc">MACK3Y shares authentic techniques for perfect street tacos while CrockPotDaddy keeps it real with home kitchen adaptations.</p>
 <div class="tags">
-<span class="tag">MEXICAN</span>
-<span class="tag">STREET FOOD</span>
-<span class="tag">AUTHENTIC</span>
+<span class="ep-tag">MEXICAN</span>
+<span class="ep-tag">STREET FOOD</span>
+<span class="ep-tag">AUTHENTIC</span>
 </div>
 </div>
 </div>
 <div class="ep">
 <div class="ep-img">
-<iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/g7pPKAKuNgQ" allowfullscreen></iframe>
 <div class="ep-badge">COMFORT FOOD</div>
 </div>
 <div class="ep-body">
-<div class="ep-title">ULTIMATE GOURMET BURGERS</div>
+<div class="ep-title">GOURMET BURGERS</div>
 <p class="ep-desc">Why go out when you can make better burgers at home? We cover everything from meat selection to secret sauce recipes.</p>
 <div class="tags">
-<span class="tag">COMFORT</span>
-<span class="tag">GRILLING</span>
-<span class="tag">AMERICAN</span>
+<span class="ep-tag">COMFORT</span>
+<span class="ep-tag">GRILLING</span>
+<span class="ep-tag">AMERICAN</span>
+</div>
 </div>
 </div>
 </div>
 </div>
 </section>
 <section class="sec" id="contact">
+<div class="wrap">
 <h2>GET IN TOUCH</h2>
-<div class="sub">Collaborate, Connect, or Just Say Hello</div>
-<div class="contact">
+<div class="sub">Collaborate, Connect, or Say Hello</div>
+<div class="contact-grid">
 <div class="contact-box">
 <h3>CONTACT INFO</h3>
+<div>
 <div class="contact-item">
 <i class="fas fa-envelope"></i>
 <div><h4>EMAIL</h4><p>contact@crockednloaded.com</p></div>
@@ -280,27 +304,29 @@ h2{font-size:2.5rem}
 <div><h4>COLLABORATIONS</h4><p>collab@crockednloaded.com</p></div>
 </div>
 </div>
+</div>
 <div class="contact-box">
-<h3>SEND A MESSAGE</h3>
-<form onsubmit="return handleSubmit(event)">
+<h3>SEND MESSAGE</h3>
+<form id="contactForm" onsubmit="return handleSubmit(event)">
 <div class="form-group">
-<label>FULL NAME</label>
-<input type="text" placeholder="Your name" required>
+<label>NAME</label>
+<input type="text" id="name" required>
 </div>
 <div class="form-group">
 <label>EMAIL</label>
-<input type="email" placeholder="Your email" required>
+<input type="email" id="email" required>
 </div>
 <div class="form-group">
 <label>SUBJECT</label>
-<input type="text" placeholder="What's this regarding?" required>
+<input type="text" id="subject" required>
 </div>
 <div class="form-group">
 <label>MESSAGE</label>
-<textarea placeholder="Your message here..." required></textarea>
+<textarea id="message" required></textarea>
 </div>
-<button type="submit" class="submit"><i class="fas fa-paper-plane"></i> SEND MESSAGE</button>
+<button type="submit" class="submit"><i class="fas fa-paper-plane"></i>SEND</button>
 </form>
+</div>
 </div>
 </div>
 </section>
@@ -311,10 +337,10 @@ h2{font-size:2.5rem}
 <p>Bringing professional cooking techniques, global flavors, and honest reviews to food lovers everywhere. Real food made by real people.</p>
 </div>
 <div class="footer-links">
-<h4>QUICK LINKS</h4>
+<h4>LINKS</h4>
 <ul>
 <li><a href="#home">Home</a></li>
-<li><a href="#hosts">The Crew</a></li>
+<li><a href="#hosts">Crew</a></li>
 <li><a href="#content">Content</a></li>
 <li><a href="#episodes">Episodes</a></li>
 <li><a href="#contact">Contact</a></li>
@@ -323,24 +349,114 @@ h2{font-size:2.5rem}
 <div class="footer-links">
 <h4>CONNECT</h4>
 <div class="socials">
-<a href="#" class="social"><i class="fab fa-youtube"></i></a>
-<a href="#" class="social"><i class="fab fa-instagram"></i></a>
-<a href="#" class="social"><i class="fab fa-facebook"></i></a>
-<a href="#" class="social"><i class="fab fa-tiktok"></i></a>
+<a href="https://youtube.com" target="_blank" class="social"><i class="fab fa-youtube"></i></a>
+<a href="https://instagram.com" target="_blank" class="social"><i class="fab fa-instagram"></i></a>
+<a href="https://facebook.com" target="_blank" class="social"><i class="fab fa-facebook"></i></a>
+<a href="https://tiktok.com" target="_blank" class="social"><i class="fab fa-tiktok"></i></a>
 </div>
-<p style="color:#888;margin-top:1rem">Subscribe for cooking tips, episode releases, and restaurant reviews.</p>
+<p style="color:#888;font-size:.95rem;margin-top:1rem">Subscribe for cooking tips and episode releases.</p>
 </div>
 </div>
 <div class="copy">
 <p>© 2025 Crocked 'N Loaded. All rights reserved. | Real Food. Real Reviews. No Bullshit.</p>
 </div>
 </footer>
+<div class="toast" id="toast">Message sent successfully!</div>
 <script>
-function toggleMenu(){document.getElementById('menu').classList.toggle('active')}
-document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('menu').classList.remove('active')));
-document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));t&&window.scrollTo({top:t.offsetTop-100,behavior:'smooth'})}));
-function handleSubmit(e){e.preventDefault();alert('Thank you! Your message has been received. We\'ll get back to you soon.');e.target.reset();return false}
-window.addEventListener('scroll',()=>{const sections=document.querySelectorAll('section');const links=document.querySelectorAll('nav a');let current='';sections.forEach(s=>{if(scrollY>=s.offsetTop-150)current=s.getAttribute('id')});links.forEach(l=>{l.classList.remove('active');if(l.getAttribute('href')===`#${current}`)l.classList.add('active')})});
+// Show loader on page load
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.getElementById('loader').classList.remove('active');
+    }, 1000);
+});
+
+// Mobile menu toggle
+function toggleMenu(){
+    document.getElementById('menu').classList.toggle('active')
+}
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('nav a').forEach(a => 
+    a.addEventListener('click', () => 
+        document.getElementById('menu').classList.remove('active')
+    )
+);
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target) {
+            window.scrollTo({
+                top: target.offsetTop - 100,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Form submission handler
+function handleSubmit(e) {
+    e.preventDefault();
+    
+    // Show loader
+    document.getElementById('loader').classList.add('active');
+    
+    // Simulate form submission delay
+    setTimeout(() => {
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+        
+        // In a real application, you would send this data to a server
+        console.log('Form submission:', { name, email, subject, message });
+        
+        // Hide loader
+        document.getElementById('loader').classList.remove('active');
+        
+        // Show success toast
+        showToast('Thank you! Your message has been received.');
+        
+        // Reset form
+        e.target.reset();
+    }, 1500);
+    
+    return false;
+}
+
+// Toast notification
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
+
+// Active nav link highlighting
+window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    const links = document.querySelectorAll('nav a');
+    
+    let current = '';
+    sections.forEach(s => {
+        if(window.scrollY >= s.offsetTop - 150) {
+            current = s.getAttribute('id');
+        }
+    });
+    
+    links.forEach(l => {
+        l.classList.remove('active');
+        if(l.getAttribute('href') === `#${current}`) {
+            l.classList.add('active');
+        }
+    });
+});
 </script>
 </body>
 </html>
