@@ -1,61 +1,529 @@
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get form data
-    $name = htmlspecialchars(trim($_POST['name']));
-    $email = htmlspecialchars(trim($_POST['email']));
-    $subject = htmlspecialchars(trim($_POST['subject']));
-    $message = htmlspecialchars(trim($_POST['message']));
-    
-    // Set recipient email
-    $to = "contact@crockednloaded.com";
-    $cc = "collab@crockednloaded.com";
-    
-    // Email headers
-    $headers = "From: $name <$email>\r\n";
-    $headers .= "Reply-To: $email\r\n";
-    $headers .= "Cc: $cc\r\n";
-    $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-    
-    // Email body
-    $email_body = "
-    <html>
-    <head>
-        <style>
-            body { font-family: Arial, sans-serif; }
-            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-            .header { background: #FF3B30; color: white; padding: 20px; text-align: center; }
-            .content { background: #f4f4f4; padding: 20px; }
-            .footer { background: #333; color: white; padding: 10px; text-align: center; }
-        </style>
-    </head>
-    <body>
-        <div class='container'>
-            <div class='header'>
-                <h2>New Message from Crocked 'N Loaded Website</h2>
-            </div>
-            <div class='content'>
-                <p><strong>Name:</strong> $name</p>
-                <p><strong>Email:</strong> $email</p>
-                <p><strong>Subject:</strong> $subject</p>
-                <p><strong>Message:</strong></p>
-                <p>$message</p>
-            </div>
-            <div class='footer'>
-                <p>This message was sent from the Crocked 'N Loaded contact form.</p>
-            </div>
-        </div>
-    </body>
-    </html>
-    ";
-    
-    // Send email
-    if (mail($to, "New Message from Crocked N Loaded: $subject", $email_body, $headers)) {
-        echo json_encode(['success' => true, 'message' => 'Thank you! Your message has been sent.']);
-    } else {
-        echo json_encode(['success' => false, 'message' => 'Sorry, there was an error sending your message.']);
-    }
-} else {
-    echo json_encode(['success' => false, 'message' => 'Invalid request method.']);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crocked 'N Loaded | Real Food. Real Reviews. No Bullshit.</title>
+<meta name="description" content="Join CrockPotDaddy and MACK3Y THE FOODIE for professional cooking techniques, global flavors, and honest restaurant reviews.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--fire:#FF3B30;--orange:#FF9500;--gold:#FFD700;--dark:#0a0a0a;--char:#1a1a1a;--slate:#2a2a2a;--ash:#3a3a3a;--smoke:#888;--white:#fff}
+body{background:#000;color:var(--white);font-family:'Exo 2',sans-serif;overflow-x:hidden}
+.glow{position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 20% 30%,rgba(255,59,48,.15),transparent 50%),radial-gradient(circle at 80% 70%,rgba(255,149,0,.1),transparent 50%);animation:breathe 15s ease infinite;z-index:0;pointer-events:none}
+@keyframes breathe{0%,100%{opacity:.3}50%{opacity:.6}}
+header{position:sticky;top:0;z-index:1000;background:rgba(10,10,10,.98);backdrop-filter:blur(20px);border-bottom:3px solid var(--fire);box-shadow:0 5px 30px rgba(255,59,48,.3)}
+.nav{max-width:1400px;margin:0 auto;padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:1rem}
+.logo i{font-size:2.5rem;color:var(--fire);filter:drop-shadow(0 0 20px rgba(255,59,48,.6))}
+.logo-txt{font-family:'Bebas Neue';font-size:2.5rem;background:linear-gradient(135deg,var(--fire),var(--gold),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:2px}
+nav ul{display:flex;gap:2rem;list-style:none}
+nav a{color:var(--white);text-decoration:none;font-family:'Orbitron';font-weight:700;font-size:.95rem;padding:10px 25px;border-radius:30px;transition:.3s;text-transform:uppercase;letter-spacing:1px;position:relative}
+nav a::before{content:'';position:absolute;inset:0;border-radius:30px;background:linear-gradient(135deg,var(--fire),var(--orange));opacity:0;transition:.3s;z-index:-1}
+nav a:hover::before,nav a.active::before{opacity:1}
+.menu-btn{display:none;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.hero{position:relative;z-index:1;padding:6rem 2rem;background:linear-gradient(rgba(10,10,10,.85),rgba(10,10,10,.95)),url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80');background-size:cover;background-position:center;border-bottom:3px solid var(--fire)}
+.hero-wrap{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.hero-img{border-radius:20px;overflow:hidden;box-shadow:0 0 60px rgba(255,59,48,.5);border:4px solid var(--gold);animation:glow 3s ease infinite;height:400px}
+@keyframes glow{0%,100%{box-shadow:0 0 60px rgba(255,59,48,.5)}50%{box-shadow:0 0 80px rgba(255,59,48,.7)}}
+.hero-img img{width:100%;height:100%;object-fit:cover;display:block}
+h1{font-family:'Bebas Neue';font-size:4.5rem;background:linear-gradient(135deg,var(--white),var(--gold));background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 4s ease infinite;letter-spacing:3px;margin-bottom:1.5rem;line-height:1.1}
+@keyframes shimmer{0%,100%{background-position:0%}50%{background-position:100%}}
+.tag{font-family:'Orbitron';font-size:2rem;color:var(--fire);font-weight:900;margin-bottom:2rem;text-transform:uppercase;letter-spacing:2px}
+.desc{font-size:1.2rem;line-height:1.8;color:var(--smoke);margin-bottom:3rem}
+.btn{display:inline-flex;align-items:center;gap:1rem;background:linear-gradient(135deg,var(--fire),var(--orange));color:var(--white);padding:1.2rem 3rem;font-family:'Orbitron';font-weight:700;font-size:1.1rem;text-decoration:none;border-radius:50px;transition:.3s;text-transform:uppercase;letter-spacing:1px;border:3px solid var(--gold);box-shadow:0 0 40px rgba(255,59,48,.5)}
+.btn:hover{transform:translateY(-5px);box-shadow:0 0 60px rgba(255,59,48,.8)}
+.sec{position:relative;z-index:1;padding:6rem 2rem}
+.wrap{max-width:1400px;margin:0 auto}
+.alt{background:linear-gradient(135deg,rgba(26,26,26,.3),rgba(42,42,42,.2))}
+h2{font-family:'Bebas Neue';font-size:3.5rem;text-align:center;background:linear-gradient(135deg,var(--fire),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:3px;margin-bottom:1rem}
+.sub{text-align:center;font-family:'Orbitron';font-size:1.3rem;color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:4rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.host{background:linear-gradient(135deg,rgba(26,26,26,.9),rgba(42,42,42,.7));border-radius:25px;overflow:hidden;border:3px solid var(--fire);box-shadow:0 20px 60px rgba(0,0,0,.5);transition:.4s;display:grid;grid-template-rows:auto 1fr}
+.host:hover{transform:translateY(-15px)}
+.host-head{background:linear-gradient(135deg,var(--fire),var(--char));padding:3rem;text-align:center;position:relative}
+.host-head::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--gold),var(--orange))}
+.host-name{font-family:'Bebas Neue';font-size:2.8rem;margin-bottom:.5rem}
+.host-role{font-family:'Orbitron';font-size:1.2rem;color:var(--gold);font-weight:700;text-transform:uppercase}
+.host-body{padding:3rem;display:grid;grid-template-rows:1fr auto;gap:2rem}
+.host-desc{font-size:1.1rem;line-height:1.8;color:var(--smoke)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.stat{background:rgba(58,58,58,.5);padding:1.5rem;border-radius:15px;text-align:center;border-left:4px solid var(--gold);transition:.3s}
+.stat:hover{transform:translateY(-5px)}
+.val{font-family:'Bebas Neue';font-size:1.5rem;color:var(--gold);display:block;margin-bottom:.3rem}
+.lab{font-family:'Orbitron';font-size:.75rem;color:var(--smoke);text-transform:uppercase;display:block}
+.card{background:linear-gradient(135deg,rgba(26,26,26,.9),rgba(42,42,42,.7));padding:3rem;border-radius:20px;text-align:center;border:3px solid var(--orange);transition:.4s;display:grid;grid-template-rows:auto auto 1fr auto;position:relative}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--fire),var(--gold))}
+.card:hover{transform:translateY(-10px)}
+.card i{font-size:4rem;color:var(--gold);margin-bottom:1.5rem}
+.card h3{font-family:'Bebas Neue';font-size:2rem;margin-bottom:1rem}
+.card p{color:var(--smoke);line-height:1.7;margin-bottom:1.5rem}
+.badge{background:var(--fire);color:var(--white);padding:8px 20px;font-family:'Orbitron';font-weight:700;font-size:.85rem;border-radius:25px;text-transform:uppercase;border:2px solid var(--gold);display:inline-block}
+.ep{background:linear-gradient(135deg,rgba(26,26,26,.9),rgba(42,42,42,.7));border-radius:20px;overflow:hidden;border:3px solid var(--fire);transition:.4s;display:grid;grid-template-rows:auto 1fr}
+.ep:hover{transform:translateY(-10px)}
+.ep-img{height:220px;position:relative}
+.ep-img iframe{width:100%;height:100%;border:none}
+.ep-badge{position:absolute;top:20px;left:20px;background:var(--fire);color:var(--white);padding:8px 20px;font-family:'Orbitron';font-weight:700;font-size:.85rem;border-radius:25px;text-transform:uppercase;border:2px solid var(--gold);z-index:10}
+.ep-body{padding:2rem;display:grid;grid-template-rows:auto 1fr auto}
+.ep-title{font-family:'Bebas Neue';font-size:1.6rem;margin-bottom:1rem}
+.ep-desc{color:var(--smoke);line-height:1.7;margin-bottom:1rem}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.ep-tag{background:rgba(58,58,58,.7);color:var(--gold);padding:5px 15px;font-family:'Orbitron';font-size:.75rem;border-radius:15px;text-transform:uppercase;font-weight:700}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.contact-box{background:linear-gradient(135deg,rgba(26,26,26,.9),rgba(42,42,42,.7));padding:3rem;border-radius:20px;border:3px solid var(--orange);display:grid;grid-template-rows:auto 1fr}
+.contact-box h3{font-family:'Bebas Neue';font-size:2rem;margin-bottom:2rem;padding-bottom:1rem;border-bottom:3px solid var(--fire)}
+.contact-item{display:flex;align-items:start;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--ash)}
+.contact-item:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.contact-item i{font-size:1.5rem;color:var(--fire);margin-right:1.5rem;min-width:30px;margin-top:.2rem}
+.contact-item h4{font-family:'Orbitron';font-size:1rem;margin-bottom:.3rem;text-transform:uppercase}
+.contact-item p{color:var(--smoke)}
+.contact-social-links{display:flex;gap:1rem;margin-top:.5rem}
+.contact-social-links a{color:var(--gold);font-size:.9rem;text-decoration:none;transition:.3s}
+.contact-social-links a:hover{color:var(--fire)}
+form{display:grid;grid-template-rows:auto auto auto auto auto auto}
+.form-group{margin-bottom:1.5rem}
+.form-group label{display:block;margin-bottom:.5rem;font-family:'Orbitron';font-weight:700;color:var(--gold);font-size:.9rem;text-transform:uppercase}
+input,textarea,select{width:100%;padding:1rem;background:rgba(58,58,58,.5);border:2px solid var(--orange);border-radius:10px;color:var(--white);font-family:'Exo 2';font-size:1rem;transition:.3s}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 20px rgba(255,215,0,.2)}
+textarea{min-height:150px;resize:vertical}
+.submit{width:100%;background:linear-gradient(135deg,var(--fire),var(--orange));border:3px solid var(--gold);color:var(--white);padding:1.2rem;font-family:'Orbitron';font-weight:700;font-size:1rem;border-radius:10px;cursor:pointer;text-transform:uppercase;transition:.3s;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.submit:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(255,59,48,.5)}
+footer{background:var(--dark);padding:5rem 2rem 3rem;border-top:3px solid var(--fire)}
+.footer-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem;margin-bottom:3rem}
+.footer-logo .logo-txt{font-size:2.2rem;margin-bottom:1rem}
+.footer-logo p{color:var(--smoke);line-height:1.7}
+.footer-links h4{font-family:'Bebas Neue';font-size:1.5rem;color:var(--gold);margin-bottom:1.5rem}
+.footer-links ul{list-style:none}
+.footer-links li{margin-bottom:.8rem}
+.footer-links a{color:var(--smoke);text-decoration:none;transition:.3s;display:inline-block}
+.footer-links a:hover{color:var(--gold);transform:translateX(5px)}
+.socials{display:flex;gap:1rem;margin-bottom:1.5rem}
+.social{width:45px;height:45px;background:var(--char);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1.2rem;transition:.3s;border:2px solid var(--fire)}
+.social:hover{background:var(--fire);transform:translateY(-5px)}
+.copy{text-align:center;padding-top:2rem;border-top:1px solid var(--char);color:var(--smoke);max-width:1400px;margin:0 auto}
+.loader{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);z-index:9999;justify-content:center;align-items:center;flex-direction:column;}
+.loader.active{display:flex;}
+.loader-text{color:var(--gold);font-family:'Orbitron';font-size:1.5rem;margin-top:2rem;}
+.loader-spinner{width:80px;height:80px;border:8px solid var(--ash);border-top-color:var(--fire);border-radius:50%;animation:spin 1s linear infinite;}
+@keyframes spin{100%{transform:rotate(360deg)}}
+.toast{position:fixed;bottom:20px;right:20px;background:linear-gradient(135deg,var(--fire),var(--orange));color:white;padding:1rem 2rem;border-radius:10px;font-family:'Orbitron';box-shadow:0 10px 30px rgba(0,0,0,.5);z-index:10000;transform:translateY(100px);opacity:0;transition:all .5s;}
+.toast.show{transform:translateY(0);opacity:1;}
+.toast.error{background:linear-gradient(135deg,#ff3030,#ff0000);}
+.text-image-container{margin-bottom:2rem}
+.text-image{border-radius:15px;overflow:hidden;box-shadow:0 0 40px rgba(255,59,48,.4);border:3px solid var(--orange);height:200px}
+.text-image img{width:100%;height:100%;object-fit:cover;display:block}
+.form-message{display:none;padding:1rem;border-radius:10px;margin-top:1rem;text-align:center;font-family:'Orbitron';}
+.form-message.success{display:block;background:linear-gradient(135deg,rgba(0,200,0,0.2),rgba(0,150,0,0.1));border:2px solid #00ff00;color:#00ff00;}
+.form-message.error{display:block;background:linear-gradient(135deg,rgba(255,0,0,0.2),rgba(200,0,0,0.1));border:2px solid #ff0000;color:#ff0000;}
+.file-input{background:rgba(58,58,58,.5);padding:.8rem;border:2px solid var(--orange);border-radius:10px;color:var(--white);cursor:pointer;transition:.3s}
+.file-input:hover{background:rgba(78,78,78,.5);border-color:var(--gold)}
+@media(max-width:1200px){
+.grid2,.grid3{grid-template-columns:1fr}
 }
-?>
+@media(max-width:992px){
+.hero-wrap{grid-template-columns:1fr;text-align:center}
+h1{font-size:3.5rem}
+.contact-grid{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr}
+.hero-img{height:350px}
+.text-image{height:180px}
+}
+@media(max-width:768px){
+nav ul{display:none;position:absolute;top:100%;left:0;width:100%;background:var(--dark);flex-direction:column;padding:1rem;gap:0}
+nav ul.active{display:flex}
+nav li{padding:1rem}
+.menu-btn{display:block}
+h1{font-size:2.5rem}
+h2{font-size:2.5rem}
+.hero{padding:4rem 1rem}
+.sec{padding:4rem 1rem}
+.hero-img{height:280px}
+.text-image{height:150px}
+.contact-social-links{flex-direction:column;gap:.5rem}
+}
+@media(max-width:576px){
+.hero-img{height:220px}
+h1{font-size:2.2rem}
+.tag{font-size:1.4rem}
+.text-image{height:120px}
+}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<div class="loader" id="loader">
+<div class="loader-spinner"></div>
+<div class="loader-text">Loading Crocked 'N Loaded...</div>
+</div>
+<header>
+<div class="nav">
+<div class="logo">
+<i class="fas fa-fire"></i>
+<div class="logo-txt">CROCKED'N LOADED</div>
+</div>
+<button class="menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+<nav>
+<ul id="menu">
+<li><a href="#home" class="active">HOME</a></li>
+<li><a href="#hosts">CREW</a></li>
+<li><a href="#content">CONTENT</a></li>
+<li><a href="#episodes">EPISODES</a></li>
+<li><a href="#contact">CONTACT</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<section class="hero" id="home">
+<div class="hero-wrap">
+<div class="hero-img">
+<img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Crocked N Loaded Hosts cooking">
+</div>
+<div>
+<!-- Background image above the text -->
+<div class="text-image-container">
+<div class="text-image">
+<!-- Use background.jpg here -->
+<img src="background.jpg" alt="Crocked N Loaded Real Food Real Reviews">
+</div>
+</div>
+<h1>CROCKED 'N LOADED</h1>
+<div class="tag">REAL FOOD. REAL REVIEWS.</div>
+<div class="tag" style="font-size:1.5rem;margin-top:-1rem">NO BULLSHIT.</div>
+<p class="desc">Join CrockPotDaddy and MACK3Y THE FOODIE as they bring professional cooking techniques to home kitchens, explore global flavors, and deliver honest restaurant reviews.</p>
+<a href="#episodes" class="btn"><i class="fas fa-play-circle"></i>WATCH EPISODES</a>
+</div>
+</div>
+</section>
+<section class="sec alt" id="hosts">
+<div class="wrap">
+<h2>MEET THE CREW</h2>
+<div class="sub">Two Perspectives, One Passion: Good Food</div>
+<div class="grid2">
+<div class="host">
+<div class="host-head">
+<div class="host-name">CROCKPOTDADDY</div>
+<div class="host-role">Home Cook Expert</div>
+</div>
+<div class="host-body">
+<p class="host-desc">Former music industry professional who brings high-energy entertainment and a practical approach to cooking. Asks the questions home cooks actually want answered and proves you don't need professional training to make amazing food.</p>
+<div class="stats">
+<div class="stat"><span class="val">MUSIC & SALES</span><span class="lab">Background</span></div>
+<div class="stat"><span class="val">HOME COOK</span><span class="lab">Expert Level</span></div>
+<div class="stat"><span class="val">ENTERTAINMENT</span><span class="lab">Focus</span></div>
+<div class="stat"><span class="val">PRACTICAL</span><span class="lab">Approach</span></div>
+</div>
+</div>
+</div>
+<div class="host">
+<div class="host-head">
+<div class="host-name">MACK3Y THE FOODIE</div>
+<div class="host-role">Flavor Explorer</div>
+</div>
+<div class="host-body">
+<p class="host-desc">With 23 years exploring global cuisines, MACK3Y is passionate about sharing authentic flavors from around the world. From Mexican street food to Asian fusion, his focus is on making international cuisine approachable and fun.</p>
+<div class="stats">
+<div class="stat"><span class="val">23 YEARS</span><span class="lab">Experience</span></div>
+<div class="stat"><span class="val">GLOBAL</span><span class="lab">Cuisine Focus</span></div>
+<div class="stat"><span class="val">TEACHING</span><span class="lab">Passion</span></div>
+<div class="stat"><span class="val">FUN FOOD</span><span class="lab">Philosophy</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="sec" id="content">
+<div class="wrap">
+<h2>OUR CONTENT</h2>
+<div class="sub">Three Ways We Bring Food To Life</div>
+<div class="grid3">
+<div class="card">
+<i class="fas fa-home"></i>
+<h3>HOME COOKING</h3>
+<p>Professional techniques adapted for home kitchens. Learn restaurant-quality methods without the fancy equipment.</p>
+<div></div>
+</div>
+<div class="card">
+<i class="fas fa-shopping-basket"></i>
+<h3>BUDGET CHALLENGES</h3>
+<p>How delicious can we make it for how cheap? We transform budget ingredients into incredible meals.</p>
+<div></div>
+</div>
+<div class="card">
+<i class="fas fa-utensils"></i>
+<h3>RESTAURANT REVIEWS</h3>
+<p>Honest reviews and chef interviews from local spots to hidden gems. No sponsorships, just real opinions.</p>
+<div class="badge">COMING SOON</div>
+</div>
+</div>
+</div>
+</section>
+<section class="sec alt" id="episodes">
+<div class="wrap">
+<h2>FEATURED EPISODES</h2>
+<div class="sub">Taste The Variety</div>
+<div class="grid3">
+<div class="ep">
+<div class="ep-img">
+<iframe src="https://www.youtube.com/embed/FOQrSJrCWus" allowfullscreen></iframe>
+<div class="ep-badge">BUDGET CHALLENGE</div>
+</div>
+<div class="ep-body">
+<div class="ep-title">$20 DINNER FOR FOUR</div>
+<p class="ep-desc">Can we create a restaurant-quality meal for a family of four on a $20 budget? Watch as we transform simple ingredients into something special.</p>
+<div class="tags">
+<span class="ep-tag">BUDGET</span>
+<span class="ep-tag">FAMILY</span>
+<span class="ep-tag">CHALLENGE</span>
+</div>
+</div>
+</div>
+<div class="ep">
+<div class="ep-img">
+<iframe src="https://www.youtube.com/embed/3dkqYRvGqQ8" allowfullscreen></iframe>
+<div class="ep-badge">GLOBAL FLAVORS</div>
+</div>
+<div class="ep-body">
+<div class="ep-title">MEXICAN STREET TACOS</div>
+<p class="ep-desc">MACK3Y shares authentic techniques for perfect street tacos while CrockPotDaddy keeps it real with home kitchen adaptations.</p>
+<div class="tags">
+<span class="ep-tag">MEXICAN</span>
+<span class="ep-tag">STREET FOOD</span>
+<span class="ep-tag">AUTHENTIC</span>
+</div>
+</div>
+</div>
+<div class="ep">
+<div class="ep-img">
+<iframe src="https://www.youtube.com/embed/g7pPKAKuNgQ" allowfullscreen></iframe>
+<div class="ep-badge">COMFORT FOOD</div>
+</div>
+<div class="ep-body">
+<div class="ep-title">GOURMET BURGERS</div>
+<p class="ep-desc">Why go out when you can make better burgers at home? We cover everything from meat selection to secret sauce recipes.</p>
+<div class="tags">
+<span class="ep-tag">COMFORT</span>
+<span class="ep-tag">GRILLING</span>
+<span class="ep-tag">AMERICAN</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="sec" id="contact">
+<div class="wrap">
+<h2>GET IN TOUCH</h2>
+<div class="sub">Collaborate, Connect, or Say Hello</div>
+<div class="contact-grid">
+<div class="contact-box">
+<h3>CONTACT INFO</h3>
+<div>
+<div class="contact-item">
+<i class="fas fa-envelope"></i>
+<div><h4>EMAIL</h4><p>contact@crockednloaded.com</p></div>
+</div>
+<div class="contact-item">
+<i class="fas fa-video"></i>
+<div><h4>YOUTUBE</h4><p>youtube.com/crockednloaded</p></div>
+</div>
+<div class="contact-item">
+<i class="fas fa-handshake"></i>
+<div><h4>COLLABORATIONS</h4><p>DM us on social media:</p>
+<div class="contact-social-links">
+<a href="https://instagram.com/CrockedNLoadedShow" target="_blank" style="color: var(--gold);">
+<i class="fab fa-instagram"></i> @CrockedNLoadedShow
+</a>
+<a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank" style="color: var(--gold);">
+<i class="fab fa-tiktok"></i> @CrockedNLoadedShow
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="contact-box">
+<h3>SEND MESSAGE</h3>
+<!-- Formspree Form -->
+<form id="contactForm" action="https://formspree.io/f/xaqqbenp" method="POST" enctype="multipart/form-data">
+<div class="form-group">
+<label for="name">NAME</label>
+<input type="text" id="name" name="name" required>
+</div>
+<div class="form-group">
+<label for="email">EMAIL</label>
+<input type="email" id="email" name="email" required>
+</div>
+<div class="form-group">
+<label for="subject">SUBJECT</label>
+<input type="text" id="subject" name="subject" required>
+</div>
+<div class="form-group">
+<label for="message">MESSAGE</label>
+<textarea id="message" name="message" required></textarea>
+</div>
+<div class="form-group">
+<label for="file">ATTACHMENT (Optional)</label>
+<input type="file" id="file" name="upload" class="file-input">
+<small style="color: var(--smoke); margin-top: 0.5rem; display: block;">Upload images or documents if needed</small>
+</div>
+<button type="submit" class="submit"><i class="fas fa-paper-plane"></i>SEND MESSAGE</button>
+<div id="formMessage" class="form-message"></div>
+</form>
+</div>
+</div>
+</div>
+</section>
+<footer>
+<div class="footer-grid">
+<div class="footer-logo">
+<div class="logo-txt">CROCKED'N LOADED</div>
+<p>Bringing professional cooking techniques, global flavors, and honest reviews to food lovers everywhere. Real food made by real people.</p>
+</div>
+<div class="footer-links">
+<h4>LINKS</h4>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#hosts">Crew</a></li>
+<li><a href="#content">Content</a></li>
+<li><a href="#episodes">Episodes</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+<div class="footer-links">
+<h4>CONNECT</h4>
+<div class="socials">
+<a href="https://youtube.com/crockednloaded" target="_blank" class="social"><i class="fab fa-youtube"></i></a>
+<a href="https://instagram.com/CrockedNLoadedShow" target="_blank" class="social"><i class="fab fa-instagram"></i></a>
+<a href="https://facebook.com" target="_blank" class="social"><i class="fab fa-facebook"></i></a>
+<a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank" class="social"><i class="fab fa-tiktok"></i></a>
+</div>
+<p style="color:#888;font-size:.95rem;margin-top:1rem">Subscribe for cooking tips and episode releases.</p>
+</div>
+</div>
+<div class="copy">
+<p>© 2025 Crocked 'N Loaded. All rights reserved. | Real Food. Real Reviews. No Bullshit.</p>
+</div>
+</footer>
+<div class="toast" id="toast">Message sent successfully!</div>
+<script>
+// Show loader on page load
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.getElementById('loader').classList.remove('active');
+    }, 1000);
+});
+
+// Mobile menu toggle
+function toggleMenu(){
+    document.getElementById('menu').classList.toggle('active')
+}
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('nav a').forEach(a => 
+    a.addEventListener('click', () => 
+        document.getElementById('menu').classList.remove('active')
+    )
+);
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target) {
+            window.scrollTo({
+                top: target.offsetTop - 100,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Form submission with Formspree
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Show loader
+    document.getElementById('loader').classList.add('active');
+    
+    const form = e.target;
+    const formData = new FormData(form);
+    const formMessage = document.getElementById('formMessage');
+    
+    try {
+        // Send to Formspree
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
+        // Hide loader
+        document.getElementById('loader').classList.remove('active');
+        
+        if (response.ok) {
+            // Success
+            formMessage.textContent = 'Thank you! Your message has been sent to contact@crockednloaded.com.';
+            formMessage.className = 'form-message success';
+            form.reset();
+            
+            // Also show toast
+            showToast('Message sent successfully!');
+        } else {
+            // Error from Formspree
+            formMessage.textContent = 'Oops! There was a problem sending your message. Please try again or DM us on Instagram/TikTok.';
+            formMessage.className = 'form-message error';
+            
+            // Show error toast
+            showToast('Error sending message. Please try again.', 'error');
+        }
+    } catch (error) {
+        // Network error
+        document.getElementById('loader').classList.remove('active');
+        formMessage.textContent = 'Network error. Please check your connection and try again, or DM us on Instagram/TikTok @CrockedNLoadedShow';
+        formMessage.className = 'form-message error';
+        
+        // Show error toast
+        showToast('Network error. Please try again.', 'error');
+    }
+});
+
+// Toast notification
+function showToast(message, type = 'success') {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.className = `toast ${type}`;
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 5000);
+}
+
+// Active nav link highlighting
+window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    const links = document.querySelectorAll('nav a');
+    
+    let current = '';
+    sections.forEach(s => {
+        if(window.scrollY >= s.offsetTop - 150) {
+            current = s.getAttribute('id');
+        }
+    });
+    
+    links.forEach(l => {
+        l.classList.remove('active');
+        if(l.getAttribute('href') === `#${current}`) {
+            l.classList.add('active');
+        }
+    });
+});
+</script>
+</body>
+</html>
