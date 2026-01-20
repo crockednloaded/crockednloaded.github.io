@@ -14,15 +14,15 @@ body{background:#000;color:var(--white);font-family:'Exo 2',sans-serif;overflow-
 .glow{position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 20% 30%,rgba(255,59,48,.15),transparent 50%),radial-gradient(circle at 80% 70%,rgba(255,149,0,.1),transparent 50%);animation:breathe 15s ease infinite;z-index:0;pointer-events:none}
 @keyframes breathe{0%,100%{opacity:.3}50%{opacity:.6}}
 header{position:sticky;top:0;z-index:1000;background:rgba(10,10,10,.98);backdrop-filter:blur(20px);border-bottom:3px solid var(--fire);box-shadow:0 5px 30px rgba(255,59,48,.3)}
-.nav{max-width:1400px;margin:0 auto;padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center}
-.logo{display:flex;align-items:center;gap:1rem}
-.logo i{font-size:2.5rem;color:var(--fire);filter:drop-shadow(0 0 20px rgba(255,59,48,.6))}
-.logo-txt{font-family:'Bebas Neue';font-size:2.5rem;background:linear-gradient(135deg,var(--fire),var(--gold),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:2px}
-nav ul{display:flex;gap:2rem;list-style:none}
-nav a{color:var(--white);text-decoration:none;font-family:'Orbitron';font-weight:700;font-size:.95rem;padding:10px 25px;border-radius:30px;transition:.3s;text-transform:uppercase;letter-spacing:1px;position:relative}
+.nav{max-width:1400px;margin:0 auto;padding:0.8rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:nowrap;min-height:70px}
+.logo{display:flex;align-items:center;gap:0.8rem;flex-shrink:0;white-space:nowrap}
+.logo i{font-size:2rem;color:var(--fire);filter:drop-shadow(0 0 20px rgba(255,59,48,.6))}
+.logo-txt{font-family:'Bebas Neue';font-size:1.8rem;background:linear-gradient(135deg,var(--fire),var(--gold),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:1px;line-height:1}
+nav ul{display:flex;gap:1rem;list-style:none;flex-wrap:nowrap;align-items:center}
+nav a{color:var(--white);text-decoration:none;font-family:'Orbitron';font-weight:700;font-size:0.8rem;padding:8px 16px;border-radius:30px;transition:.3s;text-transform:uppercase;letter-spacing:0.8px;white-space:nowrap;position:relative}
 nav a::before{content:'';position:absolute;inset:0;border-radius:30px;background:linear-gradient(135deg,var(--fire),var(--orange));opacity:0;transition:.3s;z-index:-1}
 nav a:hover::before,nav a.active::before{opacity:1}
-.menu-btn{display:none;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
+.menu-btn{display:none;background:none;border:none;color:var(--white);font-size:1.8rem;cursor:pointer;flex-shrink:0}
 .hero{position:relative;z-index:1;padding:3rem 2rem;background:linear-gradient(rgba(10,10,10,.85),rgba(10,10,10,.95)),url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80');background-size:cover;background-position:center;border-bottom:3px solid var(--fire);min-height:90vh;display:flex;align-items:flex-start}
 .hero-wrap{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
 .hero-img-container{display:flex;align-items:flex-start;justify-content:center;height:100%}
@@ -122,23 +122,6 @@ footer{background:var(--dark);padding:5rem 2rem 3rem;border-top:3px solid var(--
 .form-message.error{display:block;background:linear-gradient(135deg,rgba(255,0,0,0.2),rgba(200,0,0,0.1));border:2px solid #ff0000;color:#ff0000;}
 .file-input{background:rgba(58,58,58,.5);padding:.8rem;border:2px solid var(--orange);border-radius:10px;color:var(--white);cursor:pointer;transition:.3s}
 .file-input:hover{background:rgba(78,78,78,.5);border-color:var(--gold)}
-.youtube-stats{background:linear-gradient(135deg,rgba(26,26,26,.9),rgba(42,42,42,.7));padding:3rem;border-radius:20px;border:3px solid var(--fire);margin-top:4rem}
-.youtube-stats h3{font-family:'Bebas Neue';font-size:2.5rem;text-align:center;margin-bottom:2rem;color:var(--gold)}
-.youtube-stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-bottom:3rem}
-.youtube-stat-card{background:rgba(58,58,58,.5);padding:2rem;border-radius:15px;text-align:center;border:2px solid var(--orange);transition:.3s}
-.youtube-stat-card:hover{transform:translateY(-5px);border-color:var(--gold)}
-.youtube-stat-number{font-family:'Bebas Neue';font-size:2.5rem;color:var(--fire);display:block;margin-bottom:.5rem}
-.youtube-stat-label{font-family:'Orbitron';font-size:.9rem;color:var(--smoke);text-transform:uppercase;letter-spacing:1px}
-.youtube-videos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-.youtube-video-card{background:rgba(26,26,26,.9);border-radius:15px;overflow:hidden;border:2px solid var(--ash);transition:.4s}
-.youtube-video-card:hover{transform:translateY(-10px);border-color:var(--gold);box-shadow:0 15px 40px rgba(255,215,0,.2)}
-.youtube-video-thumbnail{height:180px;width:100%;overflow:hidden;position:relative}
-.youtube-video-thumbnail img{width:100%;height:100%;object-fit:cover;transition:.4s}
-.youtube-video-card:hover .youtube-video-thumbnail img{transform:scale(1.05)}
-.youtube-video-info{padding:1.5rem}
-.youtube-video-title{font-family:'Bebas Neue';font-size:1.3rem;color:var(--white);margin-bottom:.8rem;line-height:1.3}
-.youtube-video-date{font-family:'Orbitron';font-size:.8rem;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
-.youtube-video-views{font-family:'Orbitron';font-size:.75rem;color:var(--smoke);display:flex;align-items:center;gap:.5rem}
 
 /* Facebook Plugin Styles */
 .facebook-plugin-section {
@@ -254,46 +237,329 @@ footer{background:var(--dark);padding:5rem 2rem 3rem;border-top:3px solid var(--
     background: linear-gradient(135deg, #0d5bb5, #1877F2);
 }
 
-@media(max-width:1200px){
-.grid2,.grid3{grid-template-columns:1fr}
-.youtube-stats-grid{grid-template-columns:repeat(2,1fr)}
-.youtube-videos-grid{grid-template-columns:repeat(2,1fr)}
-.hero-img{height:550px}
-.text-image{height:220px}
-.facebook-plugin-container{grid-template-columns:1fr;gap:2rem}
+/* Clean YouTube Stats Section */
+.youtube-stats-section {
+    background: linear-gradient(135deg, rgba(26,26,26,.3), rgba(42,42,42,.2));
 }
-@media(max-width:992px){
-.hero-wrap{grid-template-columns:1fr;text-align:center;gap:3rem}
-.hero{min-height:auto;padding:2rem 1rem}
-.hero-img{height:450px}
-.text-image{height:200px}
-h1{font-size:3.5rem}
-.contact-grid{grid-template-columns:1fr}
-.footer-grid{grid-template-columns:1fr}
-.youtube-videos-grid{grid-template-columns:1fr}
+
+.youtube-stats-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+    align-items: start;
 }
-@media(max-width:768px){
-nav ul{display:none;position:absolute;top:100%;left:0;width:100%;background:var(--dark);flex-direction:column;padding:1rem;gap:0}
-nav ul.active{display:flex}
-nav li{padding:1rem}
-.menu-btn{display:block}
-h1{font-size:2.5rem}
-h2{font-size:2.5rem}
-.hero{padding:2rem 1rem}
-.sec{padding:4rem 1rem}
-.hero-img{height:350px}
-.text-image{height:180px}
-.contact-social-links{flex-direction:column;gap:.5rem}
-.youtube-stats-grid{grid-template-columns:1fr}
-.facebook-plugin-box{padding:1.5rem}
-.fb-page-container{padding:1rem}
+
+.youtube-stats-box {
+    background: linear-gradient(135deg, rgba(26,26,26,.9), rgba(42,42,42,.7));
+    padding: 2rem;
+    border-radius: 20px;
+    border: 3px solid #FF0000;
+    transition: .4s;
 }
-@media(max-width:576px){
-.hero-img{height:300px}
-.text-image{height:150px}
-h1{font-size:2.2rem}
-.tag{font-size:1.4rem}
-.fb-page{width:100%!important}
+
+.youtube-stats-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    box-shadow: 0 15px 40px rgba(255, 0, 0, 0.3);
+}
+
+.youtube-stats-box h3 {
+    font-family: 'Bebas Neue';
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #FF0000;
+    text-align: center;
+}
+
+.youtube-stats-box p {
+    color: var(--smoke);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.youtube-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.youtube-stat-card {
+    background: rgba(58,58,58,.5);
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid rgba(255, 0, 0, 0.3);
+    transition: .3s;
+}
+
+.youtube-stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    background: rgba(78,78,78,.5);
+}
+
+.youtube-stat-number {
+    font-family: 'Bebas Neue';
+    font-size: 2.5rem;
+    color: #FF0000;
+    display: block;
+    margin-bottom: .5rem;
+    line-height: 1;
+}
+
+.youtube-stat-label {
+    font-family: 'Orbitron';
+    font-size: 0.9rem;
+    color: var(--smoke);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.youtube-features {
+    list-style: none;
+}
+
+.youtube-features li {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(58,58,58,.5);
+    border-radius: 10px;
+    border-left: 4px solid #FF0000;
+    transition: .3s;
+}
+
+.youtube-features li:hover {
+    transform: translateX(5px);
+    background: rgba(78,78,78,.5);
+}
+
+.youtube-features i {
+    color: #FF0000;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+.youtube-features h4 {
+    font-family: 'Orbitron';
+    font-size: 1rem;
+    color: var(--white);
+    margin-bottom: .5rem;
+    display: flex;
+    align-items: center;
+}
+
+.youtube-features p {
+    color: var(--smoke);
+    font-size: .9rem;
+    margin: 0;
+    text-align: left;
+}
+
+.youtube-cta {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--ash);
+}
+
+.youtube-cta .btn {
+    background: linear-gradient(135deg, #FF0000, #CC0000);
+    display: inline-flex;
+}
+
+.youtube-cta .btn:hover {
+    background: linear-gradient(135deg, #CC0000, #FF0000);
+}
+
+/* Mobile menu styles */
+@media(max-width: 1100px) {
+    .logo-txt {
+        font-size: 1.6rem;
+    }
+    
+    nav ul {
+        gap: 0.5rem;
+    }
+    
+    nav a {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+    }
+}
+
+@media(max-width: 992px) {
+    .nav {
+        padding: 1rem;
+    }
+    
+    .logo-txt {
+        font-size: 1.4rem;
+    }
+    
+    .logo i {
+        font-size: 1.8rem;
+    }
+    
+    .hero-wrap {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+    }
+    
+    .hero {
+        min-height: auto;
+        padding: 2rem 1rem;
+    }
+    
+    .hero-img {
+        height: 450px;
+    }
+    
+    .text-image {
+        height: 200px;
+    }
+    
+    h1 {
+        font-size: 3.5rem;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .facebook-plugin-container,
+    .youtube-stats-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media(max-width: 768px) {
+    .nav {
+        padding: 0.75rem 1rem;
+        min-height: 70px;
+    }
+    
+    .logo-txt {
+        font-size: 1.2rem;
+        white-space: nowrap;
+    }
+    
+    .logo {
+        gap: 0.5rem;
+    }
+    
+    .logo i {
+        font-size: 1.5rem;
+    }
+    
+    /* Show hamburger menu, hide nav links */
+    nav ul {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--dark);
+        flex-direction: column;
+        padding: 1rem;
+        gap: 0;
+        z-index: 1000;
+        border-top: 2px solid var(--fire);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    
+    nav ul.active {
+        display: flex;
+    }
+    
+    nav li {
+        padding: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+    
+    nav a {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+    }
+    
+    .menu-btn {
+        display: block;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2.5rem;
+    }
+    
+    .hero {
+        padding: 2rem 1rem;
+    }
+    
+    .sec {
+        padding: 4rem 1rem;
+    }
+    
+    .hero-img {
+        height: 350px;
+    }
+    
+    .text-image {
+        height: 180px;
+    }
+    
+    .contact-social-links {
+        flex-direction: column;
+        gap: .5rem;
+    }
+    
+    .youtube-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .facebook-plugin-box,
+    .youtube-stats-box {
+        padding: 1.5rem;
+    }
+    
+    .fb-page-container {
+        padding: 1rem;
+    }
+}
+
+@media(max-width: 576px) {
+    .hero-img {
+        height: 300px;
+    }
+    
+    .text-image {
+        height: 150px;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .tag {
+        font-size: 1.4rem;
+    }
+    
+    .fb-page {
+        width: 100% !important;
+    }
 }
 </style>
 </head>
@@ -316,8 +582,7 @@ h1{font-size:2.2rem}
 <li><a href="#hosts">CREW</a></li>
 <li><a href="#content">CONTENT</a></li>
 <li><a href="#facebook">FACEBOOK</a></li>
-<li><a href="#youtube">YOUTUBE STATS</a></li>
-<li><a href="#episodes">EPISODES</a></li>
+<li><a href="#youtube">YOUTUBE</a></li>
 <li><a href="#contact">CONTACT</a></li>
 </ul>
 </nav>
@@ -478,12 +743,15 @@ h1{font-size:2.2rem}
 </div>
 </section>
 
-<section class="sec alt" id="youtube">
+<!-- Clean YouTube Stats Section -->
+<section class="sec youtube-stats-section" id="youtube">
 <div class="wrap">
-<h2>YOUTUBE STATS</h2>
-<div class="sub">Follow Our Journey @CrockedNLoaded-NH</div>
-<div class="youtube-stats">
-<h3>CHANNEL STATISTICS</h3>
+<h2>YOUTUBE CHANNEL</h2>
+<div class="sub">Statistics & Latest Content</div>
+<div class="youtube-stats-container">
+<div class="youtube-stats-box">
+<h3><i class="fab fa-youtube"></i> CHANNEL STATS</h3>
+<p>Real-time statistics from our YouTube channel.</p>
 <div class="youtube-stats-grid" id="youtubeStats">
 <div class="youtube-stat-card">
 <div class="youtube-stat-number">--</div>
@@ -502,43 +770,41 @@ h1{font-size:2.2rem}
 <div class="youtube-stat-label">LAST UPLOAD</div>
 </div>
 </div>
-<h3 style="margin-top: 3rem;">TOP 3 MOST VIEWED VIDEOS</h3>
-<div class="youtube-videos-grid" id="youtubeVideos">
-<div class="youtube-video-card">
-<div class="youtube-video-thumbnail">
-<img src="https://img.youtube.com/vi/placeholder/maxresdefault.jpg" alt="Video Thumbnail">
 </div>
-<div class="youtube-video-info">
-<div class="youtube-video-title">Loading top videos...</div>
-<div class="youtube-video-date"><i class="far fa-calendar"></i> Loading...</div>
-<div class="youtube-video-views"><i class="far fa-eye"></i> -- views</div>
+<div class="youtube-stats-box">
+<h3><i class="fas fa-play-circle"></i> WHY SUBSCRIBE?</h3>
+<p>Get access to our exclusive YouTube content:</p>
+<ul class="youtube-features">
+<li>
+<h4><i class="fas fa-film"></i> FULL EPISODES</h4>
+<p>Complete cooking tutorials and restaurant reviews in HD quality.</p>
+</li>
+<li>
+<h4><i class="fas fa-graduation-cap"></i> COOKING TUTORIALS</h4>
+<p>Step-by-step guides to master professional techniques at home.</p>
+</li>
+<li>
+<h4><i class="fas fa-comments"></i> COMMUNITY</h4>
+<p>Join discussions, ask questions, and connect with fellow food lovers.</p>
+</li>
+<li>
+<h4><i class="fas fa-bell"></i> NOTIFICATIONS</h4>
+<p>Never miss a new upload - turn on notifications for all videos.</p>
+</li>
+</ul>
 </div>
 </div>
-</div>
+<div class="youtube-cta">
+<a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" class="btn">
+<i class="fab fa-youtube"></i> SUBSCRIBE & WATCH
+</a>
+<p style="color: var(--smoke); margin-top: 1rem; font-size: 0.9rem;">
+<i class="fas fa-info-circle"></i> Click the bell icon to get notified about new uploads
+</p>
 </div>
 </div>
 </section>
 
-<section class="sec" id="episodes">
-<div class="wrap">
-<h2>FEATURED EPISODES</h2>
-<div class="sub">Latest from @CrockedNLoaded-NH</div>
-<div class="grid3" id="featuredEpisodes">
-<div class="ep">
-<div class="ep-img">
-<div class="ep-badge">LOADING</div>
-</div>
-<div class="ep-body">
-<div class="ep-title">Loading episodes...</div>
-<p class="ep-desc">Fetching latest videos from our YouTube channel.</p>
-<div class="tags">
-<span class="ep-tag">LOADING</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
 <section class="sec" id="contact">
 <div class="wrap">
 <h2>GET IN TOUCH</h2>
@@ -622,8 +888,7 @@ h1{font-size:2.2rem}
 <li><a href="#hosts">Crew</a></li>
 <li><a href="#content">Content</a></li>
 <li><a href="#facebook">Facebook</a></li>
-<li><a href="#youtube">YouTube Stats</a></li>
-<li><a href="#episodes">Episodes</a></li>
+<li><a href="#youtube">YouTube</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 </div>
@@ -649,7 +914,6 @@ h1{font-size:2.2rem}
 const YOUTUBE_API_KEY = 'AIzaSyB9Py3uUS7Sux5Tk4GVp1oc1cqZJdFVf3E'; // Replace with your actual API key
 const YOUTUBE_CHANNEL_ID = '@CrockedNLoaded-NH'; // Your YouTube handle
 let cachedStats = null;
-let cachedVideos = null;
 const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes cache
 
 // Facebook SDK Loader
@@ -666,8 +930,7 @@ window.addEventListener('load', () => {
     setTimeout(() => {
         document.getElementById('loader').classList.remove('active');
         // Load YouTube data after page loads
-        loadYouTubeData();
-        loadFeaturedEpisodes();
+        loadYouTubeStats();
         
         // Initialize Facebook plugin after a short delay
         setTimeout(() => {
@@ -765,130 +1028,9 @@ document.getElementById('contactForm').addEventListener('submit', async function
 });
 
 // YouTube API Functions
-async function loadYouTubeData() {
-    try {
-        // Load stats and videos in parallel
-        await Promise.all([
-            loadYouTubeStats(),
-            loadTopViewedVideos()
-        ]);
-    } catch (error) {
-        console.error('Error loading YouTube data:', error);
-        showToast('Unable to load YouTube data at this time.', 'error');
-    }
-}
-
-async function loadFeaturedEpisodes() {
-    try {
-        // Get channel ID from handle
-        const searchResponse = await fetch(
-            `https://www.googleapis.com/youtube/v3/search?part=id&type=channel&q=${encodeURIComponent(YOUTUBE_CHANNEL_ID)}&key=${YOUTUBE_API_KEY}`
-        );
-        const searchData = await searchResponse.json();
-        
-        if (!searchData.items || searchData.items.length === 0) {
-            throw new Error('Channel not found');
-        }
-        
-        const channelId = searchData.items[0].id.channelId;
-        
-        // Get latest 3 videos for featured episodes
-        const videosResponse = await fetch(
-            `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=3&order=date&type=video&key=${YOUTUBE_API_KEY}`
-        );
-        const videosData = await videosResponse.json();
-        
-        if (videosData.items && videosData.items.length > 0) {
-            // Get video details for view counts
-            const videoIds = videosData.items.map(item => item.id.videoId).join(',');
-            const detailsResponse = await fetch(
-                `https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet&id=${videoIds}&key=${YOUTUBE_API_KEY}`
-            );
-            const detailsData = await detailsResponse.json();
-            
-            updateFeaturedEpisodes(videosData.items, detailsData.items);
-        }
-    } catch (error) {
-        console.error('Error loading featured episodes:', error);
-        // Show error in episodes section
-        const episodesGrid = document.getElementById('featuredEpisodes');
-        episodesGrid.innerHTML = `
-            <div class="ep">
-                <div class="ep-img">
-                    <div class="ep-badge">ERROR</div>
-                </div>
-                <div class="ep-body">
-                    <div class="ep-title">Unable to load videos</div>
-                    <p class="ep-desc">Please check your YouTube API key or visit our channel directly.</p>
-                    <div class="tags">
-                        <span class="ep-tag">ERROR</span>
-                    </div>
-                </div>
-            </div>
-        `;
-    }
-}
-
-function updateFeaturedEpisodes(videos, videoDetails) {
-    const episodesGrid = document.getElementById('featuredEpisodes');
-    episodesGrid.innerHTML = '';
-    
-    videos.forEach((video, index) => {
-        const details = videoDetails[index];
-        const snippet = video.snippet;
-        
-        // Create video categories/tags based on title
-        const tags = extractTagsFromTitle(snippet.title);
-        
-        const episodeHtml = `
-            <div class="ep">
-                <div class="ep-img">
-                    <iframe src="https://www.youtube.com/embed/${video.id.videoId}" allowfullscreen></iframe>
-                    <div class="ep-badge">NEW EPISODE</div>
-                </div>
-                <div class="ep-body">
-                    <div class="ep-title">${snippet.title}</div>
-                    <p class="ep-desc">${truncateDescription(snippet.description)}</p>
-                    <div class="tags">
-                        ${tags.map(tag => `<span class="ep-tag">${tag}</span>`).join('')}
-                    </div>
-                </div>
-            </div>
-        `;
-        
-        episodesGrid.innerHTML += episodeHtml;
-    });
-}
-
-function extractTagsFromTitle(title) {
-    const titleLower = title.toLowerCase();
-    const tags = [];
-    
-    // Common food/cooking related tags
-    const possibleTags = [
-        'budget', 'challenge', 'family', 'mexican', 'tacos', 'burger', 
-        'grilling', 'comfort', 'american', 'cooking', 'recipe', 'food',
-        'review', 'restaurant', 'home', 'kitchen', 'street', 'food'
-    ];
-    
-    possibleTags.forEach(tag => {
-        if (titleLower.includes(tag)) {
-            tags.push(tag.toUpperCase());
-        }
-    });
-    
-    // Limit to 3 tags
-    return tags.slice(0, 3);
-}
-
-function truncateDescription(description, maxLength = 120) {
-    if (description.length <= maxLength) return description;
-    return description.substring(0, maxLength) + '...';
-}
-
 async function loadYouTubeStats() {
     try {
-        // First get the channel ID from the handle
+        // Get channel ID from handle
         const searchResponse = await fetch(
             `https://www.googleapis.com/youtube/v3/search?part=id&type=channel&q=${encodeURIComponent(YOUTUBE_CHANNEL_ID)}&key=${YOUTUBE_API_KEY}`
         );
@@ -921,88 +1063,6 @@ async function loadYouTubeStats() {
             updateYouTubeStats(cachedStats.data);
         }
     }
-}
-
-async function loadTopViewedVideos() {
-    try {
-        // First get the channel ID from the handle
-        const searchResponse = await fetch(
-            `https://www.googleapis.com/youtube/v3/search?part=id&type=channel&q=${encodeURIComponent(YOUTUBE_CHANNEL_ID)}&key=${YOUTUBE_API_KEY}`
-        );
-        const searchData = await searchResponse.json();
-        
-        if (!searchData.items || searchData.items.length === 0) {
-            throw new Error('Channel not found');
-        }
-        
-        const channelId = searchData.items[0].id.channelId;
-        
-        // Get all videos from the channel
-        const videosResponse = await fetch(
-            `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=50&order=date&type=video&key=${YOUTUBE_API_KEY}`
-        );
-        const videosData = await videosResponse.json();
-        
-        if (videosData.items && videosData.items.length > 0) {
-            // Get video details for all videos
-            const videoIds = videosData.items.map(item => item.id.videoId).join(',');
-            const detailsResponse = await fetch(
-                `https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet&id=${videoIds}&key=${YOUTUBE_API_KEY}`
-            );
-            const detailsData = await detailsResponse.json();
-            
-            // Sort videos by view count (descending)
-            const sortedVideos = detailsData.items.sort((a, b) => {
-                return parseInt(b.statistics.viewCount) - parseInt(a.statistics.viewCount);
-            });
-            
-            // Take top 3 most viewed videos
-            const topVideos = sortedVideos.slice(0, 3);
-            updateTopViewedVideos(topVideos);
-            
-            cachedVideos = {
-                videos: topVideos,
-                timestamp: Date.now()
-            };
-        }
-    } catch (error) {
-        console.error('Error loading top viewed videos:', error);
-        // Use fallback data or cached data
-        if (cachedVideos) {
-            updateTopViewedVideos(cachedVideos.videos);
-        }
-    }
-}
-
-function updateTopViewedVideos(videos) {
-    const videosGrid = document.getElementById('youtubeVideos');
-    videosGrid.innerHTML = '';
-    
-    videos.forEach((video, index) => {
-        const snippet = video.snippet;
-        const statistics = video.statistics;
-        
-        const videoCard = document.createElement('div');
-        videoCard.className = 'youtube-video-card';
-        videoCard.innerHTML = `
-            <div class="youtube-video-thumbnail">
-                <img src="${snippet.thumbnails.medium.url}" alt="${snippet.title}">
-            </div>
-            <div class="youtube-video-info">
-                <div class="youtube-video-title">${snippet.title}</div>
-                <div class="youtube-video-date"><i class="far fa-calendar"></i> ${formatDate(snippet.publishedAt)}</div>
-                <div class="youtube-video-views"><i class="fas fa-fire" style="color: var(--fire);"></i> ${formatNumber(statistics.viewCount)} views</div>
-            </div>
-        `;
-        
-        // Make video clickable
-        videoCard.addEventListener('click', () => {
-            window.open(`https://www.youtube.com/watch?v=${video.id}`, '_blank');
-        });
-        videoCard.style.cursor = 'pointer';
-        
-        videosGrid.appendChild(videoCard);
-    });
 }
 
 function updateYouTubeStats(channel) {
@@ -1042,22 +1102,6 @@ function getRelativeTime(dateString) {
     return `${Math.floor(diffDays / 365)} years ago`;
 }
 
-function formatDate(dateString) {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-}
-
-function formatNumber(num) {
-    if (!num) return '0';
-    const number = parseInt(num);
-    if (number >= 1000000) {
-        return (number / 1000000).toFixed(1) + 'M';
-    } else if (number >= 1000) {
-        return (number / 1000).toFixed(1) + 'K';
-    }
-    return number.toLocaleString();
-}
-
 // Toast notification
 function showToast(message, type = 'success') {
     const toast = document.getElementById('toast');
@@ -1093,8 +1137,7 @@ window.addEventListener('scroll', () => {
 // Refresh YouTube data every 5 minutes
 setInterval(() => {
     if (document.visibilityState === 'visible') {
-        loadYouTubeData();
-        loadFeaturedEpisodes();
+        loadYouTubeStats();
     }
 }, CACHE_DURATION);
 
