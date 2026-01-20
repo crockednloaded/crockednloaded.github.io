@@ -23,11 +23,19 @@ nav a{color:var(--white);text-decoration:none;font-family:'Orbitron';font-weight
 nav a::before{content:'';position:absolute;inset:0;border-radius:30px;background:linear-gradient(135deg,var(--fire),var(--orange));opacity:0;transition:.3s;z-index:-1}
 nav a:hover::before,nav a.active::before{opacity:1}
 .menu-btn{display:none;background:none;border:none;color:var(--white);font-size:2rem;cursor:pointer}
-.hero{position:relative;z-index:1;padding:6rem 2rem;background:linear-gradient(rgba(10,10,10,.85),rgba(10,10,10,.95)),url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80');background-size:cover;background-position:center;border-bottom:3px solid var(--fire)}
+.hero{position:relative;z-index:1;padding:4rem 2rem;background:linear-gradient(rgba(10,10,10,.85),rgba(10,10,10,.95)),url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80');background-size:cover;background-position:center;border-bottom:3px solid var(--fire);min-height:100vh;display:flex;align-items:center}
 .hero-wrap{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.hero-img{border-radius:20px;overflow:hidden;box-shadow:0 0 60px rgba(255,59,48,.5);border:4px solid var(--gold);animation:glow 3s ease infinite;height:400px}
+/* Left food image container - taller and shows full image */
+.hero-img-container{display:flex;align-items:center;justify-content:center;height:100%}
+.hero-img{border-radius:20px;overflow:hidden;box-shadow:0 0 60px rgba(255,59,48,.5);border:4px solid var(--gold);animation:glow 3s ease infinite;height:600px;width:100%;position:relative}
 @keyframes glow{0%,100%{box-shadow:0 0 60px rgba(255,59,48,.5)}50%{box-shadow:0 0 80px rgba(255,59,48,.7)}}
 .hero-img img{width:100%;height:100%;object-fit:cover;display:block}
+/* Right content container */
+.hero-content-container{display:flex;flex-direction:column;height:100%;justify-content:center}
+/* Background image above text - shows more of image */
+.text-image-container{margin-bottom:2.5rem;width:100%}
+.text-image{border-radius:15px;overflow:hidden;box-shadow:0 0 40px rgba(255,59,48,.4);border:3px solid var(--orange);height:250px;width:100%;position:relative}
+.text-image img{width:100%;height:100%;object-fit:cover;display:block;object-position:center center}
 h1{font-family:'Bebas Neue';font-size:4.5rem;background:linear-gradient(135deg,var(--white),var(--gold));background-size:200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 4s ease infinite;letter-spacing:3px;margin-bottom:1.5rem;line-height:1.1}
 @keyframes shimmer{0%,100%{background-position:0%}50%{background-position:100%}}
 .tag{font-family:'Orbitron';font-size:2rem;color:var(--fire);font-weight:900;margin-bottom:2rem;text-transform:uppercase;letter-spacing:2px}
@@ -111,9 +119,6 @@ footer{background:var(--dark);padding:5rem 2rem 3rem;border-top:3px solid var(--
 .toast{position:fixed;bottom:20px;right:20px;background:linear-gradient(135deg,var(--fire),var(--orange));color:white;padding:1rem 2rem;border-radius:10px;font-family:'Orbitron';box-shadow:0 10px 30px rgba(0,0,0,.5);z-index:10000;transform:translateY(100px);opacity:0;transition:all .5s;}
 .toast.show{transform:translateY(0);opacity:1;}
 .toast.error{background:linear-gradient(135deg,#ff3030,#ff0000);}
-.text-image-container{margin-bottom:2rem}
-.text-image{border-radius:15px;overflow:hidden;box-shadow:0 0 40px rgba(255,59,48,.4);border:3px solid var(--orange);height:200px}
-.text-image img{width:100%;height:100%;object-fit:cover;display:block}
 .form-message{display:none;padding:1rem;border-radius:10px;margin-top:1rem;text-align:center;font-family:'Orbitron';}
 .form-message.success{display:block;background:linear-gradient(135deg,rgba(0,200,0,0.2),rgba(0,150,0,0.1));border:2px solid #00ff00;color:#00ff00;}
 .form-message.error{display:block;background:linear-gradient(135deg,rgba(255,0,0,0.2),rgba(200,0,0,0.1));border:2px solid #ff0000;color:#ff0000;}
@@ -123,12 +128,13 @@ footer{background:var(--dark);padding:5rem 2rem 3rem;border-top:3px solid var(--
 .grid2,.grid3{grid-template-columns:1fr}
 }
 @media(max-width:992px){
-.hero-wrap{grid-template-columns:1fr;text-align:center}
+.hero-wrap{grid-template-columns:1fr;text-align:center;gap:3rem}
+.hero{min-height:auto;padding:3rem 1rem}
+.hero-img{height:450px}
+.text-image{height:200px}
 h1{font-size:3.5rem}
 .contact-grid{grid-template-columns:1fr}
 .footer-grid{grid-template-columns:1fr}
-.hero-img{height:350px}
-.text-image{height:180px}
 }
 @media(max-width:768px){
 nav ul{display:none;position:absolute;top:100%;left:0;width:100%;background:var(--dark);flex-direction:column;padding:1rem;gap:0}
@@ -139,15 +145,15 @@ h1{font-size:2.5rem}
 h2{font-size:2.5rem}
 .hero{padding:4rem 1rem}
 .sec{padding:4rem 1rem}
-.hero-img{height:280px}
-.text-image{height:150px}
+.hero-img{height:350px}
+.text-image{height:180px}
 .contact-social-links{flex-direction:column;gap:.5rem}
 }
 @media(max-width:576px){
-.hero-img{height:220px}
+.hero-img{height:280px}
 h1{font-size:2.2rem}
 .tag{font-size:1.4rem}
-.text-image{height:120px}
+.text-image{height:150px}
 }
 </style>
 </head>
@@ -177,17 +183,23 @@ h1{font-size:2.2rem}
 </header>
 <section class="hero" id="home">
 <div class="hero-wrap">
+<!-- Left: Large food image -->
+<div class="hero-img-container">
 <div class="hero-img">
 <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Crocked N Loaded Hosts cooking">
 </div>
-<div>
-<!-- Background image above the text -->
+</div>
+
+<!-- Right: Content with background.jpg above text -->
+<div class="hero-content-container">
+<!-- Background image above the text - shows more of the image -->
 <div class="text-image-container">
 <div class="text-image">
-<!-- Use background.jpg here -->
-<img src="background.jpg" alt="Crocked N Loaded Real Food Real Reviews">
+<!-- Use background.jpg here - object-position ensures we see top and bottom -->
+<img src="background.jpg" alt="Crocked N Loaded Real Food Real Reviews" style="object-position: center 30%;">
 </div>
 </div>
+
 <h1>CROCKED 'N LOADED</h1>
 <div class="tag">REAL FOOD. REAL REVIEWS.</div>
 <div class="tag" style="font-size:1.5rem;margin-top:-1rem">NO BULLSHIT.</div>
@@ -196,6 +208,8 @@ h1{font-size:2.2rem}
 </div>
 </div>
 </section>
+
+<!-- Rest of the HTML remains the same -->
 <section class="sec alt" id="hosts">
 <div class="wrap">
 <h2>MEET THE CREW</h2>
