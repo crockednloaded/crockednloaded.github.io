@@ -8,11 +8,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
-/* CINEMATIC SCROLL REVEAL EFFECT */
+/* CINEMATIC SCROLL REVEAL - MOBILE FIRST */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
 }
 
 :root {
@@ -27,15 +29,22 @@
     --white: #fff;
 }
 
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Exo 2', sans-serif;
     color: var(--white);
-    overflow-x: hidden;
     background: #000;
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-overflow-scrolling: touch;
 }
 
-/* HERO VIDEO SECTION - The Kitchen's style */
-.video-hero {
+/* HERO SECTION WITH BACKGROUND IMAGE */
+.hero-section {
     position: fixed;
     top: 0;
     left: 0;
@@ -45,463 +54,39 @@ body {
     overflow: hidden;
 }
 
-.video-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-#heroVideo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.85);
-}
-
-.video-overlay {
+.hero-background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, 
-        rgba(10,10,10,0.9) 0%,
-        rgba(10,10,10,0.7) 50%,
-        rgba(10,10,10,0.4) 75%,
-        rgba(10,10,10,0.1) 100%);
+    background: url('background.jpg') center/cover no-repeat;
+    filter: brightness(0.7);
+    will-change: transform;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+        rgba(10,10,10,0.95) 0%,
+        rgba(10,10,10,0.85) 30%,
+        rgba(10,10,10,0.5) 70%,
+        rgba(10,10,10,0.2) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .hero-content {
     max-width: 800px;
-    z-index: 3;
-    position: relative;
-    animation: fadeInUp 1.5s ease-out;
-}
-
-.hero-content h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 5.5rem;
-    background: linear-gradient(135deg, var(--white), var(--gold));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 1rem;
-    letter-spacing: 4px;
-    line-height: 1;
-    text-transform: uppercase;
-    text-shadow: 0 5px 15px rgba(0,0,0,0.5);
-}
-
-.hero-tagline {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.8rem;
-    color: var(--fire);
-    margin-bottom: 0.5rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.hero-subtagline {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.4rem;
-    color: var(--orange);
-    margin-bottom: 2rem;
-    font-weight: 700;
-}
-
-.hero-description {
-    font-size: 1.3rem;
-    color: var(--smoke);
-    margin-bottom: 3rem;
-    line-height: 1.6;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.video-controls {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    z-index: 4;
-    display: flex;
-    gap: 1rem;
-}
-
-.control-btn {
-    background: rgba(26,26,26,0.8);
-    border: 2px solid var(--gold);
-    color: var(--white);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-}
-
-.control-btn:hover {
-    background: var(--fire);
-    transform: scale(1.1);
-}
-
-.control-btn i {
-    font-size: 1.2rem;
-}
-
-/* MAIN CONTENT - Slides up over video */
-.main-content {
-    position: relative;
-    z-index: 2;
-    background: var(--dark);
-    min-height: 100vh;
-    transform: translateY(100vh);
-    box-shadow: 0 -10px 50px rgba(0,0,0,0.8);
-    border-top: 5px solid var(--fire);
-}
-
-/* Navigation - Fixed at top */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background: rgba(10,10,10,0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 3px solid var(--fire);
-    padding: 1rem 0;
-    transition: all 0.3s ease;
-}
-
-header.scrolled {
-    background: rgba(10,10,10,0.98);
-    box-shadow: 0 5px 20px rgba(255,59,48,0.2);
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-
-.logo i {
-    font-size: 2rem;
-    color: var(--fire);
-    filter: drop-shadow(0 0 10px rgba(255,59,48,0.6));
-}
-
-.logo-txt {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.8rem;
-    background: linear-gradient(135deg, var(--fire), var(--gold), var(--orange));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: 1px;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-nav a {
-    color: var(--white);
-    text-decoration: none;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 700;
-    font-size: 0.9rem;
-    padding: 8px 16px;
-    border-radius: 30px;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    position: relative;
-}
-
-nav a::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 30px;
-    background: linear-gradient(135deg, var(--fire), var(--orange));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-}
-
-nav a:hover::before,
-nav a.active::before {
-    opacity: 1;
-}
-
-.menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--white);
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-/* Content Sections - Your theme with Kitchen's layout */
-.content-section {
-    padding: 6rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.content-section:nth-child(even) {
-    background: linear-gradient(135deg, rgba(26,26,26,0.3), rgba(42,42,42,0.2));
-    border-top: 3px solid var(--orange);
-    border-bottom: 3px solid var(--orange);
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-.section-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 3.5rem;
-    color: var(--gold);
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    position: relative;
-    display: inline-block;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--fire), var(--orange));
-}
-
-.section-subtitle {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.2rem;
-    color: var(--orange);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-/* HOSTS - Side by side like The Kitchen */
-.hosts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
-    margin-top: 3rem;
-}
-
-.host-card {
-    background: linear-gradient(135deg, rgba(26,26,26,0.9), rgba(42,42,42,0.7));
-    border-radius: 20px;
-    overflow: hidden;
-    border: 3px solid var(--fire);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-.host-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(255,59,48,0.3);
-}
-
-.host-header {
-    background: linear-gradient(135deg, var(--fire), var(--char));
     padding: 2rem;
-    text-align: center;
-    border-bottom: 3px solid var(--gold);
-}
-
-.host-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.host-role {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1rem;
-    color: var(--gold);
-    text-transform: uppercase;
-    font-weight: 700;
-}
-
-.host-body {
-    padding: 2rem;
-}
-
-.host-description {
-    color: var(--smoke);
-    line-height: 1.8;
-    margin-bottom: 2rem;
-}
-
-.host-stats {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-}
-
-.host-stat {
-    background: rgba(58,58,58,0.5);
-    padding: 1rem;
-    border-radius: 10px;
-    text-align: center;
-    border-left: 3px solid var(--gold);
-}
-
-.stat-value {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.5rem;
-    color: var(--gold);
-    display: block;
-}
-
-.stat-label {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.8rem;
-    color: var(--smoke);
-    text-transform: uppercase;
-}
-
-/* CONTENT TYPES - 3 columns like The Kitchen's menu */
-.content-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.content-card {
-    background: linear-gradient(135deg, rgba(26,26,26,0.9), rgba(42,42,42,0.7));
-    padding: 2.5rem;
-    border-radius: 15px;
-    text-align: center;
-    border: 3px solid var(--orange);
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.content-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--fire), var(--gold));
-}
-
-.content-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--gold);
-    box-shadow: 0 15px 30px rgba(255,149,0,0.3);
-}
-
-.content-icon {
-    font-size: 3rem;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-}
-
-.content-card h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: var(--white);
-}
-
-.content-card p {
-    color: var(--smoke);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-}
-
-/* Buttons - Your style */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 1rem;
-    background: linear-gradient(135deg, var(--fire), var(--orange));
-    color: var(--white);
-    padding: 1rem 2.5rem;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    text-decoration: none;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border: 3px solid var(--gold);
-    box-shadow: 0 5px 20px rgba(255,59,48,0.4);
-    cursor: pointer;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(255,59,48,0.6);
-}
-
-.btn i {
-    font-size: 1.2rem;
-}
-
-/* Scroll indicator */
-.scroll-indicator {
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 5;
-    text-align: center;
-    animation: bounce 2s infinite;
-}
-
-.scroll-text {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.9rem;
-    color: var(--white);
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.scroll-arrow {
-    font-size: 1.5rem;
-    color: var(--gold);
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-    40% {transform: translateY(-10px);}
-    60% {transform: translateY(-5px);}
+    animation: fadeInUp 1s ease-out;
 }
 
 @keyframes fadeInUp {
@@ -515,75 +100,908 @@ nav a.active::before {
     }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 3.5rem;
+.hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 8vw, 5.5rem);
+    background: linear-gradient(135deg, var(--white), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+    letter-spacing: 3px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.hero-tagline {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    color: var(--fire);
+    margin-bottom: 0.25rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero-subtitle {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    color: var(--orange);
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.hero-description {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: var(--smoke);
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+    z-index: 10;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
     }
-    
-    .hero-tagline {
-        font-size: 1.4rem;
+    40% {
+        transform: translateY(-10px) translateX(-50%);
     }
-    
-    .hero-subtagline {
-        font-size: 1.1rem;
-    }
-    
-    .hero-description {
-        font-size: 1.1rem;
-    }
-    
-    .nav-container {
-        padding: 0 1rem;
-    }
-    
-    .menu-btn {
-        display: block;
-    }
-    
-    nav ul {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: rgba(10,10,10,0.95);
-        flex-direction: column;
-        padding: 1rem 0;
-        display: none;
-    }
-    
-    nav ul.active {
-        display: flex;
-    }
-    
-    nav a {
-        display: block;
-        text-align: center;
-        padding: 1rem;
-        border-radius: 0;
-    }
-    
-    .section-title {
-        font-size: 2.5rem;
-    }
-    
-    .hosts-grid,
-    .content-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .video-controls {
-        bottom: 20px;
-        right: 20px;
-    }
-    
-    .control-btn {
-        width: 40px;
-        height: 40px;
+    60% {
+        transform: translateY(-5px) translateX(-50%);
     }
 }
 
-/* Loading state */
+.scroll-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* MAIN CONTENT - SLIDES UP */
+.main-content {
+    position: relative;
+    z-index: 2;
+    background: var(--dark);
+    min-height: 100vh;
+    transform: translateY(100vh);
+    will-change: transform;
+    transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-top: 5px solid var(--fire);
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.8);
+}
+
+/* NAVIGATION */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 3px solid var(--fire);
+    padding: 0.75rem 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-icon {
+    font-size: 1.8rem;
+    color: var(--fire);
+    filter: drop-shadow(0 0 8px rgba(255,59,48,0.6));
+}
+
+.logo-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, var(--fire), var(--gold), var(--orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    color: var(--white);
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    position: relative;
+    white-space: nowrap;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 25px;
+    background: linear-gradient(135deg, var(--fire), var(--orange));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    opacity: 1;
+}
+
+/* SECTIONS */
+.content-section {
+    padding: clamp(3rem, 8vw, 6rem) 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.content-section:nth-child(even) {
+    background: linear-gradient(135deg, rgba(26,26,26,0.3), rgba(42,42,42,0.2));
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: clamp(2rem, 6vw, 4rem);
+}
+
+.section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--fire), var(--orange));
+}
+
+.section-subtitle {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* HOSTS SECTION */
+.hosts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.host-card {
+    background: linear-gradient(135deg, rgba(26,26,26,0.95), rgba(42,42,42,0.8));
+    border-radius: 15px;
+    overflow: hidden;
+    border: 3px solid var(--fire);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    will-change: transform;
+}
+
+.host-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(255,59,48,0.2);
+}
+
+.host-header {
+    background: linear-gradient(135deg, var(--fire), var(--char));
+    padding: 1.5rem;
+    text-align: center;
+    border-bottom: 3px solid var(--gold);
+}
+
+.host-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 0.5rem;
+}
+
+.host-role {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.host-body {
+    padding: 1.5rem;
+}
+
+.host-description {
+    color: var(--smoke);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.host-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+.host-stat {
+    background: rgba(58,58,58,0.6);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border-left: 3px solid var(--gold);
+    transition: transform 0.3s ease;
+}
+
+.host-stat:hover {
+    transform: translateY(-3px);
+}
+
+.stat-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    color: var(--gold);
+    display: block;
+}
+
+.stat-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.7rem;
+    color: var(--smoke);
+    text-transform: uppercase;
+}
+
+/* CONTENT GRID */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.content-card {
+    background: linear-gradient(135deg, rgba(26,26,26,0.95), rgba(42,42,42,0.8));
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 2px solid var(--orange);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    will-change: transform;
+}
+
+.content-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--fire), var(--gold));
+}
+
+.content-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    box-shadow: 0 10px 25px rgba(255,149,0,0.2);
+}
+
+.content-icon {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.content-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.content-card p {
+    color: var(--smoke);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* BUTTONS */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, var(--fire), var(--orange));
+    color: var(--white);
+    padding: 0.9rem 2rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid var(--gold);
+    box-shadow: 0 5px 15px rgba(255,59,48,0.3);
+    cursor: pointer;
+    will-change: transform;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255,59,48,0.5);
+}
+
+/* FACEBOOK SECTION */
+.facebook-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.facebook-box {
+    background: linear-gradient(135deg, rgba(26,26,26,0.95), rgba(42,42,42,0.8));
+    padding: 2rem;
+    border-radius: 12px;
+    border: 2px solid #1877F2;
+    transition: all 0.3s ease;
+}
+
+.facebook-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    box-shadow: 0 10px 25px rgba(24, 119, 242, 0.2);
+}
+
+.facebook-box h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #1877F2;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.facebook-preview {
+    background: rgba(58,58,58,0.4);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.facebook-features {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.facebook-features li {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: rgba(58,58,58,0.5);
+    border-radius: 8px;
+    border-left: 3px solid #1877F2;
+    transition: transform 0.3s ease;
+}
+
+.facebook-features li:hover {
+    transform: translateX(5px);
+}
+
+.facebook-features i {
+    color: #1877F2;
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.facebook-features h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.95rem;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.facebook-features p {
+    color: var(--smoke);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.facebook-cta {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--ash);
+}
+
+/* YOUTUBE SECTION */
+.youtube-stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.youtube-stats-box {
+    background: linear-gradient(135deg, rgba(26,26,26,0.95), rgba(42,42,42,0.8));
+    padding: 2rem;
+    border-radius: 12px;
+    border: 2px solid #FF0000;
+    transition: all 0.3s ease;
+}
+
+.youtube-stats-box:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    box-shadow: 0 10px 25px rgba(255, 0, 0, 0.2);
+}
+
+.youtube-stats-box h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #FF0000;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.youtube-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.youtube-stat-card {
+    background: rgba(58,58,58,0.6);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid rgba(255, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.youtube-stat-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--gold);
+}
+
+.youtube-stat-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: #FF0000;
+    display: block;
+    margin-bottom: 0.25rem;
+    line-height: 1;
+}
+
+.youtube-stat-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem;
+    color: var(--smoke);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.youtube-features {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.youtube-features li {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: rgba(58,58,58,0.5);
+    border-radius: 8px;
+    border-left: 3px solid #FF0000;
+    transition: transform 0.3s ease;
+}
+
+.youtube-features li:hover {
+    transform: translateX(5px);
+}
+
+.youtube-features i {
+    color: #FF0000;
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.youtube-features h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.95rem;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.youtube-top-videos {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--ash);
+}
+
+.youtube-top-videos h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--gold);
+}
+
+.youtube-videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.youtube-video-card {
+    background: linear-gradient(135deg, rgba(26,26,26,0.95), rgba(42,42,42,0.8));
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid var(--ash);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.youtube-video-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    box-shadow: 0 10px 20px rgba(255,215,0,0.1);
+}
+
+.youtube-video-thumbnail {
+    height: 160px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.youtube-video-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.youtube-video-card:hover .youtube-video-thumbnail img {
+    transform: scale(1.05);
+}
+
+.youtube-video-info {
+    padding: 1.25rem;
+}
+
+.youtube-video-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.youtube-video-date {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.youtube-video-views {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.7rem;
+    color: var(--smoke);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* CONTACT SECTION */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.contact-box {
+    background: linear-gradient(135deg, rgba(26,26,26,0.95), rgba(42,42,42,0.8));
+    padding: 2rem;
+    border-radius: 12px;
+    border: 2px solid var(--orange);
+}
+
+.contact-box h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--fire);
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--ash);
+}
+
+.contact-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.contact-item i {
+    font-size: 1.3rem;
+    color: var(--fire);
+    margin-right: 1rem;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+.contact-item h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+}
+
+.contact-item p {
+    color: var(--smoke);
+    font-size: 0.95rem;
+}
+
+.contact-social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.contact-social-links a {
+    color: var(--gold);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-social-links a:hover {
+    color: var(--fire);
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    color: var(--gold);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.9rem;
+    background: rgba(58,58,58,0.6);
+    border: 2px solid var(--orange);
+    border-radius: 6px;
+    color: var(--white);
+    font-family: 'Exo 2';
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(255,215,0,0.1);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--fire), var(--orange));
+    border: 2px solid var(--gold);
+    color: var(--white);
+    padding: 1rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255,59,48,0.4);
+}
+
+/* FOOTER */
+footer {
+    background: var(--dark);
+    padding: 3rem 1.5rem 2rem;
+    border-top: 3px solid var(--fire);
+}
+
+.footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-logo .logo-text {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-logo p {
+    color: var(--smoke);
+    line-height: 1.7;
+}
+
+.footer-links h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.6rem;
+}
+
+.footer-links a {
+    color: var(--smoke);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+    transform: translateX(5px);
+}
+
+.social-icons {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--char);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: 2px solid var(--fire);
+}
+
+.social-icon:hover {
+    background: var(--fire);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--char);
+    color: var(--smoke);
+    font-size: 0.9rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* LOADING & TOAST */
 .loading {
     position: fixed;
     top: 0;
@@ -595,19 +1013,166 @@ nav a.active::before {
     align-items: center;
     justify-content: center;
     z-index: 9999;
+    transition: opacity 0.5s ease;
 }
 
 .loading-spinner {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border: 3px solid var(--ash);
     border-top-color: var(--fire);
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
 
-@keyframes spin {
-    100% { transform: rotate(360deg); }
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--fire), var(--orange));
+    color: white;
+    padding: 0.9rem 1.5rem;
+    border-radius: 8px;
+    font-family: 'Orbitron', sans-serif;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    z-index: 10000;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.toast.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(10,10,10,0.98);
+        flex-direction: column;
+        padding: 1rem 0;
+        display: none;
+        border-top: 2px solid var(--fire);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        backdrop-filter: blur(20px);
+    }
+    
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-link {
+        display: block;
+        text-align: center;
+        padding: 1rem;
+        border-radius: 0;
+    }
+    
+    .nav-link::before {
+        border-radius: 0;
+    }
+    
+    .youtube-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .host-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .hero-overlay {
+        padding: 1rem;
+    }
+    
+    .hero-content {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0 1rem;
+    }
+    
+    .logo-text {
+        font-size: 1.3rem;
+    }
+    
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .hosts-grid,
+    .content-grid,
+    .facebook-container,
+    .youtube-stats-container,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .youtube-videos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* PERFORMANCE OPTIMIZATIONS */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .hero-content {
+        animation: none;
+    }
+    
+    .scroll-indicator {
+        animation: none;
+    }
+}
+
+/* TOUCH DEVICE OPTIMIZATIONS */
+@media (hover: none) and (pointer: coarse) {
+    .host-card:hover,
+    .content-card:hover,
+    .facebook-box:hover,
+    .youtube-stats-box:hover,
+    .youtube-video-card:hover {
+        transform: none;
+    }
+    
+    .btn:hover {
+        transform: none;
+    }
+    
+    .nav-link::before {
+        display: none;
+    }
+}
+
+/* FIX FOR iOS SAFARI 100vh */
+@supports (-webkit-touch-callout: none) {
+    .hero-section {
+        height: -webkit-fill-available;
+    }
 }
 </style>
 </head>
@@ -617,45 +1182,28 @@ nav a.active::before {
     <div class="loading-spinner"></div>
 </div>
 
-<!-- Hero Video Section (Fixed at top) -->
-<div class="video-hero">
-    <div class="video-container">
-        <video id="heroVideo" autoplay muted loop playsinline>
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-close-up-of-a-man-cooking-steak-in-a-kitchen-47338-large.mp4" type="video/mp4">
-            <!-- Fallback image if video doesn't load -->
-            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Cooking video background">
-        </video>
-        <div class="video-overlay">
-            <div class="hero-content">
-                <h1>CROCKED 'N LOADED</h1>
-                <div class="hero-tagline">REAL FOOD. REAL REVIEWS.</div>
-                <div class="hero-subtagline">NO BULLSHIT.</div>
-                <p class="hero-description">
-                    Join CrockPotDaddy and MACK3Y THE FOODIE as they bring professional cooking techniques to home kitchens, 
-                    explore global flavors, and deliver honest restaurant reviews.
-                </p>
-                <a href="#content" class="btn" id="exploreBtn">
-                    <i class="fas fa-arrow-down"></i> EXPLORE THE SHOW
-                </a>
-            </div>
+<!-- Hero Section with Background Image -->
+<div class="hero-section" id="hero">
+    <div class="hero-background" id="heroBackground"></div>
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1 class="hero-title">CROCKED 'N LOADED</h1>
+            <div class="hero-tagline">REAL FOOD. REAL REVIEWS.</div>
+            <div class="hero-subtitle">NO BULLSHIT.</div>
+            <p class="hero-description">
+                Join CrockPotDaddy and MACK3Y THE FOODIE as they bring professional cooking techniques to home kitchens, 
+                explore global flavors, and deliver honest restaurant reviews.
+            </p>
+            <a href="#content" class="btn" id="exploreBtn">
+                <i class="fas fa-arrow-down"></i> EXPLORE THE SHOW
+            </a>
         </div>
-        
-        <!-- Video Controls -->
-        <div class="video-controls">
-            <button class="control-btn" id="playPauseBtn" title="Pause video">
-                <i class="fas fa-pause"></i>
-            </button>
-            <button class="control-btn" id="muteBtn" title="Unmute video">
-                <i class="fas fa-volume-mute"></i>
-            </button>
-        </div>
-        
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator">
-            <div class="scroll-text">SCROLL TO EXPLORE</div>
-            <div class="scroll-arrow">
-                <i class="fas fa-chevron-down"></i>
-            </div>
+    </div>
+    
+    <div class="scroll-indicator">
+        <div class="scroll-text">SCROLL TO EXPLORE</div>
+        <div class="scroll-arrow">
+            <i class="fas fa-chevron-down"></i>
         </div>
     </div>
 </div>
@@ -664,26 +1212,37 @@ nav a.active::before {
 <header id="mainHeader">
     <div class="nav-container">
         <div class="logo">
-            <i class="fas fa-fire"></i>
-            <div class="logo-txt">CROCKED'N LOADED</div>
+            <i class="fas fa-fire logo-icon"></i>
+            <div class="logo-text">CROCKED'N LOADED</div>
         </div>
-        <button class="menu-btn" id="menuBtn">
+        <button class="menu-toggle" id="menuToggle">
             <i class="fas fa-bars"></i>
         </button>
-        <nav>
-            <ul id="mainNav">
-                <li><a href="#home" class="active">HOME</a></li>
-                <li><a href="#hosts">CREW</a></li>
-                <li><a href="#content">CONTENT</a></li>
-                <li><a href="#youtube">YOUTUBE</a></li>
-                <li><a href="#contact">CONTACT</a></li>
-            </ul>
-        </nav>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#home" class="nav-link active">HOME</a></li>
+            <li><a href="#hosts" class="nav-link">CREW</a></li>
+            <li><a href="#content" class="nav-link">CONTENT</a></li>
+            <li><a href="#facebook" class="nav-link">FACEBOOK</a></li>
+            <li><a href="#youtube" class="nav-link">YOUTUBE</a></li>
+            <li><a href="#contact" class="nav-link">CONTACT</a></li>
+        </ul>
     </div>
 </header>
 
-<!-- Main Content (Slides up over video) -->
+<!-- Main Content -->
 <main class="main-content" id="mainContent">
+    
+    <!-- Home Section -->
+    <section class="content-section" id="home">
+        <div class="section-header">
+            <h2 class="section-title">WELCOME TO CROCKED 'N LOADED</h2>
+            <div class="section-subtitle">WHERE REAL FOOD MEETS REAL REVIEWS</div>
+        </div>
+        <p style="text-align: center; color: var(--smoke); max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">
+            We're breaking down the barriers between professional kitchens and home cooking. No fancy equipment needed, 
+            just passion, technique, and a whole lot of flavor.
+        </p>
+    </section>
     
     <!-- Hosts Section -->
     <section class="content-section" id="hosts">
@@ -792,52 +1351,160 @@ nav a.active::before {
         </div>
     </section>
     
+    <!-- Facebook Section -->
+    <section class="content-section" id="facebook">
+        <div class="section-header">
+            <h2 class="section-title">FACEBOOK</h2>
+            <div class="section-subtitle">CONNECT WITH US ON FACEBOOK</div>
+        </div>
+        <div class="facebook-container">
+            <div class="facebook-box">
+                <h3><i class="fab fa-facebook"></i> FOLLOW US</h3>
+                <p>Get daily updates, behind-the-scenes content, and join our food-loving community.</p>
+                <div class="facebook-preview">
+                    <i class="fab fa-facebook-square" style="font-size: 3rem; color: #1877F2; margin-bottom: 1rem;"></i>
+                    <h4 style="font-family: 'Orbitron'; color: var(--white); margin-bottom: 0.5rem;">Crocked N Loaded Show</h4>
+                    <p style="color: var(--smoke);">Public Facebook Page</p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" class="btn" style="background: linear-gradient(135deg, #1877F2, #0d5bb5);">
+                            <i class="fab fa-facebook"></i> VISIT FACEBOOK PAGE
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="facebook-box">
+                <h3><i class="fas fa-star"></i> WHY FOLLOW?</h3>
+                <p>Exclusive content only on Facebook:</p>
+                <ul class="facebook-features">
+                    <li>
+                        <h4><i class="fas fa-video"></i> REELS & SHORTS</h4>
+                        <p>Quick cooking tips and behind-the-scenes moments.</p>
+                    </li>
+                    <li>
+                        <h4><i class="fas fa-calendar-alt"></i> LIVE EVENTS</h4>
+                        <p>Cooking demos, Q&A sessions, and announcements.</p>
+                    </li>
+                    <li>
+                        <h4><i class="fas fa-users"></i> COMMUNITY</h4>
+                        <p>Connect with other food lovers and share recipes.</p>
+                    </li>
+                    <li>
+                        <h4><i class="fas fa-bell"></i> INSTANT UPDATES</h4>
+                        <p>Be first to know about new episodes and events.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="facebook-cta">
+            <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" class="btn" style="background: linear-gradient(135deg, #1877F2, #0d5bb5);">
+                <i class="fab fa-facebook"></i> FOLLOW & GET NOTIFICATIONS
+            </a>
+            <p style="color: var(--smoke); margin-top: 1rem; font-size: 0.9rem;">
+                <i class="fas fa-info-circle"></i> Click "Follow" then "See First" to never miss an update
+            </p>
+        </div>
+    </section>
+    
     <!-- YouTube Section -->
     <section class="content-section" id="youtube">
         <div class="section-header">
             <h2 class="section-title">YOUTUBE CHANNEL</h2>
-            <div class="section-subtitle">JOIN OUR GROWING COMMUNITY</div>
+            <div class="section-subtitle">STATISTICS & LATEST CONTENT</div>
         </div>
-        <div class="content-grid">
-            <div class="content-card">
-                <div class="content-icon">
-                    <i class="fab fa-youtube"></i>
-                </div>
-                <h3>SUBSCRIBE</h3>
-                <p>Get notified when we post new cooking tutorials, reviews, and behind-the-scenes content.</p>
-                <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" class="btn" style="margin-top: 1rem;">
-                    <i class="fab fa-youtube"></i> SUBSCRIBE NOW
-                </a>
-            </div>
-            
-            <div class="content-card">
-                <div class="content-icon">
-                    <i class="fas fa-fire"></i>
-                </div>
-                <h3>TOP VIDEOS</h3>
-                <p>Check out our most popular cooking tutorials and restaurant reviews loved by our community.</p>
-                <div class="host-stats" style="margin-top: 1.5rem;">
-                    <div class="host-stat">
-                        <span class="stat-value">250K+</span>
-                        <span class="stat-label">Subscribers</span>
+        <div class="youtube-stats-container">
+            <div class="youtube-stats-box">
+                <h3><i class="fab fa-youtube"></i> CHANNEL STATS</h3>
+                <p>Real-time statistics from our YouTube channel.</p>
+                <div class="youtube-stats-grid" id="youtubeStats">
+                    <div class="youtube-stat-card">
+                        <div class="youtube-stat-number">--</div>
+                        <div class="youtube-stat-label">SUBSCRIBERS</div>
                     </div>
-                    <div class="host-stat">
-                        <span class="stat-value">425+</span>
-                        <span class="stat-label">Videos</span>
+                    <div class="youtube-stat-card">
+                        <div class="youtube-stat-number">--</div>
+                        <div class="youtube-stat-label">TOTAL VIEWS</div>
+                    </div>
+                    <div class="youtube-stat-card">
+                        <div class="youtube-stat-number">--</div>
+                        <div class="youtube-stat-label">VIDEOS</div>
+                    </div>
+                    <div class="youtube-stat-card">
+                        <div class="youtube-stat-number">--</div>
+                        <div class="youtube-stat-label">LAST UPLOAD</div>
                     </div>
                 </div>
             </div>
             
-            <div class="content-card">
-                <div class="content-icon">
-                    <i class="fas fa-bell"></i>
+            <div class="youtube-stats-box">
+                <h3><i class="fas fa-play-circle"></i> WHY SUBSCRIBE?</h3>
+                <p>Get access to our exclusive YouTube content:</p>
+                <ul class="youtube-features">
+                    <li>
+                        <h4><i class="fas fa-film"></i> FULL EPISODES</h4>
+                        <p>Complete cooking tutorials and restaurant reviews in HD quality.</p>
+                    </li>
+                    <li>
+                        <h4><i class="fas fa-graduation-cap"></i> COOKING TUTORIALS</h4>
+                        <p>Step-by-step guides to master professional techniques at home.</p>
+                    </li>
+                    <li>
+                        <h4><i class="fas fa-comments"></i> COMMUNITY</h4>
+                        <p>Join discussions, ask questions, and connect with fellow food lovers.</p>
+                    </li>
+                    <li>
+                        <h4><i class="fas fa-bell"></i> NOTIFICATIONS</h4>
+                        <p>Never miss a new upload - turn on notifications for all videos.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Top 3 Most Viewed Videos Section -->
+        <div class="youtube-top-videos">
+            <h3>TOP 3 MOST VIEWED VIDEOS</h3>
+            <div class="youtube-videos-grid" id="youtubeVideos">
+                <!-- Videos will be loaded by JavaScript -->
+                <div class="youtube-video-card">
+                    <div class="youtube-video-thumbnail">
+                        <img src="https://img.youtube.com/vi/placeholder/maxresdefault.jpg" alt="Loading video...">
+                    </div>
+                    <div class="youtube-video-info">
+                        <div class="youtube-video-title">Loading top videos...</div>
+                        <div class="youtube-video-date"><i class="far fa-calendar"></i> Loading...</div>
+                        <div class="youtube-video-views"><i class="fas fa-fire" style="color: var(--fire);"></i> -- views</div>
+                    </div>
                 </div>
-                <h3>NOTIFICATIONS</h3>
-                <p>Never miss an upload! Click the bell icon on our YouTube channel to get notified about new content.</p>
-                <div style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--orange);">
-                    <i class="fas fa-info-circle"></i> New episodes every Tuesday & Friday
+                <div class="youtube-video-card">
+                    <div class="youtube-video-thumbnail">
+                        <img src="https://img.youtube.com/vi/placeholder/maxresdefault.jpg" alt="Loading video...">
+                    </div>
+                    <div class="youtube-video-info">
+                        <div class="youtube-video-title">Loading top videos...</div>
+                        <div class="youtube-video-date"><i class="far fa-calendar"></i> Loading...</div>
+                        <div class="youtube-video-views"><i class="fas fa-fire" style="color: var(--fire);"></i> -- views</div>
+                    </div>
+                </div>
+                <div class="youtube-video-card">
+                    <div class="youtube-video-thumbnail">
+                        <img src="https://img.youtube.com/vi/placeholder/maxresdefault.jpg" alt="Loading video...">
+                    </div>
+                    <div class="youtube-video-info">
+                        <div class="youtube-video-title">Loading top videos...</div>
+                        <div class="youtube-video-date"><i class="far fa-calendar"></i> Loading...</div>
+                        <div class="youtube-video-views"><i class="fas fa-fire" style="color: var(--fire);"></i> -- views</div>
+                    </div>
                 </div>
             </div>
+        </div>
+        
+        <div class="youtube-cta" style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--ash);">
+            <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" class="btn" style="background: linear-gradient(135deg, #FF0000, #CC0000);">
+                <i class="fab fa-youtube"></i> SUBSCRIBE & WATCH
+            </a>
+            <p style="color: var(--smoke); margin-top: 1rem; font-size: 0.9rem;">
+                <i class="fas fa-info-circle"></i> Click the bell icon to get notified about new uploads
+            </p>
         </div>
     </section>
     
@@ -847,40 +1514,45 @@ nav a.active::before {
             <h2 class="section-title">GET IN TOUCH</h2>
             <div class="section-subtitle">COLLABORATE, CONNECT, OR SAY HELLO</div>
         </div>
-        <div class="content-grid">
-            <div class="content-card" style="text-align: left;">
+        <div class="contact-grid">
+            <div class="contact-box">
                 <h3>CONTACT INFO</h3>
-                <div style="margin-top: 2rem;">
-                    <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
-                        <i class="fas fa-envelope" style="color: var(--gold); font-size: 1.2rem; margin-right: 1rem; margin-top: 0.2rem;"></i>
+                <div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
                         <div>
-                            <h4 style="font-family: 'Orbitron'; color: var(--white); margin-bottom: 0.3rem;">EMAIL</h4>
-                            <p style="color: var(--smoke);">contact@crockednloaded.com</p>
+                            <h4>EMAIL</h4>
+                            <p>contact@crockednloaded.com</p>
                         </div>
                     </div>
                     
-                    <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
-                        <i class="fab fa-youtube" style="color: var(--gold); font-size: 1.2rem; margin-right: 1rem; margin-top: 0.2rem;"></i>
+                    <div class="contact-item">
+                        <i class="fab fa-youtube"></i>
                         <div>
-                            <h4 style="font-family: 'Orbitron'; color: var(--white); margin-bottom: 0.3rem;">YOUTUBE</h4>
-                            <p style="color: var(--smoke);">@CrockedNLoaded-NH</p>
+                            <h4>YOUTUBE</h4>
+                            <p>@CrockedNLoaded-NH</p>
+                            <div class="contact-social-links">
+                                <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank">
+                                    <i class="fab fa-youtube"></i> YouTube Channel
+                                </a>
+                            </div>
                         </div>
                     </div>
                     
-                    <div style="display: flex; align-items: flex-start;">
-                        <i class="fas fa-handshake" style="color: var(--gold); font-size: 1.2rem; margin-right: 1rem; margin-top: 0.2rem;"></i>
+                    <div class="contact-item">
+                        <i class="fas fa-handshake"></i>
                         <div>
-                            <h4 style="font-family: 'Orbitron'; color: var(--white); margin-bottom: 0.3rem;">COLLABORATIONS</h4>
-                            <p style="color: var(--smoke); margin-bottom: 0.5rem;">DM us on social media</p>
-                            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                                <a href="https://instagram.com/CrockedNLoadedShow" target="_blank" style="color: var(--gold); text-decoration: none; font-size: 0.9rem;">
-                                    <i class="fab fa-instagram"></i> Instagram
+                            <h4>COLLABORATIONS</h4>
+                            <p>DM us on social media:</p>
+                            <div class="contact-social-links">
+                                <a href="https://instagram.com/CrockedNLoadedShow" target="_blank">
+                                    <i class="fab fa-instagram"></i> @CrockedNLoadedShow
                                 </a>
-                                <a href="https://facebook.com/CrockedNLoadedShow" target="_blank" style="color: var(--gold); text-decoration: none; font-size: 0.9rem;">
-                                    <i class="fab fa-facebook"></i> Facebook
+                                <a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank">
+                                    <i class="fab fa-tiktok"></i> @CrockedNLoadedShow
                                 </a>
-                                <a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank" style="color: var(--gold); text-decoration: none; font-size: 0.9rem;">
-                                    <i class="fab fa-tiktok"></i> TikTok
+                                <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank">
+                                    <i class="fab fa-facebook"></i> Facebook Page
                                 </a>
                             </div>
                         </div>
@@ -888,143 +1560,273 @@ nav a.active::before {
                 </div>
             </div>
             
-            <div class="content-card" style="text-align: left;">
+            <div class="contact-box">
                 <h3>SEND MESSAGE</h3>
-                <form id="contactForm" style="margin-top: 2rem;">
-                    <div style="margin-bottom: 1.5rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-family: 'Orbitron'; color: var(--gold); font-size: 0.9rem;">NAME</label>
-                        <input type="text" style="width: 100%; padding: 0.8rem; background: rgba(58,58,58,0.5); border: 2px solid var(--orange); border-radius: 5px; color: var(--white); font-family: 'Exo 2';" required>
+                <form id="contactForm" action="https://formspree.io/f/xaqqbenp" method="POST">
+                    <div class="form-group">
+                        <label for="name">NAME</label>
+                        <input type="text" id="name" name="name" required>
                     </div>
                     
-                    <div style="margin-bottom: 1.5rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-family: 'Orbitron'; color: var(--gold); font-size: 0.9rem;">EMAIL</label>
-                        <input type="email" style="width: 100%; padding: 0.8rem; background: rgba(58,58,58,0.5); border: 2px solid var(--orange); border-radius: 5px; color: var(--white); font-family: 'Exo 2';" required>
+                    <div class="form-group">
+                        <label for="email">YOUR EMAIL</label>
+                        <input type="email" id="email" name="email" required>
                     </div>
                     
-                    <div style="margin-bottom: 1.5rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-family: 'Orbitron'; color: var(--gold); font-size: 0.9rem;">MESSAGE</label>
-                        <textarea style="width: 100%; padding: 0.8rem; background: rgba(58,58,58,0.5); border: 2px solid var(--orange); border-radius: 5px; color: var(--white); font-family: 'Exo 2'; min-height: 120px;" required></textarea>
+                    <div class="form-group">
+                        <label for="subject">SUBJECT</label>
+                        <input type="text" id="subject" name="subject" required>
                     </div>
                     
-                    <button type="submit" class="btn" style="width: 100%; justify-content: center;">
+                    <div class="form-group">
+                        <label for="message">MESSAGE</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
                         <i class="fas fa-paper-plane"></i> SEND MESSAGE
                     </button>
                 </form>
+                <p style="color: var(--smoke); font-size: 0.9rem; margin-top: 1rem; text-align: center;">
+                    <i class="fas fa-info-circle"></i> Messages are sent to contact@crockednloaded.com
+                </p>
             </div>
         </div>
     </section>
-    
 </main>
 
+<!-- Footer -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-logo">
+            <div class="logo-text">CROCKED'N LOADED</div>
+            <p>Bringing professional cooking techniques, global flavors, and honest reviews to food lovers everywhere. Real food made by real people.</p>
+        </div>
+        
+        <div class="footer-links">
+            <h4>LINKS</h4>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#hosts">Crew</a></li>
+                <li><a href="#content">Content</a></li>
+                <li><a href="#facebook">Facebook</a></li>
+                <li><a href="#youtube">YouTube</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-links">
+            <h4>CONNECT</h4>
+            <div class="social-icons">
+                <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" class="social-icon">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://instagram.com/CrockedNLoadedShow" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank" class="social-icon">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+            <p style="color: var(--smoke); font-size: 0.9rem; margin-top: 1rem;">
+                Subscribe for cooking tips and episode releases.
+            </p>
+        </div>
+    </div>
+    
+    <div class="copyright">
+        <p>© 2025 Crocked 'N Loaded. All rights reserved. | Real Food. Real Reviews. No Bullshit.</p>
+    </div>
+</footer>
+
+<!-- Toast Notification -->
+<div class="toast" id="toast"></div>
+
 <script>
-// Wait for page to load
-window.addEventListener('load', function() {
-    // Hide loading screen
-    document.getElementById('loading').style.display = 'none';
+// API CONFIGURATION - IMPORTANT: Replace with your own API key
+// Get one from: https://console.cloud.google.com/apis/credentials
+// YouTube Data API v3 requires API key for public data
+const YOUTUBE_API_KEY = 'AIzaSyB9Py3uUS7Sux5Tk4GVp1oc1cqZJdFVf3E'; // REPLACE WITH YOUR OWN KEY
+const YOUTUBE_CHANNEL_HANDLE = '@CrockedNLoaded-NH';
+let cachedData = {
+    stats: null,
+    videos: null,
+    timestamp: 0
+};
+const CACHE_DURATION = 300000; // 5 minutes
+
+// DOM Elements
+const loading = document.getElementById('loading');
+const heroSection = document.querySelector('.hero-section');
+const mainContent = document.getElementById('mainContent');
+const mainHeader = document.getElementById('mainHeader');
+const exploreBtn = document.getElementById('exploreBtn');
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+const navLinks = document.querySelectorAll('.nav-link');
+const contactForm = document.getElementById('contactForm');
+const toast = document.getElementById('toast');
+const heroBackground = document.getElementById('heroBackground');
+
+// Performance optimization: Use requestAnimationFrame for smooth scrolling
+let lastScrollY = 0;
+let ticking = false;
+let contentRevealed = false;
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', async function() {
+    // Hide loading screen after 1 second
+    setTimeout(() => {
+        loading.style.opacity = '0';
+        setTimeout(() => {
+            loading.style.display = 'none';
+        }, 500);
+    }, 1000);
     
-    // Video elements
-    const heroVideo = document.getElementById('heroVideo');
-    const playPauseBtn = document.getElementById('playPauseBtn');
-    const muteBtn = document.getElementById('muteBtn');
-    const mainContent = document.getElementById('mainContent');
-    const mainHeader = document.getElementById('mainHeader');
-    const exploreBtn = document.getElementById('exploreBtn');
-    const menuBtn = document.getElementById('menuBtn');
-    const mainNav = document.getElementById('mainNav');
+    // Load YouTube data
+    await loadYouTubeData();
     
-    // Video control functions
-    playPauseBtn.addEventListener('click', function() {
-        if (heroVideo.paused) {
-            heroVideo.play();
-            this.innerHTML = '<i class="fas fa-pause"></i>';
-            this.title = 'Pause video';
-        } else {
-            heroVideo.pause();
-            this.innerHTML = '<i class="fas fa-play"></i>';
-            this.title = 'Play video';
+    // Initialize scroll effects
+    initScrollEffects();
+    
+    // Initialize mobile menu
+    initMobileMenu();
+    
+    // Initialize smooth scrolling
+    initSmoothScrolling();
+    
+    // Initialize form submission
+    initFormSubmission();
+    
+    // Set up periodic data refresh
+    setInterval(() => {
+        if (document.visibilityState === 'visible') {
+            loadYouTubeData();
+        }
+    }, CACHE_DURATION);
+});
+
+// SCROLL EFFECTS - Optimized for smooth performance
+function initScrollEffects() {
+    // Use passive listeners for better scrolling performance
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Initial setup
+    mainContent.style.transform = 'translateY(100vh)';
+    mainContent.style.willChange = 'transform';
+}
+
+function handleScroll() {
+    lastScrollY = window.scrollY || window.pageYOffset;
+    
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            updateScrollEffects(lastScrollY);
+            ticking = false;
+        });
+        ticking = true;
+    }
+}
+
+function updateScrollEffects(scrollY) {
+    const windowHeight = window.innerHeight;
+    const scrollPercent = scrollY / windowHeight;
+    
+    // Header effect
+    if (scrollY > 50) {
+        mainHeader.style.background = 'rgba(10,10,10,0.98)';
+        mainHeader.style.boxShadow = '0 5px 20px rgba(255,59,48,0.2)';
+    } else {
+        mainHeader.style.background = 'rgba(10,10,10,0.95)';
+        mainHeader.style.boxShadow = 'none';
+    }
+    
+    // Main content reveal (like The Kitchen)
+    if (scrollPercent > 0.3 && !contentRevealed) {
+        mainContent.style.transition = 'transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        mainContent.style.transform = 'translateY(70vh)';
+        contentRevealed = true;
+    } else if (scrollPercent > 0.6) {
+        mainContent.style.transform = 'translateY(0)';
+    } else if (scrollPercent < 0.2 && contentRevealed) {
+        mainContent.style.transform = 'translateY(100vh)';
+        contentRevealed = false;
+    }
+    
+    // Parallax effect on hero background
+    const parallaxValue = scrollY * 0.4;
+    heroBackground.style.transform = `translateY(${parallaxValue}px)`;
+    
+    // Active nav link highlighting
+    updateActiveNavLink(scrollY);
+}
+
+function updateActiveNavLink(scrollY) {
+    const sections = document.querySelectorAll('.content-section');
+    let currentSection = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        
+        if (scrollY >= sectionTop && scrollY < sectionBottom) {
+            currentSection = section.id;
         }
     });
     
-    muteBtn.addEventListener('click', function() {
-        if (heroVideo.muted) {
-            heroVideo.muted = false;
-            this.innerHTML = '<i class="fas fa-volume-up"></i>';
-            this.title = 'Mute video';
-        } else {
-            heroVideo.muted = true;
-            this.innerHTML = '<i class="fas fa-volume-mute"></i>';
-            this.title = 'Unmute video';
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSection}`) {
+            link.classList.add('active');
         }
     });
-    
-    // The Kitchen's scroll reveal effect
-    let lastScrollTop = 0;
-    let contentRevealed = false;
-    
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        // Header effect
-        if (scrollTop > 50) {
-            mainHeader.classList.add('scrolled');
-        } else {
-            mainHeader.classList.remove('scrolled');
-        }
-        
-        // Main content reveal effect (like The Kitchen)
-        const windowHeight = window.innerHeight;
-        const scrollPercentage = scrollTop / windowHeight;
-        
-        if (scrollPercentage > 0.3 && !contentRevealed) {
-            // Start revealing content
-            mainContent.style.transition = 'transform 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
-            mainContent.style.transform = 'translateY(70vh)';
-            contentRevealed = true;
-        } else if (scrollPercentage > 0.6) {
-            // Fully reveal content
-            mainContent.style.transform = 'translateY(0)';
-        } else if (scrollPercentage < 0.2 && contentRevealed) {
-            // Reset if scrolling back up
-            mainContent.style.transform = 'translateY(100vh)';
-            contentRevealed = false;
-        }
-        
-        // Parallax effect on video
-        const videoHero = document.querySelector('.video-hero');
-        const videoScroll = scrollTop * 0.5;
-        videoHero.style.transform = `translateY(${videoScroll}px)`;
-        
-        lastScrollTop = scrollTop;
+}
+
+// MOBILE MENU
+function initMobileMenu() {
+    menuToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        const icon = this.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
     });
     
-    // Explore button scrolls to content
+    // Close menu when clicking a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            menuToggle.querySelector('i').classList.add('fa-bars');
+            menuToggle.querySelector('i').classList.remove('fa-times');
+        });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!menuToggle.contains(event.target) && !navMenu.contains(event.target)) {
+            navMenu.classList.remove('active');
+            menuToggle.querySelector('i').classList.add('fa-bars');
+            menuToggle.querySelector('i').classList.remove('fa-times');
+        }
+    });
+}
+
+// SMOOTH SCROLLING
+function initSmoothScrolling() {
+    // Explore button
     exploreBtn.addEventListener('click', function(e) {
         e.preventDefault();
         mainContent.scrollIntoView({ behavior: 'smooth' });
     });
     
-    // Mobile menu toggle
-    menuBtn.addEventListener('click', function() {
-        mainNav.classList.toggle('active');
-        this.querySelector('i').classList.toggle('fa-bars');
-        this.querySelector('i').classList.toggle('fa-times');
-    });
-    
-    // Close mobile menu when clicking a link
-    document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', function() {
-            mainNav.classList.remove('active');
-            menuBtn.querySelector('i').classList.add('fa-bars');
-            menuBtn.querySelector('i').classList.remove('fa-times');
-        });
-    });
-    
-    // Smooth scrolling for anchor links
+    // All anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             
-            // Skip if it's the explore button
+            // Skip explore button (handled above)
             if (href === '#content' && this.id === 'exploreBtn') return;
             
             e.preventDefault();
@@ -1033,7 +1835,6 @@ window.addEventListener('load', function() {
             const targetElement = document.getElementById(targetId);
             
             if (targetElement) {
-                // Calculate offset for fixed header
                 const headerHeight = mainHeader.offsetHeight;
                 const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
                 
@@ -1044,30 +1845,325 @@ window.addEventListener('load', function() {
             }
         });
     });
+}
+
+// YOUTUBE API FUNCTIONS - WITH SECURITY MEASURES
+async function loadYouTubeData() {
+    try {
+        // Check cache first
+        if (cachedData.stats && cachedData.videos && 
+            (Date.now() - cachedData.timestamp) < CACHE_DURATION) {
+            updateYouTubeStats(cachedData.stats);
+            updateTopViewedVideos(cachedData.videos);
+            return;
+        }
+        
+        // Load in parallel
+        await Promise.all([
+            loadYouTubeStats(),
+            loadTopViewedVideos()
+        ]);
+        
+        showToast('YouTube data updated', 'success');
+    } catch (error) {
+        console.error('Error loading YouTube data:', error);
+        
+        // Use fallback data if API fails
+        if (!cachedData.stats) {
+            showFallbackData();
+        } else {
+            // Use cached data
+            updateYouTubeStats(cachedData.stats);
+            updateTopViewedVideos(cachedData.videos);
+        }
+        
+        showToast('Using cached YouTube data', 'info');
+    }
+}
+
+async function loadYouTubeStats() {
+    try {
+        // First, get channel ID from handle
+        const searchUrl = `https://www.googleapis.com/youtube/v3/search?part=id&type=channel&q=${encodeURIComponent(YOUTUBE_CHANNEL_HANDLE)}&key=${YOUTUBE_API_KEY}`;
+        const searchResponse = await fetch(searchUrl);
+        
+        if (!searchResponse.ok) {
+            throw new Error(`Search API error: ${searchResponse.status}`);
+        }
+        
+        const searchData = await searchResponse.json();
+        
+        if (!searchData.items || searchData.items.length === 0) {
+            throw new Error('Channel not found');
+        }
+        
+        const channelId = searchData.items[0].id.channelId;
+        
+        // Get channel statistics
+        const statsUrl = `https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=${channelId}&key=${YOUTUBE_API_KEY}`;
+        const statsResponse = await fetch(statsUrl);
+        
+        if (!statsResponse.ok) {
+            throw new Error(`Stats API error: ${statsResponse.status}`);
+        }
+        
+        const statsData = await statsResponse.json();
+        
+        if (statsData.items && statsData.items.length > 0) {
+            cachedData.stats = statsData.items[0];
+            cachedData.timestamp = Date.now();
+            updateYouTubeStats(statsData.items[0]);
+        }
+    } catch (error) {
+        console.error('Error loading YouTube stats:', error);
+        throw error;
+    }
+}
+
+async function loadTopViewedVideos() {
+    try {
+        // Get channel ID first
+        const searchUrl = `https://www.googleapis.com/youtube/v3/search?part=id&type=channel&q=${encodeURIComponent(YOUTUBE_CHANNEL_HANDLE)}&key=${YOUTUBE_API_KEY}`;
+        const searchResponse = await fetch(searchUrl);
+        const searchData = await searchResponse.json();
+        
+        if (!searchData.items || searchData.items.length === 0) {
+            throw new Error('Channel not found');
+        }
+        
+        const channelId = searchData.items[0].id.channelId;
+        
+        // Get latest videos
+        const videosUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=20&order=date&type=video&key=${YOUTUBE_API_KEY}`;
+        const videosResponse = await fetch(videosUrl);
+        const videosData = await videosResponse.json();
+        
+        if (videosData.items && videosData.items.length > 0) {
+            // Get video details for view counts
+            const videoIds = videosData.items.map(item => item.id.videoId).join(',');
+            const detailsUrl = `https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet&id=${videoIds}&key=${YOUTUBE_API_KEY}`;
+            const detailsResponse = await fetch(detailsUrl);
+            const detailsData = await detailsResponse.json();
+            
+            // Sort by view count and take top 3
+            const sortedVideos = detailsData.items.sort((a, b) => {
+                return parseInt(b.statistics.viewCount) - parseInt(a.statistics.viewCount);
+            });
+            
+            const topVideos = sortedVideos.slice(0, 3);
+            cachedData.videos = topVideos;
+            cachedData.timestamp = Date.now();
+            updateTopViewedVideos(topVideos);
+        }
+    } catch (error) {
+        console.error('Error loading top viewed videos:', error);
+        throw error;
+    }
+}
+
+function updateYouTubeStats(channel) {
+    const stats = channel.statistics;
+    const snippet = channel.snippet;
     
-    // Form submission
-    const contactForm = document.getElementById('contactForm');
-    contactForm.addEventListener('submit', function(e) {
+    // Format numbers
+    const formatNumber = (num) => {
+        if (!num) return '0';
+        const number = parseInt(num);
+        if (number >= 1000000) {
+            return (number / 1000000).toFixed(1) + 'M';
+        } else if (number >= 1000) {
+            return (number / 1000).toFixed(1) + 'K';
+        }
+        return number.toLocaleString();
+    };
+    
+    // Update stats cards
+    const statCards = document.querySelectorAll('.youtube-stat-card');
+    if (statCards.length >= 4) {
+        statCards[0].querySelector('.youtube-stat-number').textContent = formatNumber(stats.subscriberCount);
+        statCards[1].querySelector('.youtube-stat-number').textContent = formatNumber(stats.viewCount);
+        statCards[2].querySelector('.youtube-stat-number').textContent = formatNumber(stats.videoCount);
+        
+        // Get relative time for last upload
+        const lastUploadText = getRelativeTime(snippet.publishedAt);
+        statCards[3].querySelector('.youtube-stat-number').textContent = lastUploadText;
+    }
+}
+
+function updateTopViewedVideos(videos) {
+    const videosGrid = document.getElementById('youtubeVideos');
+    videosGrid.innerHTML = '';
+    
+    videos.forEach(video => {
+        const snippet = video.snippet;
+        const statistics = video.statistics;
+        
+        const videoCard = document.createElement('div');
+        videoCard.className = 'youtube-video-card';
+        videoCard.innerHTML = `
+            <div class="youtube-video-thumbnail">
+                <img src="${snippet.thumbnails.medium.url}" alt="${snippet.title}" loading="lazy">
+            </div>
+            <div class="youtube-video-info">
+                <div class="youtube-video-title">${snippet.title}</div>
+                <div class="youtube-video-date"><i class="far fa-calendar"></i> ${formatDate(snippet.publishedAt)}</div>
+                <div class="youtube-video-views"><i class="fas fa-fire" style="color: var(--fire);"></i> ${formatNumber(statistics.viewCount)} views</div>
+            </div>
+        `;
+        
+        // Make video clickable
+        videoCard.addEventListener('click', () => {
+            window.open(`https://www.youtube.com/watch?v=${video.id}`, '_blank');
+        });
+        
+        videosGrid.appendChild(videoCard);
+    });
+}
+
+function showFallbackData() {
+    // Fallback data in case API fails
+    const fallbackStats = [
+        { selector: '.youtube-stat-card:nth-child(1) .youtube-stat-number', value: '250K+' },
+        { selector: '.youtube-stat-card:nth-child(2) .youtube-stat-number', value: '15M+' },
+        { selector: '.youtube-stat-card:nth-child(3) .youtube-stat-number', value: '425+' },
+        { selector: '.youtube-stat-card:nth-child(4) .youtube-stat-number', value: 'Recently' }
+    ];
+    
+    fallbackStats.forEach(stat => {
+        const element = document.querySelector(stat.selector);
+        if (element) {
+            element.textContent = stat.value;
+        }
+    });
+    
+    // Show message about using fallback data
+    const videosGrid = document.getElementById('youtubeVideos');
+    if (videosGrid) {
+        videosGrid.innerHTML = `
+            <div class="youtube-video-card" style="grid-column: 1 / -1; text-align: center; padding: 2rem;">
+                <i class="fas fa-info-circle" style="font-size: 2rem; color: var(--orange); margin-bottom: 1rem;"></i>
+                <h3 style="color: var(--white); margin-bottom: 0.5rem;">Live Data Temporarily Unavailable</h3>
+                <p style="color: var(--smoke);">Visit our <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" style="color: var(--gold);">YouTube channel</a> to see our latest videos.</p>
+            </div>
+        `;
+    }
+}
+
+// HELPER FUNCTIONS
+function getRelativeTime(dateString) {
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffMs = now - date;
+    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    
+    if (diffDays === 0) return 'Today';
+    if (diffDays === 1) return 'Yesterday';
+    if (diffDays < 7) return `${diffDays} days ago`;
+    if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
+    if (diffDays < 365) return `${Math.floor(diffDays / 30)} months ago`;
+    return `${Math.floor(diffDays / 365)} years ago`;
+}
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+function formatNumber(num) {
+    if (!num) return '0';
+    const number = parseInt(num);
+    if (number >= 1000000) {
+        return (number / 1000000).toFixed(1) + 'M';
+    } else if (number >= 1000) {
+        return (number / 1000).toFixed(1) + 'K';
+    }
+    return number.toLocaleString();
+}
+
+// FORM SUBMISSION
+function initFormSubmission() {
+    contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
-        // In a real implementation, you would send this to a server
-        alert('Thank you for your message! We\'ll get back to you soon.');
-        contactForm.reset();
+        // Show loading state
+        const submitBtn = this.querySelector('.submit-btn');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> SENDING...';
+        submitBtn.disabled = true;
+        
+        try {
+            const formData = new FormData(this);
+            
+            // Add hidden fields for Formspree
+            formData.append('_replyto', this.querySelector('#email').value);
+            formData.append('_subject', `Crocked N Loaded Contact: ${this.querySelector('#subject').value}`);
+            
+            const response = await fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                showToast('Message sent successfully! We\'ll respond soon.', 'success');
+                this.reset();
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            showToast('Error sending message. Please try emailing us directly.', 'error');
+        } finally {
+            // Reset button
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }
     });
-    
-    // Initialize - set initial position
-    mainContent.style.transform = 'translateY(100vh)';
-    
-    // Auto-play video (muted for autoplay policies)
-    heroVideo.play().catch(error => {
-        console.log('Video autoplay failed:', error);
-        playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-        playPauseBtn.title = 'Play video';
-    });
-});
+}
 
-// Prevent horizontal scroll
-window.addEventListener('resize', function() {
+// TOAST NOTIFICATIONS
+function showToast(message, type = 'success') {
+    toast.textContent = message;
+    toast.className = 'toast';
+    toast.classList.add('show');
+    
+    if (type === 'error') {
+        toast.style.background = 'linear-gradient(135deg, #ff3030, #ff0000)';
+    } else if (type === 'info') {
+        toast.style.background = 'linear-gradient(135deg, var(--orange), var(--gold))';
+    }
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 4000);
+}
+
+// TOUCH DEVICE OPTIMIZATIONS
+if ('ontouchstart' in window) {
+    // Add touch-specific optimizations
+    document.documentElement.style.setProperty('--touch-friendly', '1');
+    
+    // Prevent zoom on double-tap
+    document.addEventListener('dblclick', (e) => e.preventDefault());
+    
+    // Improve touch scrolling
+    document.body.style.overflow = 'auto';
+    document.body.style.webkitOverflowScrolling = 'touch';
+}
+
+// FIX FOR MOBILE VIEWPORT HEIGHT
+function setVH() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+window.addEventListener('resize', setVH);
+setVH();
+
+// PREVENT HORIZONTAL SCROLL
+window.addEventListener('resize', () => {
     document.body.style.overflowX = 'hidden';
 });
 </script>
