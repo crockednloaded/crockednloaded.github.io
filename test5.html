@@ -22,6 +22,7 @@
         html {
             scroll-behavior: smooth;
             overflow-x: hidden;
+            height: 100%;
         }
 
         body {
@@ -31,6 +32,9 @@
             overflow-x: hidden;
             line-height: 1.6;
             font-weight: 300;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         /* === COLOR VARIABLES === */
@@ -103,9 +107,7 @@
 
         /* === HERO SECTION - THE HOOK === */
         .hero-wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
+            position: relative;
             width: 100%;
             height: 100vh;
             z-index: 1;
@@ -118,15 +120,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('background.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
             z-index: 1;
-        }
-
-        @media (min-width: 768px) {
-            .hero-bg-top {
-                background: url('background.jpg') center/contain no-repeat;
-                background-color: #000;
-            }
         }
 
         .hero-bg-overlay {
@@ -135,14 +130,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(10,10,10,0.5);
+            background: linear-gradient(to bottom, rgba(10,10,10,0.3), rgba(10,10,10,0.9));
             z-index: 2;
-        }
-
-        @media (min-width: 768px) {
-            .hero-bg-overlay {
-                background: rgba(10,10,10,0.7);
-            }
         }
 
         .hero-content-container {
@@ -317,7 +306,7 @@
             position: relative;
             z-index: 2;
             background: #0a0a0a;
-            min-height: 100vh;
+            flex: 1;
             transform: translateY(100vh);
             transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border-top: 5px solid #FF3B30;
@@ -1360,16 +1349,17 @@
             }
         }
 
-        /* === FOOTER === */
+        /* === ENHANCED FOOTER === */
         .site-footer {
-            background: #0a0a0a;
+            background: linear-gradient(to top, #0a0a0a, #1a1a1a);
             padding: 60px 20px 30px;
-            border-top: 3px solid #FF3B30;
+            border-top: 5px solid #FF3B30;
+            margin-top: auto;
         }
 
         @media (min-width: 768px) {
             .site-footer {
-                padding: 60px 30px 30px;
+                padding: 80px 30px 40px;
             }
         }
 
@@ -1378,20 +1368,20 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 50px;
+            margin-bottom: 50px;
         }
 
         @media (min-width: 768px) {
             .footer-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(4, 1fr);
                 gap: 40px;
             }
         }
 
         .footer-brand .brand-text {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
         }
 
         .footer-brand p {
@@ -1399,13 +1389,26 @@
             line-height: 1.7;
             font-size: 1.1rem;
             font-family: 'Montserrat', sans-serif;
+            margin-bottom: 30px;
         }
 
         .footer-links h4 {
             font-family: 'Bebas Neue', Impact;
             font-size: 1.8rem;
             color: #FFD700;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #FF3B30, #FF9500);
         }
 
         .footer-links ul {
@@ -1413,7 +1416,7 @@
         }
 
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .footer-links a {
@@ -1423,15 +1426,52 @@
             display: inline-block;
             font-size: 1.1rem;
             font-family: 'Montserrat', sans-serif;
+            position: relative;
+            padding-left: 0;
+            transition: all 0.3s ease;
         }
 
         .footer-links a:hover {
             color: #FFD700;
-            transform: translateX(8px);
+            transform: translateX(10px);
+        }
+
+        .footer-links a::before {
+            content: '→';
+            position: absolute;
+            left: -20px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            color: #FF3B30;
+        }
+
+        .footer-links a:hover::before {
+            opacity: 1;
+            left: -15px;
+        }
+
+        .social-section h4 {
+            font-family: 'Bebas Neue', Impact;
+            font-size: 1.8rem;
+            color: #FFD700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .social-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #FF3B30, #FF9500);
         }
 
         .social-icons {
             display: flex;
+            flex-wrap: wrap;
             gap: 15px;
             margin-bottom: 25px;
         }
@@ -1439,7 +1479,7 @@
         .social-icon {
             width: 50px;
             height: 50px;
-            background: #1a1a1a;
+            background: rgba(26,26,26,0.8);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1452,17 +1492,89 @@
 
         .social-icon:hover {
             background: #FF3B30;
-            transform: translateY(-5px);
+            transform: translateY(-5px) rotate(5deg);
+            box-shadow: 0 10px 20px rgba(255,59,48,0.3);
+        }
+
+        .newsletter-form {
+            margin-top: 25px;
+        }
+
+        .newsletter-form p {
+            color: #ccc;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .newsletter-form input {
+            width: 100%;
+            padding: 15px;
+            background: rgba(58,58,58,0.6);
+            border: 2px solid #FF9500;
+            border-radius: 6px;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .newsletter-form button {
+            width: 100%;
+            background: linear-gradient(135deg, #FF3B30, #FF9500);
+            border: 2px solid #FFD700;
+            color: #fff;
+            padding: 15px;
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255,59,48,0.4);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid #2a2a2a;
         }
 
         .copyright {
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #1a1a1a;
             color: #888;
-            font-size: 1rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            font-size: 0.95rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .copyright p {
+            margin-bottom: 10px;
+        }
+
+        .footer-legal {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-legal a {
+            color: #FF9500;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .footer-legal a:hover {
+            color: #FFD700;
+            text-decoration: underline;
         }
 
         /* === SCROLL INDICATOR === */
@@ -1532,6 +1644,11 @@
             
             .nav-item:last-child a {
                 border-bottom: none;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
         }
 
@@ -2044,7 +2161,7 @@
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Enhanced Footer -->
     <footer class="site-footer">
         <div class="footer-grid">
             <div class="footer-brand">
@@ -2054,6 +2171,20 @@
                     No culinary degree required, no fancy equipment needed. Just passion, 
                     real techniques, and the willingness to make a mess in the kitchen.
                 </p>
+                <div class="social-icons">
+                    <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" class="social-icon">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://instagram.com/CrockedNLoadedShow" target="_blank" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" class="social-icon">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank" class="social-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
             </div>
             
             <div class="footer-links">
@@ -2070,29 +2201,41 @@
             </div>
             
             <div class="footer-links">
-                <h4>CONNECT WITH US</h4>
-                <div class="social-icons">
-                    <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" class="social-icon">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="https://instagram.com/CrockedNLoadedShow" target="_blank" class="social-icon">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" class="social-icon">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                    <a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank" class="social-icon">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
-                </div>
-                <p style="color: #ccc; margin-top: 20px; font-family: 'Montserrat', sans-serif;">
-                    Subscribe anywhere, follow everywhere. We're building this thing together.
+                <h4>CONTENT</h4>
+                <ul>
+                    <li><a href="#content">Cooking Demos</a></li>
+                    <li><a href="#content">Budget Challenges</a></li>
+                    <li><a href="#content">Honest Reviews</a></li>
+                    <li><a href="#youtube">YouTube Videos</a></li>
+                    <li><a href="#facebook">Facebook Lives</a></li>
+                    <li><a href="#webstore">Merch Store</a></li>
+                </ul>
+            </div>
+            
+            <div class="social-section">
+                <h4>STAY CONNECTED</h4>
+                <p style="color: #ccc; margin-bottom: 25px; font-family: 'Montserrat', sans-serif;">
+                    Subscribe to our newsletter for exclusive recipes, behind-the-scenes content, and early access to merch drops.
                 </p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">
+                        <i class="fas fa-paper-plane"></i> SUBSCRIBE
+                    </button>
+                </div>
             </div>
         </div>
         
-        <div class="copyright">
-            <p>© 2025 Crocked 'N Loaded. Made with fire, flavor, and zero pretentiousness. | Real Food. Real Reviews. No Bullshit.</p>
+        <div class="footer-bottom">
+            <div class="copyright">
+                <p>© 2025 Crocked 'N Loaded. Made with fire, flavor, and zero pretentiousness. | Real Food. Real Reviews. No Bullshit.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#webstore">Affiliate Disclosure</a>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -2109,6 +2252,7 @@
         const navItems = document.querySelectorAll('.nav-item a');
         const contentFade = document.getElementById('contentFade');
         const contactForm = document.getElementById('contactForm');
+        const newsletterForm = document.querySelector('.newsletter-form button');
         
         // Hide loading screen
         setTimeout(() => {
@@ -2200,6 +2344,20 @@
             }
         });
         
+        // Newsletter subscription
+        if (newsletterForm) {
+            newsletterForm.addEventListener('click', function(e) {
+                e.preventDefault();
+                const emailInput = this.closest('.newsletter-form').querySelector('input[type="email"]');
+                if (emailInput.value && emailInput.value.includes('@')) {
+                    showToast('Thanks for subscribing! We\'ll keep you posted.', 'success');
+                    emailInput.value = '';
+                } else {
+                    showToast('Please enter a valid email address.', 'error');
+                }
+            });
+        }
+        
         // Scroll effects
         function updateScrollEffects() {
             const scrollY = window.scrollY;
@@ -2219,6 +2377,25 @@
                 pageContent.style.transform = 'translateY(100vh)';
                 contentFade.classList.remove('active');
             }
+            
+            // Update active nav based on scroll position
+            const sections = document.querySelectorAll('.content-block');
+            const scrollPosition = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    navItems.forEach(item => {
+                        item.classList.remove('active');
+                        if (item.getAttribute('href') === '#' + sectionId) {
+                            item.classList.add('active');
+                        }
+                    });
+                }
+            });
         }
         
         // Contact form submission
@@ -2292,6 +2469,12 @@
         
         // Initial call
         updateScrollEffects();
+        
+        // Add a fallback background image
+        const heroBg = document.getElementById('heroBackground');
+        heroBg.onerror = function() {
+            this.style.background = 'linear-gradient(135deg, #0a0a0a, #1a1a1a)';
+        };
     });
     </script>
 </body>
