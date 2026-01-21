@@ -43,7 +43,7 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
-/* HERO SECTION - FIXED BACKGROUND IMAGE CROPPING */
+/* HERO SECTION - MOBILE OPTIMIZED */
 .hero-section {
     position: fixed;
     top: 0;
@@ -61,26 +61,25 @@ body {
     width: 100%;
     height: 100%;
     background: url('background.jpg') center/cover no-repeat;
-    /* FIX: Show more of the top of the image */
-    background-position: center 30%; /* Changed from 50% to 30% to show more top */
-    filter: brightness(0.7);
+    background-position: center 30%; /* Show more top of image */
+    filter: brightness(0.8);
     will-change: transform;
 }
 
-/* Adjust parallax effect to show more top */
+/* MOBILE: Lighter overlay for better visibility */
 .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* Adjusted gradient to show more image at top */
+    /* Mobile: Much lighter overlay */
     background: linear-gradient(to bottom,
-        rgba(10,10,10,0.7) 0%,      /* Less dark at top */
-        rgba(10,10,10,0.8) 20%,
-        rgba(10,10,10,0.85) 40%,
-        rgba(10,10,10,0.9) 70%,
-        rgba(10,10,10,0.95) 100%);
+        rgba(10,10,10,0.4) 0%,      /* Very light at top */
+        rgba(10,10,10,0.5) 30%,
+        rgba(10,10,10,0.6) 60%,
+        rgba(10,10,10,0.7) 80%,
+        rgba(10,10,10,0.8) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -88,11 +87,24 @@ body {
     padding: 1rem;
 }
 
-/* Rest of your existing CSS remains exactly the same... */
+/* Desktop: Keep original overlay */
+@media (min-width: 769px) {
+    .hero-overlay {
+        background: linear-gradient(to bottom,
+            rgba(10,10,10,0.7) 0%,
+            rgba(10,10,10,0.8) 30%,
+            rgba(10,10,10,0.85) 60%,
+            rgba(10,10,10,0.9) 80%,
+            rgba(10,10,10,0.95) 100%);
+    }
+}
+
 .hero-content {
     max-width: 800px;
     padding: 2rem;
     animation: fadeInUp 1s ease-out;
+    position: relative;
+    z-index: 2;
 }
 
 @keyframes fadeInUp {
@@ -116,6 +128,7 @@ body {
     letter-spacing: 3px;
     line-height: 1;
     text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 .hero-tagline {
@@ -126,6 +139,7 @@ body {
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 2px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 .hero-subtitle {
@@ -134,16 +148,18 @@ body {
     color: var(--orange);
     margin-bottom: 2rem;
     font-weight: 700;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 .hero-description {
     font-size: clamp(1rem, 3vw, 1.2rem);
-    color: var(--smoke);
+    color: var(--white); /* Changed from smoke to white for better contrast */
     margin-bottom: 3rem;
     line-height: 1.6;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 
 .scroll-indicator {
@@ -153,6 +169,7 @@ body {
     transform: translateX(-50%);
     animation: bounce 2s infinite;
     z-index: 10;
+    display: block; /* Will hide on scroll */
 }
 
 @keyframes bounce {
@@ -174,9 +191,18 @@ body {
     margin-bottom: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 2px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
-/* MAIN CONTENT - SLIDES UP */
+/* FIX: Hide scroll indicator and hero content when scrolled */
+.scroll-indicator.hidden,
+.hero-content.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* MAIN CONTENT - SLIDES UP WITH BETTER MOBILE HANDLING */
 .main-content {
     position: relative;
     z-index: 2;
@@ -187,6 +213,25 @@ body {
     transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border-top: 5px solid var(--fire);
     box-shadow: 0 -10px 40px rgba(0,0,0,0.8);
+    /* FIX: Prevent background from showing through */
+    overflow: hidden;
+}
+
+/* FIX: Add a solid mask to hide background when fully scrolled */
+.content-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--dark);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.content-mask.active {
+    opacity: 1;
 }
 
 /* NAVIGATION */
@@ -1052,8 +1097,49 @@ footer {
     opacity: 1;
 }
 
-/* RESPONSIVE DESIGN */
+/* RESPONSIVE DESIGN - MOBILE FIXES */
 @media (max-width: 768px) {
+    /* MOBILE: Even lighter overlay for best visibility */
+    .hero-overlay {
+        background: linear-gradient(to bottom,
+            rgba(10,10,10,0.3) 0%,      /* Very light at top */
+            rgba(10,10,10,0.4) 20%,
+            rgba(10,10,10,0.5) 50%,
+            rgba(10,10,10,0.6) 80%,
+            rgba(10,10,10,0.7) 100%);
+    }
+    
+    .hero-title {
+        font-size: 2.8rem; /* Slightly larger on mobile */
+        margin-bottom: 0.75rem;
+    }
+    
+    .hero-tagline {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+        color: var(--white);
+        text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+        margin-bottom: 2rem;
+    }
+    
+    .hero-content {
+        padding: 1.5rem;
+    }
+    
+    .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
     .nav-menu {
         position: fixed;
         top: 70px;
@@ -1095,12 +1181,8 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
     
-    .hero-overlay {
-        padding: 1rem;
-    }
-    
-    .hero-content {
-        padding: 1.5rem;
+    .scroll-indicator {
+        bottom: 20px; /* Higher on mobile */
     }
 }
 
@@ -1135,6 +1217,16 @@ footer {
     
     .footer-grid {
         grid-template-columns: 1fr;
+    }
+    
+    /* MOBILE: Even brighter for small screens */
+    .hero-overlay {
+        background: linear-gradient(to bottom,
+            rgba(10,10,10,0.2) 0%,
+            rgba(10,10,10,0.3) 30%,
+            rgba(10,10,10,0.4) 60%,
+            rgba(10,10,10,0.5) 80%,
+            rgba(10,10,10,0.6) 100%);
     }
 }
 
@@ -1192,7 +1284,7 @@ footer {
 <div class="hero-section" id="hero">
     <div class="hero-background" id="heroBackground"></div>
     <div class="hero-overlay">
-        <div class="hero-content">
+        <div class="hero-content" id="heroContent">
             <h1 class="hero-title">CROCKED 'N LOADED</h1>
             <div class="hero-tagline">REAL FOOD. REAL REVIEWS.</div>
             <div class="hero-subtitle">NO BULLSHIT.</div>
@@ -1206,7 +1298,7 @@ footer {
         </div>
     </div>
     
-    <div class="scroll-indicator">
+    <div class="scroll-indicator" id="scrollIndicator">
         <div class="scroll-text">SCROLL TO EXPLORE</div>
         <div class="scroll-arrow">
             <i class="fas fa-chevron-down"></i>
@@ -1237,6 +1329,8 @@ footer {
 
 <!-- Main Content -->
 <main class="main-content" id="mainContent">
+    <!-- Content mask to hide background when scrolled -->
+    <div class="content-mask" id="contentMask"></div>
     
     <!-- Home Section -->
     <section class="content-section" id="home">
@@ -1650,11 +1744,15 @@ const toast = document.getElementById('toast');
 const heroBackground = document.getElementById('heroBackground');
 const youtubeStatsGrid = document.getElementById('youtubeStats');
 const youtubeVideosGrid = document.getElementById('youtubeVideos');
+const heroContent = document.getElementById('heroContent');
+const scrollIndicator = document.getElementById('scrollIndicator');
+const contentMask = document.getElementById('contentMask');
 
 // Performance optimization
 let lastScrollY = 0;
 let ticking = false;
 let contentRevealed = false;
+let heroHidden = false;
 
 // Initialize when page loads
 document.addEventListener('DOMContentLoaded', async function() {
@@ -1689,7 +1787,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     }, 600000); // 10 minutes
 });
 
-// SCROLL EFFECTS
+// SCROLL EFFECTS - FIXED FOR MOBILE
 function initScrollEffects() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     
@@ -1699,7 +1797,7 @@ function initScrollEffects() {
 }
 
 function handleScroll() {
-    lastScrollY = window.scrollY || window.pageYOffset;
+    lastScrollY = window.scrollY || document.documentElement.scrollTop;
     
     if (!ticking) {
         window.requestAnimationFrame(() => {
@@ -1730,13 +1828,30 @@ function updateScrollEffects(scrollY) {
         contentRevealed = true;
     } else if (scrollPercent > 0.6) {
         mainContent.style.transform = 'translateY(0)';
+        // FIX: Hide hero content when fully scrolled
+        if (!heroHidden) {
+            heroContent.classList.add('hidden');
+            scrollIndicator.classList.add('hidden');
+            heroHidden = true;
+        }
+        // FIX: Show content mask to hide background
+        contentMask.classList.add('active');
     } else if (scrollPercent < 0.2 && contentRevealed) {
         mainContent.style.transform = 'translateY(100vh)';
         contentRevealed = false;
+        // FIX: Show hero content when scrolling back up
+        if (heroHidden) {
+            heroContent.classList.remove('hidden');
+            scrollIndicator.classList.remove('hidden');
+            heroHidden = false;
+        }
+        // FIX: Hide content mask
+        contentMask.classList.remove('active');
     }
     
-    // Parallax effect on hero background
-    const parallaxValue = scrollY * 0.4;
+    // Parallax effect on hero background - LIMITED to prevent seeing background at bottom
+    const maxParallax = windowHeight * 0.8; // Limit parallax
+    const parallaxValue = Math.min(scrollY * 0.4, maxParallax);
     heroBackground.style.transform = `translateY(${parallaxValue}px)`;
     
     // Active nav link highlighting
