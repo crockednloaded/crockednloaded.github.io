@@ -8,7 +8,7 @@
     
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@300;400;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@300;400;500;600;700;800&family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         /* === RESET & BASE === */
@@ -118,7 +118,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('background.jpg') center/cover no-repeat;
+            background: url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2067&q=80') center/cover no-repeat;
             background-position: center 30%;
             filter: brightness(0.7);
         }
@@ -204,6 +204,8 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
         }
 
         /* === NAVIGATION - STICKY & CLEAN === */
@@ -465,10 +467,12 @@
         }
 
         .host-bio {
-            color: #888;
+            color: #ccc;
             line-height: 1.7;
             margin-bottom: 30px;
             font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
         }
 
         .host-stats {
@@ -558,9 +562,11 @@
         }
 
         .content-card p {
-            color: #888;
+            color: #ccc;
             line-height: 1.6;
             margin-bottom: 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
         }
 
         .coming-soon-tag {
@@ -575,229 +581,94 @@
 
         /* === WEBSTORE SECTION === */
         .store-wrapper {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .store-banner {
-            background: linear-gradient(135deg, rgba(255,59,48,0.1), rgba(255,149,0,0.1));
-            border: 3px solid #FF3B30;
-            border-radius: 15px;
-            padding: 60px 40px;
-            text-align: center;
-            margin-bottom: 60px;
+        .store-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
         }
 
-        .store-banner i {
-            font-size: 5rem;
+        .store-option {
+            background: linear-gradient(135deg, rgba(26,26,26,0.95), rgba(42,42,42,0.8));
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #FF9500;
+        }
+
+        .store-option i {
+            font-size: 4rem;
             color: #FFD700;
             margin-bottom: 30px;
         }
 
-        .store-banner h3 {
+        .store-option h3 {
             font-family: 'Bebas Neue', Impact;
-            font-size: 3rem;
+            font-size: 2.2rem;
             color: #fff;
             margin-bottom: 20px;
         }
 
-        .store-banner p {
-            color: #888;
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 30px;
+        .store-option p {
+            color: #ccc;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
         }
 
-        .countdown-timer {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 40px 0;
+        /* === EMBEDDED STORE SECTION === */
+        .store-embed-section {
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(26,26,26,0.95), rgba(42,42,42,0.8));
+            border-radius: 15px;
+            border: 3px solid #FF3B30;
         }
 
-        .timer-unit {
-            background: #1a1a1a;
-            padding: 25px;
-            border-radius: 10px;
-            min-width: 120px;
-        }
-
-        .timer-number {
-            font-family: 'Orbitron', monospace;
-            font-size: 2.5rem;
-            color: #FF3B30;
-            margin-bottom: 10px;
-        }
-
-        .timer-label {
-            font-size: 0.9rem;
-            color: #888;
-            text-transform: uppercase;
-        }
-
-        .product-showcase h3 {
+        .store-embed-section h3 {
             font-family: 'Bebas Neue', Impact;
             font-size: 2.5rem;
             text-align: center;
             color: #FFD700;
             margin-bottom: 40px;
-            text-transform: uppercase;
         }
 
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin: 40px 0;
-        }
-
-        .product-card {
-            background: linear-gradient(135deg, rgba(26,26,26,0.95), rgba(42,42,42,0.8));
-            border-radius: 12px;
-            overflow: hidden;
-            border: 2px solid #FF9500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #FF3B30;
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-family: 'Orbitron', monospace;
-            font-size: 0.8rem;
-            z-index: 2;
-            text-transform: uppercase;
-        }
-
-        .product-image {
-            height: 280px;
-            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .product-image i {
-            font-size: 6rem;
-            color: rgba(255,255,255,0.1);
-        }
-
-        .product-text-overlay {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Bebas Neue', Impact;
-            font-size: 2.2rem;
-            color: #FFD700;
+        .store-placeholder {
+            background: rgba(42,42,42,0.6);
+            border: 2px dashed #FF9500;
+            border-radius: 10px;
+            padding: 60px 30px;
             text-align: center;
-            padding: 20px;
-        }
-
-        .product-details {
-            padding: 30px;
-        }
-
-        .product-details h4 {
-            font-family: 'Bebas Neue', Impact;
-            font-size: 1.8rem;
-            color: #fff;
-            margin-bottom: 15px;
-        }
-
-        .product-details p {
-            color: #888;
-            font-size: 1rem;
-            margin-bottom: 25px;
-        }
-
-        .product-price {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .price-amount {
-            font-family: 'Orbitron', monospace;
-            color: #FFD700;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .price-note {
-            font-size: 0.9rem;
-            color: #FF3B30;
-            font-family: 'Orbitron', monospace;
-        }
-
-        .store-signup {
-            background: linear-gradient(135deg, rgba(26,26,26,0.95), rgba(42,42,42,0.8));
-            border-radius: 15px;
-            padding: 50px;
-            margin: 60px 0;
-            border: 2px solid #FFD700;
-        }
-
-        .store-signup h3 {
-            font-family: 'Bebas Neue', Impact;
-            font-size: 2.5rem;
-            text-align: center;
-            color: #fff;
-            margin-bottom: 20px;
-        }
-
-        .store-signup p {
-            text-align: center;
-            color: #888;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            font-size: 1.1rem;
-        }
-
-        .signup-form {
-            max-width: 500px;
             margin: 0 auto;
+            max-width: 800px;
         }
 
-        .form-row {
-            display: flex;
-            gap: 20px;
+        .store-placeholder i {
+            font-size: 5rem;
+            color: rgba(255, 215, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .store-placeholder h4 {
+            font-family: 'Bebas Neue', Impact;
+            font-size: 2rem;
+            color: #FF9500;
             margin-bottom: 20px;
         }
 
-        .form-row input {
-            flex: 1;
-            padding: 18px 30px;
-            background: #1a1a1a;
-            border: 2px solid #FF9500;
-            border-radius: 50px;
-            color: #fff;
-            font-family: 'Exo 2', sans-serif;
-            font-size: 1rem;
-        }
-
-        .store-note {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid #2a2a2a;
-        }
-
-        .store-note p {
-            color: #888;
-            font-size: 1rem;
+        .store-placeholder p {
+            color: #ccc;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: 'Montserrat', sans-serif;
         }
 
         /* === FACEBOOK SECTION === */
@@ -851,7 +722,8 @@
         }
 
         .facebook-preview p {
-            color: #888;
+            color: #ccc;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .features-list {
@@ -888,9 +760,11 @@
         }
 
         .features-list p {
-            color: #888;
+            color: #ccc;
             font-size: 0.95rem;
             margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
         }
 
         .facebook-cta {
@@ -928,6 +802,12 @@
             display: flex;
             align-items: center;
             gap: 15px;
+        }
+
+        .youtube-card p {
+            color: #ccc;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
         }
 
         .stats-grid {
@@ -1116,8 +996,9 @@
         }
 
         .contact-item p {
-            color: #888;
+            color: #ccc;
             font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .social-links {
@@ -1135,6 +1016,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .social-links a:hover {
@@ -1163,7 +1045,7 @@
             border: 2px solid #FF9500;
             border-radius: 6px;
             color: #fff;
-            font-family: 'Exo 2', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 1rem;
             transition: all 0.3s ease;
         }
@@ -1226,9 +1108,10 @@
         }
 
         .footer-brand p {
-            color: #888;
+            color: #ccc;
             line-height: 1.7;
             font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .footer-links h4 {
@@ -1247,11 +1130,12 @@
         }
 
         .footer-links a {
-            color: #888;
+            color: #ccc;
             text-decoration: none;
             transition: all 0.3s ease;
             display: inline-block;
             font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .footer-links a:hover {
@@ -1312,16 +1196,13 @@
             .content-cards,
             .facebook-cards,
             .youtube-stats,
-            .contact-grid {
+            .contact-grid,
+            .store-options {
                 grid-template-columns: 1fr;
             }
             
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .countdown-timer {
-                flex-wrap: wrap;
             }
             
             .form-row {
@@ -1378,19 +1259,6 @@
                 padding: 15px 30px;
                 font-size: 0.9rem;
             }
-            
-            .store-banner {
-                padding: 40px 20px;
-            }
-            
-            .store-banner h3 {
-                font-size: 2.2rem;
-            }
-            
-            .timer-unit {
-                min-width: 100px;
-                padding: 20px;
-            }
         }
 
         @media (max-width: 480px) {
@@ -1420,16 +1288,6 @@
             
             .stats-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .countdown-timer {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .timer-unit {
-                width: 100%;
-                max-width: 200px;
             }
         }
 
@@ -1464,8 +1322,7 @@
             .content-card:hover,
             .facebook-card:hover,
             .youtube-card:hover,
-            .video-card:hover,
-            .product-card:hover {
+            .video-card:hover {
                 transform: none;
             }
             
@@ -1588,7 +1445,7 @@
                 <div class="hero-subtitle">NO BULLSHIT.</div>
                 <p class="hero-description">
                     We're just two regular guys who love food way too much. CrockPotDaddy brings the kitchen energy, 
-                    MACK3Y brings 23 years of restaurant experience. Together, we're tearing down the wall between 
+                    MACK3Y the Foodie brings 23 years of restaurant experience. Together, we're tearing down the wall between 
                     professional cooking and your kitchen at home.
                 </p>
                 <a href="#content" class="action-btn" id="exploreBtn">
@@ -1635,7 +1492,7 @@
                 <h2 class="block-title">WELCOME TO CROCKED 'N LOADED</h2>
                 <div class="block-subtitle">WHERE REAL FOOD MEETS REAL REVIEWS</div>
             </div>
-            <p style="text-align: center; color: #888; max-width: 800px; margin: 0 auto 40px; font-size: 1.2rem;">
+            <p style="text-align: center; color: #ccc; max-width: 800px; margin: 0 auto 40px; font-size: 1.2rem; font-family: 'Montserrat', sans-serif;">
                 Forget everything you've seen about cooking shows. No shiny studio kitchens, no pretentious chefs, 
                 no impossible techniques. We're bringing restaurant-level cooking to real people with real kitchens. 
                 You don't need a culinary degree - you just need to love good food.
@@ -1653,30 +1510,31 @@
                 <div class="host-card">
                     <div class="host-top">
                         <div class="host-name">CROCKPOTDADDY</div>
-                        <div class="host-role">FIREFIGHTER & HOME COOK</div>
+                        <div class="host-role">SALES PRO & MUSIC CONNECTOR</div>
                     </div>
                     <div class="host-body">
                         <p class="host-bio">
-                            By day, I'm a registered firefighter keeping people safe. By night, I'm in the kitchen 
-                            figuring out how to make restaurant-worthy meals without the fancy equipment or 
-                            pretentious jargon. I spent years in music and sales before finding my real passion: 
-                            making professional cooking techniques accessible to everyone.
+                            By day, I'm crushing it in sales and connecting people in the music scene. By night, I'm in the kitchen 
+                            figuring out how to make restaurant-worthy meals without the fancy equipment or pretentious jargon. 
+                            I've worked behind the scenes with major artists right before they hit it big, and I bring that same 
+                            passion for authentic connection to the kitchen. My mission? Making professional cooking techniques 
+                            accessible to everyone who loves good food.
                         </p>
                         <div class="host-stats">
                             <div class="stat-item">
-                                <span class="stat-value">FIREFIGHTER</span>
+                                <span class="stat-value">SALES PRO</span>
                                 <span class="stat-label">Day Job</span>
                             </div>
                             <div class="stat-item">
-                                <span class="stat-value">MUSIC & SALES</span>
-                                <span class="stat-label">Background</span>
+                                <span class="stat-value">MUSIC SCENE</span>
+                                <span class="stat-label">Connections</span>
                             </div>
                             <div class="stat-item">
                                 <span class="stat-value">HOME COOK</span>
                                 <span class="stat-label">Expertise</span>
                             </div>
                             <div class="stat-item">
-                                <span class="stat-value">PRACTICAL</span>
+                                <span class="stat-value">AUTHENTIC</span>
                                 <span class="stat-label">Approach</span>
                             </div>
                         </div>
@@ -1686,15 +1544,17 @@
                 <!-- MACK3Y Card -->
                 <div class="host-card">
                     <div class="host-top">
-                        <div class="host-name">MACK3Y</div>
-                        <div class="host-role">INDUSTRY PROFESSIONAL</div>
+                        <div class="host-name">MACK3Y THE FOODIE</div>
+                        <div class="host-role">INDUSTRY VETERAN & TEACHER</div>
                     </div>
                     <div class="host-body">
                         <p class="host-bio">
                             23 years in professional kitchens taught me one thing: great food doesn't have to be 
-                            complicated. I've worked everywhere from high-end restaurants to street food stalls, 
-                            and I've brought those global flavors back home. Now I'm sharing the real techniques 
-                            chefs use - stripped of the intimidation factor.
+                            complicated. I've worked everywhere from high-end restaurants to street food stalls across 
+                            the country, and I've brought those global flavors and real techniques back home. Now I'm 
+                            sharing what chefs actually do - stripped of the intimidation factor and kitchen myths. 
+                            Whether it's knife skills, flavor balancing, or restaurant secrets, I break it down so 
+                            anyone can cook with confidence.
                         </p>
                         <div class="host-stats">
                             <div class="stat-item">
@@ -1711,7 +1571,7 @@
                             </div>
                             <div class="stat-item">
                                 <span class="stat-value">GLOBAL</span>
-                                <span class="stat-label">Focus</span>
+                                <span class="stat-label">Flavors</span>
                             </div>
                         </div>
                     </div>
@@ -1770,132 +1630,49 @@
             </div>
             
             <div class="store-wrapper">
-                <!-- Store Banner -->
-                <div class="store-banner">
-                    <i class="fas fa-shopping-bag"></i>
-                    <h3>GEAR DROP COMING SOON!</h3>
-                    <p>
-                        We're cooking up some merch that's as 🔥 as our recipes. From kitchen gear to streetwear, 
-                        everything's designed for people who take their food (but not themselves) seriously.
-                    </p>
-                    <div class="countdown-timer">
-                        <div class="timer-unit">
-                            <div class="timer-number" id="countdownDays">-</div>
-                            <div class="timer-label">Days</div>
-                        </div>
-                        <div class="timer-unit">
-                            <div class="timer-number" id="countdownHours">-</div>
-                            <div class="timer-label">Hours</div>
-                        </div>
-                        <div class="timer-unit">
-                            <div class="timer-number" id="countdownMinutes">-</div>
-                            <div class="timer-label">Minutes</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product Preview -->
-                <div class="product-showcase">
-                    <h3>WHAT'S IN THE WORKS</h3>
-                    
-                    <div class="product-grid">
-                        <!-- Product 1 -->
-                        <div class="product-card">
-                            <div class="product-badge">Coming Soon</div>
-                            <div class="product-image">
-                                <i class="fas fa-tshirt"></i>
-                                <div class="product-text-overlay">
-                                    CROCKED 'N LOADED
-                                </div>
-                            </div>
-                            <div class="product-details">
-                                <h4>Signature Tee</h4>
-                                <p>
-                                    Heavyweight cotton tee with our clean logo. Designed to survive kitchen splatters 
-                                    and look good doing it.
-                                </p>
-                                <div class="product-price">
-                                    <span class="price-amount">$29.99</span>
-                                    <span class="price-note">PRE-ORDER SOON</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Product 2 -->
-                        <div class="product-card">
-                            <div class="product-badge">Coming Soon</div>
-                            <div class="product-image">
-                                <i class="fas fa-mug-hot"></i>
-                                <div class="product-text-overlay">
-                                    REAL FOOD.<br>REAL REVIEWS.<br>NO BULLSHIT.
-                                </div>
-                            </div>
-                            <div class="product-details">
-                                <h4>Morning Fuel Mug</h4>
-                                <p>
-                                    Heavy ceramic mug with our battle cry. Because the first coffee of the day 
-                                    should remind you what matters.
-                                </p>
-                                <div class="product-price">
-                                    <span class="price-amount">$19.99</span>
-                                    <span class="price-note">PRE-ORDER SOON</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Product 3 -->
-                        <div class="product-card">
-                            <div class="product-badge">Coming Soon</div>
-                            <div class="product-image">
-                                <i class="fas fa-utensils"></i>
-                                <div class="product-text-overlay">
-                                    COOK WITH FIRE
-                                </div>
-                            </div>
-                            <div class="product-details">
-                                <h4>Kitchen Apron Set</h4>
-                                <p>
-                                    Heavy-duty apron with matching oven mitts. Because looking like you know 
-                                    what you're doing is half the battle.
-                                </p>
-                                <div class="product-price">
-                                    <span class="price-amount">$39.99</span>
-                                    <span class="price-note">PRE-ORDER SOON</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Email Signup -->
-                <div class="store-signup">
-                    <h3>GET FIRST DIBS</h3>
-                    <p>
-                        Be the first to know when we drop new gear. We'll shoot you an email before anything 
-                        hits the store - plus exclusive discounts for early supporters.
-                    </p>
-                    
-                    <form class="signup-form" id="storeSignupForm">
-                        <div class="form-row">
-                            <input type="email" placeholder="Your email address" required>
-                            <button type="submit" class="action-btn">
-                                <i class="fas fa-bell"></i> NOTIFY ME
-                            </button>
-                        </div>
-                    </form>
-                    
-                    <div class="store-note">
+                <!-- Store Options -->
+                <div class="store-options">
+                    <div class="store-option">
+                        <i class="fas fa-store"></i>
+                        <h3>THIRD-PARTY MERCH</h3>
                         <p>
-                            <i class="fas fa-lock"></i> No spam, ever. Just gear drops and cooking tips.
+                            We're partnering with top merch platforms to bring you quality gear. 
+                            From kitchen essentials to streetwear, everything's designed for people 
+                            who take their food (but not themselves) seriously.
+                        </p>
+                    </div>
+                    
+                    <div class="store-option">
+                        <i class="fas fa-truck"></i>
+                        <h3>WORLDWIDE SHIPPING</h3>
+                        <p>
+                            No matter where you are, we've got you covered. Our merch partners 
+                            handle shipping logistics so you get your gear fast and hassle-free.
                         </p>
                     </div>
                 </div>
                 
-                <!-- Store Note -->
-                <div class="store-note">
-                    <p>
-                        <i class="fas fa-store"></i> Powered by Shopify for secure checkout and worldwide shipping.
-                    </p>
+                <!-- Embedded Store Section -->
+                <div class="store-embed-section">
+                    <h3>OUR MERCH STORE</h3>
+                    <div class="store-placeholder">
+                        <i class="fas fa-shopping-bag"></i>
+                        <h4>MERCH COMING SOON</h4>
+                        <p>
+                            We're cooking up an awesome merch collection! Soon you'll be able to shop 
+                            directly from our site through our integrated store. Check back regularly 
+                            for the launch announcement.
+                        </p>
+                        <p style="color: #FFD700; margin-top: 20px; font-family: 'Orbitron', monospace;">
+                            <i class="fas fa-fire"></i> LAUNCHING SPRING 2025
+                        </p>
+                    </div>
+                    
+                    <!-- Placeholder for embedded store - Add your store embed code here -->
+                    <div style="margin-top: 40px; display: none;" id="storeEmbedContainer">
+                        <!-- Your Shopify/Printful/Teespring embed code will go here -->
+                        <!-- Example: <iframe src="your-store-url" width="100%" height="800" frameborder="0"></iframe> -->
+                    </div>
                 </div>
             </div>
         </section>
@@ -1952,7 +1729,7 @@
                 <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" class="action-btn" style="background: linear-gradient(135deg, #1877F2, #0d5bb5);">
                     <i class="fab fa-facebook"></i> FOLLOW & TURN ON NOTIFICATIONS
                 </a>
-                <p style="color: #888; margin-top: 25px; font-size: 1rem;">
+                <p style="color: #ccc; margin-top: 25px; font-size: 1rem; font-family: 'Montserrat', sans-serif;">
                     <i class="fas fa-info-circle"></i> Click "Follow" then "See First" to never miss our posts
                 </p>
             </div>
@@ -2014,30 +1791,21 @@
             
             <!-- Top Videos -->
             <div class="top-videos">
-                <h3>TOP 3 MOST VIEWED</h3>
-                <div class="videos-grid" id="youtubeVideos">
-                    <!-- Videos will load here -->
-                    <div class="video-card" id="noVideosCard" style="grid-column: 1 / -1; text-align: center; padding: 50px;">
-                        <i class="fas fa-video-slash" style="font-size: 4rem; color: #FF9500; margin-bottom: 25px;"></i>
-                        <h3 style="color: #fff; margin-bottom: 15px; font-size: 2rem;">FIRST VIDEO COMING SOON</h3>
-                        <p style="color: #888; max-width: 600px; margin: 0 auto 30px;">
-                            We're in the kitchen right now, cooking up our first episode. Subscribe so you 
-                            don't miss it when it drops.
+                <h3>FIRST VIDEO COMING SOON</h3>
+                <div class="videos-grid">
+                    <div class="video-card" style="grid-column: 1 / -1; text-align: center; padding: 50px; background: linear-gradient(135deg, rgba(26,26,26,0.95), rgba(42,42,42,0.8));">
+                        <i class="fas fa-video" style="font-size: 4rem; color: #FF9500; margin-bottom: 25px;"></i>
+                        <h3 style="color: #fff; margin-bottom: 15px; font-size: 2rem; font-family: 'Bebas Neue', Impact;">WE'RE COOKING UP SOMETHING SPECIAL</h3>
+                        <p style="color: #ccc; max-width: 600px; margin: 0 auto 30px; font-family: 'Montserrat', sans-serif;">
+                            Our first episode is in production right now. We're putting together something 
+                            that shows exactly what Crocked 'N Loaded is all about - no fluff, just real 
+                            cooking you can actually do at home.
                         </p>
                         <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" class="action-btn" style="background: linear-gradient(135deg, #FF0000, #CC0000);">
                             <i class="fab fa-youtube"></i> SUBSCRIBE FOR UPDATES
                         </a>
                     </div>
                 </div>
-            </div>
-            
-            <div class="youtube-cta">
-                <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" class="action-btn" style="background: linear-gradient(135deg, #FF0000, #CC0000);">
-                    <i class="fab fa-youtube"></i> SUBSCRIBE & WATCH FIRST
-                </a>
-                <p style="color: #888; margin-top: 25px; font-size: 1rem;">
-                    <i class="fas fa-info-circle"></i> Hit the bell icon to get notified about our launch
-                </p>
             </div>
         </section>
         
@@ -2056,7 +1824,7 @@
                             <div>
                                 <h4>BUSINESS EMAIL</h4>
                                 <p>contact@crockednloaded.com</p>
-                                <p style="color: #FF9500; font-size: 0.9rem; margin-top: 5px;">
+                                <p style="color: #FF9500; font-size: 0.9rem; margin-top: 5px; font-family: 'Montserrat', sans-serif;">
                                     For collaborations, sponsorships, or media inquiries
                                 </p>
                             </div>
@@ -2123,7 +1891,7 @@
                             <i class="fas fa-paper-plane"></i> SEND MESSAGE
                         </button>
                     </form>
-                    <p style="color: #888; font-size: 0.9rem; margin-top: 25px; text-align: center;">
+                    <p style="color: #ccc; font-size: 0.9rem; margin-top: 25px; text-align: center; font-family: 'Montserrat', sans-serif;">
                         <i class="fas fa-info-circle"></i> We read every message and try to reply within 48 hours
                     </p>
                 </div>
@@ -2172,7 +1940,7 @@
                         <i class="fab fa-tiktok"></i>
                     </a>
                 </div>
-                <p style="color: #888; margin-top: 20px;">
+                <p style="color: #ccc; margin-top: 20px; font-family: 'Montserrat', sans-serif;">
                     Subscribe anywhere, follow everywhere. We're building this thing together.
                 </p>
             </div>
@@ -2248,10 +2016,7 @@
         const scrollHint = document.getElementById('scrollHint');
         const heroBackground = document.getElementById('heroBackground');
         const toastMessage = document.getElementById('toastMessage');
-        const storeSignupForm = document.getElementById('storeSignupForm');
         const contactForm = document.getElementById('contactForm');
-        const youtubeStats = document.getElementById('youtubeStats');
-        const youtubeVideos = document.getElementById('youtubeVideos');
         
         // Hide loading screen
         setTimeout(() => {
@@ -2397,21 +2162,6 @@
             }
         }
         
-        // ===== STORE SIGNUP =====
-        if (storeSignupForm) {
-            storeSignupForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const email = this.querySelector('input[type="email"]').value;
-                
-                if (email && email.includes('@')) {
-                    showToast(`Got it! We'll email ${email} when our gear drops.`, 'success');
-                    this.reset();
-                } else {
-                    showToast('Need a real email address there, chef.', 'error');
-                }
-            });
-        }
-        
         // ===== CONTACT FORM =====
         if (contactForm) {
             contactForm.addEventListener('submit', async function(e) {
@@ -2453,28 +2203,6 @@
             });
         }
         
-        // ===== YOUTUBE DATA =====
-        // You'll need to add your own API key here
-        const YOUTUBE_API_KEY = 'YOUR_API_KEY_HERE'; // Get this from Google Cloud
-        const YOUTUBE_CHANNEL_HANDLE = '@CrockedNLoaded-NH';
-        
-        async function loadYouTubeData() {
-            if (!YOUTUBE_API_KEY || YOUTUBE_API_KEY === 'YOUR_API_KEY_HERE') {
-                // Show placeholder stats
-                return;
-            }
-            
-            try {
-                // This is where you'd fetch real YouTube data
-                // I'm leaving this as a placeholder for you to implement
-            } catch (error) {
-                console.log('YouTube data not loaded:', error);
-            }
-        }
-        
-        // Load YouTube data after page loads
-        setTimeout(loadYouTubeData, 2000);
-        
         // ===== TOAST NOTIFICATIONS =====
         function showToast(message, type = 'success') {
             toastMessage.textContent = message;
@@ -2491,34 +2219,6 @@
                 toastMessage.classList.remove('show');
             }, 3000);
         }
-        
-        // ===== COUNTDOWN TIMER =====
-        // Set your launch date here
-        const launchDate = new Date('2025-02-01T00:00:00').getTime();
-        
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const timeLeft = launchDate - now;
-            
-            if (timeLeft < 0) {
-                document.getElementById('countdownDays').textContent = '0';
-                document.getElementById('countdownHours').textContent = '0';
-                document.getElementById('countdownMinutes').textContent = '0';
-                return;
-            }
-            
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            
-            document.getElementById('countdownDays').textContent = days;
-            document.getElementById('countdownHours').textContent = hours;
-            document.getElementById('countdownMinutes').textContent = minutes;
-        }
-        
-        // Update countdown every minute
-        updateCountdown();
-        setInterval(updateCountdown, 60000);
         
         // ===== DEBOUNCE RESIZE =====
         let resizeTimeout;
