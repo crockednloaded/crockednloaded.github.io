@@ -33,6 +33,8 @@
             line-height: 1.6;
             font-weight: 300;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         /* === COLOR VARIABLES === */
@@ -120,7 +122,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('background.jpg') center/cover no-repeat;
+            background: url('background.jpg') center/contain no-repeat;
+            background-color: #000;
             z-index: 1;
         }
 
@@ -310,7 +313,7 @@
             transform: translateY(100vh);
             transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border-top: 5px solid #FF3B30;
-            margin-top: 100vh; /* This pushes content below hero */
+            margin-top: 100vh;
         }
 
         .content-fade {
@@ -1355,6 +1358,7 @@
             background: linear-gradient(to top, #0a0a0a, #1a1a1a);
             padding: 60px 20px 30px;
             border-top: 5px solid #FF3B30;
+            margin-top: auto;
         }
 
         @media (min-width: 768px) {
@@ -1650,6 +1654,11 @@
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
+            
+            /* Adjust hero for mobile */
+            .hero-bg-top {
+                background: url('background.jpg') center/cover no-repeat;
+            }
         }
 
         /* === TOAST NOTIFICATION === */
@@ -1700,7 +1709,7 @@
 
     <!-- Hero Section -->
     <div class="hero-wrapper" id="heroSection">
-        <!-- Background Image -->
+        <!-- Background Image - CHANGED TO CONTAIN FOR FULL VISIBILITY -->
         <div class="hero-bg-top" id="heroBackground"></div>
         <!-- Dark Overlay -->
         <div class="hero-bg-overlay"></div>
@@ -2144,7 +2153,7 @@
                             <input type="text" id="subject" name="subject" required placeholder="Collaboration, question, or just saying hi">
                         </div>
                         
-                        .form-group {
+                        <div class="form-group">
                             <label for="message">TELL US MORE</label>
                             <textarea id="message" name="message" required placeholder="Spill the beans..."></textarea>
                         </div>
@@ -2297,16 +2306,18 @@
         // Smooth scroll for explore button
         exploreBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            // First scroll the hero out of view
+            // Smooth scroll to reveal content
             window.scrollTo({
-                top: window.innerHeight,
+                top: window.innerHeight * 0.8,
                 behavior: 'smooth'
             });
-            // Then reveal the content
+            
+            // Start content reveal
             setTimeout(() => {
+                pageContent.style.transition = 'transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
                 pageContent.style.transform = 'translateY(0)';
                 contentFade.classList.add('active');
-            }, 500);
+            }, 300);
         });
         
         // Smooth scroll for nav links
@@ -2328,11 +2339,26 @@
                     navItems.forEach(item => item.classList.remove('active'));
                     this.classList.add('active');
                     
-                    // Smooth scroll to target
-                    targetElement.scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    // If target is in main content, ensure content is revealed
+                    if (targetId !== 'home' && pageContent.style.transform === 'translateY(100vh)') {
+                        pageContent.style.transition = 'transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                        pageContent.style.transform = 'translateY(0)';
+                        contentFade.classList.add('active');
+                        
+                        // Wait for content to be revealed, then scroll
+                        setTimeout(() => {
+                            targetElement.scrollIntoView({ 
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }, 500);
+                    } else {
+                        // Smooth scroll to target
+                        targetElement.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 }
             });
         });
@@ -2364,16 +2390,18 @@
             });
         }
         
-        // Scroll effects - FIXED VERSION
+        // Scroll effects
         function updateScrollEffects() {
             const scrollY = window.scrollY;
             const windowHeight = window.innerHeight;
             
-            // Only apply reveal effect if we've scrolled past most of the hero
-            if (scrollY > windowHeight * 0.3) {
+            // If user scrolls past 30% of viewport, start revealing content
+            if (scrollY > windowHeight * 0.3 && pageContent.style.transform === 'translateY(100vh)') {
+                pageContent.style.transition = 'transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
                 pageContent.style.transform = 'translateY(70vh)';
             }
             
+            // If user scrolls past 60% of viewport, fully reveal content
             if (scrollY > windowHeight * 0.6) {
                 pageContent.style.transform = 'translateY(0)';
                 contentFade.classList.add('active');
@@ -2470,6 +2498,12 @@
         
         // Initial call
         updateScrollEffects();
+        
+        // Fix for textarea HTML error
+        const textarea = document.querySelector('textarea[name="message"]');
+        if (textarea) {
+            textarea.id = 'message';
+        }
     });
     </script>
 </body>
