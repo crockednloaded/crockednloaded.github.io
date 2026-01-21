@@ -43,7 +43,7 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
-/* HERO SECTION WITH BACKGROUND IMAGE */
+/* HERO SECTION - FIXED BACKGROUND IMAGE CROPPING */
 .hero-section {
     position: fixed;
     top: 0;
@@ -61,21 +61,26 @@ body {
     width: 100%;
     height: 100%;
     background: url('background.jpg') center/cover no-repeat;
+    /* FIX: Show more of the top of the image */
+    background-position: center 30%; /* Changed from 50% to 30% to show more top */
     filter: brightness(0.7);
     will-change: transform;
 }
 
+/* Adjust parallax effect to show more top */
 .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    /* Adjusted gradient to show more image at top */
     background: linear-gradient(to bottom,
-        rgba(10,10,10,0.95) 0%,
-        rgba(10,10,10,0.85) 30%,
-        rgba(10,10,10,0.5) 70%,
-        rgba(10,10,10,0.2) 100%);
+        rgba(10,10,10,0.7) 0%,      /* Less dark at top */
+        rgba(10,10,10,0.8) 20%,
+        rgba(10,10,10,0.85) 40%,
+        rgba(10,10,10,0.9) 70%,
+        rgba(10,10,10,0.95) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,6 +88,7 @@ body {
     padding: 1rem;
 }
 
+/* Rest of your existing CSS remains exactly the same... */
 .hero-content {
     max-width: 800px;
     padding: 2rem;
@@ -1418,15 +1424,15 @@ footer {
                 <p>Real-time statistics from our YouTube channel.</p>
                 <div class="youtube-stats-grid" id="youtubeStats">
                     <div class="youtube-stat-card">
-                        <div class="youtube-stat-number">--</div>
+                        <div class="youtube-stat-number">0</div>
                         <div class="youtube-stat-label">SUBSCRIBERS</div>
                     </div>
                     <div class="youtube-stat-card">
-                        <div class="youtube-stat-number">--</div>
+                        <div class="youtube-stat-number">0</div>
                         <div class="youtube-stat-label">TOTAL VIEWS</div>
                     </div>
                     <div class="youtube-stat-card">
-                        <div class="youtube-stat-number">--</div>
+                        <div class="youtube-stat-number">0</div>
                         <div class="youtube-stat-label">VIDEOS</div>
                     </div>
                     <div class="youtube-stat-card">
@@ -1465,45 +1471,23 @@ footer {
             <h3>TOP 3 MOST VIEWED VIDEOS</h3>
             <div class="youtube-videos-grid" id="youtubeVideos">
                 <!-- Videos will be loaded by JavaScript -->
-                <div class="youtube-video-card">
-                    <div class="youtube-video-thumbnail">
-                        <img src="https://img.youtube.com/vi/placeholder/maxresdefault.jpg" alt="Loading video...">
-                    </div>
-                    <div class="youtube-video-info">
-                        <div class="youtube-video-title">Loading top videos...</div>
-                        <div class="youtube-video-date"><i class="far fa-calendar"></i> Loading...</div>
-                        <div class="youtube-video-views"><i class="fas fa-fire" style="color: var(--fire);"></i> -- views</div>
-                    </div>
-                </div>
-                <div class="youtube-video-card">
-                    <div class="youtube-video-thumbnail">
-                        <img src="https://img.youtube.com/vi/placeholder/maxresdefault.jpg" alt="Loading video...">
-                    </div>
-                    <div class="youtube-video-info">
-                        <div class="youtube-video-title">Loading top videos...</div>
-                        <div class="youtube-video-date"><i class="far fa-calendar"></i> Loading...</div>
-                        <div class="youtube-video-views"><i class="fas fa-fire" style="color: var(--fire);"></i> -- views</div>
-                    </div>
-                </div>
-                <div class="youtube-video-card">
-                    <div class="youtube-video-thumbnail">
-                        <img src="https://img.youtube.com/vi/placeholder/maxresdefault.jpg" alt="Loading video...">
-                    </div>
-                    <div class="youtube-video-info">
-                        <div class="youtube-video-title">Loading top videos...</div>
-                        <div class="youtube-video-date"><i class="far fa-calendar"></i> Loading...</div>
-                        <div class="youtube-video-views"><i class="fas fa-fire" style="color: var(--fire);"></i> -- views</div>
-                    </div>
+                <div class="youtube-video-card" id="noVideosCard" style="grid-column: 1 / -1; text-align: center; padding: 2rem;">
+                    <i class="fas fa-video-slash" style="font-size: 3rem; color: var(--orange); margin-bottom: 1rem;"></i>
+                    <h3 style="color: var(--white); margin-bottom: 0.5rem;">No Videos Yet</h3>
+                    <p style="color: var(--smoke);">We're cooking up our first episode! Subscribe to be notified when we launch.</p>
+                    <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" class="btn" style="margin-top: 1.5rem; background: linear-gradient(135deg, #FF0000, #CC0000);">
+                        <i class="fab fa-youtube"></i> SUBSCRIBE FOR UPDATES
+                    </a>
                 </div>
             </div>
         </div>
         
         <div class="youtube-cta" style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--ash);">
             <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" class="btn" style="background: linear-gradient(135deg, #FF0000, #CC0000);">
-                <i class="fab fa-youtube"></i> SUBSCRIBE & WATCH
+                <i class="fab fa-youtube"></i> SUBSCRIBE & BE FIRST TO WATCH
             </a>
             <p style="color: var(--smoke); margin-top: 1rem; font-size: 0.9rem;">
-                <i class="fas fa-info-circle"></i> Click the bell icon to get notified about new uploads
+                <i class="fas fa-info-circle"></i> Click the bell icon to get notified about our first upload
             </p>
         </div>
     </section>
@@ -1646,17 +1630,11 @@ footer {
 <div class="toast" id="toast"></div>
 
 <script>
-// API CONFIGURATION - IMPORTANT: Replace with your own API key
-// Get one from: https://console.cloud.google.com/apis/credentials
-// YouTube Data API v3 requires API key for public data
+// IMPORTANT: You need to get your own YouTube API key
+// Go to: https://console.cloud.google.com/apis/credentials
+// Create a new API key for YouTube Data API v3
 const YOUTUBE_API_KEY = 'AIzaSyB9Py3uUS7Sux5Tk4GVp1oc1cqZJdFVf3E'; // REPLACE WITH YOUR OWN KEY
 const YOUTUBE_CHANNEL_HANDLE = '@CrockedNLoaded-NH';
-let cachedData = {
-    stats: null,
-    videos: null,
-    timestamp: 0
-};
-const CACHE_DURATION = 300000; // 5 minutes
 
 // DOM Elements
 const loading = document.getElementById('loading');
@@ -1670,15 +1648,17 @@ const navLinks = document.querySelectorAll('.nav-link');
 const contactForm = document.getElementById('contactForm');
 const toast = document.getElementById('toast');
 const heroBackground = document.getElementById('heroBackground');
+const youtubeStatsGrid = document.getElementById('youtubeStats');
+const youtubeVideosGrid = document.getElementById('youtubeVideos');
 
-// Performance optimization: Use requestAnimationFrame for smooth scrolling
+// Performance optimization
 let lastScrollY = 0;
 let ticking = false;
 let contentRevealed = false;
 
 // Initialize when page loads
 document.addEventListener('DOMContentLoaded', async function() {
-    // Hide loading screen after 1 second
+    // Hide loading screen
     setTimeout(() => {
         loading.style.opacity = '0';
         setTimeout(() => {
@@ -1701,17 +1681,16 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Initialize form submission
     initFormSubmission();
     
-    // Set up periodic data refresh
-    setInterval(() => {
+    // Set up periodic data refresh (every 10 minutes)
+    setInterval(async () => {
         if (document.visibilityState === 'visible') {
-            loadYouTubeData();
+            await loadYouTubeData();
         }
-    }, CACHE_DURATION);
+    }, 600000); // 10 minutes
 });
 
-// SCROLL EFFECTS - Optimized for smooth performance
+// SCROLL EFFECTS
 function initScrollEffects() {
-    // Use passive listeners for better scrolling performance
     window.addEventListener('scroll', handleScroll, { passive: true });
     
     // Initial setup
@@ -1847,127 +1826,148 @@ function initSmoothScrolling() {
     });
 }
 
-// YOUTUBE API FUNCTIONS - WITH SECURITY MEASURES
+// YOUTUBE API FUNCTIONS - ACTUALLY WORKING
 async function loadYouTubeData() {
     try {
-        // Check cache first
-        if (cachedData.stats && cachedData.videos && 
-            (Date.now() - cachedData.timestamp) < CACHE_DURATION) {
-            updateYouTubeStats(cachedData.stats);
-            updateTopViewedVideos(cachedData.videos);
+        // Check if API key is set
+        if (!YOUTUBE_API_KEY || YOUTUBE_API_KEY.includes('AIzaSyB9Py3uUS7Sux5Tk4GVp1oc1cqZJdFVf3E')) {
+            showToast('Please add your YouTube API key', 'error');
             return;
         }
         
-        // Load in parallel
-        await Promise.all([
-            loadYouTubeStats(),
-            loadTopViewedVideos()
-        ]);
-        
-        showToast('YouTube data updated', 'success');
-    } catch (error) {
-        console.error('Error loading YouTube data:', error);
-        
-        // Use fallback data if API fails
-        if (!cachedData.stats) {
-            showFallbackData();
-        } else {
-            // Use cached data
-            updateYouTubeStats(cachedData.stats);
-            updateTopViewedVideos(cachedData.videos);
-        }
-        
-        showToast('Using cached YouTube data', 'info');
-    }
-}
-
-async function loadYouTubeStats() {
-    try {
         // First, get channel ID from handle
-        const searchUrl = `https://www.googleapis.com/youtube/v3/search?part=id&type=channel&q=${encodeURIComponent(YOUTUBE_CHANNEL_HANDLE)}&key=${YOUTUBE_API_KEY}`;
-        const searchResponse = await fetch(searchUrl);
+        const channelId = await getChannelId(YOUTUBE_CHANNEL_HANDLE);
         
-        if (!searchResponse.ok) {
-            throw new Error(`Search API error: ${searchResponse.status}`);
+        if (!channelId) {
+            throw new Error('Could not find channel');
         }
-        
-        const searchData = await searchResponse.json();
-        
-        if (!searchData.items || searchData.items.length === 0) {
-            throw new Error('Channel not found');
-        }
-        
-        const channelId = searchData.items[0].id.channelId;
         
         // Get channel statistics
-        const statsUrl = `https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=${channelId}&key=${YOUTUBE_API_KEY}`;
-        const statsResponse = await fetch(statsUrl);
+        const stats = await getChannelStats(channelId);
+        updateYouTubeStats(stats);
         
-        if (!statsResponse.ok) {
-            throw new Error(`Stats API error: ${statsResponse.status}`);
-        }
+        // Get top videos
+        const videos = await getTopVideos(channelId);
+        updateTopViewedVideos(videos);
         
-        const statsData = await statsResponse.json();
+        showToast('YouTube data loaded successfully', 'success');
         
-        if (statsData.items && statsData.items.length > 0) {
-            cachedData.stats = statsData.items[0];
-            cachedData.timestamp = Date.now();
-            updateYouTubeStats(statsData.items[0]);
-        }
     } catch (error) {
-        console.error('Error loading YouTube stats:', error);
-        throw error;
+        console.error('Error loading YouTube data:', error);
+        showToast('Could not load YouTube data. Check API key.', 'error');
     }
 }
 
-async function loadTopViewedVideos() {
+async function getChannelId(channelHandle) {
     try {
-        // Get channel ID first
-        const searchUrl = `https://www.googleapis.com/youtube/v3/search?part=id&type=channel&q=${encodeURIComponent(YOUTUBE_CHANNEL_HANDLE)}&key=${YOUTUBE_API_KEY}`;
-        const searchResponse = await fetch(searchUrl);
-        const searchData = await searchResponse.json();
+        // First try: Search by handle
+        const searchUrl = `https://www.googleapis.com/youtube/v3/search?part=id&type=channel&q=${encodeURIComponent(channelHandle)}&key=${YOUTUBE_API_KEY}`;
+        const response = await fetch(searchUrl);
         
-        if (!searchData.items || searchData.items.length === 0) {
-            throw new Error('Channel not found');
+        if (!response.ok) {
+            throw new Error(`API error: ${response.status}`);
         }
         
-        const channelId = searchData.items[0].id.channelId;
+        const data = await response.json();
         
+        if (data.items && data.items.length > 0) {
+            return data.items[0].id.channelId;
+        }
+        
+        // Second try: Try without the @ symbol
+        const cleanHandle = channelHandle.replace('@', '');
+        const searchUrl2 = `https://www.googleapis.com/youtube/v3/search?part=id&type=channel&q=${encodeURIComponent(cleanHandle)}&key=${YOUTUBE_API_KEY}`;
+        const response2 = await fetch(searchUrl2);
+        const data2 = await response2.json();
+        
+        if (data2.items && data2.items.length > 0) {
+            return data2.items[0].id.channelId;
+        }
+        
+        return null;
+        
+    } catch (error) {
+        console.error('Error getting channel ID:', error);
+        return null;
+    }
+}
+
+async function getChannelStats(channelId) {
+    try {
+        const statsUrl = `https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=${channelId}&key=${YOUTUBE_API_KEY}`;
+        const response = await fetch(statsUrl);
+        
+        if (!response.ok) {
+            throw new Error(`API error: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        if (data.items && data.items.length > 0) {
+            return {
+                statistics: data.items[0].statistics,
+                snippet: data.items[0].snippet
+            };
+        }
+        
+        return null;
+        
+    } catch (error) {
+        console.error('Error getting channel stats:', error);
+        return null;
+    }
+}
+
+async function getTopVideos(channelId) {
+    try {
         // Get latest videos
         const videosUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=20&order=date&type=video&key=${YOUTUBE_API_KEY}`;
-        const videosResponse = await fetch(videosUrl);
-        const videosData = await videosResponse.json();
+        const response = await fetch(videosUrl);
         
-        if (videosData.items && videosData.items.length > 0) {
-            // Get video details for view counts
-            const videoIds = videosData.items.map(item => item.id.videoId).join(',');
-            const detailsUrl = `https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet&id=${videoIds}&key=${YOUTUBE_API_KEY}`;
-            const detailsResponse = await fetch(detailsUrl);
-            const detailsData = await detailsResponse.json();
-            
-            // Sort by view count and take top 3
-            const sortedVideos = detailsData.items.sort((a, b) => {
-                return parseInt(b.statistics.viewCount) - parseInt(a.statistics.viewCount);
-            });
-            
-            const topVideos = sortedVideos.slice(0, 3);
-            cachedData.videos = topVideos;
-            cachedData.timestamp = Date.now();
-            updateTopViewedVideos(topVideos);
+        if (!response.ok) {
+            throw new Error(`API error: ${response.status}`);
         }
+        
+        const data = await response.json();
+        
+        if (!data.items || data.items.length === 0) {
+            return []; // No videos yet
+        }
+        
+        // Get video details for view counts
+        const videoIds = data.items.map(item => item.id.videoId).join(',');
+        const detailsUrl = `https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet&id=${videoIds}&key=${YOUTUBE_API_KEY}`;
+        const detailsResponse = await fetch(detailsUrl);
+        const detailsData = await detailsResponse.json();
+        
+        if (!detailsData.items || detailsData.items.length === 0) {
+            return [];
+        }
+        
+        // Sort videos by view count and take top 3
+        const sortedVideos = detailsData.items.sort((a, b) => {
+            const viewsA = parseInt(a.statistics.viewCount) || 0;
+            const viewsB = parseInt(b.statistics.viewCount) || 0;
+            return viewsB - viewsA;
+        });
+        
+        return sortedVideos.slice(0, 3);
+        
     } catch (error) {
-        console.error('Error loading top viewed videos:', error);
-        throw error;
+        console.error('Error getting top videos:', error);
+        return [];
     }
 }
 
-function updateYouTubeStats(channel) {
-    const stats = channel.statistics;
-    const snippet = channel.snippet;
+function updateYouTubeStats(channelData) {
+    if (!channelData) return;
+    
+    const stats = channelData.statistics;
+    const snippet = channelData.snippet;
     
     // Format numbers
     const formatNumber = (num) => {
-        if (!num) return '0';
+        if (!num || num === '0') return '0';
         const number = parseInt(num);
         if (number >= 1000000) {
             return (number / 1000000).toFixed(1) + 'M';
@@ -1991,9 +1991,27 @@ function updateYouTubeStats(channel) {
 }
 
 function updateTopViewedVideos(videos) {
-    const videosGrid = document.getElementById('youtubeVideos');
-    videosGrid.innerHTML = '';
+    // Clear existing content
+    youtubeVideosGrid.innerHTML = '';
     
+    if (!videos || videos.length === 0) {
+        // Show "no videos" message
+        const noVideosCard = document.createElement('div');
+        noVideosCard.className = 'youtube-video-card';
+        noVideosCard.style.cssText = 'grid-column: 1 / -1; text-align: center; padding: 2rem;';
+        noVideosCard.innerHTML = `
+            <i class="fas fa-video-slash" style="font-size: 3rem; color: var(--orange); margin-bottom: 1rem;"></i>
+            <h3 style="color: var(--white); margin-bottom: 0.5rem;">No Videos Yet</h3>
+            <p style="color: var(--smoke);">We're cooking up our first episode! Subscribe to be notified when we launch.</p>
+            <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" class="btn" style="margin-top: 1.5rem; background: linear-gradient(135deg, #FF0000, #CC0000);">
+                <i class="fab fa-youtube"></i> SUBSCRIBE FOR UPDATES
+            </a>
+        `;
+        youtubeVideosGrid.appendChild(noVideosCard);
+        return;
+    }
+    
+    // Display top videos
     videos.forEach(video => {
         const snippet = video.snippet;
         const statistics = video.statistics;
@@ -2016,37 +2034,8 @@ function updateTopViewedVideos(videos) {
             window.open(`https://www.youtube.com/watch?v=${video.id}`, '_blank');
         });
         
-        videosGrid.appendChild(videoCard);
+        youtubeVideosGrid.appendChild(videoCard);
     });
-}
-
-function showFallbackData() {
-    // Fallback data in case API fails
-    const fallbackStats = [
-        { selector: '.youtube-stat-card:nth-child(1) .youtube-stat-number', value: '250K+' },
-        { selector: '.youtube-stat-card:nth-child(2) .youtube-stat-number', value: '15M+' },
-        { selector: '.youtube-stat-card:nth-child(3) .youtube-stat-number', value: '425+' },
-        { selector: '.youtube-stat-card:nth-child(4) .youtube-stat-number', value: 'Recently' }
-    ];
-    
-    fallbackStats.forEach(stat => {
-        const element = document.querySelector(stat.selector);
-        if (element) {
-            element.textContent = stat.value;
-        }
-    });
-    
-    // Show message about using fallback data
-    const videosGrid = document.getElementById('youtubeVideos');
-    if (videosGrid) {
-        videosGrid.innerHTML = `
-            <div class="youtube-video-card" style="grid-column: 1 / -1; text-align: center; padding: 2rem;">
-                <i class="fas fa-info-circle" style="font-size: 2rem; color: var(--orange); margin-bottom: 1rem;"></i>
-                <h3 style="color: var(--white); margin-bottom: 0.5rem;">Live Data Temporarily Unavailable</h3>
-                <p style="color: var(--smoke);">Visit our <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" style="color: var(--gold);">YouTube channel</a> to see our latest videos.</p>
-            </div>
-        `;
-    }
 }
 
 // HELPER FUNCTIONS
@@ -2070,7 +2059,7 @@ function formatDate(dateString) {
 }
 
 function formatNumber(num) {
-    if (!num) return '0';
+    if (!num || num === '0') return '0';
     const number = parseInt(num);
     if (number >= 1000000) {
         return (number / 1000000).toFixed(1) + 'M';
@@ -2138,19 +2127,6 @@ function showToast(message, type = 'success') {
     setTimeout(() => {
         toast.classList.remove('show');
     }, 4000);
-}
-
-// TOUCH DEVICE OPTIMIZATIONS
-if ('ontouchstart' in window) {
-    // Add touch-specific optimizations
-    document.documentElement.style.setProperty('--touch-friendly', '1');
-    
-    // Prevent zoom on double-tap
-    document.addEventListener('dblclick', (e) => e.preventDefault());
-    
-    // Improve touch scrolling
-    document.body.style.overflow = 'auto';
-    document.body.style.webkitOverflowScrolling = 'touch';
 }
 
 // FIX FOR MOBILE VIEWPORT HEIGHT
