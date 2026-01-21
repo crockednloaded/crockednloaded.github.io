@@ -118,7 +118,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('background.jpg') center/cover no-repeat;
+            background: url('background.jpg') center/contain no-repeat;
+            background-color: #000;
             z-index: 1;
         }
 
@@ -128,7 +129,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(10,10,10,0.6);
+            background: rgba(10,10,10,0.7);
             z-index: 2;
         }
 
@@ -557,10 +558,14 @@
         }
 
         .card-icon {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: #FFD700;
             margin-bottom: 25px;
             transition: transform 0.4s ease;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .content-card h3 {
@@ -1076,7 +1081,7 @@
             background: linear-gradient(135deg, #FF3B30, #FF9500);
             border: 2px solid #FFD700;
             color: #fff;
-            padding: 20px;
+            padding: 18px 30px;
             font-family: 'Orbitron', monospace;
             font-weight: 700;
             font-size: 1rem;
@@ -1088,6 +1093,7 @@
             align-items: center;
             justify-content: center;
             gap: 15px;
+            margin-top: 10px;
         }
 
         .form-submit:hover {
@@ -1213,10 +1219,6 @@
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
-            .form-row {
-                flex-direction: column;
-            }
         }
 
         @media (max-width: 768px) {
@@ -1268,6 +1270,11 @@
                 padding: 15px 30px;
                 font-size: 0.9rem;
             }
+            
+            .hero-bg-top {
+                background: url('background.jpg') center/cover no-repeat;
+                background-color: #000;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1297,6 +1304,11 @@
             
             .stats-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .card-icon {
+                font-size: 2.5rem;
+                height: 60px;
             }
         }
 
@@ -1613,7 +1625,7 @@
                 
                 <div class="content-card">
                     <div class="card-icon">
-                        <i class="fas fa-shopping-basket"></i>
+                        <i class="fas fa-dollar-sign"></i>
                     </div>
                     <h3>BUDGET CHALLENGES</h3>
                     <p>
@@ -1896,7 +1908,7 @@
                             <input type="text" id="subject" name="subject" required placeholder="Collaboration, question, or just saying hi">
                         </div>
                         
-                        .form-group {
+                        <div class="form-group">
                             <label for="message">TELL US MORE</label>
                             <textarea id="message" name="message" required placeholder="Spill the beans..."></textarea>
                         </div>
@@ -2167,12 +2179,6 @@
                     scrollHint.classList.remove('hidden');
                 }
                 contentFade.classList.remove('active');
-            }
-            
-            // Subtle parallax for hero background
-            if (heroBackground) {
-                const parallaxValue = Math.min(scrollY * 0.3, windowHeight * 0.5);
-                heroBackground.style.transform = `translateY(${parallaxValue}px)`;
             }
         }
         
