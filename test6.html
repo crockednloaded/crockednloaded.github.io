@@ -6,7 +6,6 @@
     <title>Crocked 'N Loaded | Real Food. Real Reviews. No Bullshit.</title>
     <meta name="description" content="Two regular guys bringing restaurant-level cooking to your kitchen. No fancy equipment, no pretentious jargon—just damn good food and honest reviews.">
     <meta name="keywords" content="cooking, food reviews, home cooking, restaurant secrets, foodie, recipes, kitchen hacks">
-    <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="Crocked 'N Loaded | Real Food. Real Reviews. No Bullshit.">
     <meta property="og:description" content="Two regular guys bringing restaurant-level cooking to your kitchen. No fancy equipment, no pretentious jargon—just damn good food and honest reviews.">
     <meta property="og:image" content="https://crockednloaded.com/background.jpg">
@@ -16,19 +15,14 @@
     <meta name="twitter:title" content="Crocked 'N Loaded | Real Food. Real Reviews. No Bullshit.">
     <meta name="twitter:description" content="Two regular guys bringing restaurant-level cooking to your kitchen. No fancy equipment, no pretentious jargon—just damn good food and honest reviews.">
     <meta name="twitter:image" content="https://crockednloaded.com/background.jpg">
-
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@300;400;500;600;700;800&family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* === RESET & BASE === */
         :root {
             --fire: #FF3B30;
             --fire-glow: rgba(255, 59, 48, 0.6);
@@ -147,7 +141,6 @@
             height: 100%;
             background: url('background.jpg') center 20%/cover no-repeat;
             z-index: 1;
-            will-change: transform;
         }
 
         .hero-bg-overlay {
@@ -344,11 +337,6 @@
             transform-origin: left;
         }
 
-        .nav-item a:hover,
-        .nav-item a.active {
-            color: #fff;
-        }
-
         /* === MAIN CONTENT === */
         .page-content {
             position: relative;
@@ -357,6 +345,7 @@
             min-height: 100vh;
             margin-top: 100vh;
             transition: margin-top 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            padding-top: 20px;
         }
 
         .content-fade {
@@ -383,6 +372,10 @@
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s ease, transform 0.8s ease;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .content-block.visible {
@@ -490,7 +483,6 @@
             overflow: hidden;
             border: 3px solid var(--fire);
             transition: var(--transition-standard);
-            will-change: transform;
         }
 
         .host-card:hover {
@@ -583,7 +575,6 @@
             border: 2px solid var(--orange);
             position: relative;
             transition: var(--transition-standard);
-            will-change: transform;
         }
 
         .content-card:hover {
@@ -970,7 +961,6 @@
             height: 100%;
             object-fit: cover;
             transition: var(--transition-standard);
-            will-change: transform;
         }
 
         .video-info {
@@ -1323,18 +1313,18 @@
             .footer-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-
             .videos-grid {
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             }
-
             .nav-links {
                 gap: 20px;
             }
-
             .nav-item a {
                 font-size: 0.9rem;
                 padding: 10px 20px;
+            }
+            .content-block {
+                min-height: 80vh;
             }
         }
 
@@ -1342,7 +1332,6 @@
             .mobile-toggle {
                 display: block;
             }
-
             .nav-links {
                 position: fixed;
                 top: 70px;
@@ -1358,11 +1347,9 @@
                 max-height: calc(100vh - 70px);
                 overflow-y: auto;
             }
-
             .nav-links.active {
                 display: flex;
             }
-
             .nav-item a {
                 display: block;
                 text-align: center;
@@ -1371,23 +1358,22 @@
                 font-size: 1rem;
                 border-bottom: 1px solid #2a2a2a;
             }
-
             .nav-item:last-child a {
                 border-bottom: none;
             }
-
             .footer-grid {
                 grid-template-columns: 1fr;
             }
-
             .content-block {
                 padding: 60px 20px;
+                min-height: auto;
             }
-
+            .hero-bg-top {
+                background-position: center 15% !important;
+            }
             .scroll-hint {
                 bottom: 20px;
             }
-
             .toast-message {
                 bottom: 20px;
                 right: 20px;
@@ -1399,17 +1385,6 @@
         @supports not (backdrop-filter: blur(10px)) {
             .main-header {
                 background: rgba(10,10,10,0.98);
-            }
-        }
-
-        @supports not (position: sticky) {
-            .hero-wrapper {
-                position: relative;
-                height: auto;
-            }
-
-            .page-content {
-                margin-top: 0;
             }
         }
     </style>
