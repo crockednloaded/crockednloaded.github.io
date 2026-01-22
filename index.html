@@ -1324,7 +1324,7 @@
             <img src="background.jpg" alt="Crocked 'N Loaded - CrockPotDaddy and MACK3Y" class="hero-image">
         </div>
         <div class="hero-content">
-            <p class="hero-tagline">Launching Spring 2026</p>
+            <p class="hero-tagline">Launching Spring 2025</p>
             <p class="hero-desc">
                 Two dudes who got tired of watching cooking shows made by people who've never 
                 paid rent. We're here to show you how to actually cook—no trust fund required.
@@ -1548,7 +1548,7 @@
             <div class="store-coming reveal">
                 <h4>Store Opening Soon</h4>
                 <p>We're getting everything dialed in. Quality takes time—we're not rushing it.</p>
-                <span class="store-date"><i class="fas fa-calendar"></i> Spring 2026</span>
+                <span class="store-date"><i class="fas fa-calendar"></i> Spring 2025</span>
             </div>
         </div>
     </section>
@@ -1679,7 +1679,7 @@
                     </p>
                     <ul class="feature-list">
                         <li>
-                            <h4><i class="fas fa-clock"></i> Spring 2026</h4>
+                            <h4><i class="fas fa-clock"></i> Spring 2025</h4>
                             <p>We're doing this right. No half-assed launch.</p>
                         </li>
                         <li>
@@ -1744,19 +1744,37 @@
                         </div>
                     </div>
                     <div class="contact-row">
-                        <i class="fas fa-comments"></i>
+                        <i class="fab fa-facebook"></i>
                         <div>
-                            <h4>DMs Open</h4>
-                            <p>For quick stuff, hit us up on socials</p>
+                            <h4>Facebook</h4>
+                            <p>@CrockedNLoadedShow</p>
+                            <div class="contact-links">
+                                <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" rel="noopener">
+                                    <i class="fab fa-facebook"></i> Page
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-row">
+                        <i class="fab fa-instagram"></i>
+                        <div>
+                            <h4>Instagram</h4>
+                            <p>@CrockedNLoadedShow</p>
                             <div class="contact-links">
                                 <a href="https://instagram.com/CrockedNLoadedShow" target="_blank" rel="noopener">
-                                    <i class="fab fa-instagram"></i> IG
+                                    <i class="fab fa-instagram"></i> Profile
                                 </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-row">
+                        <i class="fab fa-tiktok"></i>
+                        <div>
+                            <h4>TikTok</h4>
+                            <p>@CrockedNLoadedShow</p>
+                            <div class="contact-links">
                                 <a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank" rel="noopener">
-                                    <i class="fab fa-tiktok"></i> TikTok
-                                </a>
-                                <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" rel="noopener">
-                                    <i class="fab fa-facebook"></i> FB
+                                    <i class="fab fa-tiktok"></i> Follow us
                                 </a>
                             </div>
                         </div>
@@ -1903,7 +1921,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Countdown - Spring 2026 (March 20)
+        // Countdown - Spring 2025 (March 20)
         const launchDate = new Date('2025-03-20T12:00:00').getTime();
         
         const updateCountdown = () => {
@@ -1976,7 +1994,7 @@
             }, 4000);
         }
 
-        // Newsletter form submission with EmailJS - FIXED WITH CORRECT TEMPLATE VARIABLES
+        // Newsletter form submission with EmailJS
         const newsletterForm = document.getElementById('newsletter-form');
         const newsletterSubmit = document.getElementById('newsletter-submit');
         const submitText = document.getElementById('submit-text');
@@ -1986,34 +2004,28 @@
             newsletterForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                // Get form data
-                const email = document.getElementById('newsletter-email').value.trim();
+                const email = document.getElementById('newsletter-email').value.trim().toLowerCase();
                 const name = document.getElementById('newsletter-name').value.trim() || 'Subscriber';
                 
-                // Validate email
                 if (!email || !email.includes('@') || !email.includes('.')) {
                     showMessage('newsletter-message', '❌ Please enter a valid email address.', 'error');
                     return;
                 }
                 
-                // Show loading state
                 submitText.style.display = 'none';
                 submitSpinner.style.display = 'inline';
                 newsletterSubmit.disabled = true;
                 
                 showMessage('newsletter-message', 'Subscribing...', 'loading');
                 
-                console.log('Sending newsletter subscription via EmailJS:');
-                console.log('Email:', email);
-                console.log('Name:', name);
+                // Generate unsubscribe token
+                const unsubscribeToken = btoa(email + '|' + Date.now()).replace(/=/g, '');
+                const unsubscribeLink = `https://crockednloaded.github.io/unsubscribe.html?token=${unsubscribeToken}&email=${encodeURIComponent(email)}`;
                 
-                // EmailJS Configuration - EXACT MATCH TO YOUR TEMPLATE
                 const serviceID = 'service_iqkhsge';
                 const templateID = 'template_ydyv17l';
                 
-                // Template parameters - MUST MATCH YOUR TEMPLATE VARIABLES EXACTLY
                 const templateParams = {
-                    // These EXACT variables from your template
                     'name': name,
                     'email': email,
                     'current_date': new Date().toLocaleDateString('en-US', { 
@@ -2022,70 +2034,26 @@
                         month: 'long', 
                         day: 'numeric' 
                     }),
-                    'unsubscribe_link': 'https://crockednloaded.github.io/unsubscribe?email=' + encodeURIComponent(email),
-                    
-                    // Also include common required fields for EmailJS
+                    'unsubscribe_link': unsubscribeLink,
                     'to_name': 'Crocked N Loaded Team',
                     'from_name': name,
                     'message': `New newsletter subscription from ${name} (${email})`,
                     'reply_to': email,
-                    
-                    // Backup variables (won't be used in your template but good to have)
-                    'user_email': email,
-                    'user_name': name
+                    'subject': 'New Newsletter Subscription - Crocked N Loaded'
                 };
                 
-                console.log('Service ID:', serviceID);
-                console.log('Template ID:', templateID);
-                console.log('Template Params (EXACT match to your template):', {
-                    'name': templateParams.name,
-                    'email': templateParams.email,
-                    'current_date': templateParams.current_date,
-                    'unsubscribe_link': templateParams.unsubscribe_link
-                });
-                
-                // Send using EmailJS
                 emailjs.send(serviceID, templateID, templateParams)
                     .then(function(response) {
-                        console.log('✅ EmailJS SUCCESS!', response);
-                        console.log('Status:', response.status);
-                        console.log('Text:', response.text);
-                        
+                        console.log('✅ Newsletter SUCCESS!', response);
                         showMessage('newsletter-message', '✅ Success! Welcome to the crew! Check your email for confirmation.', 'success');
                         newsletterForm.reset();
-                        showToast('Successfully subscribed! Welcome to Crocked N Loaded!', 'success');
+                        showToast('Successfully subscribed! Welcome!', 'success');
                     }, function(error) {
-                        console.error('❌ EmailJS FAILED:', error);
-                        console.error('Full error object:', error);
-                        
-                        // Detailed error analysis
-                        let errorMsg = '❌ Something went wrong. Please try again.';
-                        let errorDetails = '';
-                        
-                        if (error.status) {
-                            errorDetails += `Status: ${error.status} `;
-                        }
-                        if (error.text) {
-                            errorDetails += `Text: ${error.text}`;
-                            
-                            // Common EmailJS errors
-                            if (error.text.includes('template_id') || error.text.includes('Template not found')) {
-                                errorMsg = '❌ Template ID error. Check template_ydyv17l exists.';
-                            } else if (error.text.includes('service_id') || error.text.includes('Service not found')) {
-                                errorMsg = '❌ Service ID error. Check service_iqkhsge exists.';
-                            } else if (error.text.includes('user_id') || error.text.includes('public key') || error.text.includes('Unauthorized')) {
-                                errorMsg = '❌ Authentication error. Check your EmailJS public key.';
-                            } else if (error.text.includes('Missing parameter')) {
-                                errorMsg = '❌ Missing template parameter. Check variable names.';
-                            }
-                        }
-                        
-                        console.error('Error details:', errorDetails);
-                        showMessage('newsletter-message', errorMsg + ' ' + errorDetails, 'error');
+                        console.error('❌ Newsletter FAILED:', error);
+                        showMessage('newsletter-message', '❌ Something went wrong. Please try again.', 'error');
                         showToast('Subscription failed. Please try again.', 'error');
                     })
                     .finally(function() {
-                        // Reset button state
                         submitText.style.display = 'inline';
                         submitSpinner.style.display = 'none';
                         newsletterSubmit.disabled = false;
@@ -2093,10 +2061,10 @@
             });
         }
 
-        // Contact form submission (simplified)
+        // Contact form submission with EmailJS - USING NEW TEMPLATE
         const contactForm = document.getElementById('contact-form');
         const contactSubmit = document.getElementById('contact-submit');
-        
+
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
@@ -2111,19 +2079,67 @@
                     return;
                 }
                 
+                if (!email.includes('@') || !email.includes('.')) {
+                    showMessage('contact-form-message', '❌ Please enter a valid email address.', 'error');
+                    return;
+                }
+                
                 const originalText = contactSubmit.innerHTML;
                 contactSubmit.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Sending...';
                 contactSubmit.disabled = true;
                 
                 showMessage('contact-form-message', 'Sending message...', 'loading');
                 
-                // For now, just show success message
-                setTimeout(() => {
-                    showMessage('contact-form-message', '✅ Message received! We\'ll get back to you soon.', 'success');
-                    contactForm.reset();
-                    contactSubmit.innerHTML = originalText;
-                    contactSubmit.disabled = false;
-                }, 1500);
+                // EmailJS Configuration for Contact Form - USING NEW TEMPLATE
+                const serviceID = 'service_iqkhsge';
+                const templateID = 'template_4q6y79v'; // Your new contact form template
+                
+                const templateParams = {
+                    'from_name': name,
+                    'from_email': email,
+                    'subject': subject,
+                    'message': message,
+                    'date': new Date().toLocaleDateString('en-US', { 
+                        weekday: 'long', 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    }),
+                    'to_email': 'crockednloaded@gmail.com',
+                    'reply_to': email,
+                    'user_name': name,
+                    'user_email': email
+                };
+                
+                // Send using EmailJS
+                emailjs.send(serviceID, templateID, templateParams)
+                    .then(function(response) {
+                        console.log('✅ Contact form SUCCESS!', response);
+                        showMessage('contact-form-message', '✅ Message sent successfully! We\'ll get back to you within 1-2 days.', 'success');
+                        contactForm.reset();
+                        showToast('Message sent! We\'ll respond within 1-2 days.', 'success');
+                    }, function(error) {
+                        console.error('❌ Contact form FAILED:', error);
+                        
+                        let errorMsg = '❌ Failed to send message. Please email us directly at crockednloaded@gmail.com';
+                        
+                        if (error.text) {
+                            if (error.text.includes('template_id') || error.text.includes('Template not found')) {
+                                errorMsg = '❌ Server error. Please contact us directly at crockednloaded@gmail.com';
+                            } else if (error.text.includes('Invalid template parameters')) {
+                                errorMsg = '❌ Form error. Please check your information and try again.';
+                            }
+                        }
+                        
+                        showMessage('contact-form-message', errorMsg, 'error');
+                        showToast('Failed to send message. Please email directly.', 'error');
+                    })
+                    .finally(function() {
+                        contactSubmit.innerHTML = originalText;
+                        contactSubmit.disabled = false;
+                    });
             });
         }
 
@@ -2141,83 +2157,52 @@
             });
         });
 
-        // TEST FUNCTION - Run this from browser console if issues
-        window.testEmailJSTemplate = function() {
-            console.log('=== Testing EmailJS with EXACT template variables ===');
-            
+        // TEST FUNCTIONS
+        window.testNewsletter = function() {
+            console.log('Testing newsletter...');
             const testParams = {
                 'name': 'Test User',
                 'email': 'test@example.com',
-                'current_date': new Date().toLocaleDateString('en-US', { 
-                    weekday: 'long', 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric' 
-                }),
-                'unsubscribe_link': 'https://crockednloaded.github.io/unsubscribe?email=test@example.com',
-                'to_name': 'Crocked N Loaded Team',
-                'from_name': 'Test User',
-                'message': 'This is a test subscription',
-                'reply_to': 'test@example.com'
+                'current_date': new Date().toLocaleDateString(),
+                'unsubscribe_link': '#',
+                'message': 'Test newsletter subscription',
+                'subject': 'Test Newsletter'
             };
             
-            console.log('Testing with EXACT template variables:', testParams);
-            
             emailjs.send('service_iqkhsge', 'template_ydyv17l', testParams)
-                .then(function(response) {
-                    console.log('✅ Test SUCCESS!', response);
-                    alert('Test successful! Check your email for the test message.');
-                }, function(error) {
-                    console.error('❌ Test FAILED:', error);
-                    
-                    // Try minimal version
-                    console.log('Trying minimal version with only required variables...');
-                    const minimalParams = {
-                        'name': 'Minimal Test',
-                        'email': 'test@example.com',
-                        'current_date': 'Today',
-                        'unsubscribe_link': '#'
-                    };
-                    
-                    emailjs.send('service_iqkhsge', 'template_ydyv17l', minimalParams)
-                        .then(function(response2) {
-                            console.log('✅ Minimal test worked!', response2);
-                            alert('Minimal test worked!');
-                        }, function(error2) {
-                            console.error('❌ Minimal test also failed:', error2);
-                            alert('Both tests failed. Check console.');
-                        });
+                .then(() => {
+                    console.log('✅ Newsletter test success');
+                    alert('Newsletter test sent!');
+                })
+                .catch(err => {
+                    console.error('❌ Newsletter test failed:', err);
+                    alert('Newsletter test failed');
                 });
         };
         
-        // Diagnostic function
-        window.diagnoseEmailJS = function() {
-            console.log('=== EmailJS Diagnostic Check ===');
-            console.log('EmailJS loaded:', typeof emailjs !== 'undefined');
-            console.log('EmailJS user ID:', emailjs ? emailjs.userId : 'Not loaded');
-            console.log('Service ID:', 'service_iqkhsge');
-            console.log('Template ID:', 'template_ydyv17l');
-            
-            // Quick test with minimal parameters
+        window.testContactForm = function() {
+            console.log('Testing contact form...');
             const testParams = {
-                'name': 'Diagnostic Test',
-                'email': 'test@diagnostic.com',
-                'current_date': 'Today',
-                'unsubscribe_link': '#'
+                'from_name': 'Test User',
+                'from_email': 'test@example.com',
+                'subject': 'Test Message',
+                'message': 'This is a test contact form message',
+                'date': new Date().toLocaleDateString(),
+                'to_email': 'crockednloaded@gmail.com'
             };
             
-            emailjs.send('service_iqkhsge', 'template_ydyv17l', testParams)
-                .then(function(response) {
-                    console.log('✅ Diagnostic test SUCCESS!', response);
-                    alert('Diagnostic test successful!');
-                }, function(error) {
-                    console.error('❌ Diagnostic test FAILED:', error);
-                    alert('Diagnostic test failed. Check console.');
+            emailjs.send('service_iqkhsge', 'template_4q6y79v', testParams)
+                .then(() => {
+                    console.log('✅ Contact form test success');
+                    alert('Contact form test sent! Check crockednloaded@gmail.com');
+                })
+                .catch(err => {
+                    console.error('❌ Contact form test failed:', err);
+                    alert('Contact form test failed');
                 });
         };
         
-        console.log('Test functions available: testEmailJSTemplate() and diagnoseEmailJS()');
-        console.log('Run from browser console to test EmailJS');
+        console.log('Test functions available: testNewsletter() and testContactForm()');
 
     })();
     </script>
