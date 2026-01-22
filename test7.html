@@ -30,7 +30,7 @@
     </script>
 
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Organization","name":"Crocked 'N Loaded","url":"https://crockednloaded.github.io/","sameAs":["https://youtube.com/@CrockedNLoaded-NH","https://instagram.com/CrockedNLoadedShow","https://www.facebook.com/CrockedNLoadedShow","https://tiktok.com/@CrockedNLoadedShow"]}
+    {"@context":"https://schema.org","@type":"Organization","name":"Crocked 'N Loaded","url":"https://crockednloaded.github.io/","sameAs":["https://youtube.com/@CrockedNLoaded-NH","https://instagram.com/CrockedNLoadedShow","https://www.facebook.com/CrockedNLoadedShow","https://tiktok.com/@CrockedNLoadedShow","https://twitter.com/CrockedNLoaded"]}
     </script>
 
     <style>
@@ -316,6 +316,16 @@
 
         .btn-fb:hover {
             background: #0d65d9;
+            transform: translateY(-2px);
+        }
+
+        .btn-twitter {
+            color: white;
+            background: #000000;
+        }
+
+        .btn-twitter:hover {
+            background: #1a1a1a;
             transform: translateY(-2px);
         }
 
@@ -840,6 +850,7 @@
 
         .social-card.fb { border-color: #1877F2; }
         .social-card.yt { border-color: #FF0000; }
+        .social-card.twitter { border-color: #000000; }
 
         .social-card h3 {
             display: flex;
@@ -853,6 +864,7 @@
 
         .social-card.fb h3 { color: #1877F2; }
         .social-card.yt h3 { color: #FF0000; }
+        .social-card.twitter h3 { color: #000000; }
 
         .social-card > p {
             color: var(--c-muted);
@@ -875,6 +887,7 @@
 
         .social-card.fb .feature-list li { border-left-color: #1877F2; }
         .social-card.yt .feature-list li { border-left-color: #FF0000; }
+        .social-card.twitter .feature-list li { border-left-color: #000000; }
 
         .feature-list li:hover {
             transform: translateX(6px);
@@ -1121,6 +1134,31 @@
             background: var(--c-flame);
             border-color: var(--c-flame);
             transform: translateY(-3px);
+        }
+
+        .footer-social a.twitter:hover {
+            background: #000000;
+            border-color: #000000;
+        }
+
+        .footer-social a.youtube:hover {
+            background: #FF0000;
+            border-color: #FF0000;
+        }
+
+        .footer-social a.facebook:hover {
+            background: #1877F2;
+            border-color: #1877F2;
+        }
+
+        .footer-social a.instagram:hover {
+            background: #E4405F;
+            border-color: #E4405F;
+        }
+
+        .footer-social a.tiktok:hover {
+            background: #000000;
+            border-color: #000000;
         }
 
         .copyright {
@@ -1526,8 +1564,52 @@
                 </p>
             </div>
 
-            <!-- FACEBOOK -->
+            <!-- TWITTER/X SECTION - ADDED -->
             <div class="social-grid" style="margin-bottom: 48px;">
+                <div class="social-card twitter reveal">
+                    <h3><i class="fab fa-twitter"></i> Twitter / X</h3>
+                    <p>
+                        Quick thoughts, hot takes, and real-time updates. If it's happening right now, 
+                        you'll find it here first. The 280-character version of our show.
+                    </p>
+                    <ul class="feature-list">
+                        <li>
+                            <h4><i class="fas fa-bolt"></i> Instant Updates</h4>
+                            <p>What we're cooking right now, behind-the-scenes moments</p>
+                        </li>
+                        <li>
+                            <h4><i class="fas fa-comment"></i> Direct Interaction</h4>
+                            <p>Reply, quote, roast us—we actually read the replies</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="social-card twitter reveal reveal-delay-1">
+                    <h3><i class="fas fa-hashtag"></i> Food Twitter</h3>
+                    <p>
+                        We're part of the cooking community on Twitter. Engaging with other chefs, 
+                        home cooks, and food enthusiasts. Join the conversation.
+                    </p>
+                    <ul class="feature-list">
+                        <li>
+                            <h4><i class="fas fa-users"></i> Community</h4>
+                            <p>Connect with other food lovers and share your creations</p>
+                        </li>
+                        <li>
+                            <h4><i class="fas fa-retweet"></i> Quick Shares</h4>
+                            <p>Easy to share recipes, tips, and food pics with your network</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="social-cta reveal">
+                <a href="https://twitter.com/CrockedNLoaded" target="_blank" rel="noopener" class="btn btn-twitter">
+                    <i class="fab fa-twitter"></i> Follow on Twitter / X
+                </a>
+                <p>Follow for real-time updates and join the food conversation</p>
+            </div>
+
+            <!-- FACEBOOK -->
+            <div class="social-grid" style="margin-top: 80px; margin-bottom: 48px;">
                 <div class="social-card fb reveal">
                     <h3><i class="fab fa-facebook"></i> Facebook</h3>
                     <p>
@@ -1650,6 +1732,18 @@
                         </div>
                     </div>
                     <div class="contact-row">
+                        <i class="fab fa-twitter"></i>
+                        <div>
+                            <h4>Twitter / X</h4>
+                            <p>@CrockedNLoaded</p>
+                            <div class="contact-links">
+                                <a href="https://twitter.com/CrockedNLoaded" target="_blank" rel="noopener">
+                                    <i class="fab fa-twitter"></i> Follow us
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-row">
                         <i class="fas fa-comments"></i>
                         <div>
                             <h4>DMs Open</h4>
@@ -1723,16 +1817,19 @@
                 <div class="footer-col">
                     <h4>Connect</h4>
                     <div class="footer-social">
-                        <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" rel="noopener" aria-label="YouTube">
+                        <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" rel="noopener" aria-label="YouTube" class="youtube">
                             <i class="fab fa-youtube"></i>
                         </a>
-                        <a href="https://instagram.com/CrockedNLoadedShow" target="_blank" rel="noopener" aria-label="Instagram">
+                        <a href="https://twitter.com/CrockedNLoaded" target="_blank" rel="noopener" aria-label="Twitter / X" class="twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com/CrockedNLoadedShow" target="_blank" rel="noopener" aria-label="Instagram" class="instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" rel="noopener" aria-label="Facebook">
+                        <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" rel="noopener" aria-label="Facebook" class="facebook">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank" rel="noopener" aria-label="TikTok">
+                        <a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank" rel="noopener" aria-label="TikTok" class="tiktok">
                             <i class="fab fa-tiktok"></i>
                         </a>
                     </div>
@@ -1879,7 +1976,7 @@
             }, 4000);
         }
 
-        // Newsletter form submission with EmailJS
+        // Newsletter form submission with EmailJS - FIXED WITH CORRECT TEMPLATE VARIABLES
         const newsletterForm = document.getElementById('newsletter-form');
         const newsletterSubmit = document.getElementById('newsletter-submit');
         const submitText = document.getElementById('submit-text');
@@ -1910,26 +2007,42 @@
                 console.log('Email:', email);
                 console.log('Name:', name);
                 
-                // EmailJS Configuration - VERIFY THESE IN YOUR DASHBOARD
-                const serviceID = 'service_iqkhsge';    // Check in EmailJS Dashboard -> Email Services
-                const templateID = 'template_ydyv17l';  // Check in EmailJS Dashboard -> Email Templates
+                // EmailJS Configuration - EXACT MATCH TO YOUR TEMPLATE
+                const serviceID = 'service_iqkhsge';
+                const templateID = 'template_ydyv17l';
                 
-                // Template parameters - MUST MATCH YOUR TEMPLATE VARIABLES
+                // Template parameters - MUST MATCH YOUR TEMPLATE VARIABLES EXACTLY
                 const templateParams = {
-                    to_email: 'contact@crockednloaded.com', // Who receives the subscription notification
-                    from_email: email,                     // Subscriber's email
-                    from_name: name,                      // Subscriber's name
-                    subject: 'New Newsletter Subscription',
-                    message: `New newsletter subscription from ${name} (${email})`,
-                    user_email: email,                    // Common template variable
-                    user_name: name,                      // Common template variable
-                    email: email,                         // Alternative variable name
-                    name: name                            // Alternative variable name
+                    // These EXACT variables from your template
+                    'name': name,
+                    'email': email,
+                    'current_date': new Date().toLocaleDateString('en-US', { 
+                        weekday: 'long', 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                    }),
+                    'unsubscribe_link': 'https://crockednloaded.github.io/unsubscribe?email=' + encodeURIComponent(email),
+                    
+                    // Also include common required fields for EmailJS
+                    'to_name': 'Crocked N Loaded Team',
+                    'from_name': name,
+                    'message': `New newsletter subscription from ${name} (${email})`,
+                    'reply_to': email,
+                    
+                    // Backup variables (won't be used in your template but good to have)
+                    'user_email': email,
+                    'user_name': name
                 };
                 
                 console.log('Service ID:', serviceID);
                 console.log('Template ID:', templateID);
-                console.log('Template Params:', templateParams);
+                console.log('Template Params (EXACT match to your template):', {
+                    'name': templateParams.name,
+                    'email': templateParams.email,
+                    'current_date': templateParams.current_date,
+                    'unsubscribe_link': templateParams.unsubscribe_link
+                });
                 
                 // Send using EmailJS
                 emailjs.send(serviceID, templateID, templateParams)
@@ -1938,29 +2051,37 @@
                         console.log('Status:', response.status);
                         console.log('Text:', response.text);
                         
-                        showMessage('newsletter-message', '✅ Success! Welcome to the crew!', 'success');
+                        showMessage('newsletter-message', '✅ Success! Welcome to the crew! Check your email for confirmation.', 'success');
                         newsletterForm.reset();
                         showToast('Successfully subscribed! Welcome to Crocked N Loaded!', 'success');
                     }, function(error) {
                         console.error('❌ EmailJS FAILED:', error);
-                        console.error('Error status:', error.status);
-                        console.error('Error text:', error.text);
+                        console.error('Full error object:', error);
                         
-                        // Detailed error messages
+                        // Detailed error analysis
                         let errorMsg = '❌ Something went wrong. Please try again.';
+                        let errorDetails = '';
                         
-                        if (error.status === 400) {
-                            errorMsg = '❌ Bad request. Check template parameters.';
-                        } else if (error.status === 401) {
-                            errorMsg = '❌ Unauthorized. Check your EmailJS API key.';
-                        } else if (error.status === 404) {
-                            errorMsg = '❌ Template or service not found. Check your IDs.';
-                        } else if (error.text) {
-                            // Show first 100 chars of error
-                            errorMsg = '❌ Error: ' + error.text.substring(0, 100);
+                        if (error.status) {
+                            errorDetails += `Status: ${error.status} `;
+                        }
+                        if (error.text) {
+                            errorDetails += `Text: ${error.text}`;
+                            
+                            // Common EmailJS errors
+                            if (error.text.includes('template_id') || error.text.includes('Template not found')) {
+                                errorMsg = '❌ Template ID error. Check template_ydyv17l exists.';
+                            } else if (error.text.includes('service_id') || error.text.includes('Service not found')) {
+                                errorMsg = '❌ Service ID error. Check service_iqkhsge exists.';
+                            } else if (error.text.includes('user_id') || error.text.includes('public key') || error.text.includes('Unauthorized')) {
+                                errorMsg = '❌ Authentication error. Check your EmailJS public key.';
+                            } else if (error.text.includes('Missing parameter')) {
+                                errorMsg = '❌ Missing template parameter. Check variable names.';
+                            }
                         }
                         
-                        showMessage('newsletter-message', errorMsg, 'error');
+                        console.error('Error details:', errorDetails);
+                        showMessage('newsletter-message', errorMsg + ' ' + errorDetails, 'error');
                         showToast('Subscription failed. Please try again.', 'error');
                     })
                     .finally(function() {
@@ -2021,32 +2142,82 @@
         });
 
         // TEST FUNCTION - Run this from browser console if issues
-        window.testEmailJS = function() {
-            console.log('Testing EmailJS connection...');
+        window.testEmailJSTemplate = function() {
+            console.log('=== Testing EmailJS with EXACT template variables ===');
             
             const testParams = {
-                to_email: 'contact@crockednloaded.com',
-                from_email: 'test@example.com',
-                from_name: 'Test User',
-                subject: 'EmailJS Test',
-                message: 'This is a test email from your website',
-                user_email: 'test@example.com',
-                user_name: 'Test User'
+                'name': 'Test User',
+                'email': 'test@example.com',
+                'current_date': new Date().toLocaleDateString('en-US', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                }),
+                'unsubscribe_link': 'https://crockednloaded.github.io/unsubscribe?email=test@example.com',
+                'to_name': 'Crocked N Loaded Team',
+                'from_name': 'Test User',
+                'message': 'This is a test subscription',
+                'reply_to': 'test@example.com'
             };
             
+            console.log('Testing with EXACT template variables:', testParams);
+            
             emailjs.send('service_iqkhsge', 'template_ydyv17l', testParams)
-                .then(response => {
-                    console.log('✅ TEST SUCCESS!', response);
-                    alert('EmailJS test successful! Check your email.');
-                })
-                .catch(error => {
-                    console.error('❌ TEST FAILED:', error);
-                    alert('EmailJS test failed. Check console for details.');
+                .then(function(response) {
+                    console.log('✅ Test SUCCESS!', response);
+                    alert('Test successful! Check your email for the test message.');
+                }, function(error) {
+                    console.error('❌ Test FAILED:', error);
+                    
+                    // Try minimal version
+                    console.log('Trying minimal version with only required variables...');
+                    const minimalParams = {
+                        'name': 'Minimal Test',
+                        'email': 'test@example.com',
+                        'current_date': 'Today',
+                        'unsubscribe_link': '#'
+                    };
+                    
+                    emailjs.send('service_iqkhsge', 'template_ydyv17l', minimalParams)
+                        .then(function(response2) {
+                            console.log('✅ Minimal test worked!', response2);
+                            alert('Minimal test worked!');
+                        }, function(error2) {
+                            console.error('❌ Minimal test also failed:', error2);
+                            alert('Both tests failed. Check console.');
+                        });
                 });
         };
         
-        console.log('Test function available: testEmailJS()');
-        console.log('Run testEmailJS() in console to test EmailJS connection');
+        // Diagnostic function
+        window.diagnoseEmailJS = function() {
+            console.log('=== EmailJS Diagnostic Check ===');
+            console.log('EmailJS loaded:', typeof emailjs !== 'undefined');
+            console.log('EmailJS user ID:', emailjs ? emailjs.userId : 'Not loaded');
+            console.log('Service ID:', 'service_iqkhsge');
+            console.log('Template ID:', 'template_ydyv17l');
+            
+            // Quick test with minimal parameters
+            const testParams = {
+                'name': 'Diagnostic Test',
+                'email': 'test@diagnostic.com',
+                'current_date': 'Today',
+                'unsubscribe_link': '#'
+            };
+            
+            emailjs.send('service_iqkhsge', 'template_ydyv17l', testParams)
+                .then(function(response) {
+                    console.log('✅ Diagnostic test SUCCESS!', response);
+                    alert('Diagnostic test successful!');
+                }, function(error) {
+                    console.error('❌ Diagnostic test FAILED:', error);
+                    alert('Diagnostic test failed. Check console.');
+                });
+        };
+        
+        console.log('Test functions available: testEmailJSTemplate() and diagnoseEmailJS()');
+        console.log('Run from browser console to test EmailJS');
 
     })();
     </script>
