@@ -343,8 +343,8 @@
             z-index: 2;
             background: var(--dark);
             min-height: 100vh;
-            margin-top: 100vh;
-            transition: margin-top 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateY(100vh);
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             padding-top: 20px;
         }
 
@@ -1404,7 +1404,7 @@
         <div class="hero-bg-overlay"></div>
         <div class="hero-content-container">
             <div class="hero-content" id="heroContent">
-                <h1 class="hero-title" aria-label="Crocked N Loaded">CROCKED 'N LOADED</h1>
+                <h1 class="hero-title">CROCKED 'N LOADED</h1>
                 <div class="hero-tagline">REAL FOOD. REAL REVIEWS.</div>
                 <div class="hero-subtitle">NO BULLSHIT.</div>
                 <p class="hero-description">
@@ -1412,26 +1412,26 @@
                     MACK3Y the Foodie brings 23 years of restaurant experience. Together, we're tearing down the wall between
                     professional cooking and your kitchen at home.
                 </p>
-                <a href="#content" class="action-btn" id="exploreBtn" aria-label="Explore our content">
-                    <i class="fas fa-arrow-down" aria-hidden="true"></i> LET'S GET COOKING
+                <a href="#content" class="action-btn" id="exploreBtn">
+                    <i class="fas fa-arrow-down"></i> LET'S GET COOKING
                 </a>
             </div>
         </div>
-        <div class="scroll-hint" id="scrollHint" role="button" tabindex="0" aria-label="Scroll to explore">
+        <div class="scroll-hint" id="scrollHint">
             <span>SCROLL TO EXPLORE</span>
-            <div><i class="fas fa-chevron-down" aria-hidden="true"></i></div>
+            <div><i class="fas fa-chevron-down"></i></div>
         </div>
     </div>
 
     <!-- Navigation -->
     <header class="main-header" id="mainHeader">
         <div class="nav-inner">
-            <a href="#home" class="brand" aria-label="Crocked N Loaded Home">
-                <i class="fas fa-fire brand-icon" aria-hidden="true"></i>
+            <a href="#home" class="brand">
+                <i class="fas fa-fire brand-icon"></i>
                 <div class="brand-text">CROCKED'N LOADED</div>
             </a>
             <button class="mobile-toggle" id="mobileToggle" aria-expanded="false" aria-controls="navLinks">
-                <i class="fas fa-bars" aria-hidden="true"></i>
+                <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-links" id="navLinks" role="menubar">
                 <li class="nav-item" role="none"><a href="#home" class="active" role="menuitem">HOME</a></li>
@@ -1548,7 +1548,7 @@
             <div class="content-cards">
                 <div class="content-card">
                     <div class="card-icon">
-                        <i class="fas fa-home" aria-hidden="true"></i>
+                        <i class="fas fa-home"></i>
                     </div>
                     <h3>HOME COOKING DEMOS</h3>
                     <p>
@@ -1558,7 +1558,7 @@
                 </div>
                 <div class="content-card">
                     <div class="card-icon">
-                        <i class="fas fa-dollar-sign" aria-hidden="true"></i>
+                        <i class="fas fa-dollar-sign"></i>
                     </div>
                     <h3>BUDGET CHALLENGES</h3>
                     <p>
@@ -1568,7 +1568,7 @@
                 </div>
                 <div class="content-card">
                     <div class="card-icon">
-                        <i class="fas fa-utensils" aria-hidden="true"></i>
+                        <i class="fas fa-utensils"></i>
                     </div>
                     <h3>HONEST REVIEWS</h3>
                     <p>
@@ -1589,7 +1589,7 @@
             <div class="store-wrapper">
                 <div class="store-options">
                     <div class="store-option">
-                        <i class="fas fa-store" aria-hidden="true"></i>
+                        <i class="fas fa-store"></i>
                         <h3>THIRD-PARTY MERCH</h3>
                         <p>
                             We're partnering with top merch platforms to bring you quality gear.
@@ -1598,7 +1598,7 @@
                         </p>
                     </div>
                     <div class="store-option">
-                        <i class="fas fa-truck" aria-hidden="true"></i>
+                        <i class="fas fa-truck"></i>
                         <h3>WORLDWIDE SHIPPING</h3>
                         <p>
                             No matter where you are, we've got you covered. Our merch partners
@@ -1609,15 +1609,15 @@
                 <div class="store-embed-section">
                     <h3>OUR MERCH STORE</h3>
                     <div class="store-placeholder">
-                        <i class="fas fa-shopping-bag" aria-hidden="true"></i>
+                        <i class="fas fa-shopping-bag"></i>
                         <h4>MERCH COMING SOON</h4>
                         <p>
                             We're cooking up an awesome merch collection! Soon you'll be able to shop
                             directly from our site through our integrated store. Check back regularly
                             for the launch announcement.
                         </p>
-                        <p style="color: var(--gold); margin-top: 20px; font-family: 'Orbitron', monospace; font-size: 1rem;">
-                            <i class="fas fa-fire" aria-hidden="true"></i> LAUNCHING SPRING 2025
+                        <p style="color: #FFD700; margin-top: 20px; font-family: 'Orbitron', monospace; font-size: 1rem;">
+                            <i class="fas fa-fire"></i> LAUNCHING SPRING 2025
                         </p>
                     </div>
                 </div>
@@ -1632,51 +1632,51 @@
             </div>
             <div class="facebook-cards">
                 <div class="facebook-card">
-                    <h3><i class="fab fa-facebook" aria-hidden="true"></i> FOLLOW ALONG</h3>
+                    <h3><i class="fab fa-facebook"></i> FOLLOW ALONG</h3>
                     <p>
                         Our Facebook page is where the real conversation happens. Behind-the-scenes clips,
                         cooking fails (we have plenty), and daily food talk with people who get it.
                     </p>
                     <div class="facebook-preview">
-                        <i class="fab fa-facebook-square" aria-hidden="true"></i>
+                        <i class="fab fa-facebook-square"></i>
                         <h4>Crocked N Loaded Show</h4>
                         <p>Public Facebook Page</p>
                         <div style="margin-top: 25px;">
-                            <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" rel="noopener noreferrer" class="action-btn" style="background: linear-gradient(135deg, #1877F2, #0d5bb5);">
-                                <i class="fab fa-facebook" aria-hidden="true"></i> CHECK US OUT
+                            <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" class="action-btn" style="background: linear-gradient(135deg, #1877F2, #0d5bb5);">
+                                <i class="fab fa-facebook"></i> CHECK US OUT
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="facebook-card">
-                    <h3><i class="fas fa-star" aria-hidden="true"></i> WHY FOLLOW?</h3>
+                    <h3><i class="fas fa-star"></i> WHY FOLLOW?</h3>
                     <p>Here's what you get that you won't find anywhere else:</p>
                     <ul class="features-list">
                         <li>
-                            <h4><i class="fas fa-video" aria-hidden="true"></i> REELS & SHORTS</h4>
+                            <h4><i class="fas fa-video"></i> REELS & SHORTS</h4>
                             <p>Quick knife skills, 60-second recipes, and kitchen hacks that actually work.</p>
                         </li>
                         <li>
-                            <h4><i class="fas fa-calendar-alt" aria-hidden="true"></i> LIVE COOKING</h4>
+                            <h4><i class="fas fa-calendar-alt"></i> LIVE COOKING</h4>
                             <p>We go live and cook whatever you want us to. Ask questions, make requests.</p>
                         </li>
                         <li>
-                            <h4><i class="fas fa-users" aria-hidden="true"></i> REAL COMMUNITY</h4>
+                            <h4><i class="fas fa-users"></i> REAL COMMUNITY</h4>
                             <p>Share your own cooking wins (and fails) with people who won't judge.</p>
                         </li>
                         <li>
-                            <h4><i class="fas fa-bell" aria-hidden="true"></i> INSTANT UPDATES</h4>
+                            <h4><i class="fas fa-bell"></i> INSTANT UPDATES</h4>
                             <p>First to know about new episodes, events, and when we're in your area.</p>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="facebook-cta">
-                <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" rel="noopener noreferrer" class="action-btn" style="background: linear-gradient(135deg, #1877F2, #0d5bb5);">
-                    <i class="fab fa-facebook" aria-hidden="true"></i> FOLLOW & TURN ON NOTIFICATIONS
+                <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" class="action-btn" style="background: linear-gradient(135deg, #1877F2, #0d5bb5);">
+                    <i class="fab fa-facebook"></i> FOLLOW & TURN ON NOTIFICATIONS
                 </a>
                 <p style="color: #ccc; margin-top: 25px; font-size: 1rem; font-family: 'Montserrat', sans-serif;">
-                    <i class="fas fa-info-circle" aria-hidden="true"></i> Click "Follow" then "See First" to never miss our posts
+                    <i class="fas fa-info-circle"></i> Click "Follow" then "See First" to never miss our posts
                 </p>
             </div>
         </section>
@@ -1689,45 +1689,45 @@
             </div>
             <div class="youtube-stats">
                 <div class="youtube-card">
-                    <h3><i class="fab fa-youtube" aria-hidden="true"></i> CHANNEL STATS</h3>
+                    <h3><i class="fab fa-youtube"></i> CHANNEL STATS</h3>
                     <p>Real numbers from our YouTube home base:</p>
                     <div class="stats-grid" id="youtubeStats">
                         <div class="stat-box">
-                            <div class="stat-number" id="subscribers">0</div>
+                            <div class="stat-number">0</div>
                             <div class="stat-text">SUBSCRIBERS</div>
                         </div>
                         <div class="stat-box">
-                            <div class="stat-number" id="totalViews">0</div>
+                            <div class="stat-number">0</div>
                             <div class="stat-text">TOTAL VIEWS</div>
                         </div>
                         <div class="stat-box">
-                            <div class="stat-number" id="videoCount">0</div>
+                            <div class="stat-number">0</div>
                             <div class="stat-text">VIDEOS</div>
                         </div>
                         <div class="stat-box">
-                            <div class="stat-number" id="lastUpload">--</div>
+                            <div class="stat-number">--</div>
                             <div class="stat-text">LAST UPLOAD</div>
                         </div>
                     </div>
                 </div>
                 <div class="youtube-card">
-                    <h3><i class="fas fa-play-circle" aria-hidden="true"></i> WHY SUBSCRIBE?</h3>
+                    <h3><i class="fas fa-play-circle"></i> WHY SUBSCRIBE?</h3>
                     <p>YouTube gets the full treatment:</p>
                     <ul class="features-list">
                         <li>
-                            <h4><i class="fas fa-film" aria-hidden="true"></i> FULL EPISODES</h4>
+                            <h4><i class="fas fa-film"></i> FULL EPISODES</h4>
                             <p>Complete cooking tutorials from start to finish. No cuts, no tricks.</p>
                         </li>
                         <li>
-                            <h4><i class="fas fa-graduation-cap" aria-hidden="true"></i> REAL TUTORIALS</h4>
+                            <h4><i class="fas fa-graduation-cap"></i> REAL TUTORIALS</h4>
                             <p>Learn professional techniques at your own pace. Pause, rewind, master.</p>
                         </li>
                         <li>
-                            <h4><i class="fas fa-comments" aria-hidden="true"></i> LIVE CHAT</h4>
+                            <h4><i class="fas fa-comments"></i> LIVE CHAT</h4>
                             <p>Ask questions during premieres and get answers in real time.</p>
                         </li>
                         <li>
-                            <h4><i class="fas fa-bell" aria-hidden="true"></i> NEVER MISS OUT</h4>
+                            <h4><i class="fas fa-bell"></i> NEVER MISS OUT</h4>
                             <p>Get notified when we drop new content. The bell is your friend.</p>
                         </li>
                     </ul>
@@ -1737,15 +1737,15 @@
                 <h3>FIRST VIDEO COMING SOON</h3>
                 <div class="videos-grid">
                     <div class="video-card" style="grid-column: 1 / -1; text-align: center; padding: 50px; background: linear-gradient(135deg, rgba(26,26,26,0.95), rgba(42,42,42,0.8));">
-                        <i class="fas fa-video" style="font-size: 4rem; color: var(--orange); margin-bottom: 25px;" aria-hidden="true"></i>
+                        <i class="fas fa-video" style="font-size: 4rem; color: #FF9500; margin-bottom: 25px;"></i>
                         <h3 style="color: #fff; margin-bottom: 15px; font-size: 2rem; font-family: 'Bebas Neue', Impact;">WE'RE COOKING UP SOMETHING SPECIAL</h3>
                         <p style="color: #ccc; max-width: 600px; margin: 0 auto 30px; font-family: 'Montserrat', sans-serif;">
                             Our first episode is in production right now. We're putting together something
                             that shows exactly what Crocked 'N Loaded is all about—no fluff, just real
                             cooking you can actually do at home.
                         </p>
-                        <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" rel="noopener noreferrer" class="action-btn" style="background: linear-gradient(135deg, #FF0000, #CC0000);">
-                            <i class="fab fa-youtube" aria-hidden="true"></i> SUBSCRIBE FOR UPDATES
+                        <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" class="action-btn" style="background: linear-gradient(135deg, #FF0000, #CC0000);">
+                            <i class="fab fa-youtube"></i> SUBSCRIBE FOR UPDATES
                         </a>
                     </div>
                 </div>
@@ -1763,41 +1763,41 @@
                     <h3>WAYS TO REACH US</h3>
                     <div>
                         <div class="contact-item">
-                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                            <i class="fas fa-envelope"></i>
                             <div>
                                 <h4>BUSINESS EMAIL</h4>
                                 <p>contact@crockednloaded.com</p>
-                                <p style="color: var(--orange); font-size: 0.9rem; margin-top: 5px; font-family: 'Montserrat', sans-serif;">
+                                <p style="color: #FF9500; font-size: 0.9rem; margin-top: 5px; font-family: 'Montserrat', sans-serif;">
                                     For collaborations, sponsorships, or media inquiries
                                 </p>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <i class="fab fa-youtube" aria-hidden="true"></i>
+                            <i class="fab fa-youtube"></i>
                             <div>
                                 <h4>YOUTUBE HOME</h4>
                                 <p>@CrockedNLoaded-NH</p>
                                 <div class="social-links">
-                                    <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" rel="noopener noreferrer">
-                                        <i class="fab fa-youtube" aria-hidden="true"></i> YouTube Channel
+                                    <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank">
+                                        <i class="fab fa-youtube"></i> YouTube Channel
                                     </a>
                                 </div>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <i class="fas fa-handshake" aria-hidden="true"></i>
+                            <i class="fas fa-handshake"></i>
                             <div>
                                 <h4>COLLABORATIONS & GUESTS</h4>
                                 <p>Slide into our DMs:</p>
                                 <div class="social-links">
-                                    <a href="https://instagram.com/CrockedNLoadedShow" target="_blank" rel="noopener noreferrer">
-                                        <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
+                                    <a href="https://instagram.com/CrockedNLoadedShow" target="_blank">
+                                        <i class="fab fa-instagram"></i> Instagram
                                     </a>
-                                    <a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank" rel="noopener noreferrer">
-                                        <i class="fab fa-tiktok" aria-hidden="true"></i> TikTok
+                                    <a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank">
+                                        <i class="fab fa-tiktok"></i> TikTok
                                     </a>
-                                    <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" rel="noopener noreferrer">
-                                        <i class="fab fa-facebook" aria-hidden="true"></i> Facebook
+                                    <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank">
+                                        <i class="fab fa-facebook"></i> Facebook
                                     </a>
                                 </div>
                             </div>
@@ -1823,12 +1823,12 @@
                             <label for="message">TELL US MORE</label>
                             <textarea id="message" name="message" required placeholder="Spill the beans..." aria-required="true"></textarea>
                         </div>
-                        <button type="submit" class="form-submit" aria-label="Send message">
-                            <i class="fas fa-paper-plane" aria-hidden="true"></i> SEND MESSAGE
+                        <button type="submit" class="form-submit">
+                            <i class="fas fa-paper-plane"></i> SEND MESSAGE
                         </button>
                     </form>
                     <p style="color: #ccc; font-size: 0.9rem; margin-top: 25px; text-align: center; font-family: 'Montserrat', sans-serif;">
-                        <i class="fas fa-info-circle" aria-hidden="true"></i> We read every message and try to reply within 48 hours
+                        <i class="fas fa-info-circle"></i> We read every message and try to reply within 48 hours
                     </p>
                 </div>
             </div>
@@ -1861,17 +1861,17 @@
             <div class="footer-links">
                 <h4>CONNECT WITH US</h4>
                 <div class="social-icons">
-                    <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
-                        <i class="fab fa-youtube" aria-hidden="true"></i>
+                    <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" class="social-icon">
+                        <i class="fab fa-youtube"></i>
                     </a>
-                    <a href="https://instagram.com/CrockedNLoadedShow" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
-                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                    <a href="https://instagram.com/CrockedNLoadedShow" target="_blank" class="social-icon">
+                        <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook">
-                        <i class="fab fa-facebook" aria-hidden="true"></i>
+                    <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" class="social-icon">
+                        <i class="fab fa-facebook"></i>
                     </a>
-                    <a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="TikTok">
-                        <i class="fab fa-tiktok" aria-hidden="true"></i>
+                    <a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank" class="social-icon">
+                        <i class="fab fa-tiktok"></i>
                     </a>
                 </div>
                 <p style="color: #ccc; margin-top: 20px; font-family: 'Montserrat', sans-serif;">
@@ -1919,7 +1919,10 @@
                 }, 300);
             }, 800);
 
-            // --- Intersection Observer for Animations ---
+            // --- Initialize page content position ---
+            pageContent.style.transform = 'translateY(100vh)';
+
+            // --- Intersection Observer for animations ---
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
@@ -1937,22 +1940,12 @@
                 sectionObserver.observe(section);
             });
 
-            // --- Smooth Scroll & Hero Transition ---
-            function hideHero() {
-                heroSection.style.transform = 'translateY(-100%)';
-                pageContent.style.marginTop = '0';
-                contentFade.classList.add('active');
-            }
-
-            function showHero() {
-                heroSection.style.transform = 'translateY(0)';
-                pageContent.style.marginTop = '100vh';
-                contentFade.classList.remove('active');
-            }
-
+            // --- Smooth scroll for explore button ---
             exploreBtn.addEventListener('click', function(e) {
                 e.preventDefault();
-                hideHero();
+                heroSection.style.transform = 'translateY(-100%)';
+                pageContent.style.transform = 'translateY(0)';
+                contentFade.classList.add('active');
                 setTimeout(() => {
                     document.getElementById('content').scrollIntoView({
                         behavior: 'smooth',
@@ -1961,7 +1954,7 @@
                 }, 300);
             });
 
-            // --- Navigation ---
+            // --- Smooth scroll for nav links ---
             navItems.forEach(link => {
                 link.addEventListener('click', function(e) {
                     const href = this.getAttribute('href');
@@ -1972,18 +1965,18 @@
                     const targetElement = document.getElementById(targetId);
 
                     if (targetElement) {
-                        // Close mobile menu if open
                         navLinks.classList.remove('active');
                         mobileToggle.querySelector('i').classList.remove('fa-times');
                         mobileToggle.querySelector('i').classList.add('fa-bars');
                         mobileToggle.setAttribute('aria-expanded', 'false');
 
-                        // Update active nav item
                         navItems.forEach(item => item.classList.remove('active'));
                         this.classList.add('active');
 
                         if (targetId !== 'home') {
-                            hideHero();
+                            heroSection.style.transform = 'translateY(-100%)';
+                            pageContent.style.transform = 'translateY(0)';
+                            contentFade.classList.add('active');
                             setTimeout(() => {
                                 targetElement.scrollIntoView({
                                     behavior: 'smooth',
@@ -1991,14 +1984,16 @@
                                 });
                             }, 300);
                         } else {
-                            showHero();
+                            heroSection.style.transform = 'translateY(0)';
+                            pageContent.style.transform = 'translateY(100vh)';
+                            contentFade.classList.remove('active');
                             window.scrollTo({ top: 0, behavior: 'smooth' });
                         }
                     }
                 });
             });
 
-            // --- Mobile Menu ---
+            // --- Mobile menu toggle ---
             mobileToggle.addEventListener('click', function() {
                 const isExpanded = this.getAttribute('aria-expanded') === 'true';
                 this.setAttribute('aria-expanded', !isExpanded);
@@ -2008,7 +2003,7 @@
                 icon.classList.toggle('fa-bars');
             });
 
-            // --- Scroll Effects ---
+            // --- Scroll effects ---
             let scrollTimeout;
             let lastScrollY = window.scrollY;
             let ticking = false;
@@ -2016,17 +2011,18 @@
             function updateScrollEffects() {
                 const scrollY = window.scrollY;
 
-                // Hide hero after scrolling down
                 if (scrollY > window.innerHeight * 0.3 && lastScrollY < scrollY) {
-                    hideHero();
+                    heroSection.style.transform = 'translateY(-100%)';
+                    pageContent.style.transform = 'translateY(0)';
+                    contentFade.classList.add('active');
                 }
 
-                // Show hero when scrolling up to top
                 if (scrollY < 50) {
-                    showHero();
+                    heroSection.style.transform = 'translateY(0)';
+                    pageContent.style.transform = 'translateY(100vh)';
+                    contentFade.classList.remove('active');
                 }
 
-                // Update active nav based on scroll position
                 const sections = document.querySelectorAll('.content-block');
                 const scrollPosition = scrollY + 100;
 
@@ -2056,9 +2052,11 @@
                 }
             });
 
-            // --- Scroll Hint ---
+            // --- Scroll hint ---
             scrollHint.addEventListener('click', function() {
-                hideHero();
+                heroSection.style.transform = 'translateY(-100%)';
+                pageContent.style.transform = 'translateY(0)';
+                contentFade.classList.add('active');
                 setTimeout(() => {
                     document.getElementById('content').scrollIntoView({
                         behavior: 'smooth',
@@ -2067,7 +2065,7 @@
                 }, 300);
             });
 
-            // --- Contact Form ---
+            // --- Contact form submission ---
             if (contactForm) {
                 contactForm.addEventListener('submit', async function(e) {
                     e.preventDefault();
@@ -2105,7 +2103,7 @@
                 });
             }
 
-            // --- Toast Notification ---
+            // --- Toast notification ---
             function showToast(message, type = 'success') {
                 const toastMessage = document.getElementById('toastMessage');
                 if (!toastMessage) return;
@@ -2125,10 +2123,10 @@
                 }, 3000);
             }
 
-            // --- Resize Handler ---
+            // --- Resize handler ---
             window.addEventListener('resize', updateScrollEffects);
 
-            // --- Initial Call ---
+            // --- Initial call ---
             updateScrollEffects();
         });
     </script>
