@@ -25,7 +25,7 @@
         // Initialize EmailJS with your public key
         (function() {
             emailjs.init("z0sHgO8f-hc3gN-4A");
-            console.log("EmailJS initialized successfully");
+            console.log("EmailJS initialized successfully with public key:", "z0sHgO8f-hc3gN-4A");
         })();
     </script>
 
@@ -1466,6 +1466,7 @@
                 <form class="newsletter-form" id="newsletter-form">
                     <input type="email" id="newsletter-email" name="email" class="newsletter-input" placeholder="your@email.com" required>
                     <input type="text" id="newsletter-name" name="name" class="newsletter-input" placeholder="Your Name (Optional)">
+                    
                     <button type="submit" class="btn btn-primary" id="newsletter-submit">
                         <span id="submit-text">Count Me In</span>
                         <span id="submit-spinner" style="display:none;"><i class="fas fa-spinner fa-spin"></i> Subscribing...</span>
@@ -1857,12 +1858,33 @@
             }
         };
 
-        // Newsletter form submission - WITH CORRECT TEMPLATE ID
+        // Toast notification function
+        function showToast(message, type = 'success') {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 100);
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    if (toast.parentNode) {
+                        toast.parentNode.removeChild(toast);
+                    }
+                }, 400);
+            }, 4000);
+        }
+
+        // Newsletter form submission with EmailJS
         const newsletterForm = document.getElementById('newsletter-form');
         const newsletterSubmit = document.getElementById('newsletter-submit');
         const submitText = document.getElementById('submit-text');
         const submitSpinner = document.getElementById('submit-spinner');
-        
+
         if (newsletterForm) {
             newsletterForm.addEventListener('submit', function(e) {
                 e.preventDefault();
@@ -1884,46 +1906,62 @@
                 
                 showMessage('newsletter-message', 'Subscribing...', 'loading');
                 
-                console.log('Sending newsletter subscription:');
+                console.log('Sending newsletter subscription via EmailJS:');
                 console.log('Email:', email);
                 console.log('Name:', name);
-                console.log('Service ID: service_iqkhsge');
-                console.log('Template ID: template_ydyv17l');
                 
-                // Prepare parameters for EmailJS - USING CORRECT TEMPLATE ID
+                // EmailJS Configuration - VERIFY THESE IN YOUR DASHBOARD
+                const serviceID = 'service_iqkhsge';    // Check in EmailJS Dashboard -> Email Services
+                const templateID = 'template_ydyv17l';  // Check in EmailJS Dashboard -> Email Templates
+                
+                // Template parameters - MUST MATCH YOUR TEMPLATE VARIABLES
                 const templateParams = {
-                    to_name: name,
-                    from_name: 'Crocked N Loaded Newsletter',
-                    message: 'New newsletter subscription from ' + email,
-                    reply_to: email,
-                    email: email,
-                    name: name,
-                    user_email: email,
-                    user_name: name
+                    to_email: 'contact@crockednloaded.com', // Who receives the subscription notification
+                    from_email: email,                     // Subscriber's email
+                    from_name: name,                      // Subscriber's name
+                    subject: 'New Newsletter Subscription',
+                    message: `New newsletter subscription from ${name} (${email})`,
+                    user_email: email,                    // Common template variable
+                    user_name: name,                      // Common template variable
+                    email: email,                         // Alternative variable name
+                    name: name                            // Alternative variable name
                 };
                 
-                // Send using EmailJS with CORRECT template ID
-                emailjs.send('service_iqkhsge', 'template_ydyv17l', templateParams)
+                console.log('Service ID:', serviceID);
+                console.log('Template ID:', templateID);
+                console.log('Template Params:', templateParams);
+                
+                // Send using EmailJS
+                emailjs.send(serviceID, templateID, templateParams)
                     .then(function(response) {
-                        console.log('✅ Newsletter SUCCESS!', response);
-                        showMessage('newsletter-message', '✅ Success! Thank you for subscribing! Check your email for confirmation.', 'success');
-                        newsletterForm.reset();
-                    }, function(error) {
-                        console.error('❌ Newsletter FAILED:', error);
+                        console.log('✅ EmailJS SUCCESS!', response);
+                        console.log('Status:', response.status);
+                        console.log('Text:', response.text);
                         
-                        // Show specific error message
+                        showMessage('newsletter-message', '✅ Success! Welcome to the crew!', 'success');
+                        newsletterForm.reset();
+                        showToast('Successfully subscribed! Welcome to Crocked N Loaded!', 'success');
+                    }, function(error) {
+                        console.error('❌ EmailJS FAILED:', error);
+                        console.error('Error status:', error.status);
+                        console.error('Error text:', error.text);
+                        
+                        // Detailed error messages
                         let errorMsg = '❌ Something went wrong. Please try again.';
-                        if (error.text) {
-                            if (error.text.includes('Invalid template ID')) {
-                                errorMsg = '❌ Server error: Template not found.';
-                            } else if (error.text.includes('Service not found')) {
-                                errorMsg = '❌ Server error: Service not found.';
-                            } else {
-                                errorMsg = '❌ Error: ' + error.text;
-                            }
+                        
+                        if (error.status === 400) {
+                            errorMsg = '❌ Bad request. Check template parameters.';
+                        } else if (error.status === 401) {
+                            errorMsg = '❌ Unauthorized. Check your EmailJS API key.';
+                        } else if (error.status === 404) {
+                            errorMsg = '❌ Template or service not found. Check your IDs.';
+                        } else if (error.text) {
+                            // Show first 100 chars of error
+                            errorMsg = '❌ Error: ' + error.text.substring(0, 100);
                         }
                         
                         showMessage('newsletter-message', errorMsg, 'error');
+                        showToast('Subscription failed. Please try again.', 'error');
                     })
                     .finally(function() {
                         // Reset button state
@@ -1981,6 +2019,35 @@
                 }
             });
         });
+
+        // TEST FUNCTION - Run this from browser console if issues
+        window.testEmailJS = function() {
+            console.log('Testing EmailJS connection...');
+            
+            const testParams = {
+                to_email: 'contact@crockednloaded.com',
+                from_email: 'test@example.com',
+                from_name: 'Test User',
+                subject: 'EmailJS Test',
+                message: 'This is a test email from your website',
+                user_email: 'test@example.com',
+                user_name: 'Test User'
+            };
+            
+            emailjs.send('service_iqkhsge', 'template_ydyv17l', testParams)
+                .then(response => {
+                    console.log('✅ TEST SUCCESS!', response);
+                    alert('EmailJS test successful! Check your email.');
+                })
+                .catch(error => {
+                    console.error('❌ TEST FAILED:', error);
+                    alert('EmailJS test failed. Check console for details.');
+                });
+        };
+        
+        console.log('Test function available: testEmailJS()');
+        console.log('Run testEmailJS() in console to test EmailJS connection');
+
     })();
     </script>
 </body>
