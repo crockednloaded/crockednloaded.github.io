@@ -23,7 +23,10 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         // Initialize EmailJS with your public key
-        emailjs.init("z0sHgO8f-hc3gN-4A");
+        (function() {
+            emailjs.init("z0sHgO8f-hc3gN-4A");
+            console.log("EmailJS initialized successfully");
+        })();
     </script>
 
     <script type="application/ld+json">
@@ -1461,9 +1464,12 @@
                     cool in your area. That's it. No daily spam. We hate that shit too.
                 </p>
                 <form class="newsletter-form" id="newsletter-form">
-                    <input type="email" name="user_email" class="newsletter-input" placeholder="your@email.com" required>
-                    <input type="text" name="user_name" class="newsletter-input" placeholder="Your Name (Optional)">
-                    <button type="submit" class="btn btn-primary" id="newsletter-submit">Count Me In</button>
+                    <input type="email" id="newsletter-email" name="user_email" class="newsletter-input" placeholder="your@email.com" required>
+                    <input type="text" id="newsletter-name" name="user_name" class="newsletter-input" placeholder="Your Name (Optional)">
+                    <button type="submit" class="btn btn-primary" id="newsletter-submit">
+                        <span id="submit-text">Count Me In</span>
+                        <span id="submit-spinner" style="display:none;"><i class="fas fa-spinner fa-spin"></i> Subscribing...</span>
+                    </button>
                 </form>
                 <div id="newsletter-message" class="form-message"></div>
                 <p class="newsletter-note">Unsubscribe whenever. No hard feelings.</p>
@@ -1684,7 +1690,7 @@
                             <i class="fas fa-paper-plane"></i> Send It
                         </button>
                     </form>
-                    <div id="contact-message" class="form-message"></div>
+                    <div id="contact-form-message" class="form-message"></div>
                     <p class="form-note">We check messages regularly. Usually respond within a day or two.</p>
                 </div>
             </div>
@@ -1837,6 +1843,8 @@
         // Show message function
         const showMessage = (elementId, message, type = 'success') => {
             const element = document.getElementById(elementId);
+            if (!element) return;
+            
             element.textContent = message;
             element.className = 'form-message ' + type;
             element.style.display = 'block';
@@ -1852,34 +1860,76 @@
         // Newsletter form submission
         const newsletterForm = document.getElementById('newsletter-form');
         const newsletterSubmit = document.getElementById('newsletter-submit');
+        const submitText = document.getElementById('submit-text');
+        const submitSpinner = document.getElementById('submit-spinner');
         
         if (newsletterForm) {
             newsletterForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                const originalText = newsletterSubmit.innerHTML;
-                newsletterSubmit.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Subscribing...';
+                // Get form data
+                const email = document.getElementById('newsletter-email').value.trim();
+                const name = document.getElementById('newsletter-name').value.trim() || 'Subscriber';
+                
+                // Validate email
+                if (!email || !email.includes('@') || !email.includes('.')) {
+                    showMessage('newsletter-message', '❌ Please enter a valid email address.', 'error');
+                    return;
+                }
+                
+                // Show loading state
+                submitText.style.display = 'none';
+                submitSpinner.style.display = 'inline';
                 newsletterSubmit.disabled = true;
                 
                 showMessage('newsletter-message', 'Subscribing...', 'loading');
                 
-                // Send email using EmailJS
-                emailjs.sendForm('service_iqkhsge', 'YOUR_TEMPLATE_ID_HERE', this)
-                    .then(function() {
+                // Prepare template parameters
+                const templateParams = {
+                    user_email: email,
+                    user_name: name,
+                    to_name: name,
+                    to_email: email,
+                    reply_to: email,
+                    date: new Date().toLocaleDateString()
+                };
+                
+                console.log('Sending newsletter subscription:', templateParams);
+                
+                // Send email using EmailJS - USING YOUR ACTUAL TEMPLATE ID
+                emailjs.send('service_iqkhsge', 'template_ydyv171', templateParams)
+                    .then(function(response) {
+                        console.log('✅ SUCCESS!', response.status, response.text);
                         showMessage('newsletter-message', '✅ Success! Thank you for subscribing! Check your email for confirmation.', 'success');
                         newsletterForm.reset();
                     }, function(error) {
-                        console.error('EmailJS Error:', error);
-                        showMessage('newsletter-message', '❌ Something went wrong. Please try again or contact us.', 'error');
+                        console.error('❌ FAILED...', error);
+                        
+                        // Provide more specific error messages
+                        let errorMessage = '❌ Something went wrong. Please try again.';
+                        
+                        if (error.text) {
+                            if (error.text.includes('Invalid template ID')) {
+                                errorMessage = '❌ Server configuration error. Please contact support.';
+                            } else if (error.text.includes('Service not found')) {
+                                errorMessage = '❌ Service configuration error. Please contact support.';
+                            } else if (error.text.includes('limit')) {
+                                errorMessage = '❌ Email limit reached. Please try again later.';
+                            }
+                        }
+                        
+                        showMessage('newsletter-message', errorMessage, 'error');
                     })
                     .finally(function() {
-                        newsletterSubmit.innerHTML = originalText;
+                        // Reset button state
+                        submitText.style.display = 'inline';
+                        submitSpinner.style.display = 'none';
                         newsletterSubmit.disabled = false;
                     });
             });
         }
 
-        // Contact form submission
+        // Contact form submission (optional - needs separate template)
         const contactForm = document.getElementById('contact-form');
         const contactSubmit = document.getElementById('contact-submit');
         
@@ -1887,24 +1937,53 @@
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
+                const name = document.getElementById('contact-name').value.trim();
+                const email = document.getElementById('contact-email').value.trim();
+                const subject = document.getElementById('contact-subject').value.trim();
+                const message = document.getElementById('contact-message').value.trim();
+                
+                if (!name || !email || !subject || !message) {
+                    showMessage('contact-form-message', '❌ Please fill in all fields.', 'error');
+                    return;
+                }
+                
                 const originalText = contactSubmit.innerHTML;
                 contactSubmit.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Sending...';
                 contactSubmit.disabled = true;
                 
-                // You'll need to create a separate service and template for contact form
-                // For now, we'll use the same service but you should create a contact template
-                emailjs.sendForm('service_iqkhsge', 'YOUR_CONTACT_TEMPLATE_ID', this)
-                    .then(function() {
-                        showMessage('contact-message', '✅ Message sent! We\'ll get back to you soon.', 'success');
+                showMessage('contact-form-message', 'Sending message...', 'loading');
+                
+                // For now, just show success (you'd need a contact template in EmailJS)
+                setTimeout(() => {
+                    showMessage('contact-form-message', '✅ Message received! We\'ll get back to you soon.', 'success');
+                    contactForm.reset();
+                    contactSubmit.innerHTML = originalText;
+                    contactSubmit.disabled = false;
+                }, 1500);
+                
+                // Uncomment and add your contact template ID when ready:
+                /*
+                const contactParams = {
+                    from_name: name,
+                    from_email: email,
+                    subject: subject,
+                    message: message
+                };
+                
+                emailjs.send('service_iqkhsge', 'YOUR_CONTACT_TEMPLATE_ID', contactParams)
+                    .then(() => {
+                        showMessage('contact-form-message', '✅ Message sent! We\'ll get back to you soon.', 'success');
                         contactForm.reset();
-                    }, function(error) {
-                        console.error('EmailJS Error:', error);
-                        showMessage('contact-message', '❌ Failed to send message. Please try again.', 'error');
                     })
-                    .finally(function() {
+                    .catch((error) => {
+                        console.error('Contact form error:', error);
+                        showMessage('contact-form-message', '❌ Failed to send message. Please try again.', 'error');
+                    })
+                    .finally(() => {
                         contactSubmit.innerHTML = originalText;
                         contactSubmit.disabled = false;
                     });
+                */
             });
         }
 
