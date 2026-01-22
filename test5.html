@@ -2221,7 +2221,9 @@ html, body, .nav-links {
         }, 800);
         
         // Initialize page content position
-        pageContent.style.transform = 'translateY(100vh)';
+        pageContent.style.marginTop = '0';
+        pageContent.style.marginTop = '100vh';
+
         
         // Intersection Observer for animations
         const observerOptions = {
@@ -2300,8 +2302,9 @@ html, body, .nav-links {
                     } else {
                         // If going back to home, show hero and hide content
                         heroSection.style.display = 'block';
-                        pageContent.style.transform = 'translateY(100vh)';
-                        contentFade.classList.remove('active');
+                        pageContent.style.marginTop = '0';
+                        pageContent.style.marginTop = '100vh';
+
                         
                         // Scroll to top
                         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -2340,8 +2343,9 @@ html, body, .nav-links {
             // If user scrolls back to top, show hero again
             if (scrollY < 50 && heroSection.style.display === 'none') {
                 heroSection.style.display = 'block';
-                pageContent.style.transform = 'translateY(100vh)';
-                contentFade.classList.remove('active');
+                pageContent.style.marginTop = '0';
+                pageContent.style.marginTop = '100vh';
+
             }
             
             // Update active nav based on scroll position
