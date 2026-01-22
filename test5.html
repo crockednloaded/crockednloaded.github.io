@@ -22,7 +22,6 @@
         html {
             scroll-behavior: smooth;
             overflow-x: hidden;
-            height: 100%;
         }
 
         body {
@@ -32,9 +31,6 @@
             overflow-x: hidden;
             line-height: 1.6;
             font-weight: 300;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
 
         /* === COLOR VARIABLES === */
@@ -122,9 +118,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('background.jpg') center/contain no-repeat;
-            background-color: #000;
+            background: url('background.jpg') center/cover no-repeat;
             z-index: 1;
+        }
+
+        @media (min-width: 768px) {
+            .hero-bg-top {
+                background: url('background.jpg') center/cover no-repeat;
+                background-color: #000;
+            }
         }
 
         .hero-bg-overlay {
@@ -133,8 +135,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(10,10,10,0.7);
+            background: rgba(10,10,10,0.5);
             z-index: 2;
+        }
+
+        @media (min-width: 768px) {
+            .hero-bg-overlay {
+                background: rgba(10,10,10,0.7);
+            }
         }
 
         .hero-content-container {
@@ -313,7 +321,6 @@
             transform: translateY(100vh);
             transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border-top: 5px solid #FF3B30;
-            margin-top: 100vh;
         }
 
         .content-fade {
@@ -1353,17 +1360,18 @@
             }
         }
 
-        /* === ENHANCED FOOTER === */
+        /* === SITE FOOTER === */
         .site-footer {
-            background: linear-gradient(to top, #0a0a0a, #1a1a1a);
+            background: #0a0a0a;
             padding: 60px 20px 30px;
-            border-top: 5px solid #FF3B30;
-            margin-top: auto;
+            border-top: 3px solid #FF3B30;
+            position: relative;
+            z-index: 3;
         }
 
         @media (min-width: 768px) {
             .site-footer {
-                padding: 80px 30px 40px;
+                padding: 60px 30px 30px;
             }
         }
 
@@ -1372,20 +1380,20 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr;
-            gap: 50px;
-            margin-bottom: 50px;
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
         @media (min-width: 768px) {
             .footer-grid {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(3, 1fr);
                 gap: 40px;
             }
         }
 
         .footer-brand .brand-text {
-            font-size: 2.5rem;
-            margin-bottom: 25px;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
         }
 
         .footer-brand p {
@@ -1393,26 +1401,13 @@
             line-height: 1.7;
             font-size: 1.1rem;
             font-family: 'Montserrat', sans-serif;
-            margin-bottom: 30px;
         }
 
         .footer-links h4 {
             font-family: 'Bebas Neue', Impact;
             font-size: 1.8rem;
             color: #FFD700;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .footer-links h4::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(90deg, #FF3B30, #FF9500);
+            margin-bottom: 20px;
         }
 
         .footer-links ul {
@@ -1420,7 +1415,7 @@
         }
 
         .footer-links li {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .footer-links a {
@@ -1430,52 +1425,15 @@
             display: inline-block;
             font-size: 1.1rem;
             font-family: 'Montserrat', sans-serif;
-            position: relative;
-            padding-left: 0;
-            transition: all 0.3s ease;
         }
 
         .footer-links a:hover {
             color: #FFD700;
-            transform: translateX(10px);
-        }
-
-        .footer-links a::before {
-            content: '→';
-            position: absolute;
-            left: -20px;
-            opacity: 0;
-            transition: all 0.3s ease;
-            color: #FF3B30;
-        }
-
-        .footer-links a:hover::before {
-            opacity: 1;
-            left: -15px;
-        }
-
-        .social-section h4 {
-            font-family: 'Bebas Neue', Impact;
-            font-size: 1.8rem;
-            color: #FFD700;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .social-section h4::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(90deg, #FF3B30, #FF9500);
+            transform: translateX(8px);
         }
 
         .social-icons {
             display: flex;
-            flex-wrap: wrap;
             gap: 15px;
             margin-bottom: 25px;
         }
@@ -1483,7 +1441,7 @@
         .social-icon {
             width: 50px;
             height: 50px;
-            background: rgba(26,26,26,0.8);
+            background: #1a1a1a;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1496,89 +1454,17 @@
 
         .social-icon:hover {
             background: #FF3B30;
-            transform: translateY(-5px) rotate(5deg);
-            box-shadow: 0 10px 20px rgba(255,59,48,0.3);
-        }
-
-        .newsletter-form {
-            margin-top: 25px;
-        }
-
-        .newsletter-form p {
-            color: #ccc;
-            margin-bottom: 15px;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .newsletter-form input {
-            width: 100%;
-            padding: 15px;
-            background: rgba(58,58,58,0.6);
-            border: 2px solid #FF9500;
-            border-radius: 6px;
-            color: #fff;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            margin-bottom: 15px;
-        }
-
-        .newsletter-form button {
-            width: 100%;
-            background: linear-gradient(135deg, #FF3B30, #FF9500);
-            border: 2px solid #FFD700;
-            color: #fff;
-            padding: 15px;
-            font-family: 'Orbitron', monospace;
-            font-weight: 700;
-            font-size: 0.9rem;
-            border-radius: 6px;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-        }
-
-        .newsletter-form button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255,59,48,0.4);
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 40px;
-            border-top: 1px solid #2a2a2a;
+            transform: translateY(-5px);
         }
 
         .copyright {
             text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #1a1a1a;
             color: #888;
-            font-size: 0.95rem;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .copyright p {
-            margin-bottom: 10px;
-        }
-
-        .footer-legal {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .footer-legal a {
-            color: #FF9500;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .footer-legal a:hover {
-            color: #FFD700;
-            text-decoration: underline;
+            font-size: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         /* === SCROLL INDICATOR === */
@@ -1652,12 +1538,6 @@
             
             .footer-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            /* Adjust hero for mobile */
-            .hero-bg-top {
-                background: url('background.jpg') center/cover no-repeat;
             }
         }
 
@@ -1709,7 +1589,7 @@
 
     <!-- Hero Section -->
     <div class="hero-wrapper" id="heroSection">
-        <!-- Background Image - CHANGED TO CONTAIN FOR FULL VISIBILITY -->
+        <!-- Background Image -->
         <div class="hero-bg-top" id="heroBackground"></div>
         <!-- Dark Overlay -->
         <div class="hero-bg-overlay"></div>
@@ -2170,7 +2050,7 @@
         </section>
     </main>
 
-    <!-- Enhanced Footer -->
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-grid">
             <div class="footer-brand">
@@ -2180,20 +2060,6 @@
                     No culinary degree required, no fancy equipment needed. Just passion, 
                     real techniques, and the willingness to make a mess in the kitchen.
                 </p>
-                <div class="social-icons">
-                    <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" class="social-icon">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="https://instagram.com/CrockedNLoadedShow" target="_blank" class="social-icon">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" class="social-icon">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                    <a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank" class="social-icon">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
-                </div>
             </div>
             
             <div class="footer-links">
@@ -2210,41 +2076,29 @@
             </div>
             
             <div class="footer-links">
-                <h4>CONTENT</h4>
-                <ul>
-                    <li><a href="#content">Cooking Demos</a></li>
-                    <li><a href="#content">Budget Challenges</a></li>
-                    <li><a href="#content">Honest Reviews</a></li>
-                    <li><a href="#youtube">YouTube Videos</a></li>
-                    <li><a href="#facebook">Facebook Lives</a></li>
-                    <li><a href="#webstore">Merch Store</a></li>
-                </ul>
-            </div>
-            
-            <div class="social-section">
-                <h4>STAY CONNECTED</h4>
-                <p style="color: #ccc; margin-bottom: 25px; font-family: 'Montserrat', sans-serif;">
-                    Subscribe to our newsletter for exclusive recipes, behind-the-scenes content, and early access to merch drops.
-                </p>
-                <div class="newsletter-form">
-                    <input type="email" placeholder="Your email address" required>
-                    <button type="submit">
-                        <i class="fas fa-paper-plane"></i> SUBSCRIBE
-                    </button>
+                <h4>CONNECT WITH US</h4>
+                <div class="social-icons">
+                    <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" class="social-icon">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://instagram.com/CrockedNLoadedShow" target="_blank" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" class="social-icon">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank" class="social-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
                 </div>
+                <p style="color: #ccc; margin-top: 20px; font-family: 'Montserrat', sans-serif;">
+                    Subscribe anywhere, follow everywhere. We're building this thing together.
+                </p>
             </div>
         </div>
         
-        <div class="footer-bottom">
-            <div class="copyright">
-                <p>© 2025 Crocked 'N Loaded. Made with fire, flavor, and zero pretentiousness. | Real Food. Real Reviews. No Bullshit.</p>
-                <div class="footer-legal">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#contact">Contact</a>
-                    <a href="#webstore">Affiliate Disclosure</a>
-                </div>
-            </div>
+        <div class="copyright">
+            <p>© 2025 Crocked 'N Loaded. Made with fire, flavor, and zero pretentiousness. | Real Food. Real Reviews. No Bullshit.</p>
         </div>
     </footer>
 
@@ -2261,7 +2115,7 @@
         const navItems = document.querySelectorAll('.nav-item a');
         const contentFade = document.getElementById('contentFade');
         const contactForm = document.getElementById('contactForm');
-        const newsletterForm = document.querySelector('.newsletter-form button');
+        const heroSection = document.getElementById('heroSection');
         
         // Hide loading screen
         setTimeout(() => {
@@ -2306,17 +2160,23 @@
         // Smooth scroll for explore button
         exploreBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            // Smooth scroll to reveal content
-            window.scrollTo({
-                top: window.innerHeight * 0.8,
-                behavior: 'smooth'
-            });
             
-            // Start content reveal
+            // Hide hero section when scrolling down
+            heroSection.style.display = 'none';
+            
+            // Reveal the main content
+            pageContent.style.transform = 'translateY(0)';
+            contentFade.classList.add('active');
+            
+            // Smooth scroll to content section
             setTimeout(() => {
-                pageContent.style.transition = 'transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                pageContent.style.transform = 'translateY(0)';
-                contentFade.classList.add('active');
+                const targetElement = document.getElementById('content');
+                if (targetElement) {
+                    targetElement.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             }, 300);
         });
         
@@ -2339,25 +2199,27 @@
                     navItems.forEach(item => item.classList.remove('active'));
                     this.classList.add('active');
                     
-                    // If target is in main content, ensure content is revealed
-                    if (targetId !== 'home' && pageContent.style.transform === 'translateY(100vh)') {
-                        pageContent.style.transition = 'transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                    // If clicking any nav link except home, hide hero and reveal content
+                    if (targetId !== 'home') {
+                        heroSection.style.display = 'none';
                         pageContent.style.transform = 'translateY(0)';
                         contentFade.classList.add('active');
                         
-                        // Wait for content to be revealed, then scroll
+                        // Wait a bit for content to be revealed, then scroll
                         setTimeout(() => {
                             targetElement.scrollIntoView({ 
                                 behavior: 'smooth',
                                 block: 'start'
                             });
-                        }, 500);
+                        }, 300);
                     } else {
-                        // Smooth scroll to target
-                        targetElement.scrollIntoView({ 
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
+                        // If going back to home, show hero and hide content
+                        heroSection.style.display = 'block';
+                        pageContent.style.transform = 'translateY(100vh)';
+                        contentFade.classList.remove('active');
+                        
+                        // Scroll to top
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
                     }
                 }
             });
@@ -2376,40 +2238,30 @@
             }
         });
         
-        // Newsletter subscription
-        if (newsletterForm) {
-            newsletterForm.addEventListener('click', function(e) {
-                e.preventDefault();
-                const emailInput = this.closest('.newsletter-form').querySelector('input[type="email"]');
-                if (emailInput.value && emailInput.value.includes('@')) {
-                    showToast('Thanks for subscribing! We\'ll keep you posted.', 'success');
-                    emailInput.value = '';
-                } else {
-                    showToast('Please enter a valid email address.', 'error');
-                }
-            });
-        }
-        
-        // Scroll effects
+        // Scroll effects - FIXED VERSION
         function updateScrollEffects() {
             const scrollY = window.scrollY;
             const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
             
-            // If user scrolls past 30% of viewport, start revealing content
-            if (scrollY > windowHeight * 0.3 && pageContent.style.transform === 'translateY(100vh)') {
-                pageContent.style.transition = 'transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                pageContent.style.transform = 'translateY(70vh)';
-            }
-            
-            // If user scrolls past 60% of viewport, fully reveal content
-            if (scrollY > windowHeight * 0.6) {
+            // If user has scrolled past 70% of the page and hero is still visible
+            if (scrollY > windowHeight * 0.7 && heroSection.style.display !== 'none') {
+                // Hide hero and reveal content
+                heroSection.style.display = 'none';
                 pageContent.style.transform = 'translateY(0)';
                 contentFade.classList.add('active');
             }
             
+            // If user scrolls back to top, show hero again
+            if (scrollY < 50 && heroSection.style.display === 'none') {
+                heroSection.style.display = 'block';
+                pageContent.style.transform = 'translateY(100vh)';
+                contentFade.classList.remove('active');
+            }
+            
             // Update active nav based on scroll position
             const sections = document.querySelectorAll('.content-block');
-            const scrollPosition = window.scrollY + 100;
+            const scrollPosition = scrollY + 100;
             
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
@@ -2425,6 +2277,18 @@
                     });
                 }
             });
+            
+            // Ensure footer is always visible at bottom
+            const footer = document.querySelector('.site-footer');
+            if (footer) {
+                const footerTop = footer.offsetTop;
+                const viewportBottom = scrollY + windowHeight;
+                
+                // If we're near the bottom of the page, make sure footer is visible
+                if (viewportBottom >= documentHeight - 100) {
+                    footer.style.display = 'block';
+                }
+            }
         }
         
         // Contact form submission
@@ -2498,12 +2362,6 @@
         
         // Initial call
         updateScrollEffects();
-        
-        // Fix for textarea HTML error
-        const textarea = document.querySelector('textarea[name="message"]');
-        if (textarea) {
-            textarea.id = 'message';
-        }
     });
     </script>
 </body>
