@@ -2268,117 +2268,112 @@ html, body, .nav-links {
         });
         
         // Smooth scroll for nav links
-        navItems.forEach(link => {
-            link.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href === '#content' && this.id === 'exploreBtn') return;
-                
-                e.preventDefault();
-                const targetId = href.substring(1);
-                const targetElement = document.getElementById(targetId);
-                
-                if (targetElement) {
-                    // Close mobile menu if open
-                    navLinks.classList.remove('active');
-                    mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                    
-                    // Update active nav item
-                    navItems.forEach(item => item.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // If clicking any nav link except home, hide hero and reveal content
-                    if (targetId !== 'home') {
-                        heroSection.style.display = 'none';
-                        pageContent.style.transform = 'translateY(0)';
-                        contentFade.classList.add('active');
-                        
-                        // Wait a bit for content to be revealed, then scroll
-                        setTimeout(() => {
-                            targetElement.scrollIntoView({ 
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }, 300);
-                    } else {
-                        // If going back to home, show hero and hide content
-                        heroSection.style.display = 'block';
-                        pageContent.style.marginTop = '0';
-                        pageContent.style.marginTop = '100vh';
-
-                        
-                        // Scroll to top
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }
-                }
-            });
-        });
+navItems.forEach(link => {
+    link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#content' && this.id === 'exploreBtn') return;
         
-        // Mobile menu toggle
-        mobileToggle.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-            const icon = this.querySelector('i');
-            if (icon.classList.contains('fa-bars')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
+        e.preventDefault();
+        const targetId = href.substring(1);
+        const targetElement = document.getElementById(targetId);
         
-        // Scroll effects - FIXED VERSION
-        function updateScrollEffects() {
-            const scrollY = window.scrollY;
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight;
+        if (targetElement) {
+            // Close mobile menu if open
+            navLinks.classList.remove('active');
+            mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
             
-            // If user has scrolled past 70% of the page and hero is still visible
-            if (scrollY > windowHeight * 0.7 && heroSection.style.display !== 'none') {
-                // Hide hero and reveal content
+            // Update active nav item
+            navItems.forEach(item => item.classList.remove('active'));
+            this.classList.add('active');
+            
+            // If clicking any nav link except home, hide hero and reveal content
+            if (targetId !== 'home') {
                 heroSection.style.display = 'none';
-                pageContent.style.transform = 'translateY(0)';
+                pageContent.style.marginTop = '0';   // FIXED
                 contentFade.classList.add('active');
-            }
-            
-            // If user scrolls back to top, show hero again
-            if (scrollY < 50 && heroSection.style.display === 'none') {
-                heroSection.style.display = 'block';
-                pageContent.style.marginTop = '0';
-                pageContent.style.marginTop = '100vh';
-
-            }
-            
-            // Update active nav based on scroll position
-            const sections = document.querySelectorAll('.content-block');
-            const scrollPosition = scrollY + 100;
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                const sectionId = section.getAttribute('id');
                 
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    navItems.forEach(item => {
-                        item.classList.remove('active');
-                        if (item.getAttribute('href') === '#' + sectionId) {
-                            item.classList.add('active');
-                        }
+                setTimeout(() => {
+                    targetElement.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
                     });
-                }
-            });
-            
-            // Ensure footer is always visible at bottom
-            const footer = document.querySelector('.site-footer');
-            if (footer) {
-                const footerTop = footer.offsetTop;
-                const viewportBottom = scrollY + windowHeight;
+                }, 300);
+            } else {
+                // If going back to home, show hero and hide content
+                heroSection.style.display = 'block';
+                pageContent.style.marginTop = '100vh';   // FIXED
+                contentFade.classList.remove('active');
                 
-                // If we're near the bottom of the page, make sure footer is visible
-                if (viewportBottom >= documentHeight - 100) {
-                    footer.style.display = 'block';
-                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         }
+    });
+});
+
+// Mobile menu toggle
+mobileToggle.addEventListener('click', function() {
+    navLinks.classList.toggle('active');
+    const icon = this.querySelector('i');
+    if (icon.classList.contains('fa-bars')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+    } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    }
+});
+
+// Scroll effects - FIXED VERSION
+function updateScrollEffects() {
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    
+    // If user has scrolled past 70% of the page and hero is still visible
+    if (scrollY > windowHeight * 0.7 && heroSection.style.display !== 'none') {
+        heroSection.style.display = 'none';
+        pageContent.style.marginTop = '0';   // FIXED
+        contentFade.classList.add('active');
+    }
+    
+    // If user scrolls back to top, show hero again
+    if (scrollY < 50 && heroSection.style.display === 'none') {
+        heroSection.style.display = 'block';
+        pageContent.style.marginTop = '100vh';   // FIXED
+        contentFade.classList.remove('active');
+    }
+    
+    // Update active nav based on scroll position
+    const sections = document.querySelectorAll('.content-block');
+    const scrollPosition = scrollY + 100;
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === '#' + sectionId) {
+                    item.classList.add('active');
+                }
+            });
+        }
+    });
+    
+    // Ensure footer is always visible at bottom
+    const footer = document.querySelector('.site-footer');
+    if (footer) {
+        const footerTop = footer.offsetTop;
+        const viewportBottom = scrollY + windowHeight;
+        
+        if (viewportBottom >= documentHeight - 100) {
+            footer.style.display = 'block';
+        }
+    }
+}
+
         
         // Contact form submission
         if (contactForm) {
