@@ -51,16 +51,13 @@
 
         /* === BODY === */
         body {
-            font-family: 'Exo 2', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            color: #fff;
-            background: #000;
-            overflow-x: hidden;
-            line-height: 1.6;
-            font-weight: 300;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+    font-family: 'Exo 2', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: #fff;
+    background: #000;
+    overflow-x: hidden;
+    line-height: 1.6;
+    font-weight: 300;
+}
 
         /* Skip Link for Accessibility */
         .skip-link {
@@ -350,11 +347,10 @@
             position: relative;
             z-index: 2;
             background: #0a0a0a;
-            min-height: calc(100vh - 70px);
+            min-height: 100vh;
             transform: translateY(100vh);
             transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border-top: 5px solid #FF3B30;
-            padding-bottom: 100px;
         }
 
         .content-fade {
@@ -1480,13 +1476,14 @@
 
         /* === SITE FOOTER === */
         .site-footer {
+            position: relative;
+            z-index: 10;
             background: #0a0a0a;
             padding: 60px 20px 30px;
             border-top: 3px solid #FF3B30;
-            position: relative;
-            z-index: 3;
-            margin-top: auto;
             width: 100%;
+            margin: 0;
+            clear: both;
         }
 
         @media (min-width: 768px) {
