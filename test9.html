@@ -2370,15 +2370,40 @@
         // ADVANCED PROFESSIONAL FEATURES
         // ==========================================
 
-        // LOADING SCREEN
+        // LOADING SCREEN - Robust implementation with failsafes
         const loadingScreen = document.getElementById('loadingScreen');
-        window.addEventListener('load', () => {
+        let loadingHidden = false;
+
+        function hideLoading() {
+            if (loadingHidden) return;
+            loadingHidden = true;
+            loadingScreen.classList.add('hidden');
+            document.body.style.overflow = '';
+            // Show welcome toast after loading screen is hidden
             setTimeout(() => {
-                loadingScreen.classList.add('hidden');
-                document.body.style.overflow = '';
-                showToast('Welcome to Crocked \'N Loaded!', 'info');
-            }, 1500);
+                if (typeof showToast === 'function') {
+                    showToast('Welcome to Crocked \'N Loaded!', 'info');
+                }
+            }, 300);
+        }
+
+        // Primary trigger: DOMContentLoaded (faster, more reliable)
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                setTimeout(hideLoading, 800);
+            });
+        } else {
+            // Document already loaded
+            setTimeout(hideLoading, 800);
+        }
+
+        // Secondary trigger: Full page load
+        window.addEventListener('load', () => {
+            setTimeout(hideLoading, 500);
         });
+
+        // Failsafe: Force hide after 2.5 seconds no matter what
+        setTimeout(hideLoading, 2500);
 
         // SCROLL PROGRESS INDICATOR
         const scrollProgress = document.getElementById('scrollProgress');
