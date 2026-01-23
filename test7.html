@@ -5,195 +5,182 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crocked 'N Loaded | Real Food. Real Talk.</title>
     <meta name="description" content="CrockPotDaddy and MACK3Y bring you cooking that actually makes sense. No culinary school required.">
-
     <meta property="og:title" content="Crocked 'N Loaded">
     <meta property="og:description" content="Two dudes. One kitchen. Zero pretense.">
     <meta property="og:image" content="https://crockednloaded.github.io/background.jpg">
     <meta property="og:url" content="https://crockednloaded.github.io/">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script>
-        // Initialize EmailJS with your public key
-        (function() {
-            emailjs.init("z0sHgO8f-hc3gN-4A");
-            console.log("EmailJS initialized successfully with public key:", "z0sHgO8f-hc3gN-4A");
-        })();
-    </script>
-
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Organization","name":"Crocked 'N Loaded","url":"https://crockednloaded.github.io/","sameAs":["https://youtube.com/@CrockedNLoaded-NH","https://instagram.com/CrockedNLoadedShow","https://www.facebook.com/CrockedNLoadedShow","https://tiktok.com/@CrockedNLoadedShow","https://twitter.com/CrockedNLoaded"]}
-    </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>(function(){emailjs.init("z0sHgO8f-hc3gN-4A");})();</script>
     <style>
         :root {
-            --c-flame: #E63926;
-            --c-ember: #F97316;
-            --c-gold: #FBBF24;
-            --c-cream: #FEF3C7;
-            --c-dark: #0C0A09;
-            --c-panel: #1C1917;
-            --c-surface: #292524;
-            --c-border: #44403C;
-            --c-text: #F5F5F4;
-            --c-muted: #A8A29E;
-            --c-dim: #78716C;
-            --ff-display: 'Oswald', sans-serif;
-            --ff-body: 'Source Sans 3', sans-serif;
-            --ff-mono: 'JetBrains Mono', monospace;
-            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+            /* Colors matched to your logo - purple/orange fire theme */
+            --c-bg: #0d0a12;
+            --c-surface-1: #13101a;
+            --c-surface-2: #1a1622;
+            --c-surface-3: #241f2e;
+            --c-border: rgba(255,255,255,.08);
+            --c-border-hover: rgba(255,255,255,.15);
+            
+            /* Fire gradient from your logo */
+            --gradient-fire: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffd93d 100%);
+            --gradient-fire-subtle: linear-gradient(135deg, rgba(255,107,53,.12) 0%, rgba(247,147,30,.06) 100%);
+            --gradient-purple: linear-gradient(180deg, #2d1f3d 0%, #0d0a12 100%);
+            
+            --c-text: #fafafa;
+            --c-text-secondary: #b8b0c4;
+            --c-text-muted: #6b6279;
+            --c-accent: #ff6b35;
+            --c-accent-light: #ffd93d;
+            --c-purple: #6b4c9a;
+            
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-body: 'Instrument Sans', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+            
+            --ease-out-expo: cubic-bezier(.16,1,.3,1);
+            --ease-out-back: cubic-bezier(.34,1.56,.64,1);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        html { 
-            scroll-behavior: smooth;
-            scrollbar-width: thin;
-            scrollbar-color: var(--c-flame) var(--c-dark);
-        }
-
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--c-dark); }
-        ::-webkit-scrollbar-thumb { background: var(--c-flame); border-radius: 4px; }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--c-accent) var(--c-bg); }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--c-bg); }
+        ::-webkit-scrollbar-thumb { background: var(--gradient-fire); border-radius: 3px; }
 
         body {
-            font-family: var(--ff-body);
-            background: var(--c-dark);
+            font-family: var(--font-body);
+            background: var(--c-bg);
             color: var(--c-text);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
 
-        ::selection {
-            background: var(--c-flame);
-            color: white;
+        /* Subtle grain texture */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            opacity: .025;
+            pointer-events: none;
+            z-index: 10000;
         }
 
+        ::selection { background: var(--c-accent); color: var(--c-bg); }
         img { max-width: 100%; height: auto; display: block; }
         a { color: inherit; text-decoration: none; }
         button { font-family: inherit; cursor: pointer; border: none; background: none; }
+        .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 4rem); }
 
-        .container {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 clamp(1rem, 5vw, 3rem);
-        }
-
-        /* NAV */
+        /* ========================================
+           NAVIGATION
+        ======================================== */
         .nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 900;
-            padding: 0;
-            transition: all 0.4s var(--ease-out);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all .5s var(--ease-out-expo);
         }
 
         .nav::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, rgba(12,10,9,0.95), rgba(12,10,9,0.85));
+            background: rgba(13,10,18,.85);
             backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--c-border);
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity .5s ease;
         }
 
         .nav.scrolled::before { opacity: 1; }
-        .nav.scrolled { border-bottom: 1px solid var(--c-border); }
 
         .nav-inner {
             position: relative;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 72px;
-            max-width: 1280px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 clamp(1rem, 5vw, 3rem);
+            padding: 0 clamp(1.5rem, 5vw, 4rem);
         }
 
         .nav-logo {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-family: var(--ff-display);
-            font-size: 1.25rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
+            gap: 12px;
+            font-family: var(--font-display);
+            font-size: clamp(1.2rem, 2vw, 1.4rem);
+            letter-spacing: 2px;
             color: var(--c-text);
-            transition: color 0.3s ease;
+            transition: all .4s var(--ease-out-expo);
         }
 
-        .nav-logo:hover { color: var(--c-gold); }
+        .nav-logo:hover { color: var(--c-accent); transform: scale(1.02); }
 
-        .nav-logo svg {
-            width: 28px;
-            height: 28px;
-            fill: var(--c-flame);
-            transition: transform 0.3s var(--ease-spring);
-        }
-
-        .nav-logo:hover svg { transform: scale(1.1) rotate(-5deg); }
-
-        .nav-links {
+        .nav-logo-icon {
+            width: 38px;
+            height: 38px;
+            background: var(--gradient-fire);
+            border-radius: 10px;
             display: flex;
             align-items: center;
-            gap: 8px;
-            list-style: none;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all .4s var(--ease-out-back);
         }
+
+        .nav-logo:hover .nav-logo-icon {
+            transform: rotate(-10deg) scale(1.1);
+            box-shadow: 0 8px 32px rgba(255,107,53,.4);
+        }
+
+        .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
 
         .nav-links a {
+            position: relative;
             display: block;
-            padding: 8px 14px;
-            font-family: var(--ff-mono);
-            font-size: 0.75rem;
-            font-weight: 500;
+            padding: 10px 16px;
+            font-family: var(--font-mono);
+            font-size: .7rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--c-muted);
-            border-radius: 6px;
-            transition: all 0.25s ease;
+            letter-spacing: 1px;
+            color: var(--c-text-secondary);
+            border-radius: var(--radius-sm);
+            transition: all .3s var(--ease-out-expo);
         }
 
-        .nav-links a:hover {
-            color: var(--c-text);
-            background: var(--c-surface);
-        }
-
-        .nav-links a.active {
-            color: var(--c-dark);
-            background: var(--c-gold);
-        }
+        .nav-links a:hover { color: var(--c-text); background: var(--c-surface-2); }
+        .nav-links a.active { color: var(--c-bg); background: var(--gradient-fire); }
 
         .nav-toggle {
             display: none;
-            width: 44px;
-            height: 44px;
+            width: 48px;
+            height: 48px;
             align-items: center;
             justify-content: center;
             font-size: 1.25rem;
             color: var(--c-text);
-            border-radius: 8px;
-            transition: background 0.2s ease;
+            border-radius: var(--radius-sm);
         }
 
-        .nav-toggle:hover { background: var(--c-surface); }
-
-        /* HERO - FULL IMAGE DISPLAY */
+        /* ========================================
+           HERO - YOUR LOGO IMAGE IS THE STAR
+        ======================================== */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -204,52 +191,122 @@
             justify-content: flex-start;
             padding: 100px 24px 60px;
             overflow: hidden;
-            background: var(--c-dark);
+            background: var(--gradient-purple);
         }
 
+        /* Ambient glow effects */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140%;
+            height: 80%;
+            background: radial-gradient(ellipse at center, rgba(255,107,53,.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, var(--c-bg) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        /* HERO IMAGE - PROMINENT, CLEAN DISPLAY */
         .hero-image-wrap {
             position: relative;
             width: 100%;
-            max-width: 900px;
-            margin-bottom: 40px;
+            max-width: 950px;
+            margin-bottom: 48px;
+            z-index: 2;
+            animation: imageReveal 1s var(--ease-out-expo) forwards;
+            opacity: 0;
+            transform: translateY(30px) scale(.98);
+        }
+
+        @keyframes imageReveal { to { opacity: 1; transform: translateY(0) scale(1); } }
+
+        .hero-image-glow {
+            position: absolute;
+            inset: -40px;
+            background: radial-gradient(ellipse at center bottom, rgba(255,107,53,.25) 0%, rgba(107,76,154,.1) 40%, transparent 70%);
+            filter: blur(40px);
+            animation: glowPulse 5s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { opacity: .5; transform: scale(.97); }
+            50% { opacity: .8; transform: scale(1.03); }
         }
 
         .hero-image {
             width: 100%;
             height: auto;
-            border-radius: 16px;
+            border-radius: var(--radius-xl);
             box-shadow: 
-                0 0 0 1px rgba(255,255,255,0.1),
-                0 25px 80px rgba(0,0,0,0.6),
-                0 0 120px rgba(230, 57, 38, 0.15);
+                0 0 0 1px rgba(255,255,255,.08),
+                0 30px 80px rgba(0,0,0,.5),
+                0 0 100px rgba(255,107,53,.08);
+            transition: all .6s var(--ease-out-expo);
         }
 
-        .hero-glow {
-            position: absolute;
-            inset: -40px;
-            background: radial-gradient(ellipse at center, rgba(249, 115, 22, 0.15) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: -1;
+        .hero-image-wrap:hover .hero-image {
+            transform: scale(1.015);
+            box-shadow: 
+                0 0 0 1px rgba(255,255,255,.12),
+                0 40px 100px rgba(0,0,0,.6),
+                0 0 120px rgba(255,107,53,.12);
         }
 
         .hero-content {
+            position: relative;
+            z-index: 2;
             text-align: center;
             max-width: 700px;
+            animation: fadeInUp 1s var(--ease-out-expo) .3s forwards;
+            opacity: 0;
+            transform: translateY(20px);
         }
 
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
         .hero-tagline {
-            font-family: var(--ff-mono);
-            font-size: 0.8rem;
-            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-mono);
+            font-size: .75rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--c-ember);
+            letter-spacing: 4px;
+            color: var(--c-accent);
             margin-bottom: 16px;
+        }
+
+        .hero-tagline::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--c-accent);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: .4; transform: scale(.8); }
         }
 
         .hero-desc {
             font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-            color: var(--c-muted);
+            color: var(--c-text-secondary);
             line-height: 1.8;
             margin-bottom: 32px;
         }
@@ -257,91 +314,25 @@
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 14px;
             justify-content: center;
         }
 
-        /* BUTTONS */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 28px;
-            font-family: var(--ff-display);
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border-radius: 8px;
-            transition: all 0.3s var(--ease-out);
-        }
-
-        .btn-primary {
-            color: var(--c-dark);
-            background: linear-gradient(135deg, var(--c-gold), var(--c-ember));
-            box-shadow: 0 4px 20px rgba(249, 115, 22, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(249, 115, 22, 0.4);
-        }
-
-        .btn-ghost {
-            color: var(--c-text);
-            background: transparent;
-            border: 1px solid var(--c-border);
-        }
-
-        .btn-ghost:hover {
-            background: var(--c-surface);
-            border-color: var(--c-muted);
-        }
-
-        .btn-yt {
-            color: white;
-            background: #FF0000;
-        }
-
-        .btn-yt:hover {
-            background: #CC0000;
-            transform: translateY(-2px);
-        }
-
-        .btn-fb {
-            color: white;
-            background: #1877F2;
-        }
-
-        .btn-fb:hover {
-            background: #0d65d9;
-            transform: translateY(-2px);
-        }
-
-        .btn-twitter {
-            color: white;
-            background: #000000;
-        }
-
-        .btn-twitter:hover {
-            background: #1a1a1a;
-            transform: translateY(-2px);
-        }
-
-        /* SCROLL CUE */
+        /* Scroll indicator */
         .scroll-cue {
+            position: relative;
+            z-index: 2;
             margin-top: auto;
-            padding-top: 40px;
+            padding-top: 48px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
-            color: var(--c-dim);
-            font-family: var(--ff-mono);
-            font-size: 0.65rem;
+            gap: 10px;
+            color: var(--c-text-muted);
+            font-family: var(--font-mono);
+            font-size: .6rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             animation: float 3s ease-in-out infinite;
         }
 
@@ -350,68 +341,67 @@
             50% { transform: translateY(-8px); }
         }
 
-        .scroll-cue i {
-            font-size: 1rem;
-            color: var(--c-flame);
-        }
+        .scroll-cue i { font-size: 1rem; color: var(--c-accent); }
 
-        /* SECTIONS */
-        .section {
-            padding: clamp(80px, 15vw, 140px) 0;
+        /* ========================================
+           BUTTONS
+        ======================================== */
+        .btn {
             position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            font-family: var(--font-display);
+            font-size: .95rem;
+            letter-spacing: 1.5px;
+            border-radius: var(--radius-md);
+            transition: all .4s var(--ease-out-expo);
+            overflow: hidden;
         }
 
-        .section-dark {
-            background: var(--c-panel);
+        .btn-primary {
+            color: var(--c-bg);
+            background: var(--gradient-fire);
+            box-shadow: 0 4px 20px rgba(255,107,53,.3);
         }
 
-        .section-header {
-            margin-bottom: clamp(48px, 8vw, 72px);
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(255,107,53,.4);
         }
 
-        .section-header.center {
-            text-align: center;
+        .btn-ghost {
+            color: var(--c-text);
+            background: rgba(255,255,255,.05);
+            border: 1px solid var(--c-border);
         }
 
-        .section-label {
-            display: inline-block;
-            font-family: var(--ff-mono);
-            font-size: 0.7rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--c-ember);
-            margin-bottom: 12px;
+        .btn-ghost:hover {
+            background: rgba(255,255,255,.1);
+            border-color: var(--c-border-hover);
         }
 
-        .section-title {
-            font-family: var(--ff-display);
-            font-size: clamp(2.25rem, 6vw, 3.5rem);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: -0.5px;
-            line-height: 1.1;
-        }
+        .btn-yt { color: #fff; background: #FF0000; }
+        .btn-yt:hover { background: #CC0000; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(255,0,0,.3); }
 
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: var(--c-muted);
-            max-width: 560px;
-            margin-top: 16px;
-            line-height: 1.7;
-        }
+        .btn-x { color: #fff; background: #000; }
+        .btn-x:hover { background: #222; transform: translateY(-3px); }
 
-        .section-header.center .section-subtitle {
-            margin-left: auto;
-            margin-right: auto;
-        }
+        .btn-fb { color: #fff; background: #1877F2; }
+        .btn-fb:hover { background: #0d65d9; transform: translateY(-3px); }
 
-        /* COUNTDOWN */
+        .btn i { transition: transform .3s var(--ease-out-back); }
+        .btn:hover i { transform: scale(1.15); }
+
+        /* ========================================
+           COUNTDOWN STRIP
+        ======================================== */
         .countdown-strip {
-            background: linear-gradient(90deg, var(--c-flame), var(--c-ember));
-            padding: 20px 0;
-            text-align: center;
             position: relative;
+            padding: 24px 0;
+            background: linear-gradient(90deg, var(--c-accent), #f7931e);
             overflow: hidden;
         }
 
@@ -419,13 +409,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: repeating-linear-gradient(
-                90deg,
-                transparent,
-                transparent 100px,
-                rgba(0,0,0,0.1) 100px,
-                rgba(0,0,0,0.1) 200px
-            );
+            background: repeating-linear-gradient(90deg, transparent, transparent 100px, rgba(0,0,0,.08) 100px, rgba(0,0,0,.08) 200px);
         }
 
         .countdown-inner {
@@ -434,113 +418,140 @@
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 16px 32px;
+            gap: 16px 40px;
         }
 
         .countdown-text {
-            font-family: var(--ff-display);
+            font-family: var(--font-display);
             font-size: 1rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: white;
+            letter-spacing: 2px;
+            color: #fff;
         }
 
-        .countdown-timer {
-            display: flex;
-            gap: 4px;
-        }
+        .countdown-timer { display: flex; gap: 6px; }
 
         .countdown-unit {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 8px 12px;
-            background: rgba(0,0,0,0.2);
-            border-radius: 6px;
-            min-width: 54px;
+            padding: 10px 14px;
+            background: rgba(0,0,0,.2);
+            border-radius: 8px;
+            min-width: 58px;
         }
 
         .countdown-num {
-            font-family: var(--ff-mono);
-            font-size: 1.5rem;
+            font-family: var(--font-mono);
+            font-size: 1.4rem;
             font-weight: 700;
-            color: white;
+            color: #fff;
             line-height: 1;
         }
 
         .countdown-label {
-            font-size: 0.6rem;
+            font-size: .55rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,.8);
             margin-top: 4px;
         }
 
-        /* HOSTS */
-        .hosts-grid {
-            display: grid;
-            gap: 32px;
+        /* ========================================
+           SECTIONS
+        ======================================== */
+        .section {
+            position: relative;
+            padding: clamp(80px, 12vw, 140px) 0;
         }
 
-        @media (min-width: 900px) {
-            .hosts-grid { grid-template-columns: repeat(2, 1fr); }
+        .section-dark { background: var(--c-surface-1); }
+
+        .section-header { margin-bottom: clamp(48px, 8vw, 72px); }
+        .section-header.center { text-align: center; }
+
+        .section-label {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: .65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--c-accent);
+            margin-bottom: 12px;
         }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 7vw, 4rem);
+            line-height: 1;
+            letter-spacing: .02em;
+        }
+
+        .section-subtitle {
+            font-size: clamp(1rem, 1.5vw, 1.1rem);
+            color: var(--c-text-secondary);
+            max-width: 560px;
+            line-height: 1.7;
+            margin-top: 16px;
+        }
+
+        .section-header.center .section-subtitle { margin-left: auto; margin-right: auto; }
+
+        /* ========================================
+           HOSTS CARDS
+        ======================================== */
+        .hosts-grid { display: grid; gap: 24px; }
+        @media (min-width: 900px) { .hosts-grid { grid-template-columns: repeat(2, 1fr); } }
 
         .host-card {
-            background: var(--c-surface);
-            border-radius: 16px;
-            overflow: hidden;
+            background: var(--c-surface-2);
+            border-radius: var(--radius-lg);
             border: 1px solid var(--c-border);
-            transition: all 0.4s var(--ease-out);
+            overflow: hidden;
+            transition: all .5s var(--ease-out-expo);
         }
 
         .host-card:hover {
             transform: translateY(-8px);
-            border-color: var(--c-ember);
-            box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+            border-color: rgba(255,107,53,.3);
+            box-shadow: 0 24px 48px rgba(0,0,0,.4);
         }
 
         .host-header {
             padding: 32px 28px;
-            background: linear-gradient(135deg, var(--c-flame) 0%, var(--c-panel) 100%);
+            background: linear-gradient(135deg, var(--c-accent) 0%, var(--c-purple) 100%);
             position: relative;
-            overflow: hidden;
         }
 
         .host-header::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.5;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23000' fill-opacity='.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: .5;
         }
 
         .host-name {
             position: relative;
-            font-family: var(--ff-display);
-            font-size: 2rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            line-height: 1;
         }
 
         .host-role {
             position: relative;
-            font-family: var(--ff-mono);
-            font-size: 0.75rem;
-            color: var(--c-gold);
+            font-family: var(--font-mono);
+            font-size: .7rem;
+            color: var(--c-accent-light);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 6px;
+            letter-spacing: 2px;
+            margin-top: 8px;
         }
 
-        .host-body {
-            padding: 28px;
-        }
+        .host-body { padding: 28px; }
 
         .host-bio {
-            color: var(--c-muted);
+            color: var(--c-text-secondary);
             line-height: 1.8;
             margin-bottom: 24px;
         }
@@ -553,44 +564,38 @@
 
         .meta-item {
             padding: 14px 16px;
-            background: var(--c-panel);
-            border-radius: 8px;
-            border-left: 3px solid var(--c-ember);
+            background: var(--c-surface-1);
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--c-accent);
         }
 
         .meta-val {
-            font-family: var(--ff-display);
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--c-gold);
-            text-transform: uppercase;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--c-accent-light);
         }
 
         .meta-key {
-            font-size: 0.7rem;
-            color: var(--c-dim);
+            font-size: .65rem;
+            color: var(--c-text-muted);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: .5px;
             margin-top: 2px;
         }
 
-        /* CONTENT CARDS */
-        .content-grid {
-            display: grid;
-            gap: 24px;
-        }
-
-        @media (min-width: 768px) {
-            .content-grid { grid-template-columns: repeat(3, 1fr); }
-        }
+        /* ========================================
+           CONTENT CARDS
+        ======================================== */
+        .content-grid { display: grid; gap: 24px; }
+        @media (min-width: 768px) { .content-grid { grid-template-columns: repeat(3, 1fr); } }
 
         .content-card {
             position: relative;
             padding: 36px 28px;
-            background: var(--c-panel);
-            border-radius: 12px;
+            background: var(--c-surface-1);
+            border-radius: var(--radius-lg);
             border: 1px solid var(--c-border);
-            transition: all 0.35s var(--ease-out);
+            transition: all .4s var(--ease-out-expo);
             overflow: hidden;
         }
 
@@ -600,21 +605,20 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--c-flame), var(--c-gold));
+            height: 4px;
+            background: var(--gradient-fire);
             transform: scaleX(0);
             transform-origin: left;
-            transition: transform 0.35s var(--ease-out);
+            transition: transform .4s var(--ease-out-expo);
         }
 
         .content-card:hover {
-            border-color: var(--c-ember);
             transform: translateY(-6px);
+            border-color: var(--c-border-hover);
+            box-shadow: 0 20px 40px rgba(0,0,0,.3);
         }
 
-        .content-card:hover::before {
-            transform: scaleX(1);
-        }
+        .content-card:hover::before { transform: scaleX(1); }
 
         .card-icon {
             width: 56px;
@@ -622,329 +626,285 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--c-surface);
-            border-radius: 12px;
-            font-size: 1.5rem;
-            color: var(--c-ember);
+            background: var(--c-surface-2);
+            border-radius: var(--radius-md);
+            font-size: 1.4rem;
+            color: var(--c-accent);
             margin-bottom: 20px;
-            transition: all 0.3s var(--ease-spring);
+            transition: all .4s var(--ease-out-back);
         }
 
         .content-card:hover .card-icon {
-            background: var(--c-ember);
-            color: white;
-            transform: rotate(-5deg) scale(1.05);
+            background: var(--gradient-fire);
+            color: var(--c-bg);
+            transform: rotate(-5deg) scale(1.1);
         }
 
         .content-card h3 {
-            font-family: var(--ff-display);
-            font-size: 1.35rem;
-            font-weight: 600;
-            text-transform: uppercase;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
             margin-bottom: 12px;
         }
 
         .content-card p {
-            color: var(--c-muted);
+            color: var(--c-text-secondary);
             line-height: 1.7;
-            font-size: 0.95rem;
+            font-size: .95rem;
         }
 
         .badge-soon {
             display: inline-block;
             margin-top: 16px;
-            padding: 6px 12px;
-            font-family: var(--ff-mono);
-            font-size: 0.65rem;
-            font-weight: 500;
+            padding: 6px 14px;
+            font-family: var(--font-mono);
+            font-size: .6rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--c-dark);
-            background: var(--c-gold);
-            border-radius: 4px;
+            color: var(--c-bg);
+            background: var(--c-accent-light);
+            border-radius: 100px;
         }
 
-        /* NEWSLETTER */
-        .newsletter-block {
-            max-width: 640px;
+        /* ========================================
+           NEWSLETTER - CLEAN SIMPLE DESIGN
+        ======================================== */
+        .newsletter-section {
+            padding: clamp(60px, 10vw, 100px) 0;
+            background: var(--c-surface-1);
+        }
+
+        .newsletter-container {
+            max-width: 600px;
             margin: 0 auto;
-            padding: 48px 40px;
-            background: var(--c-surface);
-            border-radius: 16px;
-            border: 1px solid var(--c-border);
             text-align: center;
         }
 
-        .newsletter-block h3 {
-            font-family: var(--ff-display);
-            font-size: 2rem;
-            text-transform: uppercase;
+        .newsletter-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            background: var(--gradient-fire);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--c-bg);
+        }
+
+        .newsletter-container h3 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 2.5rem);
             margin-bottom: 12px;
         }
 
-        .newsletter-block > p {
-            color: var(--c-muted);
-            margin-bottom: 28px;
+        .newsletter-container > p {
+            color: var(--c-text-secondary);
+            margin-bottom: 32px;
+            line-height: 1.7;
         }
 
         .newsletter-form {
             display: flex;
             flex-direction: column;
             gap: 12px;
+            max-width: 480px;
+            margin: 0 auto;
         }
 
         @media (min-width: 500px) {
-            .newsletter-form {
-                flex-direction: row;
-            }
+            .newsletter-form { flex-direction: row; }
+            .newsletter-form .btn { white-space: nowrap; }
         }
 
-        .newsletter-input {
+        .form-input {
             flex: 1;
-            padding: 14px 20px;
-            font-family: var(--ff-body);
+            padding: 16px 20px;
+            font-family: var(--font-body);
             font-size: 1rem;
             color: var(--c-text);
-            background: var(--c-panel);
+            background: var(--c-surface-2);
             border: 1px solid var(--c-border);
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            border-radius: var(--radius-md);
+            transition: all .3s ease;
         }
 
-        .newsletter-input:focus {
+        .form-input:focus {
             outline: none;
-            border-color: var(--c-ember);
-            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+            border-color: var(--c-accent);
+            box-shadow: 0 0 0 3px rgba(255,107,53,.15);
         }
 
-        .newsletter-input::placeholder {
-            color: var(--c-dim);
-        }
+        .form-input::placeholder { color: var(--c-text-muted); }
 
         .newsletter-note {
-            font-size: 0.8rem;
-            color: var(--c-dim);
-            margin-top: 12px;
+            font-family: var(--font-mono);
+            font-size: .7rem;
+            color: var(--c-text-muted);
+            margin-top: 16px;
         }
 
-        /* Form message styles */
         .form-message {
             display: none;
-            margin-top: 15px;
-            padding: 12px 20px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-        
-        .form-message.success {
-            background-color: rgba(34, 197, 94, 0.1);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            color: #22c55e;
-        }
-        
-        .form-message.error {
-            background-color: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            color: #ef4444;
-        }
-        
-        .form-message.loading {
-            background-color: rgba(251, 191, 36, 0.1);
-            border: 1px solid rgba(251, 191, 36, 0.3);
-            color: var(--c-gold);
+            margin-top: 16px;
+            padding: 14px 20px;
+            border-radius: var(--radius-sm);
+            font-size: .9rem;
         }
 
-        /* STORE */
-        .store-grid {
-            display: grid;
-            gap: 24px;
-        }
+        .form-message.success { background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.3); color: #22c55e; }
+        .form-message.error { background: rgba(239,68,68,.1); border: 1px solid rgba(239,68,68,.3); color: #ef4444; }
+        .form-message.loading { background: rgba(255,107,53,.1); border: 1px solid rgba(255,107,53,.3); color: var(--c-accent); }
 
-        @media (min-width: 768px) {
-            .store-grid { grid-template-columns: repeat(2, 1fr); }
-        }
+        /* ========================================
+           STORE
+        ======================================== */
+        .store-grid { display: grid; gap: 24px; }
+        @media (min-width: 768px) { .store-grid { grid-template-columns: repeat(2, 1fr); } }
 
         .store-card {
-            padding: 36px;
-            background: var(--c-surface);
-            border-radius: 12px;
+            padding: 40px 32px;
+            background: var(--c-surface-2);
             border: 1px solid var(--c-border);
+            border-radius: var(--radius-lg);
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all .4s ease;
         }
 
-        .store-card:hover {
-            border-color: var(--c-gold);
-        }
+        .store-card:hover { border-color: var(--c-accent); transform: translateY(-4px); }
 
         .store-card i {
             font-size: 3rem;
-            color: var(--c-gold);
+            background: var(--gradient-fire);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 20px;
         }
 
         .store-card h3 {
-            font-family: var(--ff-display);
-            font-size: 1.5rem;
-            text-transform: uppercase;
+            font-family: var(--font-display);
+            font-size: 1.75rem;
             margin-bottom: 12px;
         }
 
-        .store-card p {
-            color: var(--c-muted);
-            line-height: 1.7;
-        }
+        .store-card p { color: var(--c-text-secondary); line-height: 1.7; }
 
         .store-coming {
             margin-top: 40px;
             padding: 48px;
-            background: var(--c-panel);
+            background: var(--c-surface-1);
             border: 2px dashed var(--c-border);
-            border-radius: 16px;
+            border-radius: var(--radius-xl);
             text-align: center;
         }
 
         .store-coming h4 {
-            font-family: var(--ff-display);
-            font-size: 1.75rem;
-            text-transform: uppercase;
-            color: var(--c-ember);
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--c-accent);
             margin-bottom: 12px;
         }
 
-        .store-coming p {
-            color: var(--c-muted);
-            max-width: 400px;
-            margin: 0 auto;
-        }
+        .store-coming p { color: var(--c-text-secondary); max-width: 400px; margin: 0 auto; }
 
         .store-date {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             margin-top: 20px;
-            font-family: var(--ff-mono);
-            font-size: 0.85rem;
-            color: var(--c-gold);
+            font-family: var(--font-mono);
+            font-size: .85rem;
+            color: var(--c-accent-light);
         }
 
-        /* SOCIAL SECTIONS */
-        .social-grid {
-            display: grid;
-            gap: 24px;
-        }
+        /* ========================================
+           SOCIAL CARDS
+        ======================================== */
+        .social-section { margin-bottom: 64px; }
+        .social-section:last-child { margin-bottom: 0; }
 
-        @media (min-width: 900px) {
-            .social-grid { grid-template-columns: repeat(2, 1fr); }
-        }
+        .social-grid { display: grid; gap: 24px; }
+        @media (min-width: 900px) { .social-grid { grid-template-columns: repeat(2, 1fr); } }
 
         .social-card {
             padding: 32px;
-            background: var(--c-surface);
-            border-radius: 12px;
+            background: var(--c-surface-2);
+            border-radius: var(--radius-lg);
             border: 1px solid var(--c-border);
-            transition: all 0.3s ease;
+            transition: all .4s ease;
         }
 
-        .social-card.fb { border-color: #1877F2; }
-        .social-card.yt { border-color: #FF0000; }
-        .social-card.twitter { border-color: #000000; }
+        .social-card.twitter { border-color: rgba(255,255,255,.1); }
+        .social-card.fb { border-color: rgba(24,119,242,.3); }
+        .social-card.yt { border-color: rgba(255,0,0,.3); }
 
         .social-card h3 {
             display: flex;
             align-items: center;
             gap: 12px;
-            font-family: var(--ff-display);
+            font-family: var(--font-display);
             font-size: 1.5rem;
-            text-transform: uppercase;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
 
-        .social-card.fb h3 { color: #1877F2; }
-        .social-card.yt h3 { color: #FF0000; }
-        .social-card.twitter h3 { color: #000000; }
+        .social-card.twitter h3 i { color: #fff; }
+        .social-card.fb h3 i { color: #1877F2; }
+        .social-card.yt h3 i { color: #FF0000; }
 
-        .social-card > p {
-            color: var(--c-muted);
-            line-height: 1.7;
-        }
+        .social-card > p { color: var(--c-text-secondary); line-height: 1.7; }
 
-        .feature-list {
-            list-style: none;
-            margin-top: 20px;
-        }
+        .feature-list { list-style: none; margin-top: 20px; }
 
         .feature-list li {
             padding: 16px;
-            background: var(--c-panel);
-            border-radius: 8px;
+            background: var(--c-surface-1);
+            border-radius: var(--radius-sm);
             margin-bottom: 10px;
             border-left: 3px solid var(--c-border);
-            transition: all 0.25s ease;
+            transition: all .3s ease;
         }
 
+        .social-card.twitter .feature-list li { border-left-color: rgba(255,255,255,.3); }
         .social-card.fb .feature-list li { border-left-color: #1877F2; }
         .social-card.yt .feature-list li { border-left-color: #FF0000; }
-        .social-card.twitter .feature-list li { border-left-color: #000000; }
 
-        .feature-list li:hover {
-            transform: translateX(6px);
-        }
+        .feature-list li:hover { transform: translateX(6px); }
 
         .feature-list h4 {
-            font-family: var(--ff-mono);
-            font-size: 0.85rem;
-            font-weight: 500;
+            font-family: var(--font-mono);
+            font-size: .8rem;
             display: flex;
             align-items: center;
             gap: 8px;
             margin-bottom: 4px;
         }
 
-        .feature-list p {
-            font-size: 0.9rem;
-            color: var(--c-muted);
-        }
+        .feature-list p { font-size: .85rem; color: var(--c-text-muted); }
 
-        .social-cta {
-            text-align: center;
-            margin-top: 48px;
-            padding-top: 40px;
-            border-top: 1px solid var(--c-border);
-        }
+        .social-cta { text-align: center; margin-top: 40px; }
+        .social-cta p { color: var(--c-text-muted); margin-top: 14px; font-size: .9rem; }
 
-        .social-cta p {
-            color: var(--c-muted);
-            margin-top: 16px;
-            font-size: 0.9rem;
-        }
-
-        /* CONTACT */
-        .contact-grid {
-            display: grid;
-            gap: 32px;
-        }
-
-        @media (min-width: 900px) {
-            .contact-grid { grid-template-columns: repeat(2, 1fr); }
-        }
+        /* ========================================
+           CONTACT
+        ======================================== */
+        .contact-grid { display: grid; gap: 32px; }
+        @media (min-width: 900px) { .contact-grid { grid-template-columns: repeat(2, 1fr); } }
 
         .contact-card {
             padding: 36px;
-            background: var(--c-surface);
-            border-radius: 12px;
+            background: var(--c-surface-2);
             border: 1px solid var(--c-border);
+            border-radius: var(--radius-lg);
         }
 
         .contact-card h3 {
-            font-family: var(--ff-display);
-            font-size: 1.5rem;
-            text-transform: uppercase;
+            font-family: var(--font-display);
+            font-size: 1.75rem;
             padding-bottom: 20px;
             margin-bottom: 24px;
-            border-bottom: 2px solid var(--c-flame);
+            border-bottom: 2px solid var(--c-accent);
         }
 
         .contact-row {
@@ -954,125 +914,90 @@
             border-bottom: 1px solid var(--c-border);
         }
 
-        .contact-row:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .contact-row i {
-            font-size: 1.25rem;
-            color: var(--c-flame);
-            margin-top: 4px;
-        }
+        .contact-row:last-child { border-bottom: none; padding-bottom: 0; }
+        .contact-row i { font-size: 1.2rem; color: var(--c-accent); margin-top: 3px; }
 
         .contact-row h4 {
-            font-family: var(--ff-mono);
-            font-size: 0.8rem;
+            font-family: var(--font-mono);
+            font-size: .75rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
+            letter-spacing: .5px;
+            margin-bottom: 4px;
         }
 
-        .contact-row p {
-            color: var(--c-muted);
-        }
+        .contact-row p { color: var(--c-text-secondary); font-size: .95rem; }
+        .contact-row .note { color: var(--c-accent); font-size: .85rem; margin-top: 4px; }
 
-        .contact-row .note {
-            color: var(--c-ember);
-            font-size: 0.85rem;
-            margin-top: 4px;
-        }
-
-        .contact-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 8px;
-        }
+        .contact-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
 
         .contact-links a {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            font-size: 0.9rem;
-            color: var(--c-gold);
-            transition: color 0.2s ease;
+            font-size: .9rem;
+            color: var(--c-accent);
+            transition: color .2s ease;
         }
 
-        .contact-links a:hover {
-            color: var(--c-flame);
-        }
+        .contact-links a:hover { color: var(--c-accent-light); }
 
-        /* FORM */
-        .form-row {
-            margin-bottom: 16px;
-        }
+        .form-row { margin-bottom: 16px; }
 
         .form-row label {
             display: block;
-            font-family: var(--ff-mono);
-            font-size: 0.75rem;
-            font-weight: 500;
+            font-family: var(--font-mono);
+            font-size: .7rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--c-gold);
+            letter-spacing: .5px;
+            color: var(--c-accent);
             margin-bottom: 8px;
         }
 
-        .form-input,
         .form-textarea {
             width: 100%;
-            padding: 14px 16px;
-            font-family: var(--ff-body);
+            padding: 16px;
+            font-family: var(--font-body);
             font-size: 1rem;
             color: var(--c-text);
-            background: var(--c-panel);
+            background: var(--c-surface-1);
             border: 1px solid var(--c-border);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus,
-        .form-textarea:focus {
-            outline: none;
-            border-color: var(--c-ember);
-            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.12);
-        }
-
-        .form-textarea {
+            border-radius: var(--radius-sm);
             min-height: 120px;
             resize: vertical;
+            transition: all .3s ease;
         }
+
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--c-accent);
+            box-shadow: 0 0 0 3px rgba(255,107,53,.1);
+        }
+
+        .contact-card .form-input { background: var(--c-surface-1); }
 
         .form-note {
             text-align: center;
-            color: var(--c-dim);
-            font-size: 0.85rem;
+            color: var(--c-text-muted);
+            font-size: .85rem;
             margin-top: 16px;
         }
 
-        /* FOOTER */
+        /* ========================================
+           FOOTER
+        ======================================== */
         .footer {
             padding: 80px 0 40px;
-            background: var(--c-panel);
+            background: var(--c-surface-1);
             border-top: 1px solid var(--c-border);
         }
 
-        .footer-grid {
-            display: grid;
-            gap: 48px;
-        }
-
-        @media (min-width: 768px) {
-            .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
-        }
+        .footer-grid { display: grid; gap: 48px; }
+        @media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr; } }
 
         .footer-brand .logo-text {
-            font-family: var(--ff-display);
-            font-size: 2rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            background: linear-gradient(90deg, var(--c-flame), var(--c-gold));
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            background: var(--gradient-fire);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -1080,41 +1005,20 @@
             display: block;
         }
 
-        .footer-brand p {
-            color: var(--c-muted);
-            line-height: 1.8;
-            max-width: 320px;
-        }
+        .footer-brand p { color: var(--c-text-secondary); line-height: 1.8; max-width: 320px; }
 
         .footer-col h4 {
-            font-family: var(--ff-display);
-            font-size: 1.25rem;
-            text-transform: uppercase;
+            font-family: var(--font-display);
+            font-size: 1.35rem;
             margin-bottom: 20px;
         }
 
-        .footer-col ul {
-            list-style: none;
-        }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 12px; }
+        .footer-col a { color: var(--c-text-secondary); transition: color .2s ease; }
+        .footer-col a:hover { color: var(--c-accent); }
 
-        .footer-col li {
-            margin-bottom: 10px;
-        }
-
-        .footer-col a {
-            color: var(--c-muted);
-            transition: color 0.2s ease;
-        }
-
-        .footer-col a:hover {
-            color: var(--c-gold);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
+        .footer-social { display: flex; gap: 10px; margin-bottom: 20px; }
 
         .footer-social a {
             width: 44px;
@@ -1122,43 +1026,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--c-surface);
+            background: var(--c-surface-2);
             border: 1px solid var(--c-border);
-            border-radius: 8px;
+            border-radius: var(--radius-sm);
             color: var(--c-text);
             font-size: 1.1rem;
-            transition: all 0.25s ease;
+            transition: all .3s var(--ease-out-back);
         }
 
         .footer-social a:hover {
-            background: var(--c-flame);
-            border-color: var(--c-flame);
+            background: var(--c-accent);
+            border-color: var(--c-accent);
             transform: translateY(-3px);
-        }
-
-        .footer-social a.twitter:hover {
-            background: #000000;
-            border-color: #000000;
-        }
-
-        .footer-social a.youtube:hover {
-            background: #FF0000;
-            border-color: #FF0000;
-        }
-
-        .footer-social a.facebook:hover {
-            background: #1877F2;
-            border-color: #1877F2;
-        }
-
-        .footer-social a.instagram:hover {
-            background: #E4405F;
-            border-color: #E4405F;
-        }
-
-        .footer-social a.tiktok:hover {
-            background: #000000;
-            border-color: #000000;
         }
 
         .copyright {
@@ -1166,76 +1045,54 @@
             padding-top: 40px;
             margin-top: 40px;
             border-top: 1px solid var(--c-border);
-            color: var(--c-dim);
-            font-size: 0.85rem;
+            color: var(--c-text-muted);
+            font-size: .85rem;
         }
 
-        /* BACK TO TOP */
+        /* ========================================
+           BACK TO TOP
+        ======================================== */
         .back-top {
             position: fixed;
             bottom: 24px;
             right: 24px;
-            width: 48px;
-            height: 48px;
+            width: 52px;
+            height: 52px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--c-flame);
-            border-radius: 12px;
-            color: white;
-            font-size: 1.1rem;
+            background: var(--gradient-fire);
+            border-radius: var(--radius-md);
+            color: var(--c-bg);
+            font-size: 1.2rem;
             opacity: 0;
             visibility: hidden;
             transform: translateY(16px);
-            transition: all 0.3s var(--ease-out);
+            transition: all .4s var(--ease-out-expo);
             z-index: 800;
-            box-shadow: 0 4px 20px rgba(230, 57, 38, 0.4);
+            box-shadow: 0 4px 20px rgba(255,107,53,.4);
         }
 
-        .back-top.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
+        .back-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+        .back-top:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(255,107,53,.5); }
 
-        .back-top:hover {
-            background: var(--c-ember);
-            transform: translateY(-4px);
-        }
-
-        /* TOAST */
-        .toast {
-            position: fixed;
-            bottom: 24px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            padding: 14px 28px;
-            background: var(--c-surface);
-            border: 1px solid var(--c-ember);
-            border-radius: 10px;
-            color: var(--c-text);
-            font-family: var(--ff-mono);
-            font-size: 0.9rem;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
-            z-index: 1000;
+        /* ========================================
+           ANIMATIONS
+        ======================================== */
+        .reveal {
             opacity: 0;
-            transition: all 0.4s var(--ease-spring);
+            transform: translateY(32px);
+            transition: opacity .7s var(--ease-out-expo), transform .7s var(--ease-out-expo);
         }
 
-        .toast.show {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: .1s; }
+        .reveal-delay-2 { transition-delay: .2s; }
+        .reveal-delay-3 { transition-delay: .3s; }
 
-        .toast.success {
-            border-color: #22C55E;
-        }
-
-        .toast.error {
-            border-color: #EF4444;
-        }
-
-        /* MOBILE NAV */
+        /* ========================================
+           MOBILE
+        ======================================== */
         @media (max-width: 900px) {
             .nav-toggle { display: flex; }
 
@@ -1245,66 +1102,38 @@
                 left: 0;
                 right: 0;
                 flex-direction: column;
-                padding: 16px;
-                background: var(--c-dark);
+                padding: 20px;
+                background: rgba(13,10,18,.98);
+                backdrop-filter: blur(20px);
                 border-bottom: 1px solid var(--c-border);
                 transform: translateY(-100%);
                 opacity: 0;
                 visibility: hidden;
-                transition: all 0.35s var(--ease-out);
+                transition: all .4s var(--ease-out-expo);
             }
 
-            .nav-links.open {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
+            .nav-links.open { transform: translateY(0); opacity: 1; visibility: visible; }
+            .nav-links a { text-align: center; padding: 14px; font-size: .8rem; }
 
-            .nav-links a {
-                text-align: center;
-                padding: 14px;
-                font-size: 0.85rem;
-            }
+            .countdown-inner { flex-direction: column; gap: 14px; }
         }
 
-        /* REVEAL ANIMATIONS */
-        .reveal {
-            opacity: 0;
-            transform: translateY(32px);
-            transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
-
-        /* REDUCED MOTION */
         @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
-            }
+            *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .2s !important; }
             html { scroll-behavior: auto; }
+            .reveal { opacity: 1; transform: none; }
         }
     </style>
 </head>
 <body>
-
-    <!-- NAV -->
+    <!-- NAVIGATION -->
     <nav class="nav" id="nav">
         <div class="nav-inner">
             <a href="#top" class="nav-logo">
-                <svg viewBox="0 0 24 24"><path d="M12 23c-1.5 0-2.8-.5-3.9-1.4-.5-.4-.4-1.1.1-1.4.5-.3 1.1-.2 1.5.2.7.6 1.5.9 2.3.9 2.5 0 4.5-2.7 4.5-6 0-1.7-.5-3.2-1.4-4.4-.3-.4-.3-1 .1-1.4.4-.3 1-.3 1.4.1 1.2 1.5 1.9 3.5 1.9 5.7 0 4.4-2.9 8-6.5 8zm0-4c-1.4 0-2.5-1.6-2.5-3.5S10.6 12 12 12s2.5 1.6 2.5 3.5S13.4 19 12 19zm0-16C9.5 3 7.5 5.7 7.5 9c0 1.1.2 2.1.6 3 .2.5 0 1.1-.5 1.3-.5.2-1.1 0-1.3-.5-.5-1.1-.8-2.4-.8-3.8C5.5 4.6 8.4 1 12 1s6.5 3.6 6.5 8c0 .6 0 1.1-.1 1.6-.1.5-.6.9-1.1.8-.5-.1-.9-.6-.8-1.1.1-.4.1-.9.1-1.3-.1-3.3-2.1-6-4.6-6z"/></svg>
-                Crocked 'N Loaded
+                <span class="nav-logo-icon">🔥</span>
+                CROCKED 'N LOADED
             </a>
-            <button class="nav-toggle" id="navToggle" aria-label="Menu">
-                <i class="fas fa-bars"></i>
-            </button>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#top" class="active">Home</a></li>
                 <li><a href="#hosts">The Guys</a></li>
@@ -1320,22 +1149,18 @@
     <!-- HERO -->
     <section class="hero" id="top">
         <div class="hero-image-wrap">
-            <div class="hero-glow"></div>
+            <div class="hero-image-glow"></div>
             <img src="background.jpg" alt="Crocked 'N Loaded - CrockPotDaddy and MACK3Y" class="hero-image">
         </div>
         <div class="hero-content">
-            <p class="hero-tagline">Launching Spring 2026</p>
+            <p class="hero-tagline">Launching Spring 2025</p>
             <p class="hero-desc">
                 Two dudes who got tired of watching cooking shows made by people who've never 
                 paid rent. We're here to show you how to actually cook—no trust fund required.
             </p>
             <div class="hero-actions">
-                <a href="#shows" class="btn btn-primary">
-                    <i class="fas fa-play"></i> See What's Cooking
-                </a>
-                <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" rel="noopener" class="btn btn-yt">
-                    <i class="fab fa-youtube"></i> Subscribe
-                </a>
+                <a href="#shows" class="btn btn-primary"><i class="fas fa-play"></i> See What's Cooking</a>
+                <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" rel="noopener" class="btn btn-yt"><i class="fab fa-youtube"></i> Subscribe</a>
             </div>
         </div>
         <div class="scroll-cue">
@@ -1346,25 +1171,13 @@
 
     <!-- COUNTDOWN -->
     <div class="countdown-strip">
-        <div class="countdown-inner">
+        <div class="countdown-inner container">
             <span class="countdown-text">First Episode Drops In</span>
             <div class="countdown-timer" id="countdown">
-                <div class="countdown-unit">
-                    <span class="countdown-num" id="days">--</span>
-                    <span class="countdown-label">Days</span>
-                </div>
-                <div class="countdown-unit">
-                    <span class="countdown-num" id="hours">--</span>
-                    <span class="countdown-label">Hrs</span>
-                </div>
-                <div class="countdown-unit">
-                    <span class="countdown-num" id="mins">--</span>
-                    <span class="countdown-label">Min</span>
-                </div>
-                <div class="countdown-unit">
-                    <span class="countdown-num" id="secs">--</span>
-                    <span class="countdown-label">Sec</span>
-                </div>
+                <div class="countdown-unit"><span class="countdown-num" id="days">--</span><span class="countdown-label">Days</span></div>
+                <div class="countdown-unit"><span class="countdown-num" id="hours">--</span><span class="countdown-label">Hrs</span></div>
+                <div class="countdown-unit"><span class="countdown-num" id="mins">--</span><span class="countdown-label">Min</span></div>
+                <div class="countdown-unit"><span class="countdown-num" id="secs">--</span><span class="countdown-label">Sec</span></div>
             </div>
         </div>
     </div>
@@ -1372,13 +1185,10 @@
     <!-- HOSTS -->
     <section class="section section-dark" id="hosts">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-label">Meet the Crew</span>
                 <h2 class="section-title">The Guys Behind the Chaos</h2>
-                <p class="section-subtitle">
-                    One's got the industry chops. The other's got the hustle. Together, we're making content 
-                    for people who want to eat well without all the gatekeeping.
-                </p>
+                <p class="section-subtitle">One's got the industry chops. The other's got the hustle. Together, we're making content for people who want to eat well without all the gatekeeping.</p>
             </div>
             <div class="hosts-grid">
                 <article class="host-card reveal">
@@ -1387,30 +1197,12 @@
                         <p class="host-role">The Connector</p>
                     </div>
                     <div class="host-body">
-                        <p class="host-bio">
-                            Sales guy by trade, kitchen experimenter by obsession. I've spent years 
-                            working behind the scenes in the music industry—got to know some artists right 
-                            before they blew up. That same energy for spotting talent and building 
-                            connections? I bring it to food. My thing is figuring out how to get 
-                            restaurant-quality results in a regular-ass kitchen with regular-ass tools.
-                        </p>
+                        <p class="host-bio">Sales guy by trade, kitchen experimenter by obsession. I've spent years working behind the scenes in the music industry—got to know some artists right before they blew up. That same energy for spotting talent and building connections? I bring it to food.</p>
                         <div class="host-meta">
-                            <div class="meta-item">
-                                <div class="meta-val">Sales</div>
-                                <div class="meta-key">Day Job</div>
-                            </div>
-                            <div class="meta-item">
-                                <div class="meta-val">Music</div>
-                                <div class="meta-key">Industry</div>
-                            </div>
-                            <div class="meta-item">
-                                <div class="meta-val">Home</div>
-                                <div class="meta-key">Kitchen</div>
-                            </div>
-                            <div class="meta-item">
-                                <div class="meta-val">Real</div>
-                                <div class="meta-key">Approach</div>
-                            </div>
+                            <div class="meta-item"><div class="meta-val">Sales</div><div class="meta-key">Day Job</div></div>
+                            <div class="meta-item"><div class="meta-val">Music</div><div class="meta-key">Industry</div></div>
+                            <div class="meta-item"><div class="meta-val">Home</div><div class="meta-key">Kitchen</div></div>
+                            <div class="meta-item"><div class="meta-val">Real</div><div class="meta-key">Approach</div></div>
                         </div>
                     </div>
                 </article>
@@ -1420,30 +1212,12 @@
                         <p class="host-role">The Pro</p>
                     </div>
                     <div class="host-body">
-                        <p class="host-bio">
-                            23 years in professional kitchens. Everything from fine dining to food trucks, 
-                            coast to coast. I've seen every shortcut, every trick, every technique that 
-                            chefs keep to themselves. Turns out most of that "complicated" stuff isn't 
-                            actually that hard—it just looks intimidating. My job here is to pull back 
-                            the curtain and show you what's really going on. No mystique. Just food.
-                        </p>
+                        <p class="host-bio">23 years in professional kitchens. Everything from fine dining to food trucks, coast to coast. I've seen every shortcut, every trick, every technique that chefs keep to themselves. My job here is to pull back the curtain and show you what's really going on.</p>
                         <div class="host-meta">
-                            <div class="meta-item">
-                                <div class="meta-val">23 Yrs</div>
-                                <div class="meta-key">Experience</div>
-                            </div>
-                            <div class="meta-item">
-                                <div class="meta-val">Pro</div>
-                                <div class="meta-key">Kitchens</div>
-                            </div>
-                            <div class="meta-item">
-                                <div class="meta-val">Teacher</div>
-                                <div class="meta-key">At Heart</div>
-                            </div>
-                            <div class="meta-item">
-                                <div class="meta-val">Global</div>
-                                <div class="meta-key">Flavors</div>
-                            </div>
+                            <div class="meta-item"><div class="meta-val">23 Yrs</div><div class="meta-key">Experience</div></div>
+                            <div class="meta-item"><div class="meta-val">Pro</div><div class="meta-key">Kitchens</div></div>
+                            <div class="meta-item"><div class="meta-val">Teacher</div><div class="meta-key">At Heart</div></div>
+                            <div class="meta-item"><div class="meta-val">Global</div><div class="meta-key">Flavors</div></div>
                         </div>
                     </div>
                 </article>
@@ -1454,60 +1228,44 @@
     <!-- SHOWS -->
     <section class="section" id="shows">
         <div class="container">
-            <div class="section-header center">
+            <div class="section-header center reveal">
                 <span class="section-label">What We're Making</span>
                 <h2 class="section-title">The Content</h2>
-                <p class="section-subtitle">
-                    We're not trying to reinvent the wheel. Just make cooking content that doesn't 
-                    make you want to throw your phone across the room.
-                </p>
+                <p class="section-subtitle">We're not trying to reinvent the wheel. Just make cooking content that doesn't make you want to throw your phone across the room.</p>
             </div>
             <div class="content-grid">
                 <div class="content-card reveal">
                     <div class="card-icon"><i class="fas fa-fire-burner"></i></div>
                     <h3>Kitchen Sessions</h3>
-                    <p>
-                        Full cook-alongs where we actually explain what we're doing and why. 
-                        No jump cuts that skip the hard parts. If we screw up, you see it.
-                    </p>
+                    <p>Full cook-alongs where we actually explain what we're doing and why. No jump cuts that skip the hard parts. If we screw up, you see it.</p>
                 </div>
                 <div class="content-card reveal reveal-delay-1">
                     <div class="card-icon"><i class="fas fa-wallet"></i></div>
                     <h3>Broke But Hungry</h3>
-                    <p>
-                        $20 or less, feed yourself for a week. We've both been there—payday's 
-                        a week away and the fridge is looking sad. These episodes are for those times.
-                    </p>
+                    <p>$20 or less, feed yourself for a week. We've both been there—payday's a week away and the fridge is looking sad.</p>
                 </div>
                 <div class="content-card reveal reveal-delay-2">
                     <div class="card-icon"><i class="fas fa-star-half-alt"></i></div>
                     <h3>No BS Reviews</h3>
-                    <p>
-                        Local spots, chain restaurants, whatever. We pay our own tab, say what 
-                        we actually think. If it sucks, we'll tell you. If it slaps, you'll know.
-                    </p>
+                    <p>Local spots, chain restaurants, whatever. We pay our own tab, say what we actually think. If it sucks, we'll tell you.</p>
                     <span class="badge-soon">Coming Soon</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NEWSLETTER -->
-    <section class="section section-dark" id="newsletter">
+    <!-- NEWSLETTER - CLEAN & SIMPLE -->
+    <section class="newsletter-section" id="newsletter">
         <div class="container">
-            <div class="newsletter-block reveal">
+            <div class="newsletter-container reveal">
+                <div class="newsletter-icon"><i class="fas fa-envelope"></i></div>
                 <h3>Stay in the Loop</h3>
-                <p>
-                    We'll hit you up when episodes drop, merch launches, or we're doing something 
-                    cool in your area. That's it. No daily spam. We hate that shit too.
-                </p>
+                <p>We'll hit you up when episodes drop, merch launches, or we're doing something cool in your area. That's it. No daily spam. We hate that shit too.</p>
                 <form class="newsletter-form" id="newsletter-form">
-                    <input type="email" id="newsletter-email" name="email" class="newsletter-input" placeholder="your@email.com" required>
-                    <input type="text" id="newsletter-name" name="name" class="newsletter-input" placeholder="Your Name (Optional)">
-                    
+                    <input type="email" id="newsletter-email" name="email" class="form-input" placeholder="your@email.com" required>
                     <button type="submit" class="btn btn-primary" id="newsletter-submit">
                         <span id="submit-text">Count Me In</span>
-                        <span id="submit-spinner" style="display:none;"><i class="fas fa-spinner fa-spin"></i> Subscribing...</span>
+                        <span id="submit-spinner" style="display:none"><i class="fas fa-spinner fa-spin"></i></span>
                     </button>
                 </form>
                 <div id="newsletter-message" class="form-message"></div>
@@ -1519,36 +1277,27 @@
     <!-- STORE -->
     <section class="section" id="store">
         <div class="container">
-            <div class="section-header center">
+            <div class="section-header center reveal">
                 <span class="section-label">Rep the Crew</span>
                 <h2 class="section-title">Merch</h2>
-                <p class="section-subtitle">
-                    Gear for people who cook. Not the "kiss the cook" apron your aunt gave you. 
-                    Actual stuff you'd want to wear.
-                </p>
+                <p class="section-subtitle">Gear for people who cook. Not the "kiss the cook" apron your aunt gave you.</p>
             </div>
             <div class="store-grid">
                 <div class="store-card reveal">
                     <i class="fas fa-tshirt"></i>
                     <h3>Apparel</h3>
-                    <p>
-                        Tees, hoodies, hats—including our signature design you see up top. 
-                        Quality that doesn't fall apart after three washes.
-                    </p>
+                    <p>Tees, hoodies, hats—including our signature design you see up top. Quality that doesn't fall apart after three washes.</p>
                 </div>
                 <div class="store-card reveal reveal-delay-1">
                     <i class="fas fa-box-open"></i>
                     <h3>Kitchen Stuff</h3>
-                    <p>
-                        Aprons, towels, maybe some tools down the road. The essentials you 
-                        actually need, not a bunch of unitaskers that clutter your drawers.
-                    </p>
+                    <p>Aprons, towels, maybe some tools down the road. The essentials you actually need, not unitaskers.</p>
                 </div>
             </div>
             <div class="store-coming reveal">
                 <h4>Store Opening Soon</h4>
                 <p>We're getting everything dialed in. Quality takes time—we're not rushing it.</p>
-                <span class="store-date"><i class="fas fa-calendar"></i> Spring 2026</span>
+                <span class="store-date"><i class="fas fa-calendar"></i> Spring 2025</span>
             </div>
         </div>
     </section>
@@ -1556,144 +1305,83 @@
     <!-- SOCIALS -->
     <section class="section section-dark" id="socials">
         <div class="container">
-            <div class="section-header center">
+            <div class="section-header center reveal">
                 <span class="section-label">Find Us</span>
                 <h2 class="section-title">Where We Hang Out</h2>
-                <p class="section-subtitle">
-                    Different platforms, different vibes. Pick your poison.
-                </p>
+                <p class="section-subtitle">Different platforms, different vibes. Pick your poison.</p>
             </div>
 
-            <!-- TWITTER/X SECTION - ADDED -->
-            <div class="social-grid" style="margin-bottom: 48px;">
-                <div class="social-card twitter reveal">
-                    <h3><i class="fab fa-twitter"></i> Twitter / X</h3>
-                    <p>
-                        Quick thoughts, hot takes, and real-time updates. If it's happening right now, 
-                        you'll find it here first. The 280-character version of our show.
-                    </p>
-                    <ul class="feature-list">
-                        <li>
-                            <h4><i class="fas fa-bolt"></i> Instant Updates</h4>
-                            <p>What we're cooking right now, behind-the-scenes moments</p>
-                        </li>
-                        <li>
-                            <h4><i class="fas fa-comment"></i> Direct Interaction</h4>
-                            <p>Reply, quote, roast us—we actually read the replies</p>
-                        </li>
-                    </ul>
+            <div class="social-section">
+                <div class="social-grid">
+                    <div class="social-card twitter reveal">
+                        <h3><i class="fab fa-x-twitter"></i> Twitter / X</h3>
+                        <p>Quick thoughts, hot takes, and real-time updates. If it's happening right now, you'll find it here first.</p>
+                        <ul class="feature-list">
+                            <li><h4><i class="fas fa-bolt"></i> Instant Updates</h4><p>What we're cooking right now, behind-the-scenes</p></li>
+                            <li><h4><i class="fas fa-comment"></i> Direct Interaction</h4><p>Reply, quote, roast us—we read the replies</p></li>
+                        </ul>
+                    </div>
+                    <div class="social-card twitter reveal reveal-delay-1">
+                        <h3><i class="fas fa-hashtag"></i> Food Twitter</h3>
+                        <p>We're part of the cooking community. Engaging with other chefs, home cooks, and food enthusiasts.</p>
+                        <ul class="feature-list">
+                            <li><h4><i class="fas fa-users"></i> Community</h4><p>Connect with other food lovers</p></li>
+                            <li><h4><i class="fas fa-retweet"></i> Quick Shares</h4><p>Easy to share recipes, tips, and food pics</p></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="social-card twitter reveal reveal-delay-1">
-                    <h3><i class="fas fa-hashtag"></i> Food Twitter</h3>
-                    <p>
-                        We're part of the cooking community on Twitter. Engaging with other chefs, 
-                        home cooks, and food enthusiasts. Join the conversation.
-                    </p>
-                    <ul class="feature-list">
-                        <li>
-                            <h4><i class="fas fa-users"></i> Community</h4>
-                            <p>Connect with other food lovers and share your creations</p>
-                        </li>
-                        <li>
-                            <h4><i class="fas fa-retweet"></i> Quick Shares</h4>
-                            <p>Easy to share recipes, tips, and food pics with your network</p>
-                        </li>
-                    </ul>
+                <div class="social-cta reveal">
+                    <a href="https://twitter.com/CrockedNLoaded" target="_blank" rel="noopener" class="btn btn-x"><i class="fab fa-x-twitter"></i> Follow on X</a>
                 </div>
-            </div>
-            <div class="social-cta reveal">
-                <a href="https://twitter.com/CrockedNLoaded" target="_blank" rel="noopener" class="btn btn-twitter">
-                    <i class="fab fa-twitter"></i> Follow on Twitter / X
-                </a>
-                <p>Follow for real-time updates and join the food conversation</p>
             </div>
 
-            <!-- FACEBOOK -->
-            <div class="social-grid" style="margin-top: 80px; margin-bottom: 48px;">
-                <div class="social-card fb reveal">
-                    <h3><i class="fab fa-facebook"></i> Facebook</h3>
-                    <p>
-                        This is where the community lives. Behind-the-scenes stuff, polls on what 
-                        we should cook next, and way too many food pics in the comments.
-                    </p>
-                    <ul class="feature-list">
-                        <li>
-                            <h4><i class="fas fa-video"></i> Quick Hits</h4>
-                            <p>60-second tips, kitchen hacks, stuff that's actually useful</p>
-                        </li>
-                        <li>
-                            <h4><i class="fas fa-broadcast-tower"></i> Live Sessions</h4>
-                            <p>We cook, you watch, you ask questions. Pretty simple.</p>
-                        </li>
-                    </ul>
+            <div class="social-section">
+                <div class="social-grid">
+                    <div class="social-card fb reveal">
+                        <h3><i class="fab fa-facebook"></i> Facebook</h3>
+                        <p>This is where the community lives. Behind-the-scenes stuff, polls, and way too many food pics.</p>
+                        <ul class="feature-list">
+                            <li><h4><i class="fas fa-video"></i> Quick Hits</h4><p>60-second tips, kitchen hacks, useful stuff</p></li>
+                            <li><h4><i class="fas fa-broadcast-tower"></i> Live Sessions</h4><p>We cook, you watch, you ask questions</p></li>
+                        </ul>
+                    </div>
+                    <div class="social-card fb reveal reveal-delay-1">
+                        <h3><i class="fas fa-users"></i> The Community</h3>
+                        <p>Post your wins, post your disasters. No judgment here—everyone's learning.</p>
+                        <ul class="feature-list">
+                            <li><h4><i class="fas fa-comment-dots"></i> Real Talk</h4><p>Actual conversations about food</p></li>
+                            <li><h4><i class="fas fa-bell"></i> First to Know</h4><p>Episode drops, meetups, whatever's next</p></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="social-card fb reveal reveal-delay-1">
-                    <h3><i class="fas fa-users"></i> The Community</h3>
-                    <p>
-                        Post your wins, post your disasters. No judgment here—everyone's learning. 
-                        Share recipes, ask for help, or just lurk. It's all good.
-                    </p>
-                    <ul class="feature-list">
-                        <li>
-                            <h4><i class="fas fa-comment-dots"></i> Real Talk</h4>
-                            <p>Actual conversations about food. Novel concept, we know.</p>
-                        </li>
-                        <li>
-                            <h4><i class="fas fa-bell"></i> First to Know</h4>
-                            <p>Episode drops, meetups, whatever we're planning next</p>
-                        </li>
-                    </ul>
+                <div class="social-cta reveal">
+                    <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" rel="noopener" class="btn btn-fb"><i class="fab fa-facebook"></i> Follow on Facebook</a>
                 </div>
-            </div>
-            <div class="social-cta reveal">
-                <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" rel="noopener" class="btn btn-fb">
-                    <i class="fab fa-facebook"></i> Follow on Facebook
-                </a>
-                <p>Hit "Follow" then "See First" so Facebook actually shows you our posts</p>
             </div>
 
-            <!-- YOUTUBE -->
-            <div class="social-grid" style="margin-top: 80px;">
-                <div class="social-card yt reveal">
-                    <h3><i class="fab fa-youtube"></i> YouTube</h3>
-                    <p>
-                        The main event. Full episodes, proper tutorials, the whole nine yards. 
-                        This is where the real content lives.
-                    </p>
-                    <ul class="feature-list">
-                        <li>
-                            <h4><i class="fas fa-film"></i> Full Episodes</h4>
-                            <p>No rushing, no skipping steps. Start to finish, the whole process.</p>
-                        </li>
-                        <li>
-                            <h4><i class="fas fa-graduation-cap"></i> Technique Deep Dives</h4>
-                            <p>The stuff culinary school charges $50k to teach you</p>
-                        </li>
-                    </ul>
+            <div class="social-section">
+                <div class="social-grid">
+                    <div class="social-card yt reveal">
+                        <h3><i class="fab fa-youtube"></i> YouTube</h3>
+                        <p>The main event. Full episodes, proper tutorials, the whole nine yards.</p>
+                        <ul class="feature-list">
+                            <li><h4><i class="fas fa-film"></i> Full Episodes</h4><p>No rushing, no skipping steps. Start to finish.</p></li>
+                            <li><h4><i class="fas fa-graduation-cap"></i> Technique Deep Dives</h4><p>The stuff culinary school charges $50k to teach</p></li>
+                        </ul>
+                    </div>
+                    <div class="social-card yt reveal reveal-delay-1">
+                        <h3><i class="fas fa-rocket"></i> Launching Soon</h3>
+                        <p>First episode is in the works. Subscribe now and you'll be there from day one.</p>
+                        <ul class="feature-list">
+                            <li><h4><i class="fas fa-clock"></i> Spring 2025</h4><p>We're doing this right. No half-assed launch.</p></li>
+                            <li><h4><i class="fas fa-bell"></i> Hit the Bell</h4><p>Otherwise YouTube buries notifications</p></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="social-card yt reveal reveal-delay-1">
-                    <h3><i class="fas fa-rocket"></i> Launching Soon</h3>
-                    <p>
-                        First episode is in the works. Subscribe now and you'll be there from 
-                        day one. That's the kind of flex you can hold over people later.
-                    </p>
-                    <ul class="feature-list">
-                        <li>
-                            <h4><i class="fas fa-clock"></i> Spring 2026</h4>
-                            <p>We're doing this right. No half-assed launch.</p>
-                        </li>
-                        <li>
-                            <h4><i class="fas fa-bell"></i> Hit the Bell</h4>
-                            <p>You know the drill. Otherwise YouTube buries notifications.</p>
-                        </li>
-                    </ul>
+                <div class="social-cta reveal">
+                    <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" rel="noopener" class="btn btn-yt"><i class="fab fa-youtube"></i> Subscribe on YouTube</a>
+                    <p>Be a day-one subscriber. Bragging rights included.</p>
                 </div>
-            </div>
-            <div class="social-cta reveal">
-                <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" rel="noopener" class="btn btn-yt">
-                    <i class="fab fa-youtube"></i> Subscribe on YouTube
-                </a>
-                <p>Be a day-one subscriber. Bragging rights included.</p>
             </div>
         </div>
     </section>
@@ -1701,89 +1389,43 @@
     <!-- CONTACT -->
     <section class="section" id="contact">
         <div class="container">
-            <div class="section-header center">
+            <div class="section-header center reveal">
                 <span class="section-label">Get in Touch</span>
                 <h2 class="section-title">Let's Talk</h2>
-                <p class="section-subtitle">
-                    Got an idea? Want to collab? Just want to say what's up? We're around.
-                </p>
+                <p class="section-subtitle">Got an idea? Want to collab? Just want to say what's up? We're around.</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-card reveal">
                     <h3>How to Reach Us</h3>
                     <div class="contact-row">
                         <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>contact@crockednloaded.com</p>
-                            <p class="note">Business stuff, collabs, press</p>
-                        </div>
+                        <div><h4>Email</h4><p>contact@crockednloaded.com</p><p class="note">Business stuff, collabs, press</p></div>
                     </div>
                     <div class="contact-row">
                         <i class="fab fa-youtube"></i>
-                        <div>
-                            <h4>YouTube</h4>
-                            <p>@CrockedNLoaded-NH</p>
-                            <div class="contact-links">
-                                <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" rel="noopener">
-                                    <i class="fab fa-youtube"></i> Channel
-                                </a>
-                            </div>
-                        </div>
+                        <div><h4>YouTube</h4><p>@CrockedNLoaded-NH</p><div class="contact-links"><a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> Channel</a></div></div>
                     </div>
                     <div class="contact-row">
-                        <i class="fab fa-twitter"></i>
-                        <div>
-                            <h4>Twitter / X</h4>
-                            <p>@CrockedNLoaded</p>
-                            <div class="contact-links">
-                                <a href="https://twitter.com/CrockedNLoaded" target="_blank" rel="noopener">
-                                    <i class="fab fa-twitter"></i> Follow us
-                                </a>
-                            </div>
-                        </div>
+                        <i class="fab fa-x-twitter"></i>
+                        <div><h4>Twitter / X</h4><p>@CrockedNLoaded</p><div class="contact-links"><a href="https://twitter.com/CrockedNLoaded" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> Follow</a></div></div>
                     </div>
                     <div class="contact-row">
-                        <i class="fas fa-comments"></i>
-                        <div>
-                            <h4>DMs Open</h4>
-                            <p>For quick stuff, hit us up on socials</p>
-                            <div class="contact-links">
-                                <a href="https://instagram.com/CrockedNLoadedShow" target="_blank" rel="noopener">
-                                    <i class="fab fa-instagram"></i> IG
-                                </a>
-                                <a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank" rel="noopener">
-                                    <i class="fab fa-tiktok"></i> TikTok
-                                </a>
-                                <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" rel="noopener">
-                                    <i class="fab fa-facebook"></i> FB
-                                </a>
-                            </div>
-                        </div>
+                        <i class="fab fa-instagram"></i>
+                        <div><h4>Instagram</h4><p>@CrockedNLoadedShow</p><div class="contact-links"><a href="https://instagram.com/CrockedNLoadedShow" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> Profile</a></div></div>
+                    </div>
+                    <div class="contact-row">
+                        <i class="fab fa-tiktok"></i>
+                        <div><h4>TikTok</h4><p>@CrockedNLoadedShow</p><div class="contact-links"><a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i> Follow</a></div></div>
                     </div>
                 </div>
                 <div class="contact-card reveal reveal-delay-1">
                     <h3>Send a Message</h3>
                     <form id="contact-form">
-                        <div class="form-row">
-                            <label for="contact-name">Name</label>
-                            <input type="text" id="contact-name" name="from_name" class="form-input" required placeholder="What do we call you?">
-                        </div>
-                        <div class="form-row">
-                            <label for="contact-email">Email</label>
-                            <input type="email" id="contact-email" name="from_email" class="form-input" required placeholder="So we can reply">
-                        </div>
-                        <div class="form-row">
-                            <label for="contact-subject">Subject</label>
-                            <input type="text" id="contact-subject" name="subject" class="form-input" required placeholder="What's this about?">
-                        </div>
-                        <div class="form-row">
-                            <label for="contact-message">Message</label>
-                            <textarea id="contact-message" name="message" class="form-textarea" required placeholder="Lay it on us..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width:100%" id="contact-submit">
-                            <i class="fas fa-paper-plane"></i> Send It
-                        </button>
+                        <div class="form-row"><label for="contact-name">Name</label><input type="text" id="contact-name" name="from_name" class="form-input" required placeholder="What do we call you?"></div>
+                        <div class="form-row"><label for="contact-email">Email</label><input type="email" id="contact-email" name="from_email" class="form-input" required placeholder="So we can reply"></div>
+                        <div class="form-row"><label for="contact-subject">Subject</label><input type="text" id="contact-subject" name="subject" class="form-input" required placeholder="What's this about?"></div>
+                        <div class="form-row"><label for="contact-message">Message</label><textarea id="contact-message" name="message" class="form-textarea" required placeholder="Lay it on us..."></textarea></div>
+                        <button type="submit" class="btn btn-primary" style="width:100%" id="contact-submit"><i class="fas fa-paper-plane"></i> Send It</button>
                     </form>
                     <div id="contact-form-message" class="form-message"></div>
                     <p class="form-note">We check messages regularly. Usually respond within a day or two.</p>
@@ -1798,11 +1440,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <span class="logo-text">Crocked 'N Loaded</span>
-                    <p>
-                        Just two guys who think good food shouldn't require a culinary degree or 
-                        a second mortgage. We're here to cook, have fun, and hopefully teach you 
-                        something along the way.
-                    </p>
+                    <p>Just two guys who think good food shouldn't require a culinary degree or a second mortgage. We're here to cook, have fun, and hopefully teach you something along the way.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Links</h4>
@@ -1817,408 +1455,165 @@
                 <div class="footer-col">
                     <h4>Connect</h4>
                     <div class="footer-social">
-                        <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" rel="noopener" aria-label="YouTube" class="youtube">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="https://twitter.com/CrockedNLoaded" target="_blank" rel="noopener" aria-label="Twitter / X" class="twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://instagram.com/CrockedNLoadedShow" target="_blank" rel="noopener" aria-label="Instagram" class="instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" rel="noopener" aria-label="Facebook" class="facebook">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank" rel="noopener" aria-label="TikTok" class="tiktok">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
+                        <a href="https://youtube.com/@CrockedNLoaded-NH" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://twitter.com/CrockedNLoaded" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://instagram.com/CrockedNLoadedShow" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     </div>
-                    <p style="color: var(--c-muted); font-size: 0.9rem;">
-                        Pick a platform. We're everywhere.
-                    </p>
+                    <p style="color:var(--c-text-secondary);font-size:.9rem">Pick a platform. We're everywhere.</p>
                 </div>
             </div>
-            <div class="copyright">
-                &copy; 2025 Crocked 'N Loaded. Made in New Hampshire.
-            </div>
+            <div class="copyright">&copy; 2025 Crocked 'N Loaded. Made in New Hampshire.</div>
         </div>
     </footer>
 
-    <!-- BACK TO TOP -->
-    <button class="back-top" id="backTop" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+    <button class="back-top" id="backTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
     <script>
-    (function() {
+    (function(){
         // Navigation
-        const nav = document.getElementById('nav');
-        const navToggle = document.getElementById('navToggle');
-        const navLinks = document.getElementById('navLinks');
-        const backTop = document.getElementById('backTop');
+        const nav=document.getElementById('nav'),navToggle=document.getElementById('navToggle'),navLinks=document.getElementById('navLinks'),backTop=document.getElementById('backTop');
+        
+        window.addEventListener('scroll',()=>{
+            nav.classList.toggle('scrolled',window.scrollY>50);
+            backTop.classList.toggle('show',window.scrollY>600);
+        },{passive:true});
 
-        window.addEventListener('scroll', () => {
-            const y = window.scrollY;
-            nav.classList.toggle('scrolled', y > 50);
-            backTop.classList.toggle('show', y > 600);
-        }, { passive: true });
-
-        navToggle.addEventListener('click', () => {
+        navToggle.addEventListener('click',()=>{
             navLinks.classList.toggle('open');
-            const isOpen = navLinks.classList.contains('open');
-            navToggle.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-            navToggle.setAttribute('aria-expanded', isOpen);
+            navToggle.innerHTML=navLinks.classList.contains('open')?'<i class="fas fa-times"></i>':'<i class="fas fa-bars"></i>';
         });
 
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
+        navLinks.querySelectorAll('a').forEach(link=>{
+            link.addEventListener('click',()=>{
                 navLinks.classList.remove('open');
-                navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                navToggle.innerHTML='<i class="fas fa-bars"></i>';
             });
         });
 
-        // Active navigation
-        const sections = document.querySelectorAll('section[id]');
-        const navItems = navLinks.querySelectorAll('a');
-        
-        const updateActiveNav = () => {
-            const scrollY = window.scrollY + 100;
-            sections.forEach(section => {
-                const top = section.offsetTop;
-                const height = section.offsetHeight;
-                const id = section.getAttribute('id');
-                if (scrollY >= top && scrollY < top + height) {
-                    navItems.forEach(item => {
+        // Active nav on scroll
+        const sections=document.querySelectorAll('section[id]'),navItems=navLinks.querySelectorAll('a');
+        window.addEventListener('scroll',()=>{
+            const scrollY=window.scrollY+150;
+            sections.forEach(section=>{
+                const top=section.offsetTop,height=section.offsetHeight,id=section.getAttribute('id');
+                if(scrollY>=top&&scrollY<top+height){
+                    navItems.forEach(item=>{
                         item.classList.remove('active');
-                        if (item.getAttribute('href') === '#' + id) {
-                            item.classList.add('active');
-                        }
+                        if(item.getAttribute('href')==='#'+id)item.classList.add('active');
                     });
                 }
             });
-        };
-        window.addEventListener('scroll', updateActiveNav, { passive: true });
+        },{passive:true});
 
-        backTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        backTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
-        // Countdown - Spring 2026 (March 20)
-        const launchDate = new Date('2025-03-20T12:00:00').getTime();
-        
-        const updateCountdown = () => {
-            const now = new Date().getTime();
-            const diff = launchDate - now;
-            
-            if (diff > 0) {
-                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const s = Math.floor((diff % (1000 * 60)) / 1000);
-                
-                document.getElementById('days').textContent = d.toString().padStart(2, '0');
-                document.getElementById('hours').textContent = h.toString().padStart(2, '0');
-                document.getElementById('mins').textContent = m.toString().padStart(2, '0');
-                document.getElementById('secs').textContent = s.toString().padStart(2, '0');
+        // Countdown
+        const launchDate=new Date('2025-03-20T12:00:00').getTime();
+        const updateCountdown=()=>{
+            const diff=launchDate-Date.now();
+            if(diff>0){
+                document.getElementById('days').textContent=Math.floor(diff/(1000*60*60*24)).toString().padStart(2,'0');
+                document.getElementById('hours').textContent=Math.floor((diff%(1000*60*60*24))/(1000*60*60)).toString().padStart(2,'0');
+                document.getElementById('mins').textContent=Math.floor((diff%(1000*60*60))/(1000*60)).toString().padStart(2,'0');
+                document.getElementById('secs').textContent=Math.floor((diff%(1000*60))/1000).toString().padStart(2,'0');
             }
         };
-        
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
+        updateCountdown();setInterval(updateCountdown,1000);
 
-        // Scroll reveal animations
-        const reveals = document.querySelectorAll('.reveal');
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        
-        reveals.forEach(el => revealObserver.observe(el));
+        // Reveal animations
+        const revealObserver=new IntersectionObserver(entries=>{
+            entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')});
+        },{threshold:.1,rootMargin:'0px 0px -60px 0px'});
+        document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
 
-        // Show message function
-        const showMessage = (elementId, message, type = 'success') => {
-            const element = document.getElementById(elementId);
-            if (!element) return;
-            
-            element.textContent = message;
-            element.className = 'form-message ' + type;
-            element.style.display = 'block';
-            
-            // Auto-hide success messages after 5 seconds
-            if (type === 'success') {
-                setTimeout(() => {
-                    element.style.display = 'none';
-                }, 5000);
-            }
+        // Form utilities
+        const showMessage=(id,msg,type)=>{
+            const el=document.getElementById(id);
+            if(el){el.innerHTML=msg;el.className='form-message '+type;el.style.display='block';
+            if(type==='success')setTimeout(()=>el.style.display='none',5000);}
         };
 
-        // Toast notification function
-        function showToast(message, type = 'success') {
-            const toast = document.createElement('div');
-            toast.className = `toast ${type}`;
-            toast.textContent = message;
-            document.body.appendChild(toast);
-            
-            setTimeout(() => {
-                toast.classList.add('show');
-            }, 100);
-            
-            setTimeout(() => {
-                toast.classList.remove('show');
-                setTimeout(() => {
-                    if (toast.parentNode) {
-                        toast.parentNode.removeChild(toast);
-                    }
-                }, 400);
-            }, 4000);
-        }
-
-        // Newsletter form submission with EmailJS - FIXED WITH CORRECT TEMPLATE VARIABLES
-        const newsletterForm = document.getElementById('newsletter-form');
-        const newsletterSubmit = document.getElementById('newsletter-submit');
-        const submitText = document.getElementById('submit-text');
-        const submitSpinner = document.getElementById('submit-spinner');
-
-        if (newsletterForm) {
-            newsletterForm.addEventListener('submit', function(e) {
+        // Newsletter
+        const nlForm=document.getElementById('newsletter-form');
+        if(nlForm){
+            nlForm.addEventListener('submit',function(e){
                 e.preventDefault();
+                const email=document.getElementById('newsletter-email').value.trim().toLowerCase();
+                if(!email||!email.includes('@')){showMessage('newsletter-message','❌ Please enter a valid email.','error');return;}
                 
-                // Get form data
-                const email = document.getElementById('newsletter-email').value.trim();
-                const name = document.getElementById('newsletter-name').value.trim() || 'Subscriber';
+                document.getElementById('submit-text').style.display='none';
+                document.getElementById('submit-spinner').style.display='inline';
+                document.getElementById('newsletter-submit').disabled=true;
+                showMessage('newsletter-message','Subscribing...','loading');
                 
-                // Validate email
-                if (!email || !email.includes('@') || !email.includes('.')) {
-                    showMessage('newsletter-message', '❌ Please enter a valid email address.', 'error');
-                    return;
-                }
-                
-                // Show loading state
-                submitText.style.display = 'none';
-                submitSpinner.style.display = 'inline';
-                newsletterSubmit.disabled = true;
-                
-                showMessage('newsletter-message', 'Subscribing...', 'loading');
-                
-                console.log('Sending newsletter subscription via EmailJS:');
-                console.log('Email:', email);
-                console.log('Name:', name);
-                
-                // EmailJS Configuration - EXACT MATCH TO YOUR TEMPLATE
-                const serviceID = 'service_iqkhsge';
-                const templateID = 'template_ydyv17l';
-                
-                // Template parameters - MUST MATCH YOUR TEMPLATE VARIABLES EXACTLY
-                const templateParams = {
-                    // These EXACT variables from your template
-                    'name': name,
-                    'email': email,
-                    'current_date': new Date().toLocaleDateString('en-US', { 
-                        weekday: 'long', 
-                        year: 'numeric', 
-                        month: 'long', 
-                        day: 'numeric' 
-                    }),
-                    'unsubscribe_link': 'https://crockednloaded.github.io/unsubscribe?email=' + encodeURIComponent(email),
-                    
-                    // Also include common required fields for EmailJS
-                    'to_name': 'Crocked N Loaded Team',
-                    'from_name': name,
-                    'message': `New newsletter subscription from ${name} (${email})`,
-                    'reply_to': email,
-                    
-                    // Backup variables (won't be used in your template but good to have)
-                    'user_email': email,
-                    'user_name': name
-                };
-                
-                console.log('Service ID:', serviceID);
-                console.log('Template ID:', templateID);
-                console.log('Template Params (EXACT match to your template):', {
-                    'name': templateParams.name,
-                    'email': templateParams.email,
-                    'current_date': templateParams.current_date,
-                    'unsubscribe_link': templateParams.unsubscribe_link
+                const token=btoa(email+'|'+Date.now()).replace(/=/g,'');
+                emailjs.send('service_iqkhsge','template_ydyv17l',{
+                    name:'Subscriber',email,
+                    current_date:new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'}),
+                    unsubscribe_link:'https://crockednloaded.github.io/unsubscribe.html?token='+token+'&email='+encodeURIComponent(email),
+                    message:'New newsletter subscription: '+email,subject:'New Newsletter Subscription'
+                }).then(()=>{
+                    showMessage('newsletter-message','✅ Welcome to the crew! Check your email.','success');
+                    nlForm.reset();
+                },()=>{
+                    showMessage('newsletter-message','❌ Something went wrong. Try again.','error');
+                }).finally(()=>{
+                    document.getElementById('submit-text').style.display='inline';
+                    document.getElementById('submit-spinner').style.display='none';
+                    document.getElementById('newsletter-submit').disabled=false;
                 });
-                
-                // Send using EmailJS
-                emailjs.send(serviceID, templateID, templateParams)
-                    .then(function(response) {
-                        console.log('✅ EmailJS SUCCESS!', response);
-                        console.log('Status:', response.status);
-                        console.log('Text:', response.text);
-                        
-                        showMessage('newsletter-message', '✅ Success! Welcome to the crew! Check your email for confirmation.', 'success');
-                        newsletterForm.reset();
-                        showToast('Successfully subscribed! Welcome to Crocked N Loaded!', 'success');
-                    }, function(error) {
-                        console.error('❌ EmailJS FAILED:', error);
-                        console.error('Full error object:', error);
-                        
-                        // Detailed error analysis
-                        let errorMsg = '❌ Something went wrong. Please try again.';
-                        let errorDetails = '';
-                        
-                        if (error.status) {
-                            errorDetails += `Status: ${error.status} `;
-                        }
-                        if (error.text) {
-                            errorDetails += `Text: ${error.text}`;
-                            
-                            // Common EmailJS errors
-                            if (error.text.includes('template_id') || error.text.includes('Template not found')) {
-                                errorMsg = '❌ Template ID error. Check template_ydyv17l exists.';
-                            } else if (error.text.includes('service_id') || error.text.includes('Service not found')) {
-                                errorMsg = '❌ Service ID error. Check service_iqkhsge exists.';
-                            } else if (error.text.includes('user_id') || error.text.includes('public key') || error.text.includes('Unauthorized')) {
-                                errorMsg = '❌ Authentication error. Check your EmailJS public key.';
-                            } else if (error.text.includes('Missing parameter')) {
-                                errorMsg = '❌ Missing template parameter. Check variable names.';
-                            }
-                        }
-                        
-                        console.error('Error details:', errorDetails);
-                        showMessage('newsletter-message', errorMsg + ' ' + errorDetails, 'error');
-                        showToast('Subscription failed. Please try again.', 'error');
-                    })
-                    .finally(function() {
-                        // Reset button state
-                        submitText.style.display = 'inline';
-                        submitSpinner.style.display = 'none';
-                        newsletterSubmit.disabled = false;
-                    });
             });
         }
 
-        // Contact form submission (simplified)
-        const contactForm = document.getElementById('contact-form');
-        const contactSubmit = document.getElementById('contact-submit');
-        
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
+        // Contact form
+        const cForm=document.getElementById('contact-form');
+        if(cForm){
+            cForm.addEventListener('submit',function(e){
                 e.preventDefault();
+                const name=document.getElementById('contact-name').value.trim();
+                const email=document.getElementById('contact-email').value.trim();
+                const subject=document.getElementById('contact-subject').value.trim();
+                const message=document.getElementById('contact-message').value.trim();
                 
-                const name = document.getElementById('contact-name').value.trim();
-                const email = document.getElementById('contact-email').value.trim();
-                const subject = document.getElementById('contact-subject').value.trim();
-                const message = document.getElementById('contact-message').value.trim();
+                if(!name||!email||!subject||!message){showMessage('contact-form-message','❌ Please fill in all fields.','error');return;}
                 
-                if (!name || !email || !subject || !message) {
-                    showMessage('contact-form-message', '❌ Please fill in all fields.', 'error');
-                    return;
-                }
+                const btn=document.getElementById('contact-submit');
+                const orig=btn.innerHTML;
+                btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Sending...';
+                btn.disabled=true;
+                showMessage('contact-form-message','Sending...','loading');
                 
-                const originalText = contactSubmit.innerHTML;
-                contactSubmit.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Sending...';
-                contactSubmit.disabled = true;
-                
-                showMessage('contact-form-message', 'Sending message...', 'loading');
-                
-                // For now, just show success message
-                setTimeout(() => {
-                    showMessage('contact-form-message', '✅ Message received! We\'ll get back to you soon.', 'success');
-                    contactForm.reset();
-                    contactSubmit.innerHTML = originalText;
-                    contactSubmit.disabled = false;
-                }, 1500);
+                emailjs.send('service_iqkhsge','template_w9upmcu',{
+                    from_name:name,from_email:email,subject,message,
+                    date:new Date().toLocaleDateString(),reply_to:email
+                }).then(()=>{
+                    showMessage('contact-form-message','✅ Message sent! We\'ll respond soon.','success');
+                    cForm.reset();
+                },()=>{
+                    emailjs.send('service_iqkhsge','template_ydyv17l',{
+                        name,email,current_date:new Date().toLocaleDateString(),unsubscribe_link:'N/A',
+                        message:'CONTACT: '+subject+'\n\n'+message,subject:'Contact: '+subject
+                    }).then(()=>{
+                        showMessage('contact-form-message','✅ Message sent!','success');
+                        cForm.reset();
+                    },()=>{
+                        showMessage('contact-form-message','❌ Error. Email us at contact@crockednloaded.com','error');
+                    });
+                }).finally(()=>{btn.innerHTML=orig;btn.disabled=false;});
             });
         }
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', (e) => {
-                const href = anchor.getAttribute('href');
-                if (href !== '#') {
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{
+            a.addEventListener('click',e=>{
+                if(a.getAttribute('href')!=='#'){
                     e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
+                    document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});
                 }
             });
         });
-
-        // TEST FUNCTION - Run this from browser console if issues
-        window.testEmailJSTemplate = function() {
-            console.log('=== Testing EmailJS with EXACT template variables ===');
-            
-            const testParams = {
-                'name': 'Test User',
-                'email': 'test@example.com',
-                'current_date': new Date().toLocaleDateString('en-US', { 
-                    weekday: 'long', 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric' 
-                }),
-                'unsubscribe_link': 'https://crockednloaded.github.io/unsubscribe?email=test@example.com',
-                'to_name': 'Crocked N Loaded Team',
-                'from_name': 'Test User',
-                'message': 'This is a test subscription',
-                'reply_to': 'test@example.com'
-            };
-            
-            console.log('Testing with EXACT template variables:', testParams);
-            
-            emailjs.send('service_iqkhsge', 'template_ydyv17l', testParams)
-                .then(function(response) {
-                    console.log('✅ Test SUCCESS!', response);
-                    alert('Test successful! Check your email for the test message.');
-                }, function(error) {
-                    console.error('❌ Test FAILED:', error);
-                    
-                    // Try minimal version
-                    console.log('Trying minimal version with only required variables...');
-                    const minimalParams = {
-                        'name': 'Minimal Test',
-                        'email': 'test@example.com',
-                        'current_date': 'Today',
-                        'unsubscribe_link': '#'
-                    };
-                    
-                    emailjs.send('service_iqkhsge', 'template_ydyv17l', minimalParams)
-                        .then(function(response2) {
-                            console.log('✅ Minimal test worked!', response2);
-                            alert('Minimal test worked!');
-                        }, function(error2) {
-                            console.error('❌ Minimal test also failed:', error2);
-                            alert('Both tests failed. Check console.');
-                        });
-                });
-        };
-        
-        // Diagnostic function
-        window.diagnoseEmailJS = function() {
-            console.log('=== EmailJS Diagnostic Check ===');
-            console.log('EmailJS loaded:', typeof emailjs !== 'undefined');
-            console.log('EmailJS user ID:', emailjs ? emailjs.userId : 'Not loaded');
-            console.log('Service ID:', 'service_iqkhsge');
-            console.log('Template ID:', 'template_ydyv17l');
-            
-            // Quick test with minimal parameters
-            const testParams = {
-                'name': 'Diagnostic Test',
-                'email': 'test@diagnostic.com',
-                'current_date': 'Today',
-                'unsubscribe_link': '#'
-            };
-            
-            emailjs.send('service_iqkhsge', 'template_ydyv17l', testParams)
-                .then(function(response) {
-                    console.log('✅ Diagnostic test SUCCESS!', response);
-                    alert('Diagnostic test successful!');
-                }, function(error) {
-                    console.error('❌ Diagnostic test FAILED:', error);
-                    alert('Diagnostic test failed. Check console.');
-                });
-        };
-        
-        console.log('Test functions available: testEmailJSTemplate() and diagnoseEmailJS()');
-        console.log('Run from browser console to test EmailJS');
-
     })();
     </script>
 </body>
