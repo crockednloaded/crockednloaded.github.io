@@ -2370,40 +2370,42 @@
         // ADVANCED PROFESSIONAL FEATURES
         // ==========================================
 
-        // LOADING SCREEN - Robust implementation with failsafes
+        // LOADING SCREEN - Ultra-simple, guaranteed to hide
         const loadingScreen = document.getElementById('loadingScreen');
-        let loadingHidden = false;
 
+        // Hide loading screen - multiple approaches for maximum reliability
         function hideLoading() {
-            if (loadingHidden) return;
-            loadingHidden = true;
+            if (!loadingScreen) return;
+
+            // Method 1: Add hidden class
             loadingScreen.classList.add('hidden');
-            document.body.style.overflow = '';
-            // Show welcome toast after loading screen is hidden
+
+            // Method 2: Direct style manipulation as backup
+            loadingScreen.style.opacity = '0';
+            loadingScreen.style.visibility = 'hidden';
+            loadingScreen.style.pointerEvents = 'none';
+
+            // Method 3: Remove from DOM after fade (ultimate failsafe)
             setTimeout(() => {
-                if (typeof showToast === 'function') {
-                    showToast('Welcome to Crocked \'N Loaded!', 'info');
+                if (loadingScreen && loadingScreen.parentNode) {
+                    loadingScreen.parentNode.removeChild(loadingScreen);
                 }
-            }, 300);
+            }, 600);
         }
 
-        // Primary trigger: DOMContentLoaded (faster, more reliable)
+        // Execute immediately - the script is at bottom so DOM is ready
+        setTimeout(hideLoading, 100);
+
+        // Also try on DOMContentLoaded just in case
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => {
-                setTimeout(hideLoading, 800);
-            });
-        } else {
-            // Document already loaded
-            setTimeout(hideLoading, 800);
+            document.addEventListener('DOMContentLoaded', hideLoading);
         }
 
-        // Secondary trigger: Full page load
-        window.addEventListener('load', () => {
-            setTimeout(hideLoading, 500);
-        });
+        // And on full load
+        window.addEventListener('load', hideLoading);
 
-        // Failsafe: Force hide after 2.5 seconds no matter what
-        setTimeout(hideLoading, 2500);
+        // Ultimate failsafe - force hide after 1 second no matter what
+        setTimeout(hideLoading, 1000);
 
         // SCROLL PROGRESS INDICATOR
         const scrollProgress = document.getElementById('scrollProgress');
