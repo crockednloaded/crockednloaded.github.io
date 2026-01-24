@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crocked 'N Loaded | Real Food. Real Talk.</title>
+    <meta name="description" content="CrockPotDaddy and MACK3Y the Foodie bring you cooking that actually makes sense. No culinary school required.">
+    <meta property="og:title" content="Crocked 'N Loaded">
+    <meta property="og:description" content="Two dudes. One kitchen. Zero pretense.">
+    <meta property="og:image" content="https://crockednloaded.github.io/background.jpg">
+    <meta property="og:url" content="https://crockednloaded.github.io/">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Updated Font Awesome to latest version with X/Twitter support -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>(function(){emailjs.init("z0sHgO8f-hc3gN-4A");})();</script>
+    <style>
+        :root {
+            /* Colors matched to your logo - purple/orange fire theme */
+            --c-bg: #0d0a12;
+            --c-surface-1: #13101a;
+            --c-surface-2: #1a1622;
+            --c-surface-3: #241f2e;
+            --c-border: rgba(255,255,255,.08);
+            --c-border-hover: rgba(255,255,255,.15);
+            
+            /* Fire gradient from your logo */
+            --gradient-fire: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffd93d 100%);
+            --gradient-fire-subtle: linear-gradient(135deg, rgba(255,107,53,.12) 0%, rgba(247,147,30,.06) 100%);
+            --gradient-purple: linear-gradient(180deg, #2d1f3d 0%, #0d0a12 100%);
+            
+            --c-text: #fafafa;
+            --c-text-secondary: #b8b0c4;
+            --c-text-muted: #6b6279;
+            --c-accent: #ff6b35;
+            --c-accent-light: #ffd93d;
+            --c-purple: #6b4c9a;
+            
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-body: 'Instrument Sans', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+            
+            --ease-out-expo: cubic-bezier(.16,1,.3,1);
+            --ease-out-back: cubic-bezier(.34,1.56,.64,1);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--c-accent) var(--c-bg); }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--c-bg); }
+        ::-webkit-scrollbar-thumb { background: var(--gradient-fire); border-radius: 3px; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--c-bg);
+            color: var(--c-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Subtle grain texture */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            opacity: .025;
+            pointer-events: none;
+            z-index: 10000;
+        }
+
+        ::selection { background: var(--c-accent); color: var(--c-bg); }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+        button { font-family: inherit; cursor: pointer; border: none; background: none; }
+        .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 4rem); }
+
+        /* ========================================
+           NAVIGATION
+        ======================================== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all .5s var(--ease-out-expo);
+        }
+
+        .nav::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(13,10,18,.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--c-border);
+            opacity: 0;
+            transition: opacity .5s ease;
+        }
+
+        .nav.scrolled::before { opacity: 1; }
+
+        .nav-inner {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 clamp(1.5rem, 5vw, 4rem);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-display);
+            font-size: clamp(1.2rem, 2vw, 1.4rem);
+            letter-spacing: 2px;
+            color: var(--c-text);
+            transition: all .4s var(--ease-out-expo);
+        }
+
+        .nav-logo:hover { color: var(--c-accent); transform: scale(1.02); }
+
+        .nav-logo-icon {
+            width: 38px;
+            height: 38px;
+            background: var(--gradient-fire);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all .4s var(--ease-out-back);
+        }
+
+        .nav-logo:hover .nav-logo-icon {
+            transform: rotate(-10deg) scale(1.1);
+            box-shadow: 0 8px 32px rgba(255,107,53,.4);
+        }
+
+        .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+
+        .nav-links a {
+            position: relative;
+            display: block;
+            padding: 10px 16px;
+            font-family: var(--font-mono);
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--c-text-secondary);
+            border-radius: var(--radius-sm);
+            transition: all .3s var(--ease-out-expo);
+        }
+
+        .nav-links a:hover { color: var(--c-text); background: var(--c-surface-2); }
+        .nav-links a.active { color: var(--c-bg); background: var(--gradient-fire); }
+
+        .nav-toggle {
+            display: none;
+            width: 48px;
+            height: 48px;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: var(--c-text);
+            border-radius: var(--radius-sm);
+        }
+
+        /* ========================================
+           HERO - YOUR LOGO IMAGE IS THE STAR
+        ======================================== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 100px 24px 60px;
+            overflow: hidden;
+            background: var(--gradient-purple);
+        }
+
+        /* Ambient glow effects */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140%;
+            height: 80%;
+            background: radial-gradient(ellipse at center, rgba(255,107,53,.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, var(--c-bg) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        /* HERO IMAGE - PROMINENT, CLEAN DISPLAY */
+        .hero-image-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 950px;
+            margin-bottom: 48px;
+            z-index: 2;
+            animation: imageReveal 1s var(--ease-out-expo) forwards;
+            opacity: 0;
+            transform: translateY(30px) scale(.98);
+        }
+
+        @keyframes imageReveal { to { opacity: 1; transform: translateY(0) scale(1); } }
+
+        .hero-image-glow {
+            position: absolute;
+            inset: -40px;
+            background: radial-gradient(ellipse at center bottom, rgba(255,107,53,.25) 0%, rgba(107,76,154,.1) 40%, transparent 70%);
+            filter: blur(40px);
+            animation: glowPulse 5s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { opacity: .5; transform: scale(.97); }
+            50% { opacity: .8; transform: scale(1.03); }
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-xl);
+            box-shadow: 
+                0 0 0 1px rgba(255,255,255,.08),
+                0 30px 80px rgba(0,0,0,.5),
+                0 0 100px rgba(255,107,53,.08);
+            transition: all .6s var(--ease-out-expo);
+        }
+
+        .hero-image-wrap:hover .hero-image {
+            transform: scale(1.015);
+            box-shadow: 
+                0 0 0 1px rgba(255,255,255,.12),
+                0 40px 100px rgba(0,0,0,.6),
+                0 0 120px rgba(255,107,53,.12);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 700px;
+            animation: fadeInUp 1s var(--ease-out-expo) .3s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+        .hero-tagline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-mono);
+            font-size: .75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--c-accent);
+            margin-bottom: 16px;
+        }
+
+        .hero-tagline::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--c-accent);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: .4; transform: scale(.8); }
+        }
+
+        .hero-desc {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            color: var(--c-text-secondary);
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+        }
+
+        /* Scroll indicator */
+        .scroll-cue {
+            position: relative;
+            z-index: 2;
+            margin-top: auto;
+            padding-top: 48px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            color: var(--c-text-muted);
+            font-family: var(--font-mono);
+            font-size: .6rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .scroll-cue i { font-size: 1rem; color: var(--c-accent); }
+
+        /* ========================================
+           BUTTONS
+        ======================================== */
+        .btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            font-family: var(--font-display);
+            font-size: .95rem;
+            letter-spacing: 1.5px;
+            border-radius: var(--radius-md);
+            transition: all .4s var(--ease-out-expo);
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            color: var(--c-bg);
+            background: var(--gradient-fire);
+            box-shadow: 0 4px 20px rgba(255,107,53,.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(255,107,53,.4);
+        }
+
+        .btn-ghost {
+            color: var(--c-text);
+            background: rgba(255,255,255,.05);
+            border: 1px solid var(--c-border);
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255,255,255,.1);
+            border-color: var(--c-border-hover);
+        }
+
+        .btn-yt { color: #fff; background: #FF0000; }
+        .btn-yt:hover { background: #CC0000; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(255,0,0,.3); }
+
+        .btn-x { color: #fff; background: #000; }
+        .btn-x:hover { background: #222; transform: translateY(-3px); }
+
+        .btn-fb { color: #fff; background: #1877F2; }
+        .btn-fb:hover { background: #0d65d9; transform: translateY(-3px); }
+
+        .btn i { transition: transform .3s var(--ease-out-back); }
+        .btn:hover i { transform: scale(1.15); }
+
+        /* ========================================
+           COUNTDOWN STRIP
+        ======================================== */
+        .countdown-strip {
+            position: relative;
+            padding: 24px 0;
+            background: linear-gradient(90deg, var(--c-accent), #f7931e);
+            overflow: hidden;
+        }
+
+        .countdown-strip::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(90deg, transparent, transparent 100px, rgba(0,0,0,.08) 100px, rgba(0,0,0,.08) 200px);
+        }
+
+        .countdown-inner {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px 40px;
+        }
+
+        .countdown-text {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+
+        .countdown-timer { display: flex; gap: 6px; }
+
+        .countdown-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 14px;
+            background: rgba(0,0,0,.2);
+            border-radius: 8px;
+            min-width: 58px;
+        }
+
+        .countdown-num {
+            font-family: var(--font-mono);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-size: .55rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,.8);
+            margin-top: 4px;
+        }
+
+        /* ========================================
+           SECTIONS
+        ======================================== */
+        .section {
+            position: relative;
+            padding: clamp(80px, 12vw, 140px) 0;
+        }
+
+        .section-dark { background: var(--c-surface-1); }
+
+        .section-header { margin-bottom: clamp(48px, 8vw, 72px); }
+        .section-header.center { text-align: center; }
+
+        .section-label {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: .65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--c-accent);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 7vw, 4rem);
+            line-height: 1;
+            letter-spacing: .02em;
+        }
+
+        .section-subtitle {
+            font-size: clamp(1rem, 1.5vw, 1.1rem);
+            color: var(--c-text-secondary);
+            max-width: 560px;
+            line-height: 1.7;
+            margin-top: 16px;
+        }
+
+        .section-header.center .section-subtitle { margin-left: auto; margin-right: auto; }
+
+        /* ========================================
+           HOSTS CARDS
+        ======================================== */
+        .hosts-grid { display: grid; gap: 24px; }
+        @media (min-width: 900px) { .hosts-grid { grid-template-columns: repeat(2, 1fr); } }
+
+        .host-card {
+            background: var(--c-surface-2);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--c-border);
+            overflow: hidden;
+            transition: all .5s var(--ease-out-expo);
+        }
+
+        .host-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255,107,53,.3);
+            box-shadow: 0 24px 48px rgba(0,0,0,.4);
+        }
+
+        .host-header {
+            padding: 32px 28px;
+            background: linear-gradient(135deg, var(--c-accent) 0%, var(--c-purple) 100%);
+            position: relative;
+        }
+
+        .host-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23000' fill-opacity='.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: .5;
+        }
+
+        .host-name {
+            position: relative;
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            line-height: 1;
+        }
+
+        .host-role {
+            position: relative;
+            font-family: var(--font-mono);
+            font-size: .7rem;
+            color: var(--c-accent-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 8px;
+        }
+
+        .host-body { padding: 28px; }
+
+        .host-bio {
+            color: var(--c-text-secondary);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .host-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .meta-item {
+            padding: 14px 16px;
+            background: var(--c-surface-1);
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--c-accent);
+        }
+
+        .meta-val {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--c-accent-light);
+        }
+
+        .meta-key {
+            font-size: .65rem;
+            color: var(--c-text-muted);
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            margin-top: 2px;
+        }
+
+        /* ========================================
+           CONTENT CARDS
+        ======================================== */
+        .content-grid { display: grid; gap: 24px; }
+        @media (min-width: 768px) { .content-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        .content-card {
+            position: relative;
+            padding: 36px 28px;
+            background: var(--c-surface-1);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--c-border);
+            transition: all .4s var(--ease-out-expo);
+            overflow: hidden;
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-fire);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .4s var(--ease-out-expo);
+        }
+
+        .content-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--c-border-hover);
+            box-shadow: 0 20px 40px rgba(0,0,0,.3);
+        }
+
+        .content-card:hover::before { transform: scaleX(1); }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--c-surface-2);
+            border-radius: var(--radius-md);
+            font-size: 1.4rem;
+            color: var(--c-accent);
+            margin-bottom: 20px;
+            transition: all .4s var(--ease-out-back);
+        }
+
+        .content-card:hover .card-icon {
+            background: var(--gradient-fire);
+            color: var(--c-bg);
+            transform: rotate(-5deg) scale(1.1);
+        }
+
+        .content-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .content-card p {
+            color: var(--c-text-secondary);
+            line-height: 1.7;
+            font-size: .95rem;
+        }
+
+        .badge-soon {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 6px 14px;
+            font-family: var(--font-mono);
+            font-size: .6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--c-bg);
+            background: var(--c-accent-light);
+            border-radius: 100px;
+        }
+
+        /* ========================================
+           NEWSLETTER - CLEAN SIMPLE DESIGN
+        ======================================== */
+        .newsletter-section {
+            padding: clamp(60px, 10vw, 100px) 0;
+            background: var(--c-surface-1);
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            background: var(--gradient-fire);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--c-bg);
+        }
+
+        .newsletter-container h3 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            margin-bottom: 12px;
+        }
+
+        .newsletter-container > p {
+            color: var(--c-text-secondary);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 500px) {
+            .newsletter-form { flex-direction: row; }
+            .newsletter-form .btn { white-space: nowrap; }
+        }
+
+        .form-input {
+            flex: 1;
+            padding: 16px 20px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--c-text);
+            background: var(--c-surface-2);
+            border: 1px solid var(--c-border);
+            border-radius: var(--radius-md);
+            transition: all .3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--c-accent);
+            box-shadow: 0 0 0 3px rgba(255,107,53,.15);
+        }
+
+        .form-input::placeholder { color: var(--c-text-muted); }
+
+        .newsletter-note {
+            font-family: var(--font-mono);
+            font-size: .7rem;
+            color: var(--c-text-muted);
+            margin-top: 16px;
+        }
+
+        .form-message {
+            display: none;
+            margin-top: 16px;
+            padding: 14px 20px;
+            border-radius: var(--radius-sm);
+            font-size: .9rem;
+        }
+
+        .form-message.success { background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.3); color: #22c55e; }
+        .form-message.error { background: rgba(239,68,68,.1); border: 1px solid rgba(239,68,68,.3); color: #ef4444; }
+        .form-message.loading { background: rgba(255,107,53,.1); border: 1px solid rgba(255,107,53,.3); color: var(--c-accent); }
+
+        /* ========================================
+           STORE
+        ======================================== */
+        .store-grid { display: grid; gap: 24px; }
+        @media (min-width: 768px) { .store-grid { grid-template-columns: repeat(2, 1fr); } }
+
+        .store-card {
+            padding: 40px 32px;
+            background: var(--c-surface-2);
+            border: 1px solid var(--c-border);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            transition: all .4s ease;
+        }
+
+        .store-card:hover { border-color: var(--c-accent); transform: translateY(-4px); }
+
+        .store-card i {
+            font-size: 3rem;
+            background: var(--gradient-fire);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .store-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            margin-bottom: 12px;
+        }
+
+        .store-card p { color: var(--c-text-secondary); line-height: 1.7; }
+
+        .store-coming {
+            margin-top: 40px;
+            padding: 48px;
+            background: var(--c-surface-1);
+            border: 2px dashed var(--c-border);
+            border-radius: var(--radius-xl);
+            text-align: center;
+        }
+
+        .store-coming h4 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--c-accent);
+            margin-bottom: 12px;
+        }
+
+        .store-coming p { color: var(--c-text-secondary); max-width: 400px; margin: 0 auto; }
+
+        .store-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            font-family: var(--font-mono);
+            font-size: .85rem;
+            color: var(--c-accent-light);
+        }
+
+        /* ========================================
+           SOCIAL CARDS
+        ======================================== */
+        .social-section { margin-bottom: 64px; }
+        .social-section:last-child { margin-bottom: 0; }
+
+        .social-grid { display: grid; gap: 24px; }
+        @media (min-width: 900px) { .social-grid { grid-template-columns: repeat(2, 1fr); } }
+
+        .social-card {
+            padding: 32px;
+            background: var(--c-surface-2);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--c-border);
+            transition: all .4s ease;
+        }
+
+        .social-card.twitter { border-color: rgba(255,255,255,.1); }
+        .social-card.fb { border-color: rgba(24,119,242,.3); }
+        .social-card.yt { border-color: rgba(255,0,0,.3); }
+
+        .social-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 14px;
+        }
+
+        .social-card.twitter h3 i { color: #fff; }
+        .social-card.fb h3 i { color: #1877F2; }
+        .social-card.yt h3 i { color: #FF0000; }
+
+        .social-card > p { color: var(--c-text-secondary); line-height: 1.7; }
+
+        .feature-list { list-style: none; margin-top: 20px; }
+
+        .feature-list li {
+            padding: 16px;
+            background: var(--c-surface-1);
+            border-radius: var(--radius-sm);
+            margin-bottom: 10px;
+            border-left: 3px solid var(--c-border);
+            transition: all .3s ease;
+        }
+
+        .social-card.twitter .feature-list li { border-left-color: rgba(255,255,255,.3); }
+        .social-card.fb .feature-list li { border-left-color: #1877F2; }
+        .social-card.yt .feature-list li { border-left-color: #FF0000; }
+
+        .feature-list li:hover { transform: translateX(6px); }
+
+        .feature-list h4 {
+            font-family: var(--font-mono);
+            font-size: .8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .feature-list p { font-size: .85rem; color: var(--c-text-muted); }
+
+        .social-cta { text-align: center; margin-top: 40px; }
+        .social-cta p { color: var(--c-text-muted); margin-top: 14px; font-size: .9rem; }
+
+        /* ========================================
+           CONTACT
+        ======================================== */
+        .contact-grid { display: grid; gap: 32px; }
+        @media (min-width: 900px) { .contact-grid { grid-template-columns: repeat(2, 1fr); } }
+
+        .contact-card {
+            padding: 36px;
+            background: var(--c-surface-2);
+            border: 1px solid var(--c-border);
+            border-radius: var(--radius-lg);
+        }
+
+        .contact-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            padding-bottom: 20px;
+            margin-bottom: 24px;
+            border-bottom: 2px solid var(--c-accent);
+        }
+
+        .contact-row {
+            display: flex;
+            gap: 16px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--c-border);
+        }
+
+        .contact-row:last-child { border-bottom: none; padding-bottom: 0; }
+        .contact-row i { font-size: 1.2rem; color: var(--c-accent); margin-top: 3px; }
+
+        .contact-row h4 {
+            font-family: var(--font-mono);
+            font-size: .75rem;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            margin-bottom: 4px;
+        }
+
+        .contact-row p { color: var(--c-text-secondary); font-size: .95rem; }
+        .contact-row .note { color: var(--c-accent); font-size: .85rem; margin-top: 4px; }
+
+        .contact-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+
+        .contact-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: .9rem;
+            color: var(--c-accent);
+            transition: color .2s ease;
+        }
+
+        .contact-links a:hover { color: var(--c-accent-light); }
+
+        .form-row { margin-bottom: 16px; }
+
+        .form-row label {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            color: var(--c-accent);
+            margin-bottom: 8px;
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 16px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--c-text);
+            background: var(--c-surface-1);
+            border: 1px solid var(--c-border);
+            border-radius: var(--radius-sm);
+            min-height: 120px;
+            resize: vertical;
+            transition: all .3s ease;
+        }
+
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--c-accent);
+            box-shadow: 0 0 0 3px rgba(255,107,53,.1);
+        }
+
+        .contact-card .form-input { background: var(--c-surface-1); }
+
+        .form-note {
+            text-align: center;
+            color: var(--c-text-muted);
+            font-size: .85rem;
+            margin-top: 16px;
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+        .footer {
+            padding: 80px 0 40px;
+            background: var(--c-surface-1);
+            border-top: 1px solid var(--c-border);
+        }
+
+        .footer-grid { display: grid; gap: 48px; }
+        @media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr; } }
+
+        .footer-brand .logo-text {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            background: var(--gradient-fire);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .footer-brand p { color: var(--c-text-secondary); line-height: 1.8; max-width: 320px; }
+
+        .footer-col h4 {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 12px; }
+        .footer-col a { color: var(--c-text-secondary); transition: color .2s ease; }
+        .footer-col a:hover { color: var(--c-accent); }
+
+        .footer-social { display: flex; gap: 10px; margin-bottom: 20px; }
+
+        .footer-social a {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--c-surface-2);
+            border: 1px solid var(--c-border);
+            border-radius: var(--radius-sm);
+            color: var(--c-text);
+            font-size: 1.1rem;
+            transition: all .3s var(--ease-out-back);
+        }
+
+        .footer-social a:hover {
+            background: var(--c-accent);
+            border-color: var(--c-accent);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid var(--c-border);
+            color: var(--c-text-muted);
+            font-size: .85rem;
+        }
+
+        /* ========================================
+           BACK TO TOP
+        ======================================== */
+        .back-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-fire);
+            border-radius: var(--radius-md);
+            color: var(--c-bg);
+            font-size: 1.2rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(16px);
+            transition: all .4s var(--ease-out-expo);
+            z-index: 800;
+            box-shadow: 0 4px 20px rgba(255,107,53,.4);
+        }
+
+        .back-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+        .back-top:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(255,107,53,.5); }
+
+        /* ========================================
+           ANIMATIONS
+        ======================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity .7s var(--ease-out-expo), transform .7s var(--ease-out-expo);
+        }
+
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: .1s; }
+        .reveal-delay-2 { transition-delay: .2s; }
+        .reveal-delay-3 { transition-delay: .3s; }
+
+        /* ========================================
+           MOBILE
+        ======================================== */
+        @media (max-width: 900px) {
+            .nav-toggle { display: flex; }
+
+            .nav-links {
+                position: fixed;
+                top: 72px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                padding: 20px;
+                background: rgba(13,10,18,.98);
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid var(--c-border);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all .4s var(--ease-out-expo);
+            }
+
+            .nav-links.open { transform: translateY(0); opacity: 1; visibility: visible; }
+            .nav-links a { text-align: center; padding: 14px; font-size: .8rem; }
+
+            .countdown-inner { flex-direction: column; gap: 14px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .2s !important; }
+            html { scroll-behavior: auto; }
+            .reveal { opacity: 1; transform: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#top" class="nav-logo">
+                <span class="nav-logo-icon">🔥</span>
+                CROCKED 'N LOADED
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#top" class="active">Home</a></li>
+                <li><a href="#hosts">The Guys</a></li>
+                <li><a href="#shows">Shows</a></li>
+                <li><a href="#newsletter">Updates</a></li>
+                <li><a href="#store">Merch</a></li>
+                <li><a href="#socials">Socials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+        <div class="hero-image-wrap">
+            <div class="hero-image-glow"></div>
+            <img src="background.jpg" alt="Crocked 'N Loaded - CrockPotDaddy and MACK3Y the Foodie" class="hero-image">
+        </div>
+        <div class="hero-content">
+            <p class="hero-tagline">Launching Spring 2026</p>
+            <p class="hero-desc">
+                Two dudes who got tired of watching cooking shows made by people who've never 
+                paid rent. We're here to show you how to actually cook—no trust fund required.
+            </p>
+            <div class="hero-actions">
+                <a href="#shows" class="btn btn-primary"><i class="fas fa-play"></i> See What's Cooking</a>
+                <a href="https://youtube.com/@crockednloadedshow" target="_blank" rel="noopener" class="btn btn-yt"><i class="fab fa-youtube"></i> Subscribe</a>
+            </div>
+        </div>
+        <div class="scroll-cue">
+            <span>Scroll</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <div class="countdown-strip">
+        <div class="countdown-inner container">
+            <span class="countdown-text">First Episode Drops In</span>
+            <div class="countdown-timer" id="countdown">
+                <div class="countdown-unit"><span class="countdown-num" id="days">--</span><span class="countdown-label">Days</span></div>
+                <div class="countdown-unit"><span class="countdown-num" id="hours">--</span><span class="countdown-label">Hrs</span></div>
+                <div class="countdown-unit"><span class="countdown-num" id="mins">--</span><span class="countdown-label">Min</span></div>
+                <div class="countdown-unit"><span class="countdown-num" id="secs">--</span><span class="countdown-label">Sec</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HOSTS -->
+    <section class="section section-dark" id="hosts">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Meet the Crew</span>
+                <h2 class="section-title">The Guys Behind the Chaos</h2>
+                <p class="section-subtitle">One's got the industry chops. The other's got the hustle. Together, we're making content for people who want to eat well without all the gatekeeping.</p>
+            </div>
+            <div class="hosts-grid">
+                <article class="host-card reveal">
+                    <div class="host-header">
+                        <h3 class="host-name">CrockPotDaddy</h3>
+                        <p class="host-role">The Connector</p>
+                    </div>
+                    <div class="host-body">
+                        <p class="host-bio">Sales guy by trade, kitchen experimenter by obsession. I've spent years working behind the scenes in the music industry—got to know some artists right before they blew up. That same energy for spotting talent and building connections? I bring it to food.</p>
+                        <div class="host-meta">
+                            <div class="meta-item"><div class="meta-val">Sales</div><div class="meta-key">Day Job</div></div>
+                            <div class="meta-item"><div class="meta-val">Music</div><div class="meta-key">Industry</div></div>
+                            <div class="meta-item"><div class="meta-val">Home</div><div class="meta-key">Kitchen</div></div>
+                            <div class="meta-item"><div class="meta-val">Real</div><div class="meta-key">Approach</div></div>
+                        </div>
+                    </div>
+                </article>
+                <article class="host-card reveal reveal-delay-1">
+                    <div class="host-header">
+                        <h3 class="host-name">MACK3Y the Foodie</h3>
+                        <p class="host-role">The Pro</p>
+                    </div>
+                    <div class="host-body">
+                        <p class="host-bio">23 years in professional kitchens. Everything from fine dining to food trucks, coast to coast. I've seen every shortcut, every trick, every technique that chefs keep to themselves. My job here is to pull back the curtain and show you what's really going on.</p>
+                        <div class="host-meta">
+                            <div class="meta-item"><div class="meta-val">23 Yrs</div><div class="meta-key">Experience</div></div>
+                            <div class="meta-item"><div class="meta-val">Pro</div><div class="meta-key">Kitchens</div></div>
+                            <div class="meta-item"><div class="meta-val">Teacher</div><div class="meta-key">At Heart</div></div>
+                            <div class="meta-item"><div class="meta-val">Global</div><div class="meta-key">Flavors</div></div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOWS -->
+    <section class="section" id="shows">
+        <div class="container">
+            <div class="section-header center reveal">
+                <span class="section-label">What We're Making</span>
+                <h2 class="section-title">The Content</h2>
+                <p class="section-subtitle">We're not trying to reinvent the wheel. Just make cooking content that doesn't make you want to throw your phone across the room.</p>
+            </div>
+            <div class="content-grid">
+                <div class="content-card reveal">
+                    <div class="card-icon"><i class="fas fa-fire-burner"></i></div>
+                    <h3>Kitchen Sessions</h3>
+                    <p>Full cook-alongs where we actually explain what we're doing and why. No jump cuts that skip the hard parts. If we screw up, you see it.</p>
+                </div>
+                <div class="content-card reveal reveal-delay-1">
+                    <div class="card-icon"><i class="fas fa-wallet"></i></div>
+                    <h3>Broke But Hungry</h3>
+                    <p>$20 or less, feed yourself for a week. We've both been there—payday's a week away and the fridge is looking sad.</p>
+                </div>
+                <div class="content-card reveal reveal-delay-2">
+                    <div class="card-icon"><i class="fas fa-star-half-alt"></i></div>
+                    <h3>No BS Reviews</h3>
+                    <p>Local spots, chain restaurants, whatever. We pay our own tab, say what we actually think. If it sucks, we'll tell you.</p>
+                    <span class="badge-soon">Coming Soon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER - CLEAN & SIMPLE -->
+    <section class="newsletter-section" id="newsletter">
+        <div class="container">
+            <div class="newsletter-container reveal">
+                <div class="newsletter-icon"><i class="fas fa-envelope"></i></div>
+                <h3>Stay in the Loop</h3>
+                <p>We'll hit you up when episodes drop, merch launches, or we're doing something cool in your area. That's it. No daily spam. We hate that shit too.</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" id="newsletter-email" name="email" class="form-input" placeholder="your@email.com" required>
+                    <button type="submit" class="btn btn-primary" id="newsletter-submit">
+                        <span id="submit-text">Count Me In</span>
+                        <span id="submit-spinner" style="display:none"><i class="fas fa-spinner fa-spin"></i></span>
+                    </button>
+                </form>
+                <div id="newsletter-message" class="form-message"></div>
+                <p class="newsletter-note">Unsubscribe whenever. No hard feelings.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STORE -->
+    <section class="section" id="store">
+        <div class="container">
+            <div class="section-header center reveal">
+                <span class="section-label">Rep the Crew</span>
+                <h2 class="section-title">Merch</h2>
+                <p class="section-subtitle">Gear for people who cook. Not the "kiss the cook" apron your aunt gave you.</p>
+            </div>
+            <div class="store-grid">
+                <div class="store-card reveal">
+                    <i class="fas fa-tshirt"></i>
+                    <h3>Apparel</h3>
+                    <p>Tees, hoodies, hats—including our signature design you see up top. Quality that doesn't fall apart after three washes.</p>
+                </div>
+                <div class="store-card reveal reveal-delay-1">
+                    <i class="fas fa-box-open"></i>
+                    <h3>Kitchen Stuff</h3>
+                    <p>Aprons, towels, maybe some tools down the road. The essentials you actually need, not unitaskers.</p>
+                </div>
+            </div>
+            <div class="store-coming reveal">
+                <h4>Store Opening Soon</h4>
+                <p>We're getting everything dialed in. Quality takes time—we're not rushing it.</p>
+                <span class="store-date"><i class="fas fa-calendar"></i> Spring 2026</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIALS -->
+    <section class="section section-dark" id="socials">
+        <div class="container">
+            <div class="section-header center reveal">
+                <span class="section-label">Find Us</span>
+                <h2 class="section-title">Where We Hang Out</h2>
+                <p class="section-subtitle">Different platforms, different vibes. Pick your poison.</p>
+            </div>
+
+            <div class="social-section">
+                <div class="social-grid">
+                    <div class="social-card twitter reveal">
+                        <h3><i class="fab fa-x-twitter"></i> Twitter / X</h3>
+                        <p>Quick thoughts, hot takes, and real-time updates. If it's happening right now, you'll find it here first.</p>
+                        <ul class="feature-list">
+                            <li><h4><i class="fas fa-bolt"></i> Instant Updates</h4><p>What we're cooking right now, behind-the-scenes</p></li>
+                            <li><h4><i class="fas fa-comment"></i> Direct Interaction</h4><p>Reply, quote, roast us—we read the replies</p></li>
+                        </ul>
+                    </div>
+                    <div class="social-card twitter reveal reveal-delay-1">
+                        <h3><i class="fas fa-hashtag"></i> Food Twitter</h3>
+                        <p>We're part of the cooking community. Engaging with other chefs, home cooks, and food enthusiasts.</p>
+                        <ul class="feature-list">
+                            <li><h4><i class="fas fa-users"></i> Community</h4><p>Connect with other food lovers</p></li>
+                            <li><h4><i class="fas fa-retweet"></i> Quick Shares</h4><p>Easy to share recipes, tips, and food pics</p></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="social-cta reveal">
+                    <a href="https://twitter.com/CrockedNLoaded" target="_blank" rel="noopener" class="btn btn-x"><i class="fab fa-x-twitter"></i> Follow on X</a>
+                </div>
+            </div>
+
+            <div class="social-section">
+                <div class="social-grid">
+                    <div class="social-card fb reveal">
+                        <h3><i class="fab fa-facebook"></i> Facebook</h3>
+                        <p>This is where the community lives. Behind-the-scenes stuff, polls, and way too many food pics.</p>
+                        <ul class="feature-list">
+                            <li><h4><i class="fas fa-video"></i> Quick Hits</h4><p>60-second tips, kitchen hacks, useful stuff</p></li>
+                            <li><h4><i class="fas fa-broadcast-tower"></i> Live Sessions</h4><p>We cook, you watch, you ask questions</p></li>
+                        </ul>
+                    </div>
+                    <div class="social-card fb reveal reveal-delay-1">
+                        <h3><i class="fas fa-users"></i> The Community</h3>
+                        <p>Post your wins, post your disasters. No judgment here—everyone's learning.</p>
+                        <ul class="feature-list">
+                            <li><h4><i class="fas fa-comment-dots"></i> Real Talk</h4><p>Actual conversations about food</p></li>
+                            <li><h4><i class="fas fa-bell"></i> First to Know</h4><p>Episode drops, meetups, whatever's next</p></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="social-cta reveal">
+                    <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" rel="noopener" class="btn btn-fb"><i class="fab fa-facebook"></i> Follow on Facebook</a>
+                </div>
+            </div>
+
+            <div class="social-section">
+                <div class="social-grid">
+                    <div class="social-card yt reveal">
+                        <h3><i class="fab fa-youtube"></i> YouTube</h3>
+                        <p>The main event. Full episodes, proper tutorials, the whole nine yards.</p>
+                        <ul class="feature-list">
+                            <li><h4><i class="fas fa-film"></i> Full Episodes</h4><p>No rushing, no skipping steps. Start to finish.</p></li>
+                            <li><h4><i class="fas fa-graduation-cap"></i> Technique Deep Dives</h4><p>The stuff culinary school charges $50k to teach</p></li>
+                        </ul>
+                    </div>
+                    <div class="social-card yt reveal reveal-delay-1">
+                        <h3><i class="fas fa-rocket"></i> Launching Soon</h3>
+                        <p>First episode is in the works. Subscribe now and you'll be there from day one.</p>
+                        <ul class="feature-list">
+                            <li><h4><i class="fas fa-clock"></i> Spring 2026</h4><p>We're doing this right. No half-assed launch.</p></li>
+                            <li><h4><i class="fas fa-bell"></i> Hit the Bell</h4><p>Otherwise YouTube buries notifications</p></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="social-cta reveal">
+                    <a href="https://youtube.com/@crockednloadedshow" target="_blank" rel="noopener" class="btn btn-yt"><i class="fab fa-youtube"></i> Subscribe on YouTube</a>
+                    <p>Be a day-one subscriber. Bragging rights included.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header center reveal">
+                <span class="section-label">Get in Touch</span>
+                <h2 class="section-title">Let's Talk</h2>
+                <p class="section-subtitle">Got an idea? Want to collab? Just want to say what's up? We're around.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card reveal">
+                    <h3>How to Reach Us</h3>
+                    <div class="contact-row">
+                        <i class="fas fa-envelope"></i>
+                        <div><h4>Email</h4><p>contact@crockednloaded.com</p><p class="note">Business stuff, collabs, press</p></div>
+                    </div>
+                    <div class="contact-row">
+                        <i class="fab fa-youtube"></i>
+                        <div><h4>YouTube</h4><p>@crockednloadedshow</p><div class="contact-links"><a href="https://youtube.com/@crockednloadedshow" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> Channel</a></div></div>
+                    </div>
+                    <div class="contact-row">
+                        <i class="fab fa-x-twitter"></i>
+                        <div><h4>Twitter / X</h4><p>@CrockedNLoaded</p><div class="contact-links"><a href="https://twitter.com/CrockedNLoaded" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> Follow</a></div></div>
+                    </div>
+                    <div class="contact-row">
+                        <i class="fab fa-instagram"></i>
+                        <div><h4>Instagram</h4><p>@CrockedNLoadedShow</p><div class="contact-links"><a href="https://instagram.com/CrockedNLoadedShow" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> Profile</a></div></div>
+                    </div>
+                    <div class="contact-row">
+                        <i class="fab fa-tiktok"></i>
+                        <div><h4>TikTok</h4><p>@CrockedNLoadedShow</p><div class="contact-links"><a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i> Follow</a></div></div>
+                    </div>
+                </div>
+                <div class="contact-card reveal reveal-delay-1">
+                    <h3>Send a Message</h3>
+                    <form id="contact-form">
+                        <div class="form-row"><label for="contact-name">Name</label><input type="text" id="contact-name" name="from_name" class="form-input" required placeholder="What do we call you?"></div>
+                        <div class="form-row"><label for="contact-email">Email</label><input type="email" id="contact-email" name="from_email" class="form-input" required placeholder="So we can reply"></div>
+                        <div class="form-row"><label for="contact-subject">Subject</label><input type="text" id="contact-subject" name="subject" class="form-input" required placeholder="What's this about?"></div>
+                        <div class="form-row"><label for="contact-message">Message</label><textarea id="contact-message" name="message" class="form-textarea" required placeholder="Lay it on us..."></textarea></div>
+                        <button type="submit" class="btn btn-primary" style="width:100%" id="contact-submit"><i class="fas fa-paper-plane"></i> Send It</button>
+                    </form>
+                    <div id="contact-form-message" class="form-message"></div>
+                    <p class="form-note">We check messages regularly. Usually respond within a day or two.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-text">Crocked 'N Loaded</span>
+                    <p>Just two guys who think good food shouldn't require a culinary degree or a second mortgage. We're here to cook, have fun, and hopefully teach you something along the way.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="#top">Home</a></li>
+                        <li><a href="#hosts">The Guys</a></li>
+                        <li><a href="#shows">Shows</a></li>
+                        <li><a href="#store">Merch</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <div class="footer-social">
+                        <a href="https://youtube.com/@crockednloadedshow" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://twitter.com/CrockedNLoaded" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://instagram.com/CrockedNLoadedShow" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/CrockedNLoadedShow" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://tiktok.com/@CrockedNLoadedShow" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <p style="color:var(--c-text-secondary);font-size:.9rem">Pick a platform. We're everywhere.</p>
+                </div>
+            </div>
+            <div class="copyright">&copy; 2025 Crocked 'N Loaded. Made in New Hampshire.</div>
+        </div>
+    </footer>
+
+    <button class="back-top" id="backTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+    (function(){
+        // Navigation
+        const nav=document.getElementById('nav'),navToggle=document.getElementById('navToggle'),navLinks=document.getElementById('navLinks'),backTop=document.getElementById('backTop');
+        
+        window.addEventListener('scroll',()=>{
+            nav.classList.toggle('scrolled',window.scrollY>50);
+            backTop.classList.toggle('show',window.scrollY>600);
+        },{passive:true});
+
+        navToggle.addEventListener('click',()=>{
+            navLinks.classList.toggle('open');
+            navToggle.innerHTML=navLinks.classList.contains('open')?'<i class="fas fa-times"></i>':'<i class="fas fa-bars"></i>';
+        });
+
+        navLinks.querySelectorAll('a').forEach(link=>{
+            link.addEventListener('click',()=>{
+                navLinks.classList.remove('open');
+                navToggle.innerHTML='<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Active nav on scroll
+        const sections=document.querySelectorAll('section[id]'),navItems=navLinks.querySelectorAll('a');
+        window.addEventListener('scroll',()=>{
+            const scrollY=window.scrollY+150;
+            sections.forEach(section=>{
+                const top=section.offsetTop,height=section.offsetHeight,id=section.getAttribute('id');
+                if(scrollY>=top&&scrollY<top+height){
+                    navItems.forEach(item=>{
+                        item.classList.remove('active');
+                        if(item.getAttribute('href')==='#'+id)item.classList.add('active');
+                    });
+                }
+            });
+        },{passive:true});
+
+        backTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+        // Countdown
+        const launchDate=new Date('2025-03-20T12:00:00').getTime();
+        const updateCountdown=()=>{
+            const diff=launchDate-Date.now();
+            if(diff>0){
+                document.getElementById('days').textContent=Math.floor(diff/(1000*60*60*24)).toString().padStart(2,'0');
+                document.getElementById('hours').textContent=Math.floor((diff%(1000*60*60*24))/(1000*60*60)).toString().padStart(2,'0');
+                document.getElementById('mins').textContent=Math.floor((diff%(1000*60*60))/(1000*60)).toString().padStart(2,'0');
+                document.getElementById('secs').textContent=Math.floor((diff%(1000*60))/1000).toString().padStart(2,'0');
+            }
+        };
+        updateCountdown();setInterval(updateCountdown,1000);
+
+        // Reveal animations
+        const revealObserver=new IntersectionObserver(entries=>{
+            entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')});
+        },{threshold:.1,rootMargin:'0px 0px -60px 0px'});
+        document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+
+        // Form utilities
+        const showMessage=(id,msg,type)=>{
+            const el=document.getElementById(id);
+            if(el){el.innerHTML=msg;el.className='form-message '+type;el.style.display='block';
+            if(type==='success')setTimeout(()=>el.style.display='none',5000);}
+        };
+
+        // Newsletter
+        const nlForm=document.getElementById('newsletter-form');
+        if(nlForm){
+            nlForm.addEventListener('submit',function(e){
+                e.preventDefault();
+                const email=document.getElementById('newsletter-email').value.trim().toLowerCase();
+                if(!email||!email.includes('@')){showMessage('newsletter-message','❌ Please enter a valid email.','error');return;}
+                
+                document.getElementById('submit-text').style.display='none';
+                document.getElementById('submit-spinner').style.display='inline';
+                document.getElementById('newsletter-submit').disabled=true;
+                showMessage('newsletter-message','Subscribing...','loading');
+                
+                const token=btoa(email+'|'+Date.now()).replace(/=/g,'');
+                emailjs.send('service_iqkhsge','template_ydyv17l',{
+                    name:'Subscriber',email,
+                    current_date:new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'}),
+                    unsubscribe_link:'https://crockednloaded.github.io/unsubscribe.html?token='+token+'&email='+encodeURIComponent(email),
+                    message:'New newsletter subscription: '+email,subject:'New Newsletter Subscription'
+                }).then(()=>{
+                    showMessage('newsletter-message','✅ Welcome to the crew! Check your email.','success');
+                    nlForm.reset();
+                },()=>{
+                    showMessage('newsletter-message','❌ Something went wrong. Try again.','error');
+                }).finally(()=>{
+                    document.getElementById('submit-text').style.display='inline';
+                    document.getElementById('submit-spinner').style.display='none';
+                    document.getElementById('newsletter-submit').disabled=false;
+                });
+            });
+        }
+
+        // Contact form
+        const cForm=document.getElementById('contact-form');
+        if(cForm){
+            cForm.addEventListener('submit',function(e){
+                e.preventDefault();
+                const name=document.getElementById('contact-name').value.trim();
+                const email=document.getElementById('contact-email').value.trim();
+                const subject=document.getElementById('contact-subject').value.trim();
+                const message=document.getElementById('contact-message').value.trim();
+                
+                if(!name||!email||!subject||!message){showMessage('contact-form-message','❌ Please fill in all fields.','error');return;}
+                
+                const btn=document.getElementById('contact-submit');
+                const orig=btn.innerHTML;
+                btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Sending...';
+                btn.disabled=true;
+                showMessage('contact-form-message','Sending...','loading');
+                
+                emailjs.send('service_iqkhsge','template_w9upmcu',{
+                    from_name:name,from_email:email,subject,message,
+                    date:new Date().toLocaleDateString(),reply_to:email
+                }).then(()=>{
+                    showMessage('contact-form-message','✅ Message sent! We\'ll respond soon.','success');
+                    cForm.reset();
+                },()=>{
+                    emailjs.send('service_iqkhsge','template_ydyv17l',{
+                        name,email,current_date:new Date().toLocaleDateString(),unsubscribe_link:'N/A',
+                        message:'CONTACT: '+subject+'\n\n'+message,subject:'Contact: '+subject
+                    }).then(()=>{
+                        showMessage('contact-form-message','✅ Message sent!','success');
+                        cForm.reset();
+                    },()=>{
+                        showMessage('contact-form-message','❌ Error. Email us at contact@crockednloaded.com','error');
+                    });
+                }).finally(()=>{btn.innerHTML=orig;btn.disabled=false;});
+            });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{
+            a.addEventListener('click',e=>{
+                if(a.getAttribute('href')!=='#'){
+                    e.preventDefault();
+                    document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});
+                }
+            });
+        });
+    })();
+    </script>
+</body>
+</html>
